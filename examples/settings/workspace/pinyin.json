@@ -1,0 +1,62 @@
+{
+  "title": "Chinese Pinyin",
+  "groups": [
+    {
+      "id": "input", "label": "Input",
+      "controls": [
+        {
+          "id": "profile", "label": "Profile",
+          "kind": { "type": "select", "value": "daily", "choices": [
+            { "value": "daily", "label": "Everyday" },
+            { "value": "coding", "label": "Coding" },
+            { "value": "writing", "label": "Writing" },
+            { "value": "work", "label": "Work" },
+            { "value": "study", "label": "Learning" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "travel", "label": "Travel" },
+            { "value": "notes", "label": "Notes" },
+            { "value": "design", "label": "Design" },
+            { "value": "research", "label": "Research" }
+          ] }
+        },
+        {
+          "id": "punctuation", "label": "Punctuation",
+          "kind": { "type": "select", "value": "full", "choices": [
+            { "value": "full", "label": "Chinese (full-width)" },
+            { "value": "half", "label": "English (half-width)" }
+          ] }
+        },
+        {
+          "id": "create-profile", "label": "New profile",
+          "description": "Text input preview only. This mock does not create profile directories.",
+          "kind": { "type": "text", "value": "", "placeholder": "Profile name", "submit_label": "Create", "clear_on_submit": true }
+        }
+      ]
+    },
+    {
+      "id": "learning", "label": "Learning",
+      "controls": [
+        { "id": "learn", "label": "Learn from candidate selections", "kind": { "type": "switch", "value": true } },
+        { "id": "context", "label": "Use context for suggestions", "kind": { "type": "switch", "value": true } },
+        { "id": "separate", "label": "Save learning separately for each profile", "kind": { "type": "checkable", "value": true } }
+      ]
+    },
+    {
+      "id": "vocabulary", "label": "Dictionaries",
+      "controls": [
+        {
+          "id": "dictionaries", "label": "Enabled dictionaries",
+          "kind": { "type": "checklist", "values": ["daily", "user"], "choices": [
+            { "value": "daily", "label": "Everyday vocabulary" },
+            { "value": "user", "label": "Personal dictionary" },
+            { "value": "technical", "label": "Technical terms" },
+            { "value": "names", "label": "People and places" }
+          ] }
+        },
+        { "id": "dictionary-file", "label": "Dictionary file", "kind": { "type": "path", "target": "file", "value": "" } },
+        { "id": "dictionary-directory", "label": "Dictionary folder", "kind": { "type": "path", "target": "directory", "value": "" } },
+        { "id": "load-config", "label": "Load configuration", "kind": { "type": "action" } }
+      ]
+    }
+  ]
+}

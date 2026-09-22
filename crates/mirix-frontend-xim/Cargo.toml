@@ -1,0 +1,15 @@
+[package]
+name = "mirix-frontend-xim"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "XIM server frontend (x11rb, for xwayland-satellite)"
+
+[dependencies]
+mirix-core.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+x11rb.workspace = true
+xim.workspace = true
+xkbcommon.workspace = true

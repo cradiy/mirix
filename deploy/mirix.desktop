@@ -1,0 +1,26 @@
+[Desktop Entry]
+Type=Application
+Name=Mirix
+GenericName=Input Method
+GenericName[zh_CN]=输入法
+Comment=Start the Mirix input method
+Comment[zh_CN]=启动 Mirix 输入法
+Exec=systemctl --user start mirix.service
+TryExec=systemctl
+Icon=mirix
+Terminal=false
+StartupNotify=false
+Categories=Utility;Accessibility;
+Keywords=Input;Keyboard;IME;
+Keywords[zh_CN]=输入法;键盘;拼音;
+Actions=Settings;Restart;
+
+[Desktop Action Settings]
+Name=Settings
+Name[zh_CN]=设置
+Exec=mirix-panel --settings
+
+[Desktop Action Restart]
+Name=Restart Mirix
+Name[zh_CN]=重启 Mirix
+Exec=systemctl --user restart mirix.service

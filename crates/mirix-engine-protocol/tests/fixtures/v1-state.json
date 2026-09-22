@@ -1,0 +1,27 @@
+{
+  "State": {
+    "configuration_revision": 7,
+    "menus": [],
+    "punctuation_mode": null,
+    "output": {
+      "consumed": true,
+      "commit": null,
+      "preedit": {
+        "type": "set",
+        "value": { "text": "kimi", "cursor": 4, "selection": null }
+      },
+      "panel_composition": {
+        "type": "set",
+        "value": {
+          "type": "composition",
+          "value": { "text": "きみ", "cursor": 6, "selection": { "start": 0, "end": 6 } }
+        }
+      },
+      "candidates_changed": true
+    },
+    "candidates": [
+      { "id": 42, "text": "君", "comment": null, "reading": "きみ", "keep_open": true }
+    ],
+    "selected": 0
+  }
+}

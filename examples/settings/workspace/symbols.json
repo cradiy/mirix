@@ -1,0 +1,45 @@
+{
+  "title": "Symbols & Emoji",
+  "groups": [
+    {
+      "id": "search", "label": "Search",
+      "controls": [
+        {
+          "id": "trigger", "label": "Trigger",
+          "kind": { "type": "select", "value": "colon", "choices": [
+            { "value": "colon", "label": "Colon :" },
+            { "value": "semicolon", "label": "Semicolon ;" },
+            { "value": "always", "label": "Type the name directly" }
+          ] }
+        },
+        { "id": "recent", "label": "Show recent items first", "kind": { "type": "switch", "value": true } },
+        { "id": "space", "label": "Add a space after insertion", "kind": { "type": "checkable", "value": false } }
+      ]
+    },
+    {
+      "id": "content", "label": "Content",
+      "controls": [
+        {
+          "id": "categories", "label": "Visible categories",
+          "kind": { "type": "checklist", "values": ["faces", "objects", "symbols"], "choices": [
+            { "value": "faces", "label": "Smileys & people" },
+            { "value": "animals", "label": "Animals & nature" },
+            { "value": "food", "label": "Food & drink" },
+            { "value": "travel", "label": "Travel & places" },
+            { "value": "objects", "label": "Objects" },
+            { "value": "symbols", "label": "Common symbols" },
+            { "value": "math", "label": "Math symbols" },
+            { "value": "arrows", "label": "Arrows & shapes" }
+          ] }
+        },
+        { "id": "variants", "label": "Show variants", "kind": { "type": "switch", "value": false } }
+      ]
+    },
+    {
+      "id": "actions", "label": "Management",
+      "controls": [
+        { "id": "rebuild-index", "label": "Rebuild index", "description": "This mock only emits the action event.", "kind": { "type": "action" } }
+      ]
+    }
+  ]
+}

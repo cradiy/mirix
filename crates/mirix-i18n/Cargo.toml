@@ -1,0 +1,18 @@
+[package]
+name = "mirix-i18n"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Fluent UI translations and external language packs"
+
+[dependencies]
+anyhow.workspace = true
+fluent-bundle.workspace = true
+fluent-langneg.workspace = true
+unic-langid.workspace = true
+sys-locale.workspace = true
+tracing.workspace = true
+
+[dev-dependencies]
+tempfile = "3"

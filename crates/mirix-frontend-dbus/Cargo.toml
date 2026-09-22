@@ -1,0 +1,10 @@
+[package]
+name = "mirix-frontend-dbus"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "D-Bus frontend and IBus-compatible interface"
+
+[dependencies]
+mirix-core.workspace = true

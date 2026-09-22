@@ -1,0 +1,9 @@
+{
+  "selected": "pinyin",
+  "input_methods": [
+    { "id": "keyboard", "enabled": true, "page": "keyboard.json" },
+    { "id": "pinyin", "enabled": true, "page": "pinyin.json" },
+    { "id": "symbols", "enabled": true, "page": "symbols.json" },
+    { "id": "experimental", "enabled": false, "page": "experimental.json" }
+  ]
+}

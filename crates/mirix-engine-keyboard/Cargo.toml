@@ -1,0 +1,13 @@
+[package]
+name = "mirix-engine-keyboard"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "English keyboard: pass-through, Compose, dead keys, Ctrl+Shift+U"
+
+[dependencies]
+mirix-engine-protocol.workspace = true
+mirix-i18n.workspace = true
+xkbcommon.workspace = true
+tracing.workspace = true

@@ -1,0 +1,16 @@
+[package]
+name = "mirix-pinyin-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Pinyin parsing, lexicon, decoding, and ranking primitives for Mirix"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+thiserror.workspace = true
+
+[dev-dependencies]
+clap.workspace = true

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="512" viewBox="0 0 1024 512">
+  <defs>
+    <linearGradient id="space" x2="1" y2="1">
+      <stop stop-color="#06172d"/><stop offset=".55" stop-color="#101b40"/><stop offset="1" stop-color="#262050"/>
+    </linearGradient>
+    <radialGradient id="nebula">
+      <stop stop-color="#4646a0" stop-opacity=".5"/><stop offset="1" stop-color="#18294e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="planet" cx=".25" cy=".1" r=".95">
+      <stop stop-color="#3385b7"/><stop offset=".12" stop-color="#1a477d"/><stop offset=".42" stop-color="#0e244d"/><stop offset="1" stop-color="#050d21"/>
+    </radialGradient>
+    <linearGradient id="rim" x2="1" y2="1">
+      <stop stop-color="#84eaff" stop-opacity=".85"/><stop offset=".4" stop-color="#328dcc" stop-opacity=".5"/><stop offset="1" stop-color="#3267aa" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="planet-clip"><circle cx="925" cy="575" r="342"/></clipPath>
+  </defs>
+  <path fill="url(#space)" d="M0 0h1024v512H0z"/>
+  <ellipse cx="630" cy="120" rx="560" ry="200" fill="url(#nebula)" transform="rotate(-22 630 120)"/>
+  <ellipse cx="910" cy="460" rx="450" ry="300" fill="url(#nebula)"/>
+  <g fill="#b0dcff" opacity=".32">
+    <circle cx="30" cy="43" r=".8"/><circle cx="94" cy="182" r=".7"/>
+    <circle cx="163" cy="58" r="1"/><circle cx="222" cy="132" r=".6"/>
+    <circle cx="286" cy="32" r=".7"/><circle cx="369" cy="82" r="1.1"/>
+    <circle cx="413" cy="176" r=".6"/><circle cx="498" cy="49" r=".8"/>
+    <circle cx="569" cy="118" r=".6"/><circle cx="655" cy="25" r=".8"/>
+    <circle cx="701" cy="160" r="1"/><circle cx="799" cy="74" r=".6"/>
+    <circle cx="887" cy="132" r=".8"/><circle cx="968" cy="43" r="1"/>
+    <circle cx="51" cy="335" r=".7"/><circle cx="126" cy="410" r="1"/>
+    <circle cx="239" cy="281" r=".8"/><circle cx="302" cy="478" r=".7"/>
+    <circle cx="366" cy="361" r=".6"/><circle cx="447" cy="256" r="1"/>
+    <circle cx="534" cy="448" r=".8"/><circle cx="593" cy="318" r=".6"/>
+    <circle cx="752" cy="224" r=".8"/><circle cx="944" cy="193" r=".7"/>
+  </g>
+  <circle cx="925" cy="575" r="347" fill="none" stroke="#448cce" stroke-opacity=".09" stroke-width="16"/>
+  <circle cx="925" cy="575" r="342" fill="url(#planet)" stroke="url(#rim)" stroke-width="3"/>
+  <g clip-path="url(#planet-clip)" fill="none" stroke="#4c98bd" opacity=".12">
+    <path d="M586 353Q723 209 1027 310M573 365Q779 284 1087 398M589 405Q788 324 1088 451" stroke-width="6"/>
+    <path d="M662 269Q742 332 867 310T1100 376M587 471Q762 400 984 472" stroke-width="2"/>
+  </g>
+</svg>

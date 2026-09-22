@@ -1,0 +1,13 @@
+[package]
+name = "mirix-ipc"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+mirix-engine-protocol.workspace = true
+mirix-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

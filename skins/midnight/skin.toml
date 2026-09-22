@@ -1,0 +1,72 @@
+format_version = 1
+
+[canvas]
+width = 720
+height = 320
+
+[[layers]]
+id = "cosmos"
+source = "assets/cosmos.svg"
+plane = "background"
+fit = "cover"
+width = 720
+height = 320
+stretch_x = true
+stretch_y = true
+opacity = 0.85
+
+[layout]
+style = "auto"
+max_width = 760
+max_height = 420
+vertical_min_width = 260
+max_candidates = 5
+padding = 12
+gap = 4
+show_preedit = true
+show_labels = true
+show_comments = false
+
+[window]
+background = "#07152B"
+background_alt = "#131D42"
+gradient_angle = 135
+border = "#C48BFF"
+border_highlight = "#69E5FF"
+glow = "#68BBFF75"
+border_width = 2
+radius = 18
+backdrop_blur = 0
+shadow = true
+
+[preedit]
+color = "#EDF6FF"
+accent = "#71DEFF"
+separator = "#87BFFF18"
+font_size = 16
+
+[candidate]
+text = "#E8F2FF"
+label = "#9EBBDE"
+comment = "#8FA7CB"
+hover_background = "#65C7FF20"
+selected_text = "#FFFFFF"
+selected_label = "#E7F9FF"
+selected_background = "#077ECFEF"
+selected_background_alt = "#763CEBEF"
+selected_border = "#B5F2FF"
+selected_glow = "#58CFFF88"
+radius = 11
+padding_x = 12
+padding_y = 9
+font_size = 18
+
+[navigation]
+background = "#214D8055"
+foreground = "#94DDFF"
+border = "#69BFFF80"
+radius = 10
+
+[transitions]
+show = "fade"
+duration_ms = 120

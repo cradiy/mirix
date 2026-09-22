@@ -1,0 +1,99 @@
+{
+  "title": "Settings component preview",
+  "groups": [
+    {
+      "id": "boolean",
+      "label": "Switches and checkboxes",
+      "controls": [
+        { "id": "learning", "label": "Enable learning", "kind": { "type": "switch", "value": true } },
+        { "id": "suggest", "label": "Predictive suggestions", "kind": { "type": "switch", "value": false } },
+        { "id": "remember", "label": "Remember selection", "kind": { "type": "checkable", "value": true } },
+        { "id": "confirm", "label": "Confirm before applying", "kind": { "type": "checkable", "value": false } },
+        { "id": "locked", "label": "Disabled switch", "enabled": false, "kind": { "type": "switch", "value": true } }
+      ]
+    },
+    {
+      "id": "choices",
+      "label": "Selection",
+      "controls": [
+        {
+          "id": "profile",
+          "label": "Profile",
+          "description": "A standard select field with options loaded from the file.",
+          "kind": {
+            "type": "select",
+            "value": "daily",
+            "choices": [
+              { "value": "daily", "label": "Everyday" },
+              { "value": "coding", "label": "Coding" },
+              { "value": "writing", "label": "Writing" },
+              { "value": "work", "label": "Work" },
+              { "value": "study", "label": "Learning" },
+              { "value": "chat", "label": "Chat" },
+              { "value": "travel", "label": "Travel" },
+              { "value": "games", "label": "Gaming" },
+              { "value": "notes", "label": "Notes" },
+              { "value": "design", "label": "Design" },
+              { "value": "music", "label": "Music" },
+              { "value": "reading", "label": "Reading" },
+              { "value": "rust", "label": "Rust" },
+              { "value": "python", "label": "Python" },
+              { "value": "web", "label": "Web" },
+              { "value": "linux", "label": "Linux" },
+              { "value": "docs", "label": "Documentation" },
+              { "value": "meeting", "label": "Meetings" },
+              { "value": "mail", "label": "Email" },
+              { "value": "research", "label": "Research" },
+              { "value": "translation", "label": "Translation" },
+              { "value": "photography", "label": "Photography" },
+              { "value": "art", "label": "Art" },
+              { "value": "video", "label": "Video" },
+              { "value": "long", "label": "A longer option label to preview text wrapping in the field and dropdown" }
+            ]
+          }
+        },
+        {
+          "id": "punctuation", "label": "Punctuation",
+          "kind": { "type": "select", "value": "full", "choices": [
+            { "value": "full", "label": "Full-width" }, { "value": "half", "label": "Half-width" }
+          ] }
+        },
+        {
+          "id": "sources", "label": "Candidate sources", "description": "Select multiple sources from the checklist.",
+          "kind": { "type": "checklist", "values": ["base", "user"], "choices": [
+            { "value": "base", "label": "Base dictionary" },
+            { "value": "user", "label": "User learning" },
+            { "value": "english", "label": "English completion" },
+            { "value": "emoji", "label": "Emoji" }
+          ] }
+        },
+        {
+          "id": "disabled-select", "label": "Disabled dropdown", "enabled": false,
+          "kind": { "type": "select", "value": "a", "choices": [{ "value": "a", "label": "Unavailable" }] }
+        }
+      ]
+    },
+    {
+      "id": "paths", "label": "Files and folders",
+      "controls": [
+        { "id": "config-file", "label": "Configuration file", "description": "Choose a file. The preview stores its path without reading its contents.", "kind": { "type": "path", "target": "file", "value": "" } },
+        { "id": "data-directory", "label": "Data folder", "kind": { "type": "path", "target": "directory", "value": "/example/input data" } },
+        { "id": "disabled-path", "label": "Managed folder", "enabled": false, "kind": { "type": "path", "target": "directory", "value": "/example/managed" } }
+      ]
+    },
+    {
+      "id": "operations", "label": "Actions",
+      "controls": [
+        { "id": "load-config", "label": "Load configuration", "description": "Reload the current file and discard unsaved preview changes.", "kind": { "type": "action" } },
+        { "id": "example-action", "label": "Example action", "description": "Emit an invoke event without performing an operation.", "kind": { "type": "action" } }
+      ]
+    },
+    {
+      "id": "text", "label": "Text input",
+      "controls": [
+        { "id": "display-name", "label": "Display name", "kind": { "type": "text", "value": "", "placeholder": "Enter a name", "submit_label": "Apply" } },
+        { "id": "locked-text", "label": "Disabled input", "enabled": false, "kind": { "type": "text", "value": "Read only", "submit_label": "Apply" } }
+      ]
+    }
+  ]
+}

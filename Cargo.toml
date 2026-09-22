@@ -1,0 +1,93 @@
+[workspace]
+resolver = "2"
+members = [
+  "crates/mirix-config",
+  "crates/mirix-core",
+  "crates/mirix-i18n",
+  "crates/mirix-ipc",
+  "crates/mirix-skin",
+  "crates/mirix-engine-keyboard",
+  "crates/mirix-pinyin-core",
+  "crates/mirix-engine-pinyin",
+  "crates/mirix-engine-protocol",
+  "crates/mirix-engine-process",
+  "crates/mirix-frontend-wayland",
+  "crates/mirix-frontend-xim",
+  "crates/mirix-frontend-dbus",
+  "crates/mirixd",
+  "crates/mirix-panel",
+]
+default-members = [
+  "crates/mirix-core",
+  "crates/mirix-engine-keyboard",
+  "crates/mirix-pinyin-core",
+  "crates/mirix-engine-pinyin",
+  "crates/mirix-frontend-wayland",
+  "crates/mirix-frontend-xim",
+  "crates/mirix-frontend-dbus",
+  "crates/mirixd",
+]
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+mirix-config = { path = "crates/mirix-config" }
+mirix-core = { path = "crates/mirix-core" }
+mirix-i18n = { path = "crates/mirix-i18n" }
+mirix-ipc = { path = "crates/mirix-ipc" }
+mirix-skin = { path = "crates/mirix-skin" }
+mirix-engine-keyboard = { path = "crates/mirix-engine-keyboard" }
+mirix-pinyin-core = { path = "crates/mirix-pinyin-core" }
+mirix-engine-pinyin = { path = "crates/mirix-engine-pinyin" }
+mirix-engine-protocol = { path = "crates/mirix-engine-protocol" }
+mirix-engine-process = { path = "crates/mirix-engine-process" }
+mirix-frontend-wayland = { path = "crates/mirix-frontend-wayland" }
+mirix-frontend-xim = { path = "crates/mirix-frontend-xim" }
+mirix-frontend-dbus = { path = "crates/mirix-frontend-dbus" }
+mirix-panel = { path = "crates/mirix-panel" }
+
+bitflags = { version = "2", features = ["serde"] }
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+calloop = { version = "0.14", features = ["signals"] }
+calloop-wayland-source = "0.4"
+wayland-client = "0.31"
+wayland-protocols-misc = { version = "0.3", features = ["client"] }
+xkbcommon = "0.9"
+memmap2 = "0.9"
+rustix = { version = "1", features = ["event", "fs"] }
+anyhow = "1"
+async-channel = "2"
+dirs = "7"
+fluent-bundle = "0.16"
+fluent-langneg = "0.13"
+unic-langid = "0.9"
+sys-locale = "0.3"
+# Keep this aligned with `xim`, whose public X11 types are from x11rb 0.13.
+x11rb = "0.13"
+xim = { version = "0.5", default-features = false, features = ["x11rb-server"] }
+
+gpui = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da", default-features = false }
+gpui_effects = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da" }
+uic = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da" }
+gpui_platform = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da", features = [
+  "wayland",
+] }
+
+[profile.dev]
+debug = 1
+
+[profile.dev.package.gpui]
+opt-level = 1
+
+[profile.dev.package.gpui_wgpu]
+opt-level = 1

@@ -1,0 +1,13 @@
+[package]
+name = "mirix-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Input contexts, engine contracts, and key pipeline"
+
+[dependencies]
+mirix-engine-protocol.workspace = true
+bitflags.workspace = true
+serde.workspace = true
+thiserror.workspace = true

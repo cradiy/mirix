@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="64" viewBox="0 0 100 64">
+  <defs>
+    <radialGradient id="petal"><stop stop-color="#fff0f6"/><stop offset="1" stop-color="#d68bad"/></radialGradient>
+    <g id="flower">
+      <ellipse cy="-3" rx="2.4" ry="3.3" fill="url(#petal)"/>
+      <ellipse cy="-3" rx="2.4" ry="3.3" fill="url(#petal)" transform="rotate(72)"/>
+      <ellipse cy="-3" rx="2.4" ry="3.3" fill="url(#petal)" transform="rotate(144)"/>
+      <ellipse cy="-3" rx="2.4" ry="3.3" fill="url(#petal)" transform="rotate(216)"/>
+      <ellipse cy="-3" rx="2.4" ry="3.3" fill="url(#petal)" transform="rotate(288)"/>
+      <circle r="1.2" fill="#ffe6be"/>
+    </g>
+  </defs>
+  <g fill="none" stroke="#b87c9f" stroke-linecap="round">
+    <path d="M-5 58Q11 27 4 4Q27 10 69 2" stroke-width="1.5"/>
+    <path d="M7 23Q25 8 41 18M6 36Q21 30 28 38M29 7L34 0" stroke-width=".8"/>
+  </g>
+  <use href="#flower" x="7" y="10"/><use href="#flower" x="23" y="10" transform="rotate(20 23 10)"/>
+  <use href="#flower" x="42" y="17"/><use href="#flower" x="11" y="30"/>
+  <use href="#flower" x="27" y="37" transform="rotate(35 27 37)"/>
+  <circle cx="61" cy="5" r="2" fill="#efb9d3"/><circle cx="5" cy="52" r="1.7" fill="#ffd7e8"/>
+</svg>

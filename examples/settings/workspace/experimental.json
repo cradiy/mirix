@@ -1,0 +1,32 @@
+{
+  "title": "Experimental input method",
+  "description": "Preview an inactive input method and disabled controls. Sidebar checkboxes only change the enabled state for this mock session.",
+  "groups": [
+    {
+      "id": "behavior", "label": "Input behavior",
+      "controls": [
+        {
+          "id": "mode", "label": "Input mode",
+          "kind": { "type": "select", "value": "basic", "choices": [
+            { "value": "basic", "label": "Basic" },
+            { "value": "enhanced", "label": "Enhanced" }
+          ] }
+        },
+        { "id": "preview", "label": "Preview candidates", "kind": { "type": "switch", "value": false } }
+      ]
+    },
+    {
+      "id": "unavailable", "label": "Unavailable controls",
+      "controls": [
+        { "id": "prediction", "label": "Context prediction", "description": "A disabled control preview. No model is loaded.", "enabled": false, "kind": { "type": "switch", "value": false } },
+        {
+          "id": "resource", "label": "Resource", "enabled": false,
+          "kind": { "type": "select", "value": "none", "choices": [
+            { "value": "none", "label": "No resources available" }
+          ] }
+        },
+        { "id": "update", "label": "Update resources", "enabled": false, "kind": { "type": "action" } }
+      ]
+    }
+  ]
+}

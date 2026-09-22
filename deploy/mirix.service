@@ -1,0 +1,14 @@
+[Unit]
+Description=Mirix input method
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=/usr/local/bin/mirixd --no-xim
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=10
+
+[Install]
+WantedBy=graphical-session.target

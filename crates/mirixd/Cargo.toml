@@ -1,0 +1,31 @@
+[package]
+name = "mirixd"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Mirix input method daemon"
+
+[dependencies]
+mirix-config.workspace = true
+mirix-core.workspace = true
+mirix-ipc.workspace = true
+mirix-engine-process.workspace = true
+mirix-frontend-dbus.workspace = true
+mirix-frontend-wayland.workspace = true
+mirix-panel.workspace = true
+gpui_platform.workspace = true
+mirix-frontend-xim.workspace = true
+anyhow.workspace = true
+calloop.workspace = true
+clap.workspace = true
+dirs.workspace = true
+toml.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+wayland-client.workspace = true
+wayland-protocols-misc.workspace = true
+
+[dev-dependencies]
+mirix-engine-keyboard.workspace = true
+tempfile = "3"
