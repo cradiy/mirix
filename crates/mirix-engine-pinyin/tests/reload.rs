@@ -40,6 +40,75 @@ fn words(engine: &PinyinEngine) -> Vec<&str> {
 }
 
 #[test]
+fn nested_dictionaries_load_and_reload_without_partial_updates() {
+    for directory in ["dictionaries", "profiles/日常/dictionaries"] {
+        let root = tempfile::tempdir().unwrap();
+        let config = root.path().join("config");
+        write(config.join("characters.tsv"), "你\tni\t10\n好\thao\t10\n");
+        let dictionaries = config.join(directory);
+        let first = dictionaries.join("分类/常用/words.tsv");
+        let second = dictionaries.join("分类/其他/words.tsv");
+        write(&first, "nihao\tni hao\t你好\t100\n");
+        write(dictionaries.join("notes.txt"), "not a dictionary");
+        fs::create_dir_all(dictionaries.join("empty")).unwrap();
+        let mut engine = PinyinEngine::open(root.path().join("data"), &config).unwrap();
+        for ch in "nihao".chars() {
+            engine.process_key(&key(ch));
+        }
+        assert!(words(&engine).contains(&"你好"));
+
+        write(&first, "nihao\tni hao\t拟好\t100\n");
+        write(&second, "nihao\tni hao\t霓豪\t90\n");
+        reload(&mut engine).unwrap();
+        for word in ["拟好", "霓豪"] {
+            assert!(words(&engine).contains(&word));
+        }
+        let candidates = engine.candidates().to_vec();
+        let revision = engine.configuration_revision();
+        write(&first, "nihao\tni hao\t倪好\t100\n");
+        write(&second, "nihao\tni hao\t霓豪\tinvalid\n");
+        let error = reload(&mut engine).unwrap_err();
+        assert!(error.contains(second.to_str().unwrap()), "{error}");
+        assert_eq!(engine.candidates(), candidates);
+        assert_eq!(engine.configuration_revision(), revision);
+
+        fs::remove_file(&second).unwrap();
+        reload(&mut engine).unwrap();
+        let current = words(&engine);
+        assert!(current.contains(&"倪好"));
+        assert!(!current.contains(&"拟好"));
+        assert!(!current.contains(&"霓豪"));
+    }
+}
+
+#[cfg(unix)]
+#[test]
+fn dictionary_directory_symlinks_are_not_followed_but_file_links_load() {
+    use std::os::unix::fs::symlink;
+    let root = tempfile::tempdir().unwrap();
+    let config = root.path().join("config");
+    write(config.join("characters.tsv"), "你\tni\t10\n");
+    let dictionaries = config.join("dictionaries");
+    fs::create_dir_all(dictionaries.join("nested")).unwrap();
+    symlink(&dictionaries, dictionaries.join("nested/loop")).unwrap();
+    let external = root.path().join("external");
+    write(external.join("words.tsv"), "ni\tni\t倪\t100\n");
+    symlink(&external, dictionaries.join("outside")).unwrap();
+    let mut engine = PinyinEngine::from_config(&config).unwrap();
+    engine.process_key(&key('n'));
+    engine.process_key(&key('i'));
+    assert!(!words(&engine).contains(&"倪"));
+
+    symlink(
+        external.join("words.tsv"),
+        dictionaries.join("nested/words.tsv"),
+    )
+    .unwrap();
+    reload(&mut engine).unwrap();
+    assert!(words(&engine).contains(&"倪"));
+}
+
+#[test]
 fn reload_replaces_all_sources_without_losing_composition_or_learning() {
     let root = tempfile::tempdir().unwrap();
     let config = root.path().join("config");

@@ -382,19 +382,34 @@ pub(crate) fn load_dictionaries(
     directory: &Path,
     table: &SyllableTable,
 ) -> Result<Lexicon, ProfileError> {
-    let items = match fs::read_dir(directory) {
-        Ok(items) => items,
-        Err(error) if error.kind() == io::ErrorKind::NotFound => return Ok(Lexicon::default()),
-        Err(error) => return Err(error.into()),
-    };
-    let mut paths = items
-        .map(|entry| entry.map(|entry| entry.path()))
-        .collect::<Result<Vec<_>, _>>()?;
+    let mut directories = vec![directory.to_owned()];
+    let mut paths = Vec::new();
+    while let Some(current) = directories.pop() {
+        let items = match fs::read_dir(&current) {
+            Ok(items) => items,
+            Err(error) if current == directory && error.kind() == io::ErrorKind::NotFound => {
+                return Ok(Lexicon::default());
+            }
+            Err(error) => return Err(error.into()),
+        };
+        for item in items {
+            let item = item?;
+            let kind = item.file_type()?;
+            let path = item.path();
+            // Do not follow directory symlinks: a category may link to its parent.
+            if kind.is_dir() {
+                directories.push(path);
+            } else if path.extension().is_some_and(|extension| extension == "tsv")
+                && (kind.is_file() || (kind.is_symlink() && path.is_file()))
+            {
+                paths.push(path);
+            }
+        }
+    }
+    // Import order must not depend on directory enumeration or traversal order.
     paths.sort();
     let mut entries = Vec::new();
-    for path in paths.into_iter().filter(|path| {
-        path.is_file() && path.extension().is_some_and(|extension| extension == "tsv")
-    }) {
+    for path in paths {
         let result = import_tsv(&fs::read_to_string(&path)?, table);
         if !result.issues.is_empty() {
             return Err(ProfileError::Dictionary(format!(
