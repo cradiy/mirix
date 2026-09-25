@@ -12,7 +12,7 @@ fluent-bundle.workspace = true
 fluent-langneg.workspace = true
 unic-langid.workspace = true
 sys-locale.workspace = true
-tracing.workspace = true
+log.workspace = true
 
 [dev-dependencies]
 tempfile = "3"

@@ -11,7 +11,7 @@ pub(super) fn select(preference: Option<String>, persist: bool, cx: &mut App) {
     let state = cx.global_mut::<TrayState>();
     state.language_request += 1;
     let request = state.language_request;
-    let window = state.window;
+    let window = state.window.clone();
     cx.spawn(async move |cx| {
         let requested = preference.clone();
         let roots = directories.clone();
@@ -37,7 +37,7 @@ pub(super) fn select(preference: Option<String>, persist: bool, cx: &mut App) {
                         && let Err(error) =
                             crate::config::save_language(path, preference.as_deref())
                     {
-                        eprintln!("mirix-panel: save language preference: {error:#}");
+                        log::warn!("mirix-panel: save language preference: {error:#}");
                         state.error = Some("language-save-failed");
                     }
                     let _ =
@@ -57,7 +57,7 @@ pub(super) fn select(preference: Option<String>, persist: bool, cx: &mut App) {
                     }
                 }
                 Err(error) => {
-                    eprintln!("mirix-panel: load language: {error:#}");
+                    log::warn!("mirix-panel: load language: {error:#}");
                     cx.global_mut::<TrayState>().error = Some("language-load-failed");
                 }
             }

@@ -26,7 +26,7 @@ impl KeyboardEngine {
         let ctx = xkb::Context::new(xkb::CONTEXT_NO_FLAGS);
         let table = load_compose_table(&ctx);
         if table.is_none() {
-            tracing::warn!("no Compose table; dead keys and Multi_key will pass through");
+            log::warn!("no Compose table; dead keys and Multi_key will pass through");
         }
         let compose = table
             .as_ref()

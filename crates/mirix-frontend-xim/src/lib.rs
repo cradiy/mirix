@@ -32,9 +32,9 @@ impl XimCtx {
         let server = X11rbServer::init(conn, screen_num, IM_NAME, xim::ALL_LOCALES)
             .map_err(|err| anyhow::anyhow!("init XIM server: {err}"))?;
         let xkb = Xkb::from_system().context("XIM keymap")?;
-        tracing::info!(
-            name = IM_NAME,
-            "XIM server ready (XMODIFIERS=@im={IM_NAME})"
+        log::info!(
+            "XIM server ready (XMODIFIERS=@im={IM_NAME}) name={}",
+            IM_NAME
         );
         Ok(Self {
             server,
@@ -68,7 +68,7 @@ impl XimCtx {
                 .server
                 .filter_event(&e, &mut self.connections, &mut handler)
             {
-                tracing::error!(%err, "xim filter_event");
+                log::error!("xim filter_event err={}", err);
             }
         }
         self.server.conn().flush()?;

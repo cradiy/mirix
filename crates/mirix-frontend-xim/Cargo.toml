@@ -9,7 +9,7 @@ description = "XIM server frontend (x11rb, for xwayland-satellite)"
 [dependencies]
 mirix-core.workspace = true
 anyhow.workspace = true
-tracing.workspace = true
+log.workspace = true
 x11rb.workspace = true
 xim.workspace = true
 xkbcommon.workspace = true

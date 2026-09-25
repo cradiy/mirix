@@ -202,7 +202,7 @@ fn reference_engine_roundtrips_through_process_protocol() {
             engine.process_key(&key(character as u32, Some(&character.to_string())));
         }
         assert_eq!(engine.candidates()[0].text, "输入法", "{input}");
-        assert_eq!(engine.candidates()[0].reading.as_deref(), Some("shū rù fǎ"));
+        assert_eq!(engine.candidates()[0].reading.as_deref(), Some("shu ru fa"));
         assert_eq!(
             engine
                 .process_key(&key(mirix_engine_protocol::keysym::SPACE, Some(" ")))

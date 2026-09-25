@@ -10,6 +10,7 @@ use mirix_pinyin_core::{
 use serde::{Deserialize, Serialize};
 
 mod index;
+mod sentence;
 use index::RecallIndex;
 
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
@@ -237,44 +238,6 @@ impl Learning {
             .collect()
     }
 
-    /// Reuse submitted-context evidence inside a newly composed sentence.
-    /// No application history is added here; whole-candidate ranking handles it.
-    pub fn sentence_boost(&self, prefix: &str, next: &Lexeme, time: u64) -> i64 {
-        if prefix.is_empty() || self.words.is_empty() {
-            return 0;
-        }
-        let index = self.index.get_or_init(|| RecallIndex::new(&self.words));
-        let mut evidence = BoostEvidence::default();
-        for (key, offset) in index.matching_text(&next.text) {
-            let word = &self.words[key][*offset];
-            if !word
-                .reading
-                .split_whitespace()
-                .map(normalize_display_syllable)
-                .eq(next
-                    .reading
-                    .display_syllables()
-                    .iter()
-                    .map(|part| normalize_display_syllable(part)))
-            {
-                continue;
-            }
-            for entries in word.contexts.values() {
-                for ((start, _), support) in prefix
-                    .char_indices()
-                    .rev()
-                    .take(4)
-                    .zip(&mut evidence.context)
-                {
-                    if let Some(frequency) = entries.get(&prefix[start..]) {
-                        *support = support.saturating_add(frequency.weight(time));
-                    }
-                }
-            }
-        }
-        evidence.score()
-    }
-
     pub fn boost(
         &self,
         input: &str,
@@ -330,6 +293,9 @@ struct BoostEvidence {
 
 impl BoostEvidence {
     fn score(self) -> i64 {
+        if self.personal == 0 && self.input == 0 && self.context.iter().all(|weight| *weight < 32) {
+            return 0;
+        }
         // Frequency weights use 16 units per effective selection. Logarithmic,
         // bounded boosts share the dictionary's 1024-unit natural-log scale.
         let log_count = |weight: u64, cap: f64| (weight as f64 / 16.0).min(cap).ln_1p();
@@ -388,7 +354,7 @@ mod tests {
             learn(&mut learning, reading, text);
         }
         let lexicon = mirix_pinyin_core::import_character_tsv(
-            "轩 xuān xuan 10\n安 ān an 10\n西 xī xi 10\n",
+            "轩\txuan\t10\n安\tan\t10\n西\txi\t10\n",
             parser.table(),
         )
         .lexicon;

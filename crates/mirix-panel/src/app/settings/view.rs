@@ -73,7 +73,7 @@ pub(super) fn open(cx: &mut App) {
             cx.activate(true);
         }
         Err(error) => {
-            eprintln!("mirix settings: {error:#}");
+            log::warn!("mirix settings: {error:#}");
             cx.quit();
         }
     }

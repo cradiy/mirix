@@ -141,9 +141,15 @@ impl Decoder {
                     if cutoffs[word.end].is_some_and(|cutoff| rank > cutoff) {
                         continue;
                     }
-                    let mut text = state.text.clone();
+                    let mut text = String::with_capacity(state.text.len() + word.entry.text.len());
+                    text.push_str(&state.text);
                     text.push_str(&word.entry.text);
-                    let mut reading = state.display_reading.clone();
+                    let mut reading = String::with_capacity(
+                        state.display_reading.len()
+                            + usize::from(!state.display_reading.is_empty())
+                            + display.len(),
+                    );
+                    reading.push_str(&state.display_reading);
                     if !reading.is_empty() {
                         reading.push(' ');
                     }

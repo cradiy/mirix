@@ -24,3 +24,5 @@ mirix-i18n.workspace = true
 mirix-ipc.workspace = true
 mirix-skin.workspace = true
 tempfile = "3"
+log.workspace = true
+mirix-log.workspace = true

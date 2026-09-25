@@ -1,0 +1,15 @@
+[package]
+name = "mirix-log"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+dirs.workspace = true
+log.workspace = true
+flexi_logger.workspace = true
+
+[dev-dependencies]
+tempfile = "3"

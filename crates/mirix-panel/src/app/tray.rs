@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use std::sync::mpsc::Sender;
 
 use crate::i18n::UiLanguage;
-use gpui::{Action, App, Global, Menu, MenuItem, TrayId, TrayOptions, WindowHandle, actions};
+use gpui::{Action, App, Global, Menu, MenuItem, TrayId, TrayOptions, actions};
 use mirix_core::EngineMenu;
 use mirix_i18n::FluentArgs;
 use mirix_ipc::Request;
@@ -11,9 +11,9 @@ use mirix_ipc::Request;
 mod icon;
 mod language;
 
+use super::popup::PanelWindow;
 use super::settings::{self, Settings};
 use super::skin_catalog::{self, SkinEntry};
-use super::view::CandidatePanel;
 
 actions!(
     mirix_tray,
@@ -55,7 +55,7 @@ struct SelectLanguage {
 struct TrayState {
     engine_icon: Option<mirix_core::EngineIcon>,
     id: Option<TrayId>,
-    window: WindowHandle<CandidatePanel>,
+    window: PanelWindow,
     commands: Option<Sender<Request>>,
     input_method: Option<String>,
     switch_shortcut: String,
@@ -74,7 +74,7 @@ struct TrayState {
 impl Global for TrayState {}
 
 pub(super) fn install(
-    window: WindowHandle<CandidatePanel>,
+    window: PanelWindow,
     commands: Option<Sender<Request>>,
     skin: Option<PathBuf>,
     config_path: Option<PathBuf>,
@@ -138,7 +138,7 @@ pub(super) fn install(
         cx.global::<Settings>(),
     )) {
         Ok(id) => cx.global_mut::<TrayState>().id = Some(id),
-        Err(error) => eprintln!("mirix-panel: system tray unavailable: {error:#}"),
+        Err(error) => log::warn!("mirix-panel: system tray unavailable: {error:#}"),
     }
 }
 
@@ -216,7 +216,7 @@ pub(super) fn reload_preference(preference: mirix_ipc::UiPreference, cx: &mut Ap
         match preference {
             mirix_ipc::UiPreference::SkinAnimations => {
                 let state = cx.global::<TrayState>();
-                let window = state.window;
+                let window = state.window.clone();
                 crate::config::animation::enabled(Some(&config), state.active_skin.as_deref())
                     .and_then(|enabled| {
                         window.update(cx, |panel, _, cx| panel.set_animations_enabled(enabled, cx))
@@ -238,7 +238,7 @@ pub(super) fn reload_preference(preference: mirix_ipc::UiPreference, cx: &mut Ap
             }
         };
     if let Err(error) = result {
-        eprintln!("mirix-panel: reload preference: {error:#}");
+        log::warn!("mirix-panel: reload preference: {error:#}");
     }
 }
 
@@ -261,7 +261,7 @@ fn select_skin(path: Option<PathBuf>, persist: bool, cx: &mut App) {
     }
     state.skin_request += 1;
     let request = state.skin_request;
-    let window = state.window;
+    let window = state.window.clone();
     state.loading = true;
     state.error = None;
     refresh(cx);
@@ -295,12 +295,12 @@ fn select_skin(path: Option<PathBuf>, persist: bool, cx: &mut App) {
                         && let Err(error) =
                             crate::config::save_skin(config_path, state.active_skin.as_deref())
                     {
-                        eprintln!("mirix-panel: save skin preference: {error:#}");
+                        log::warn!("mirix-panel: save skin preference: {error:#}");
                         state.error = Some("skin-save-failed");
                     }
                 }
                 Err(error) => {
-                    eprintln!("mirix-panel: skin switch: {error:#}");
+                    log::warn!("mirix-panel: skin switch: {error:#}");
                     state.error = Some("skin-load-failed");
                 }
             }
@@ -327,7 +327,7 @@ pub(super) fn refresh(cx: &App) {
             options(state, cx.global::<UiLanguage>(), cx.global::<Settings>()),
         )
     {
-        eprintln!("mirix-panel: update tray: {error:#}");
+        log::warn!("mirix-panel: update tray: {error:#}");
     }
 }
 
@@ -370,7 +370,7 @@ fn open_settings(cx: &mut App) {
                     .spawn(async move { child.wait() })
                     .await;
                 if let Err(error) = result {
-                    eprintln!("mirix-panel: wait for settings: {error}");
+                    log::warn!("mirix-panel: wait for settings: {error}");
                 }
                 cx.update(|cx| {
                     cx.global_mut::<TrayState>().settings_open = false;
@@ -380,7 +380,7 @@ fn open_settings(cx: &mut App) {
             .detach();
         }
         Err(error) => {
-            eprintln!("mirix-panel: open settings: {error}");
+            log::warn!("mirix-panel: open settings: {error}");
             cx.global_mut::<TrayState>().error = Some("settings-open-failed");
         }
     }

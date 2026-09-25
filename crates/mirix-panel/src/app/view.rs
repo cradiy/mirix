@@ -5,11 +5,15 @@ use gpui::{
 use mirix_core::{CandidateId, PanelSnapshot};
 use mirix_ipc::Request;
 use mirix_skin::Skin;
-use std::path::PathBuf;
+use std::{
+    path::PathBuf,
+    time::{Duration, SystemTime},
+};
 
 use super::client::select_candidate;
 use super::layout::{self, PanelLayout};
 use super::motion::MotionState;
+use super::popup::IDLE_REBUILD_AFTER;
 use super::services::{PanelEvent, Services};
 
 pub(super) struct CandidatePanel {
@@ -34,7 +38,11 @@ pub(super) struct CandidatePanel {
     pending_selection: Option<(u64, CandidateId)>,
     selection_hides_panel: bool,
     mapped: bool,
+    hidden_since: Option<SystemTime>,
     embedded: Option<Size<Pixels>>,
+    popup_generation: u64,
+    pub(super) show_started: Option<std::time::Instant>,
+    pub(super) show_rebuild: Option<super::popup::ShowRebuild>,
 }
 
 impl CandidatePanel {
@@ -89,7 +97,11 @@ impl CandidatePanel {
             pending_selection: None,
             selection_hides_panel: false,
             mapped: true,
+            hidden_since: None,
             embedded: None,
+            popup_generation: 0,
+            show_started: None,
+            show_rebuild: None,
         }
     }
 
@@ -163,13 +175,28 @@ impl CandidatePanel {
         self.layout_dirty |= self.snapshot.panel_text() != snapshot.panel_text()
             || self.snapshot.show_panel_preedit(false) != snapshot.show_panel_preedit(false)
             || self.snapshot.preedit != snapshot.preedit
-            || self.snapshot.candidates != snapshot.candidates;
+            || self.snapshot.candidates.len() != snapshot.candidates.len()
+            || self
+                .snapshot
+                .candidates
+                .iter()
+                .zip(&snapshot.candidates)
+                .any(|(previous, next)| {
+                    // Labels are generated from our measured pages. Pagination
+                    // acknowledgements and selection metadata do not change geometry.
+                    previous.text != next.text
+                        || previous.comment != next.comment
+                        || previous.reading != next.reading
+                });
         self.page_dirty |= self.snapshot.preedit_cursor != snapshot.preedit_cursor
             || self.snapshot.panel_composition != snapshot.panel_composition
             || self.snapshot.preedit_selection != snapshot.preedit_selection;
         self.page_dirty |= self.snapshot.selected != snapshot.selected
             || self.snapshot.context_id != snapshot.context_id
-            || self.snapshot.visible != snapshot.visible;
+            || self.snapshot.visible != snapshot.visible
+            // New identities need fresh pagination even when all text is unchanged.
+            || !self.snapshot.candidates.iter().map(|candidate| candidate.id)
+                .eq(snapshot.candidates.iter().map(|candidate| candidate.id));
         self.panel_revision = Some(revision);
         self.snapshot = snapshot;
         true
@@ -183,7 +210,7 @@ impl CandidatePanel {
             | PanelEvent::ConfigurationFinished { .. }
             | PanelEvent::Catalog(_)
             | PanelEvent::CatalogFinished { .. } => false,
-            PanelEvent::QuickSwitch(state) => {
+            PanelEvent::QuickSwitch { state } => {
                 self.quick_switch = state;
                 self.picker_dirty = true;
                 true
@@ -284,14 +311,65 @@ impl CandidatePanel {
         self.update_presentation(window, cx);
     }
 
+    pub(super) fn window_recreated(
+        &mut self,
+        generation: u64,
+        hidden: bool,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        self.popup_generation = generation;
+        // A visible replacement starts mapped, so update_presentation will not
+        // queue another rebuild. Hidden recovery replacements remain unmapped.
+        self.mapped = !hidden;
+        self.hidden_since = hidden.then(SystemTime::now);
+        self.layout_dirty = true;
+        self.picker_dirty = true;
+        self.page_dirty = true;
+        self.update_presentation(window, cx);
+    }
+
+    pub(super) fn hidden_for(&self, now: SystemTime) -> Option<Duration> {
+        // Wall time includes suspend. A clock rollback conservatively expires
+        // the window instead of allowing an unknown idle interval to persist.
+        self.hidden_since
+            .map(|since| now.duration_since(since).unwrap_or(IDLE_REBUILD_AFTER))
+    }
+
+    pub(super) fn can_rebuild_before_show(&self, now: SystemTime) -> bool {
+        self.awaiting_native_show()
+            && self
+                .hidden_for(now)
+                .is_some_and(|idle| idle >= IDLE_REBUILD_AFTER)
+    }
+
+    pub(super) fn awaiting_native_show(&self) -> bool {
+        !self.mapped && self.visible() && self.embedded.is_none()
+    }
+
+    fn record_mapping(&mut self, mapped: bool, now: SystemTime) {
+        if mapped {
+            self.hidden_since = None;
+        } else if self.mapped {
+            self.hidden_since = Some(now);
+        }
+        self.mapped = mapped;
+    }
+
     fn hide(&mut self, window: &Window) {
+        self.show_started = None;
+        if let Some(rebuild) = &self.show_rebuild {
+            rebuild.cancel();
+        }
         self.last_pages = None;
         // A remap must publish pagination again, even if the snapshot is unchanged.
         self.page_dirty = true;
         if self.mapped {
             match window.set_mapped(false) {
-                Ok(()) => self.mapped = false,
-                Err(error) => eprintln!("mirix-panel: unmap: {error:#}"),
+                Ok(()) => {
+                    self.record_mapping(false, SystemTime::now());
+                }
+                Err(error) => log::error!("unmap: {error:#}"),
             }
             window.set_input_region(Some(&[]));
         }
@@ -310,14 +388,22 @@ impl CandidatePanel {
             return;
         }
         if self.visible() {
+            if self.can_rebuild_before_show(SystemTime::now())
+                && let Some(rebuild) = &self.show_rebuild
+            {
+                // Keep the old window unmapped. The worker installs the latest
+                // state in a new native window before its first visible frame.
+                rebuild.request(std::time::Instant::now());
+                return;
+            }
             self.update_window_size(window, cx);
             if !self.mapped {
                 self.update_input_region(window);
                 // Mark the root dirty before the platform requests its first frame.
                 window.refresh();
                 match window.set_mapped(true) {
-                    Ok(()) => self.mapped = true,
-                    Err(error) => eprintln!("mirix-panel: map: {error:#}"),
+                    Ok(()) => self.record_mapping(true, SystemTime::now()),
+                    Err(error) => log::error!("map: {error:#}"),
                 }
             }
         } else {
@@ -398,7 +484,7 @@ impl CandidatePanel {
             self.layout.size.width.max(self.picker_layout.size.width),
             self.layout.size.height + self.picker_offset(),
         );
-        if next != self.size || window.viewport_size() != next {
+        if next != self.size || (window.viewport_size() != next) {
             self.size = next;
             window.resize(next);
         }
@@ -430,6 +516,15 @@ impl CandidatePanel {
         Bounds {
             origin: point(px(0.0), self.picker_offset()),
             size: self.layout.size,
+        }
+    }
+
+    pub(super) fn report_rebuilt_show(&mut self, window: &Window) {
+        if let Some(started) = self.show_started.take() {
+            log::info!(target: "mirix_panel::popup",
+                "native popup rebuilt show first render generation={} show_to_render_us={} context={:?} viewport={:?} scale={} (not presentation)",
+                self.popup_generation, started.elapsed().as_micros(), self.snapshot.context_id,
+                window.viewport_size(), window.scale_factor());
         }
     }
 
@@ -480,6 +575,51 @@ fn snapshot_visible(snapshot: &PanelSnapshot, show_preedit: bool) -> bool {
 mod tests {
     use super::*;
 
+    #[test]
+    fn show_rebuild_requires_visible_content_in_an_unmapped_native_panel() {
+        let mut panel = composing_panel();
+        let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
+        let expired = start + IDLE_REBUILD_AFTER;
+        assert!(!panel.can_rebuild_before_show(expired));
+        panel.record_mapping(false, start);
+        assert!(!panel.can_rebuild_before_show(expired - Duration::from_millis(1)));
+        assert!(panel.can_rebuild_before_show(expired));
+        panel.snapshot.visible = false;
+        assert!(!panel.can_rebuild_before_show(expired));
+        panel.snapshot.visible = true;
+        panel.embedded = Some(size(px(720.), px(480.)));
+        assert!(!panel.can_rebuild_before_show(expired));
+        panel.embedded = None;
+        panel.record_mapping(true, expired);
+        assert!(!panel.can_rebuild_before_show(expired));
+    }
+
+    #[test]
+    fn hidden_updates_preserve_idle_time_but_showing_starts_a_new_idle_period() {
+        let mut panel = composing_panel();
+        let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
+        panel.record_mapping(false, start);
+        panel.record_mapping(false, start + Duration::from_secs(500));
+        assert!(panel.can_rebuild_before_show(start + IDLE_REBUILD_AFTER));
+
+        let shown = start + IDLE_REBUILD_AFTER;
+        panel.record_mapping(true, shown);
+        assert_eq!(panel.hidden_for(shown), None);
+        assert!(!panel.can_rebuild_before_show(shown + IDLE_REBUILD_AFTER));
+        let hidden_again = shown + Duration::from_secs(1);
+        panel.record_mapping(false, hidden_again);
+        assert!(!panel.can_rebuild_before_show(hidden_again + Duration::from_secs(599)));
+        assert!(panel.can_rebuild_before_show(hidden_again + IDLE_REBUILD_AFTER));
+    }
+
+    #[test]
+    fn clock_rollback_expires_a_hidden_window_without_panicking() {
+        let mut panel = composing_panel();
+        let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
+        panel.record_mapping(false, start);
+        assert!(panel.can_rebuild_before_show(start - Duration::from_secs(1)));
+    }
+
     fn composing_panel() -> CandidatePanel {
         let (services, _) = Services::start(None, true).unwrap();
         let mut snapshot = super::super::demo::snapshot();
@@ -494,6 +634,58 @@ mod tests {
         );
         panel.accept_snapshot(10, snapshot);
         panel
+    }
+
+    #[test]
+    fn pagination_labels_and_selection_metadata_reuse_candidate_measurements() {
+        let mut panel = composing_panel();
+        panel.layout_dirty = false;
+        panel.page_dirty = false;
+        let mut next = panel.snapshot.clone();
+        for (index, candidate) in next.candidates.iter_mut().enumerate() {
+            candidate.label = (index % 3 + 1).to_string();
+        }
+        assert!(panel.accept_snapshot(11, next.clone()));
+        assert!(!panel.layout_dirty);
+        assert!(!panel.page_dirty);
+        assert_eq!(panel.snapshot, next);
+
+        next.candidates[3].id = CandidateId(100);
+        next.candidates[3].keep_open = true;
+        assert!(panel.accept_snapshot(12, next.clone()));
+        assert!(!panel.layout_dirty);
+        assert!(panel.page_dirty);
+
+        panel.page_dirty = false;
+        next.selected = 3;
+        assert!(panel.accept_snapshot(13, next));
+        assert!(!panel.layout_dirty);
+        assert!(panel.page_dirty);
+        assert!(!panel.begin_selection(1, CandidateId(4)));
+        assert!(panel.begin_selection(1, CandidateId(100)));
+        assert!(panel.visible());
+    }
+
+    #[test]
+    fn candidate_content_order_and_count_changes_invalidate_measurements() {
+        let changes: [fn(&mut PanelSnapshot); 6] = [
+            |snapshot| snapshot.candidates[0].text.push('字'),
+            |snapshot| snapshot.candidates[0].reading = Some("zhōng wén".into()),
+            |snapshot| snapshot.candidates[0].comment = Some("description".into()),
+            |snapshot| snapshot.candidates.swap(0, 1),
+            |snapshot| {
+                snapshot.candidates.pop();
+            },
+            |snapshot| snapshot.candidates.push(snapshot.candidates[0].clone()),
+        ];
+        for change in changes {
+            let mut panel = composing_panel();
+            panel.layout_dirty = false;
+            let mut next = panel.snapshot.clone();
+            change(&mut next);
+            assert!(panel.accept_snapshot(11, next));
+            assert!(panel.layout_dirty);
+        }
     }
 
     #[test]
@@ -690,8 +882,8 @@ mod tests {
         panel.layout.ends = vec![3, 5];
         panel.layout_dirty = false;
         let before = panel.snapshot.clone();
-        panel.receive_event(PanelEvent::QuickSwitch(Some(
-            mirix_core::QuickSwitchSnapshot {
+        panel.receive_event(PanelEvent::QuickSwitch {
+            state: Some(mirix_core::QuickSwitchSnapshot {
                 label: String::new(),
                 session: 1,
                 kind: mirix_core::QuickSwitchKind::Skin,
@@ -702,8 +894,8 @@ mod tests {
                 selected: 0,
                 active: Some("night".into()),
                 error: None,
-            },
-        )));
+            }),
+        });
         panel.picker_layout.size = size(px(240.0), px(94.0));
         assert_eq!(panel.snapshot, before);
         assert_eq!(panel.layout.page, 0..3);

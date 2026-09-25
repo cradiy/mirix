@@ -430,10 +430,16 @@ impl Decoder {
 }
 
 fn extend_state(state: &BeamState, lexeme: &Lexeme, reading: &str, score: i64) -> BeamState {
-    let mut text = state.text.clone();
+    let mut text = String::with_capacity(state.text.len() + lexeme.text.len());
+    text.push_str(&state.text);
     text.push_str(&lexeme.text);
 
-    let mut display_reading = state.display_reading.clone();
+    let mut display_reading = String::with_capacity(
+        state.display_reading.len()
+            + usize::from(!state.display_reading.is_empty())
+            + reading.len(),
+    );
+    display_reading.push_str(&state.display_reading);
     if !display_reading.is_empty() {
         display_reading.push(' ');
     }
@@ -453,8 +459,7 @@ fn prune_beam(beam: &mut Vec<BeamState>, limit: usize) {
         compare_beam_rank(left.score, left.segments, right.score, right.segments)
             .then_with(|| left.text.cmp(&right.text))
     });
-    let mut seen = HashSet::new();
-    beam.retain(|state| seen.len() < limit && seen.insert(state.text.clone()));
+    retain_unique_text(beam, limit, |state| &state.text);
 }
 
 fn compare_beam_rank(
@@ -471,8 +476,29 @@ fn compare_beam_rank(
 
 fn prune_candidates(candidates: &mut Vec<DecodedCandidate>, limit: usize) {
     candidates.sort_by(compare_candidates);
-    let mut seen = HashSet::new();
-    candidates.retain(|candidate| seen.len() < limit && seen.insert(candidate.text.clone()));
+    retain_unique_text(candidates, limit, |candidate| &candidate.text);
+}
+
+/// Keep the first `limit` unique texts in rank order without cloning their strings.
+fn retain_unique_text<T>(items: &mut Vec<T>, limit: usize, text: impl Fn(&T) -> &str) {
+    let capacity = limit.min(items.len());
+    let mut seen = HashSet::with_capacity(capacity);
+    let mut kept = Vec::with_capacity(capacity);
+    for (index, item) in items.iter().enumerate() {
+        if kept.len() == limit {
+            break;
+        }
+        if seen.insert(text(item)) {
+            kept.push(index);
+        }
+    }
+    drop(seen);
+    // Indices increase monotonically: swapping into the compacted prefix cannot
+    // disturb any source index that has not yet been moved.
+    for (destination, &source) in kept.iter().enumerate() {
+        items.swap(destination, source);
+    }
+    items.truncate(kept.len());
 }
 
 fn compare_candidates(left: &DecodedCandidate, right: &DecodedCandidate) -> Ordering {
@@ -496,6 +522,30 @@ mod tests {
     use crate::{Lexeme, Parser, Reading, SyllableTable};
 
     use super::*;
+
+    #[test]
+    fn ranked_dedup_preserves_first_occurrence_and_limit() {
+        let ranked = (0..256)
+            .map(|index| (format!("词{}", (index * 17) % 37), index))
+            .collect::<Vec<_>>();
+        for count in [0, 1, 16, 256] {
+            for limit in [0, 1, 9, 36, 72, 512] {
+                let mut expected = Vec::new();
+                for item in &ranked[..count] {
+                    if !expected
+                        .iter()
+                        .any(|previous: &&(String, usize)| previous.0 == item.0)
+                    {
+                        expected.push(item);
+                    }
+                }
+                expected.truncate(limit);
+                let mut actual = ranked[..count].to_vec();
+                retain_unique_text(&mut actual, limit, |item| &item.0);
+                assert_eq!(actual.iter().collect::<Vec<_>>(), expected);
+            }
+        }
+    }
 
     fn lexeme(
         table: &SyllableTable,

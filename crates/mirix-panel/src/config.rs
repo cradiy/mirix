@@ -80,7 +80,7 @@ pub(crate) fn resolve_skin(path: &Path, explicit: Option<PathBuf>) -> Result<Opt
     if !skin.contains('/') && skin != "." && skin != ".." {
         let installed = installed_skin(OsStr::new(skin), &skin_roots());
         if installed.is_none() {
-            eprintln!("mirix-panel: warning: skin {skin:?} is not installed; using built-in Light");
+            log::warn!("skin {skin:?} is not installed; using built-in Light");
         }
         return Ok(installed);
     }
@@ -119,7 +119,7 @@ pub(crate) fn load_selected_skin(path: Option<PathBuf>) -> (mirix_skin::Skin, Op
     if let Some(path) = path {
         match mirix_skin::load(&path) {
             Ok(skin) => return (skin, Some(path)),
-            Err(error) => eprintln!(
+            Err(error) => log::warn!(
                 "mirix-panel: warning: cannot load skin {}: {error}; using built-in Light",
                 path.display(),
             ),

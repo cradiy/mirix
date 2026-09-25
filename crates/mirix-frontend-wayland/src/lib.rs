@@ -14,7 +14,7 @@ use std::time::{Duration, Instant};
 
 use anyhow::{Context, Result, anyhow};
 use calloop::LoopHandle;
-use calloop_wayland_source::WaylandSource;
+use gpui_wayland_source::insert_wayland_source;
 use mirix_core::{ContextId, EngineOutput, Instance, Modifiers};
 use wayland_client::globals::{GlobalListContents, registry_queue_init};
 use wayland_client::protocol::wl_registry::WlRegistry;
@@ -260,9 +260,8 @@ where
     D: Dispatch<ZwpInputPopupSurfaceV2, ()> + 'static,
 {
     pub fn create(&self, surface: &WlSurface) -> InputPopupSurfaceRole {
-        InputPopupSurfaceRole {
-            popup: self.im.get_input_popup_surface(surface, &self.qh, ()),
-        }
+        let popup = self.im.get_input_popup_surface(surface, &self.qh, ());
+        InputPopupSurfaceRole { popup }
     }
 }
 
@@ -322,11 +321,10 @@ impl<D: ImHost> WaylandCtx<D> {
         let im = im_mgr.get_input_method(&seat, &qh, ());
         let vk = vk_mgr.create_virtual_keyboard(&seat, &qh, ());
 
-        WaylandSource::new(conn.clone(), event_queue)
-            .insert(handle.clone())
+        insert_wayland_source(conn.clone(), event_queue, handle.clone())
             .map_err(|err| anyhow!("insert wayland source: {err}"))?;
 
-        tracing::info!("wayland input-method-v2 ready");
+        log::info!("wayland input-method-v2 ready");
         Ok(Self {
             conn,
             qh,
@@ -367,7 +365,7 @@ impl<D: ImHost> WaylandCtx<D> {
 
     fn flush(&self) {
         if let Err(err) = self.conn.flush() {
-            tracing::warn!(?err, "wayland flush");
+            log::warn!("wayland flush err={:?}", err);
         }
     }
 
@@ -382,7 +380,7 @@ impl<D: ImHost> WaylandCtx<D> {
                 self.flush();
                 drop(fd);
             }
-            Err(err) => tracing::error!(?err, "virtual keyboard keymap"),
+            Err(err) => log::error!("virtual keyboard keymap err={:?}", err),
         }
     }
 
@@ -433,10 +431,10 @@ impl<D: ImHost> WaylandCtx<D> {
     /// visible preedit must be reset before processing more keys.
     pub fn apply_pending_text_state(&mut self) -> bool {
         if let Some(content_type) = self.text_state.pending_content_type {
-            tracing::debug!(
-                purpose = content_type.purpose,
-                hint = content_type.hint,
-                "text field content_type"
+            log::debug!(
+                "text field content_type purpose={} hint={}",
+                content_type.purpose,
+                content_type.hint
             );
         }
         self.text_state.apply()
@@ -540,13 +538,13 @@ impl<D: ImHost> WaylandCtx<D> {
     }
 
     fn send_im(&mut self, out: &EngineOutput) {
-        tracing::debug!(
-            serial = self.serial,
-            consumed = out.consumed,
-            preedit = ?out.preedit,
-            commit = ?out.commit.as_ref().map(|c| c.text.as_str()),
-            purpose = ?self.purpose(),
-            "send_im"
+        log::debug!(
+            "send_im serial={} consumed={} preedit_bytes={} commit_bytes={} purpose={:?}",
+            self.serial,
+            out.consumed,
+            out.preedit_text().map(str::len).unwrap_or(0),
+            out.commit.as_ref().map(|c| c.text.len()).unwrap_or(0),
+            self.purpose()
         );
         // A consumed key does not necessarily change text. Sending a bare
         // input-method commit would apply the protocol's default empty
@@ -555,12 +553,16 @@ impl<D: ImHost> WaylandCtx<D> {
             return;
         }
         if let Some(commit) = &out.commit {
-            tracing::info!(text = %commit.text, "im.commit_string");
+            log::debug!("im.commit_string bytes={}", commit.text.len());
             self.im.commit_string(commit.text.clone());
         }
         if let Some(preedit) = out.preedit_text() {
             let cursor = preedit_cursor(preedit, out.preedit_cursor());
-            tracing::debug!(text = %preedit, cursor, "im.set_preedit_string");
+            log::debug!(
+                "im.set_preedit_string bytes={} cursor={}",
+                preedit.len(),
+                cursor
+            );
             let selection =
                 mirix_core::preedit_selection(preedit, out.preedit_selection().as_ref());
             let (begin, end) = selection.map_or((cursor, cursor), |range| {
@@ -586,14 +588,14 @@ impl<D: ImHost> WaylandCtx<D> {
             return;
         }
         if self.purpose() != self.client_preedit_purpose {
-            tracing::info!(
-                stale_purpose = ?self.client_preedit_purpose,
-                active_purpose = ?self.purpose(),
-                "deferring stale preedit cleanup until content purpose matches"
+            log::info!(
+                "deferring stale preedit cleanup until content purpose matches stale_purpose={:?} active_purpose={:?}",
+                self.client_preedit_purpose,
+                self.purpose()
             );
             return;
         }
-        tracing::info!(serial = self.serial, "clearing stale preedit after focus");
+        log::info!("clearing stale preedit after focus serial={}", self.serial);
         // Qt clears its internal current-preedit state on disable without
         // notifying the editor. It also normalizes every cursor position on
         // an empty string to zero, so a direct empty update is deduplicated.
@@ -706,7 +708,7 @@ macro_rules! delegate_im_host {
                 _: &wayland_client::QueueHandle<Self>,
             ) {
                 if let wayland_client::protocol::wl_seat::Event::Name { name } = event {
-                    tracing::debug!(name, "wl_seat");
+                    log::debug!("wl_seat name={}", name);
                 }
             }
         }

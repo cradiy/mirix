@@ -11,4 +11,4 @@ anyhow.workspace = true
 dirs.workspace = true
 mirix-engine-protocol.workspace = true
 rustix.workspace = true
-tracing.workspace = true
+log.workspace = true

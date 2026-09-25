@@ -833,18 +833,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "calloop-wayland-source"
-version = "0.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "138efcf0940a02ebf0cc8d1eff41a1682a46b431630f4c52450d6265876021fa"
-dependencies = [
- "calloop",
- "rustix 1.1.5",
- "wayland-backend",
- "wayland-client",
-]
-
-[[package]]
 name = "cbc"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1084,7 +1072,7 @@ dependencies = [
 [[package]]
 name = "collections"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "gpui_util",
  "indexmap",
@@ -1290,6 +1278,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "core_affinity"
+version = "0.8.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a034b3a7b624016c6e13f5df875747cc25f884156aad2abd12b6c46797971342"
+dependencies = [
+ "libc",
+ "num_cpus",
+ "winapi",
+]
+
+[[package]]
 name = "core_detect"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1353,6 +1352,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "01a7799fd6b852db0e61728dde9a204c423b44d689dbd432522543614b490e78"
 dependencies = [
  "cfg-if",
+]
+
+[[package]]
+name = "crossbeam-channel"
+version = "0.5.16"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d85363c37faeca707aef026efa9f3b34d077bce547e48f770770625c6013679e"
+dependencies = [
+ "crossbeam-utils",
 ]
 
 [[package]]
@@ -1467,7 +1475,7 @@ dependencies = [
 [[package]]
 name = "derive_refineable"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1821,6 +1829,20 @@ dependencies = [
  "crc32fast",
  "miniz_oxide 0.9.1",
  "zlib-rs",
+]
+
+[[package]]
+name = "flexi_logger"
+version = "0.31.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a4945fa9cdfd7571192cf559c186d45ab36c8034482a2d217a19bdc566f190cc"
+dependencies = [
+ "chrono",
+ "core_affinity",
+ "crossbeam-channel",
+ "crossbeam-queue",
+ "log",
+ "thiserror 2.0.20",
 ]
 
 [[package]]
@@ -2251,7 +2273,7 @@ dependencies = [
 [[package]]
 name = "gpui"
 version = "0.2.2"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "accesskit",
  "anyhow",
@@ -2359,7 +2381,7 @@ dependencies = [
 [[package]]
 name = "gpui_effects"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "accesskit",
  "anyhow",
@@ -2373,7 +2395,7 @@ dependencies = [
 [[package]]
 name = "gpui_linux"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "accesskit",
  "accesskit_unix",
@@ -2382,13 +2404,13 @@ dependencies = [
  "bitflags 2.13.2",
  "bytemuck",
  "calloop",
- "calloop-wayland-source",
  "collections",
  "filedescriptor",
  "futures",
  "gpui",
  "gpui-scap",
  "gpui_util",
+ "gpui_wayland_source",
  "gpui_wgpu",
  "http_client",
  "image",
@@ -2421,7 +2443,7 @@ dependencies = [
 [[package]]
 name = "gpui_macos"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "accesskit",
  "accesskit_macos",
@@ -2469,7 +2491,7 @@ dependencies = [
 [[package]]
 name = "gpui_macros"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "heck 0.5.0",
  "proc-macro2",
@@ -2480,7 +2502,7 @@ dependencies = [
 [[package]]
 name = "gpui_platform"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "console_error_panic_hook",
  "gpui",
@@ -2493,7 +2515,7 @@ dependencies = [
 [[package]]
 name = "gpui_shared_string"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "schemars",
  "serde",
@@ -2503,7 +2525,7 @@ dependencies = [
 [[package]]
 name = "gpui_util"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "anyhow",
  "log",
@@ -2511,9 +2533,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "gpui_wayland_source"
+version = "0.1.0"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
+dependencies = [
+ "calloop",
+ "wayland-client",
+]
+
+[[package]]
 name = "gpui_web"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "anyhow",
  "console_error_panic_hook",
@@ -2537,7 +2568,7 @@ dependencies = [
 [[package]]
 name = "gpui_wgpu"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "anyhow",
  "ash",
@@ -2575,7 +2606,7 @@ dependencies = [
 [[package]]
 name = "gpui_windows"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "accesskit",
  "accesskit_windows",
@@ -2752,7 +2783,7 @@ dependencies = [
 [[package]]
 name = "http_client"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "anyhow",
  "bytes",
@@ -3414,15 +3445,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "matchers"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1525a2a28c7f4fa0fc98bb91ae755d1e2d1505079e05539e35bc876b5d65ae9"
-dependencies = [
- "regex-automata",
-]
-
-[[package]]
 name = "maybe-rayon"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3445,7 +3467,7 @@ dependencies = [
 [[package]]
 name = "media"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "anyhow",
  "bindgen 0.71.1",
@@ -3561,9 +3583,9 @@ dependencies = [
 name = "mirix-engine-keyboard"
 version = "0.1.0"
 dependencies = [
+ "log",
  "mirix-engine-protocol",
  "mirix-i18n",
- "tracing",
  "xkbcommon 0.9.0",
 ]
 
@@ -3592,9 +3614,9 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "dirs 7.0.0",
+ "log",
  "mirix-engine-protocol",
  "rustix 1.1.5",
- "tracing",
 ]
 
 [[package]]
@@ -3619,11 +3641,11 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "calloop",
- "calloop-wayland-source",
+ "gpui_wayland_source",
+ "log",
  "memmap2",
  "mirix-core",
  "rustix 1.1.5",
- "tracing",
  "wayland-client",
  "wayland-protocols-misc",
  "xkbcommon 0.9.0",
@@ -3634,8 +3656,8 @@ name = "mirix-frontend-xim"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "log",
  "mirix-core",
- "tracing",
  "x11rb",
  "xim",
  "xkbcommon 0.9.0",
@@ -3648,9 +3670,9 @@ dependencies = [
  "anyhow",
  "fluent-bundle",
  "fluent-langneg",
+ "log",
  "sys-locale",
  "tempfile",
- "tracing",
  "unic-langid",
 ]
 
@@ -3666,6 +3688,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "mirix-log"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "dirs 7.0.0",
+ "flexi_logger",
+ "log",
+ "tempfile",
+]
+
+[[package]]
 name = "mirix-panel"
 version = "0.1.0"
 dependencies = [
@@ -3676,10 +3709,12 @@ dependencies = [
  "gpui",
  "gpui_effects",
  "gpui_platform",
+ "log",
  "mirix-config",
  "mirix-core",
  "mirix-i18n",
  "mirix-ipc",
+ "mirix-log",
  "mirix-skin",
  "serde",
  "serde_json",
@@ -3713,6 +3748,7 @@ dependencies = [
  "clap",
  "dirs 7.0.0",
  "gpui_platform",
+ "log",
  "mirix-config",
  "mirix-core",
  "mirix-engine-keyboard",
@@ -3721,11 +3757,10 @@ dependencies = [
  "mirix-frontend-wayland",
  "mirix-frontend-xim",
  "mirix-ipc",
+ "mirix-log",
  "mirix-panel",
  "tempfile",
  "toml 0.8.23",
- "tracing",
- "tracing-subscriber",
  "wayland-client",
  "wayland-protocols-misc",
 ]
@@ -3907,15 +3942,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c3b335231dfd352ffb0f8017f3b6027a4917f7df785ea2143d8af2adc66980ae"
 dependencies = [
  "winapi",
-]
-
-[[package]]
-name = "nu-ansi-term"
-version = "0.50.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7957b9740744892f114936ab4a57b3f487491bbeafaf8083688b16841a4240e5"
-dependencies = [
- "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -5056,7 +5082,7 @@ dependencies = [
 [[package]]
 name = "refineable"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "derive_refineable",
 ]
@@ -5268,7 +5294,7 @@ dependencies = [
 [[package]]
 name = "scheduler"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "async-task",
  "backtrace",
@@ -5504,15 +5530,6 @@ dependencies = [
  "cfg-if",
  "cpufeatures 0.3.1",
  "digest 0.11.3",
-]
-
-[[package]]
-name = "sharded-slab"
-version = "0.1.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f40ca3c46823713e0d4209592e8d6e826aa57e928f09752619fc696c499637f6"
-dependencies = [
- "lazy_static",
 ]
 
 [[package]]
@@ -5759,7 +5776,7 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 [[package]]
 name = "sum_tree"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "heapless",
  "log",
@@ -6045,15 +6062,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "thread_local"
-version = "1.1.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1ad99c4c6d32803332c548b1af0540b357b3f5fc0be8f6c6bfe8b2e6ae784070"
-dependencies = [
- "cfg-if",
-]
-
-[[package]]
 name = "tiff"
 version = "0.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6241,36 +6249,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "db97caf9d906fbde555dd62fa95ddba9eecfd14cb388e4f491a66d74cd5fb79a"
 dependencies = [
  "once_cell",
- "valuable",
-]
-
-[[package]]
-name = "tracing-log"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee855f1f400bd0e5c02d150ae5de3840039a3f54b025156404e34c23c03f47c3"
-dependencies = [
- "log",
- "once_cell",
- "tracing-core",
-]
-
-[[package]]
-name = "tracing-subscriber"
-version = "0.3.23"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cb7f578e5945fb242538965c2d0b04418d38ec25c79d160cd279bf0731c8d319"
-dependencies = [
- "matchers",
- "nu-ansi-term",
- "once_cell",
- "regex-automata",
- "sharded-slab",
- "smallvec",
- "thread_local",
- "tracing",
- "tracing-core",
- "tracing-log",
 ]
 
 [[package]]
@@ -6317,7 +6295,7 @@ dependencies = [
 [[package]]
 name = "uic"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "anyhow",
  "chrono",
@@ -6333,7 +6311,7 @@ dependencies = [
 [[package]]
 name = "uic-macros"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "heck 0.5.0",
  "proc-macro2",
@@ -6485,7 +6463,7 @@ checksum = "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821"
 [[package]]
 name = "util_macros"
 version = "0.1.0"
-source = "git+https://github.com/cradiy/gpui.git?rev=07c5749ee34e2ad6262ae2c73c8f1e252120f2da#07c5749ee34e2ad6262ae2c73c8f1e252120f2da"
+source = "git+https://github.com/cradiy/gpui.git?rev=707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4#707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4"
 dependencies = [
  "quote",
  "syn 2.0.119",
@@ -6514,12 +6492,6 @@ dependencies = [
  "num-traits",
  "wasm-bindgen",
 ]
-
-[[package]]
-name = "valuable"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba73ea9cf16a25df0c8caa16c51acb937d5712a8429db78a3ee29d5dcacd3a65"
 
 [[package]]
 name = "value-bag"

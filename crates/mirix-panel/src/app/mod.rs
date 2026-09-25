@@ -10,6 +10,7 @@ mod effects;
 mod layers;
 mod layout;
 mod motion;
+mod popup;
 mod quick_switch;
 mod render;
 mod services;
@@ -20,11 +21,12 @@ mod view;
 
 use anyhow::Result;
 use gpui::{
-    App, AppContext, Bounds, WindowBackgroundAppearance, WindowBounds, WindowHandle, WindowKind,
-    WindowOptions, layer_shell::*, point, px, size,
+    AnimationFramePolicy, App, AppContext, Bounds, WindowBackgroundAppearance, WindowBounds,
+    WindowKind, WindowOptions, layer_shell::*, point, px, size,
 };
 use gpui_platform::application;
 
+use popup::PanelWindow;
 use services::{PanelEvent, Services};
 use view::{CandidatePanel, empty_snapshot};
 
@@ -73,6 +75,10 @@ fn run_application(
     let (services, events) = Services::start((!demo).then_some(socket.clone()), true)?;
     let commands = services.commands();
     application.run(move |cx: &mut App| {
+        if native_popup {
+            // Rebuilding the sole candidate window must not stop the GUI loop.
+            cx.set_quit_mode(gpui::QuitMode::Explicit);
+        }
         cx.set_global(crate::i18n::UiLanguage {
             localizer,
             preference: language,
@@ -84,29 +90,10 @@ fn run_application(
         let initial_width = skin.canvas.width.min(skin.layout.max_width);
         let window = cx
             .open_window(
-                WindowOptions {
-                    titlebar: None,
-                    window_bounds: Some(WindowBounds::Windowed(Bounds {
-                        origin: point(px(24.), px(24.)),
-                        size: size(px(initial_width), px(skin.canvas.height)),
-                    })),
-                    app_id: Some("mirix-panel".into()),
-                    window_background: WindowBackgroundAppearance::Transparent,
-                    kind: if native_popup {
-                        WindowKind::PopUp
-                    } else {
-                        WindowKind::LayerShell(LayerShellOptions {
-                            namespace: "mirix".into(),
-                            layer: Layer::Overlay,
-                            anchor: Anchor::LEFT | Anchor::BOTTOM,
-                            margin: Some((px(0.), px(0.), px(48.), px(48.))),
-                            keyboard_interactivity: KeyboardInteractivity::None,
-                            exclusive_zone: Some(px(0.)),
-                            ..Default::default()
-                        })
-                    },
-                    ..Default::default()
-                },
+                panel_window_options(
+                    size(px(initial_width), px(skin.canvas.height)),
+                    native_popup,
+                ),
                 |window, cx| {
                     if !demo {
                         window.set_input_region(Some(&[]));
@@ -136,20 +123,29 @@ fn run_application(
                 panel.update_presentation(window, cx)
             })
             .expect("initialize panel visibility");
-        tray::install(window, commands, skin_path.clone(), config_path.clone(), cx);
-        receive_events(window, events, cx);
+        let window = PanelWindow::new(window);
+        if native_popup {
+            popup::install(window.clone(), cx);
+        }
+        tray::install(
+            window.clone(),
+            commands,
+            skin_path.clone(),
+            config_path.clone(),
+            cx,
+        );
+        receive_events(window.clone(), events, cx);
     });
 
     Ok(())
 }
 
-fn receive_events(
-    window: WindowHandle<CandidatePanel>,
-    events: async_channel::Receiver<PanelEvent>,
-    cx: &App,
-) {
+fn receive_events(window: PanelWindow, events: async_channel::Receiver<PanelEvent>, cx: &App) {
     cx.spawn(async move |cx| {
         while let Ok(event) = events.recv().await {
+            // Retain the pending event while window creation is retried, without
+            // dropping this subscription or its state.
+            window.wait_ready().await;
             // Apply queued state in one GUI update instead of rendering every
             // intermediate snapshot after a busy frame.
             let batch = std::iter::once(event)
@@ -233,4 +229,32 @@ fn receive_events(
         }
     })
     .detach();
+}
+
+fn panel_window_options(size: gpui::Size<gpui::Pixels>, native_popup: bool) -> WindowOptions {
+    WindowOptions {
+        titlebar: None,
+        window_bounds: Some(WindowBounds::Windowed(Bounds {
+            origin: point(px(24.), px(24.)),
+            size,
+        })),
+        app_id: Some("mirix-panel".into()),
+        window_background: WindowBackgroundAppearance::Transparent,
+        animation_frame_policy: AnimationFramePolicy::FollowDisplay,
+        focus: false,
+        kind: if native_popup {
+            WindowKind::PopUp
+        } else {
+            WindowKind::LayerShell(LayerShellOptions {
+                namespace: "mirix".into(),
+                layer: Layer::Overlay,
+                anchor: Anchor::LEFT | Anchor::BOTTOM,
+                margin: Some((px(0.), px(0.), px(48.), px(48.))),
+                keyboard_interactivity: KeyboardInteractivity::None,
+                exclusive_zone: Some(px(0.)),
+                ..Default::default()
+            })
+        },
+        ..Default::default()
+    }
 }

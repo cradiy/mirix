@@ -375,11 +375,6 @@ fn advance(state: &mut State) {
             }
             _ => state.instance.engine_name().to_owned(),
         };
-        let status = state
-            .instance
-            .configuration_status()
-            .into_iter()
-            .find(|status| status.input_method == name);
         let run: Result<Option<Run>, String> = (|| -> Result<Option<Run>, String> {
             if let Origin::Menu { menu, entry, .. } = &queued.origin {
                 let menu = menu.clone();
@@ -401,9 +396,18 @@ fn advance(state: &mut State) {
             let Origin::Client(_, request) = &queued.origin else {
                 unreachable!()
             };
+            // Only settings requests need configuration metadata; key and page
+            // updates must not allocate a status list for every loaded engine.
+            let configuration_status = || {
+                state
+                    .instance
+                    .configuration_status()
+                    .into_iter()
+                    .find(|status| status.input_method == name)
+            };
             match request.clone() {
                 Request::GetEngineConfiguration { locale, .. } => {
-                    let status = status.clone().ok_or("input method is not loaded")?;
+                    let status = configuration_status().ok_or("input method is not loaded")?;
                     Ok(Some(Box::new(move |engine| {
                         configuration(engine, status, locale, None)
                     })))
@@ -414,7 +418,7 @@ fn advance(state: &mut State) {
                     event,
                     ..
                 } => {
-                    if status.as_ref() != Some(&expected) {
+                    if configuration_status().as_ref() != Some(&expected) {
                         return Err("configuration changed; refresh settings".into());
                     }
                     Ok(Some(Box::new(move |engine| {
@@ -643,9 +647,18 @@ fn finish(done: Finished, state: &mut State) {
 }
 
 fn deliver(queued: Queued, reply: Reply, state: &mut State) {
-    tracing::debug!(
-        elapsed_us = queued.started.elapsed().as_micros() as u64,
-        "engine job including queue wait"
+    let elapsed = queued.started.elapsed();
+    if elapsed >= std::time::Duration::from_millis(50) {
+        log::warn!(
+            "slow engine job including queue wait elapsed_us={} context={:?} epoch={}",
+            elapsed.as_micros(),
+            key_context(&queued.origin),
+            queued.epoch
+        );
+    }
+    log::debug!(
+        "engine job including queue wait elapsed_us={}",
+        elapsed.as_micros() as u64
     );
     let output = match reply {
         Reply::Output(output) => Some(output),

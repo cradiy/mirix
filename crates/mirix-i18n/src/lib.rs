@@ -78,7 +78,11 @@ impl Localizer {
                 Ok(entries) => entries,
                 Err(error) if error.kind() == std::io::ErrorKind::NotFound => continue,
                 Err(error) => {
-                    tracing::warn!(path = %directory.display(), %error, "read language directory");
+                    log::warn!(
+                        "read language directory path={} error={}",
+                        directory.display(),
+                        error
+                    );
                     continue;
                 }
             };
@@ -95,7 +99,10 @@ impl Localizer {
                     .and_then(|name| name.to_str())
                     .and_then(|name| name.parse::<LanguageIdentifier>().ok())
                 else {
-                    tracing::warn!(path = %path.display(), "language filename must be a BCP 47 tag");
+                    log::warn!(
+                        "language filename must be a BCP 47 tag path={}",
+                        path.display()
+                    );
                     continue;
                 };
                 let resource = std::fs::read_to_string(&path)
@@ -104,7 +111,11 @@ impl Localizer {
                 match resource {
                     Ok(resource) => resources.entry(language).or_default().push(resource),
                     Err(error) => {
-                        tracing::warn!(path = %path.display(), %error, "skip invalid language file")
+                        log::warn!(
+                            "skip invalid language file path={} error={}",
+                            path.display(),
+                            error
+                        )
                     }
                 }
             }
@@ -195,7 +206,7 @@ fn message(bundle: &Bundle, id: &str, args: Option<&FluentArgs<'_>>) -> Option<S
     if errors.is_empty() {
         Some(text.into_owned())
     } else {
-        tracing::warn!(message = id, ?errors, "format UI translation");
+        log::warn!("format UI translation message={} errors={:?}", id, errors);
         None
     }
 }

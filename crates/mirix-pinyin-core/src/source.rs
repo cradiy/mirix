@@ -26,11 +26,7 @@ pub fn import_tsv(source: &str, table: &SyllableTable) -> ImportResult {
 
 /// Import the maintained character table:
 ///
-/// `character display-pinyin input-pinyin weight` (whitespace separated).
-///
-/// The display spelling is authoritative. The third column is retained for
-/// inspection, but the keyboard spelling is regenerated from the display so
-/// `lü` cannot accidentally become `lu` instead of `lv`.
+/// `character input-pinyin weight` (whitespace separated).
 pub fn import_character_tsv(source: &str, table: &SyllableTable) -> ImportResult {
     import_lines(source, |_, line| import_character_line(line, table))
 }
@@ -68,21 +64,16 @@ fn import_lines(
 
 fn import_character_line(line: &str, table: &SyllableTable) -> Result<Lexeme, String> {
     let columns = line.split_whitespace().collect::<Vec<_>>();
-    if columns.len() != 4 {
-        return Err(
-            "expected character display-pinyin input-pinyin weight (spaces or tabs)".into(),
-        );
+    if columns.len() != 3 {
+        return Err("expected character input-pinyin weight (spaces or tabs)".into());
     }
     let text = columns[0].trim();
     if text.chars().count() != 1 {
         return Err("character entry must contain exactly one character".into());
     }
-    let display = columns[1].trim();
-    let input = normalize_display_syllable(display)
-        .ok_or_else(|| format!("invalid display syllable {display:?}"))?;
-    let reading =
-        Reading::new(table, &[input.as_str()], &[display]).map_err(format_reading_error)?;
-    let weight = columns[3]
+    let input = columns[1].trim();
+    let reading = Reading::new(table, &[input], &[input]).map_err(format_reading_error)?;
+    let weight = columns[2]
         .parse::<u64>()
         .map_err(|_| "invalid character weight")?;
     Ok(Lexeme::new(reading, text, weight))
@@ -202,9 +193,9 @@ mod tests {
     }
 
     #[test]
-    fn imports_character_weights_and_normalizes_umlaut_readings() {
+    fn imports_character_weights_and_keyboard_spellings() {
         let table = SyllableTable::standard();
-        let result = import_character_tsv("爱\tài\tai\t500\n女\tnǚ\tnv\t300\n", &table);
+        let result = import_character_tsv("爱\tai\t500\n女\tnv\t300\n", &table);
         assert!(result.issues.is_empty());
         assert_eq!(result.accepted, 2);
         assert_eq!(
@@ -215,7 +206,7 @@ mod tests {
             result.lexicon.exact(&[table.id("nv").unwrap()])[0]
                 .reading
                 .display(),
-            "nǚ"
+            "nv"
         );
     }
 }

@@ -112,6 +112,47 @@ fn receive_until(
 }
 
 #[test]
+fn termination_signal_shuts_down_cleanly_and_releases_socket() -> anyhow::Result<()> {
+    let root = tempfile::tempdir()?;
+    let socket = root.path().join("shutdown.sock");
+    let config = root.path().join("config/mirix");
+    std::fs::create_dir_all(&config)?;
+    std::fs::write(
+        config.join("config.toml"),
+        "[input_methods]\nenabled = []\n",
+    )?;
+    let mut daemon = Daemon(
+        Command::new(env!("CARGO_BIN_EXE_mirixd"))
+            .args(["--no-wayland", "--no-xim", "--no-panel", "--socket"])
+            .arg(&socket)
+            .env("XDG_DATA_HOME", root.path().join("data"))
+            .env("XDG_CONFIG_HOME", root.path().join("config"))
+            .env("XDG_STATE_HOME", root.path().join("state"))
+            .stdout(Stdio::null())
+            .stderr(Stdio::null())
+            .spawn()?,
+    );
+    wait_ready(&mut daemon, &socket);
+    assert!(
+        Command::new("kill")
+            .args(["-TERM", &daemon.0.id().to_string()])
+            .status()?
+            .success()
+    );
+    let deadline = Instant::now() + Duration::from_secs(5);
+    loop {
+        if let Some(status) = daemon.0.try_wait()? {
+            assert!(status.success());
+            assert!(!socket.exists());
+            break;
+        }
+        assert!(Instant::now() < deadline, "daemon did not shut down");
+        std::thread::sleep(Duration::from_millis(10));
+    }
+    Ok(())
+}
+
+#[test]
 fn vocabulary_ipc_manages_inactive_pinyin_and_refreshes_live_candidates() -> anyhow::Result<()> {
     use mirix_core::{VocabularyOperation as Op, VocabularyResult, VocabularyWord};
     let root = tempfile::tempdir()?;
@@ -120,7 +161,7 @@ fn vocabulary_ipc_manages_inactive_pinyin_and_refreshes_live_candidates() -> any
     for name in ["日常", "编程"] {
         std::fs::create_dir_all(config.join("profiles").join(name))?;
     }
-    std::fs::write(config.join("characters.tsv"), "你 nǐ ni 100\n泥 ní ni 10\n")?;
+    std::fs::write(config.join("characters.tsv"), "你\tni\t100\n泥\tni\t10\n")?;
     let mut daemon = Daemon(
         Command::new(env!("CARGO_BIN_EXE_mirixd"))
             .args(["--no-wayland", "--no-xim", "--no-panel", "--socket"])

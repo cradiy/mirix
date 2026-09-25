@@ -55,7 +55,7 @@ fn enqueue(commands: Option<mpsc::Sender<Request>>, request: Request) -> bool {
     match commands.map(|commands| commands.send(request).map_err(|error| error.to_string())) {
         Some(Ok(())) => true,
         Some(Err(error)) => {
-            eprintln!("mirix-panel: command worker closed: {error}");
+            log::warn!("mirix-panel: command worker closed: {error}");
             false
         }
         None => false,
@@ -76,7 +76,7 @@ pub(super) fn send_commands(
                 }
                 let response = exchange(&socket, &request);
                 if let Err(error) = &response {
-                    eprintln!("mirix-panel: command: {error:#}");
+                    log::warn!("mirix-panel: command: {error:#}");
                 }
                 if let Request::RefreshInputMethods { request }
                 | Request::RestartInputMethod { request, .. }
@@ -228,7 +228,7 @@ pub(super) fn subscribe(
             if stop.load(Ordering::Acquire) {
                 break;
             }
-            eprintln!("mirix-panel: subscription: {error:#}");
+            log::warn!("mirix-panel: subscription: {error:#}");
             if events.send_blocking(PanelEvent::Disconnected).is_err() {
                 break;
             }
@@ -269,7 +269,7 @@ fn subscription(
                 continue;
             }
             Response::QuickSwitch { state } => {
-                events.send_blocking(PanelEvent::QuickSwitch(state))?;
+                events.send_blocking(PanelEvent::QuickSwitch { state })?;
                 continue;
             }
             Response::ApplySkin { id } => {

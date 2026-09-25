@@ -19,7 +19,7 @@ fn setup() -> (tempfile::TempDir, PinyinEngine) {
     }
     std::fs::write(
         config.join("characters.tsv"),
-        "你 nǐ ni 100\n泥 ní ni 10\n好 hǎo hao 100\n西 xī xi 100\n先 xiān xian 100\n安 ān an 100\n",
+        "你\tni\t100\n泥\tni\t10\n好\thao\t100\n西\txi\t100\n先\txian\t100\n安\tan\t100\n",
     )
     .unwrap();
     let engine = PinyinEngine::open(root.path().join("data"), config).unwrap();

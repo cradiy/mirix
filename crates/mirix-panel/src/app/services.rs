@@ -26,7 +26,9 @@ pub(super) enum PanelEvent {
         input_method: String,
         result: Result<mirix_core::EngineConfiguration, String>,
     },
-    QuickSwitch(Option<mirix_core::QuickSwitchSnapshot>),
+    QuickSwitch {
+        state: Option<mirix_core::QuickSwitchSnapshot>,
+    },
     ApplySkin(String),
     InputMethod {
         icon: Option<mirix_core::EngineIcon>,

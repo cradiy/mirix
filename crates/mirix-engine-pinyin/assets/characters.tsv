@@ -1,2506 +1,7253 @@
-# character<TAB>display pinyin<TAB>input pinyin<TAB>weight
-啊	ā	a	53595
-阿	ā	a	45839
-爱	ài	ai	51458
-唉	āi	ai	37694
-矮	ǎi	ai	35939
-挨	āi	ai	34325
-哀	āi	ai	33279
-碍	ài	ai	32612
-安	ān	an	49509
-案	àn	an	42632
-按	àn	an	41669
-暗	àn	an	39100
-岸	àn	an	35227
-昂	áng	ang	35629
-奥	ào	ao	38852
-傲	ào	ao	36067
-袄	ǎo	ao	27093
-吧	bā	ba	52796
-把	bǎ	ba	51842
-八	bā	ba	44424
-巴	bā	ba	43584
-爸	bà	ba	41540
-拔	bá	ba	38977
-霸	bà	ba	37457
-罢	bà	ba	33605
-扒	bā	ba	29945
-疤	bā	ba	29201
-坝	bà	ba	28391
-白	bái	bai	47528
-百	bǎi	bai	44449
-拜	bài	bai	41513
-摆	bǎi	bai	38597
-败	bài	bai	38535
-柏	bǎi	bai	34042
-班	bān	ban	46526
-半	bàn	ban	46306
-办	bàn	ban	45978
-般	bān	ban	42937
-板	bǎn	ban	42019
-版	bǎn	ban	41565
-搬	bān	ban	39887
-伴	bàn	ban	39811
-扮	bàn	ban	34841
-斑	bān	ban	32706
-拌	bàn	ban	31857
-瓣	bàn	ban	29616
-帮	bāng	bang	46508
-棒	bàng	bang	44928
-榜	bǎng	bang	34470
-绑	bǎng	bang	33717
-膀	bǎng	bang	30913
-傍	bàng	bang	29799
-包	bāo	bao	46958
-保	bǎo	bao	45915
-宝	bǎo	bao	44581
-报	bào	bao	44383
-抱	bào	bao	44251
-爆	bào	bao	41964
-暴	bào	bao	40586
-饱	bǎo	bao	37820
-薄	báo	bao	36936
-堡	bǎo	bao	35704
-胞	bāo	bao	32463
-雹	báo	bao	23214
-剥	bāo	bao	989
-被	bèi	bei	52046
-北	běi	bei	46122
-备	bèi	bei	43775
-背	bèi	bei	42744
-杯	bēi	bei	41413
-贝	bèi	bei	39694
-悲	bēi	bei	37697
-辈	bèi	bei	37648
-倍	bèi	bei	37386
-碑	bēi	bei	30773
-本	běn	ben	49928
-奔	bēn	ben	38225
-笨	bèn	ben	34966
-蹦	bèng	beng	32039
-比	bǐ	bi	50505
-必	bì	bi	45511
-毕	bì	bi	41353
-笔	bǐ	bi	41221
-闭	bì	bi	40641
-鼻	bí	bi	37821
-避	bì	bi	37366
-彼	bǐ	bi	35773
-壁	bì	bi	35728
-碧	bì	bi	33742
-臂	bì	bi	32676
-币	bì	bi	32586
-蔽	bì	bi	31344
-鄙	bǐ	bi	30624
-弊	bì	bi	29754
-逼	bī	bi	29482
-毙	bì	bi	29344
-变	biàn	bian	47308
-边	biān	bian	46490
-便	biàn	bian	45352
-遍	biàn	bian	41706
-编	biān	bian	39699
-辩	biàn	bian	35161
-扁	biǎn	bian	32065
-辨	biàn	bian	31440
-鞭	biān	bian	30485
-辫	biàn	bian	29268
-表	biǎo	biao	47871
-标	biāo	biao	41156
-别	bié	bie	51740
-宾	bīn	bin	34908
-滨	bīn	bin	32330
-并	bìng	bing	46687
-病	bìng	bing	46173
-冰	bīng	bing	41810
-兵	bīng	bing	39524
-饼	bǐng	bing	38706
-柄	bǐng	bing	27356
-丙	bǐng	bing	26446
-播	bō	bo	42508
-博	bó	bo	41922
-波	bō	bo	41497
-伯	bó	bo	36682
-玻	bō	bo	33740
-卜	bo	bo	33578
-拨	bō	bo	33335
-脖	bó	bo	32812
-驳	bó	bo	31989
-泊	bó	bo	31215
-搏	bó	bo	30571
-膊	bó	bo	28995
-菠	bō	bo	27815
-不	bù	bu	62450
-部	bù	bu	47842
-步	bù	bu	45034
-布	bù	bu	42829
-补	bǔ	bu	40958
-捕	bǔ	bu	34802
-怖	bù	bu	33768
-擦	cā	ca	34294
-才	cái	cai	51037
-菜	cài	cai	43396
-猜	cāi	cai	41388
-彩	cǎi	cai	39744
-材	cái	cai	38721
-采	cǎi	cai	38065
-财	cái	cai	37168
-裁	cái	cai	35990
-踩	cǎi	cai	34980
-睬	cǎi	cai	22818
-餐	cān	can	42096
-参	cān	can	39953
-惨	cǎn	can	38343
-残	cán	can	36655
-灿	càn	can	30258
-惭	cán	can	27424
-蚕	cán	can	27395
-藏	cáng	cang	41172
-苍	cāng	cang	32223
-仓	cāng	cang	31885
-舱	cāng	cang	30531
-槽	cáo	cao	34602
-操	cāo	cao	31793
-草	cǎo	cao	30141
-测	cè	ce	39170
-策	cè	ce	36605
-侧	cè	ce	36267
-厕	cè	ce	33962
-册	cè	ce	32245
-曾	céng	ceng	42949
-层	céng	ceng	41118
-差	chà	cha	45312
-查	chá	cha	44083
-茶	chá	cha	41479
-察	chá	cha	38723
-叉	chā	cha	33201
-插	chā	cha	28072
-岔	chà	cha	26726
-拆	chāi	chai	46627
-柴	chái	chai	32773
-产	chǎn	chan	42184
-缠	chán	chan	32682
-馋	chán	chan	29217
-颤	chàn	chan	28725
-铲	chǎn	chan	28095
-长	cháng	chang	50767
-场	chǎng	chang	47388
-常	cháng	chang	47363
-唱	chàng	chang	44168
-尝	cháng	chang	38300
-厂	chǎng	chang	36376
-昌	chāng	chang	35555
-肠	cháng	chang	35188
-畅	chàng	chang	32504
-偿	cháng	chang	32269
-敞	chǎng	chang	28763
-倡	chàng	chang	25978
-超	chāo	chao	47007
-朝	cháo	chao	40742
-炒	chǎo	chao	38697
-吵	chǎo	chao	37551
-潮	cháo	chao	36885
-抄	chāo	chao	35458
-钞	chāo	chao	26787
-车	chē	che	49513
-扯	chě	che	36173
-彻	chè	che	35691
-撤	chè	che	34484
-陈	chén	chen	38848
-沉	chén	chen	38748
-晨	chén	chen	38445
-趁	chèn	chen	35872
-尘	chén	chen	34248
-臣	chén	chen	33336
-衬	chèn	chen	32153
-辰	chén	chen	30228
-成	chéng	cheng	51284
-城	chéng	cheng	45027
-程	chéng	cheng	42957
-称	chēng	cheng	41461
-承	chéng	cheng	39357
-撑	chēng	cheng	37546
-乘	chéng	cheng	37337
-诚	chéng	cheng	36614
-呈	chéng	cheng	33103
-惩	chéng	cheng	29931
-秤	chèng	cheng	28221
-吃	chī	chi	52289
-持	chí	chi	45247
-迟	chí	chi	38772
-池	chí	chi	35939
-尺	chǐ	chi	35075
-齿	chǐ	chi	34196
-赤	chì	chi	33546
-耻	chǐ	chi	32719
-翅	chì	chi	31960
-驰	chí	chi	29579
-斥	chì	chi	27898
-匙	chí	chi	995
-冲	chōng	chong	41316
-充	chōng	chong	40304
-虫	chóng	chong	37036
-崇	chóng	chong	32564
-丑	chǒu	chou	39930
-臭	chòu	chou	37944
-愁	chóu	chou	35555
-仇	chóu	chou	34991
-筹	chóu	chou	32463
-抽	chōu	chou	29422
-酬	chóu	chou	28435
-稠	chóu	chou	24575
-绸	chóu	chou	24096
-出	chū	chu	54116
-处	chǔ	chu	45137
-初	chū	chu	43299
-除	chú	chu	42699
-楚	chǔ	chu	39239
-触	chù	chu	36938
-厨	chú	chu	35596
-础	chǔ	chu	31433
-储	chǔ	chu	31298
-畜	chù	chu	23529
-锄	chú	chu	21556
-穿	chuān	chuan	46629
-传	chuán	chuan	43675
-船	chuán	chuan	39989
-川	chuān	chuan	38506
-串	chuàn	chuan	37022
-喘	chuǎn	chuan	31140
-床	chuáng	chuang	43188
-创	chuàng	chuang	39427
-窗	chuāng	chuang	37372
-闯	chuǎng	chuang	32117
-疮	chuāng	chuang	25280
-吹	chuí	chui	39935
-锤	chuí	chui	31980
-垂	chuí	chui	31522
-炊	chuī	chui	21648
-春	chūn	chun	42419
-纯	chún	chun	39369
-蠢	chǔn	chun	35880
-唇	chún	chun	33730
-次	cì	ci	52019
-此	cǐ	ci	47023
-词	cí	ci	41780
-刺	cì	ci	37789
-辞	cí	ci	35564
-慈	cí	ci	31718
-磁	cí	ci	31619
-从	cóng	cong	49617
-聪	cōng	cong	36136
-葱	cōng	cong	33008
-匆	cōng	cong	30389
-丛	cóng	cong	27450
-凑	còu	cou	35351
-粗	cū	cu	37875
-醋	cù	cu	33761
-促	cù	cu	33189
-窜	cuàn	cuan	28170
-催	cuī	cui	35966
-脆	cuì	cui	34569
-翠	cuì	cui	31355
-摧	cuī	cui	28686
-存	cún	cun	42676
-村	cūn	cun	40995
-寸	cùn	cun	34371
-错	cuò	cuo	48526
-大	dà	da	56183
-打	dǎ	da	51277
-达	dá	da	43311
-答	dá	da	41047
-搭	dā	da	40041
-带	dài	dai	49719
-待	dài	dai	46169
-代	dài	dai	45620
-戴	dài	dai	41760
-呆	dāi	dai	40203
-袋	dài	dai	38707
-逮	dǎi	dai	33783
-贷	dài	dai	27422
-怠	dài	dai	24044
-单	dān	dan	61782
-但	dàn	dan	52029
-蛋	dàn	dan	42732
-担	dān	dan	39708
-淡	dàn	dan	39288
-弹	dàn	dan	39236
-丹	dān	dan	37446
-胆	dǎn	dan	35844
-旦	dàn	dan	34995
-诞	dàn	dan	34767
-耽	dān	dan	30055
-当	dāng	dang	50350
-党	dǎng	dang	41347
-档	dàng	dang	36387
-挡	dǎng	dang	36253
-荡	dàng	dang	33916
-到	dào	dao	56717
-道	dào	dao	51586
-倒	dǎo	dao	44021
-导	dǎo	dao	41192
-岛	dǎo	dao	40567
-刀	dāo	dao	40343
-盗	dào	dao	34090
-蹈	dǎo	dao	30330
-叨	dāo	dao	30025
-稻	dào	dao	28912
-悼	dào	dao	24577
-的	de	de	65535
-得	dé	de	55514
-德	dé	de	43943
-等	děng	deng	51724
-灯	dēng	deng	39766
-登	dēng	deng	39356
-凳	dèng	deng	30097
-地	dì	di	51724
-第	dì	di	48821
-底	dǐ	di	44928
-低	dī	di	43611
-滴	dī	di	41965
-弟	dì	di	41188
-帝	dì	di	38227
-敌	dí	di	38130
-递	dì	di	37097
-抵	dǐ	di	35348
-笛	dí	di	28669
-堤	dī	di	28247
-点	diǎn	dian	53689
-电	diàn	dian	47060
-店	diàn	dian	44706
-典	diǎn	dian	38039
-垫	diàn	dian	33377
-颠	diān	dian	32088
-殿	diàn	dian	31015
-掉	diào	diao	44935
-调	diào	diao	44778
-钓	diào	diao	32127
-雕	diāo	diao	31686
-叼	diāo	diao	27981
-吊	diào	diao	25000
-爹	diē	die	34029
-跌	diē	die	33399
-叠	dié	die	31633
-蝶	dié	die	31586
-定	dìng	ding	51013
-顶	dǐng	ding	40014
-订	dìng	ding	37498
-丁	dīng	ding	36716
-盯	dīng	ding	34577
-钉	dìng	ding	32593
-叮	dīng	ding	31449
-丢	dīu	diu	40161
-动	dòng	dong	49824
-东	dōng	dong	46799
-懂	dǒng	dong	44973
-冬	dōng	dong	39701
-洞	dòng	dong	39051
-冻	dòng	dong	37312
-栋	dòng	dong	32797
-董	dǒng	dong	31660
-都	dōu	dou	56835
-斗	dòu	dou	40775
-豆	dòu	dou	40154
-逗	dòu	dou	37069
-抖	dǒu	dou	35257
-陡	dǒu	dou	24453
-度	dù	du	47267
-读	dú	du	43070
-毒	dú	du	42518
-独	dú	du	40450
-肚	dù	du	38013
-堵	dǔ	du	36245
-督	dū	du	36157
-杜	dù	du	35579
-渡	dù	du	34586
-赌	dǔ	du	34447
-短	duǎn	duan	51005
-段	duàn	duan	44960
-断	duàn	duan	42620
-端	duān	duan	39551
-锻	duàn	duan	33063
-缎	duàn	duan	19483
-对	duì	dui	54693
-队	duì	dui	44868
-堆	duī	dui	38479
-顿	dùn	dun	40689
-盾	dùn	dun	34943
-蹲	dūn	dun	33520
-吨	dūn	dun	29799
-多	duō	duo	55334
-躲	duǒ	duo	36589
-朵	duǒ	duo	36519
-夺	duó	duo	35266
-惰	duò	duo	25017
-饿	è	e	40801
-额	é	e	40136
-恶	è	e	38669
-鹅	é	e	34627
-蛾	é	e	23773
-恩	ēn	en	45395
-而	ér	er	51359
-儿	ér	er	48135
-二	èr	er	48041
-耳	ěr	er	39885
-发	fā	fa	51916
-法	fǎ	fa	48781
-罚	fá	fa	35463
-伐	fá	fa	31675
-乏	fá	fa	31659
-阀	fá	fa	24541
-反	fǎn	fan	46457
-饭	fàn	fan	45110
-翻	fān	fan	41984
-烦	fán	fan	41418
-犯	fàn	fan	40159
-范	fàn	fan	38376
-凡	fán	fan	36956
-返	fǎn	fan	36383
-番	fān	fan	35778
-繁	fán	fan	34389
-泛	fàn	fan	33794
-帆	fān	fan	31739
-贩	fàn	fan	28601
-放	fàng	fang	49870
-方	fāng	fang	49197
-房	fáng	fang	44147
-防	fáng	fang	42454
-访	fǎng	fang	36081
-仿	fǎng	fang	34492
-芳	fāng	fang	33598
-坊	fāng	fang	31625
-妨	fáng	fang	27764
-纺	fǎng	fang	24435
-非	fēi	fei	45469
-飞	fēi	fei	44582
-费	fèi	fei	43529
-肥	féi	fei	42587
-废	fèi	fei	36700
-肺	fèi	fei	36555
-匪	fěi	fei	29955
-沸	fèi	fei	26370
-分	fēn	fen	50042
-份	fèn	fen	45007
-粉	fěn	fen	39181
-奋	fèn	fen	36996
-芬	fēn	fen	33528
-愤	fèn	fen	32449
-纷	fēn	fen	31263
-粪	fèn	fen	29888
-坟	fén	fen	29306
-吩	fēn	fen	19870
-风	fēng	feng	46068
-封	fēng	feng	40343
-疯	fēng	feng	39924
-丰	fēng	feng	37219
-峰	fēng	feng	36923
-奉	fèng	feng	34126
-缝	féng	feng	34096
-蜂	fēng	feng	34058
-锋	fēng	feng	33909
-凤	fèng	feng	33897
-逢	féng	feng	32737
-讽	fěng	feng	30125
-佛	fó	fo	1000
-否	fǒu	fou	39391
-服	fú	fu	46828
-福	fú	fu	45667
-复	fù	fu	43863
-富	fù	fu	42217
-负	fù	fu	41696
-夫	fū	fu	41647
-付	fù	fu	40991
-父	fù	fu	40700
-副	fù	fu	39561
-附	fù	fu	38423
-府	fǔ	fu	38364
-妇	fù	fu	37660
-扶	fú	fu	36396
-肤	fū	fu	36177
-腐	fǔ	fu	35971
-幅	fú	fu	35901
-浮	fú	fu	35725
-符	fú	fu	35497
-腹	fù	fu	34602
-伏	fú	fu	33634
-傅	fù	fu	33484
-辅	fǔ	fu	32808
-赴	fù	fu	30936
-抚	fǔ	fu	30445
-覆	fù	fu	28607
-俯	fǔ	fu	27435
-斧	fǔ	fu	26834
-俘	fú	fu	25663
-咐	fù	fu	22104
-该	gāi	gai	49574
-改	gǎi	gai	45129
-盖	gài	gai	39571
-概	gài	gai	37375
-溉	gài	gai	18676
-感	gǎn	gan	50231
-干	gàn	gan	49584
-敢	gǎn	gan	45432
-赶	gǎn	gan	42619
-甘	gān	gan	35825
-杆	gǎn	gan	33961
-肝	gān	gan	33445
-竿	gān	gan	26460
-秆	gǎn	gan	16496
-刚	gāng	gang	46669
-港	gǎng	gang	40476
-钢	gāng	gang	35139
-岗	gǎng	gang	34483
-杠	gàng	gang	31047
-缸	gāng	gang	29786
-冈	gāng	gang	29117
-纲	gāng	gang	28342
-高	gāo	gao	50262
-告	gào	gao	45427
-搞	gǎo	gao	44232
-糕	gāo	gao	36983
-稿	gǎo	gao	33804
-膏	gāo	gao	32496
-个	gè	ge	57660
-哥	gē	ge	46846
-歌	gē	ge	45601
-各	gè	ge	44819
-格	gé	ge	44722
-隔	gé	ge	39825
-革	gé	ge	35480
-割	gē	ge	35401
-葛	gě	ge	32386
-阁	gé	ge	30223
-搁	gē	ge	28891
-鸽	gē	ge	28881
-胳	gē	ge	27709
-给	gěi	gei	52661
-跟	gēn	gen	49747
-根	gēn	gen	44360
-更	gèng	geng	50329
-耕	gēng	geng	28398
-工	gōng	gong	47886
-公	gōng	gong	47135
-共	gòng	gong	43462
-功	gōng	gong	41625
-供	gòng	gong	40178
-攻	gōng	gong	40111
-恭	gōng	gong	37583
-宫	gōng	gong	37319
-贡	gòng	gong	33115
-弓	gōng	gong	27907
-躬	gōng	gong	26494
-巩	gǒng	gong	25190
-够	gòu	gou	45781
-狗	gǒu	gou	45704
-购	gòu	gou	38028
-沟	gōu	gou	35612
-勾	gōu	gou	35085
-构	gòu	gou	34634
-钩	gōu	gou	29506
-故	gù	gu	41347
-古	gǔ	gu	40938
-估	gū	gu	39970
-顾	gù	gu	39668
-骨	gǔ	gu	39093
-鼓	gǔ	gu	38852
-孤	gū	gu	37743
-姑	gū	gu	37439
-股	gǔ	gu	37066
-谷	gǔ	gu	36951
-固	gù	gu	34861
-辜	gū	gu	28953
-挂	guà	gua	39216
-瓜	guā	gua	38828
-刮	guā	gua	34344
-怪	guài	guai	42944
-乖	guāi	guai	38668
-拐	guǎi	guai	32377
-关	guān	guan	48564
-管	guǎn	guan	46640
-官	guān	guan	42040
-观	guān	guan	41887
-馆	guǎn	guan	38961
-冠	guàn	guan	38926
-惯	guàn	guan	36674
-罐	guàn	guan	34411
-灌	guàn	guan	32839
-贯	guàn	guan	31004
-光	guāng	guang	46407
-广	guǎng	guang	42990
-贵	guì	gui	42126
-鬼	guǐ	gui	41588
-归	guī	gui	39637
-闺	guī	gui	38845
-规	guī	gui	38845
-跪	guì	gui	34607
-柜	guì	gui	34435
-轨	guǐ	gui	33910
-桂	guì	gui	33367
-龟	guī	gui	32252
-棍	gùn	gun	33486
-滚	gǔn	gun	29537
-过	guò	guo	54943
-国	guó	guo	48284
-果	guǒ	guo	47273
-锅	guō	guo	39775
-裹	guǒ	guo	32980
-哈	hā	ha	54187
-还	hái	hai	55960
-海	hǎi	hai	46940
-害	hài	hai	45500
-孩	hái	hai	43850
-汉	hàn	han	41938
-喊	hǎn	han	39345
-含	hán	han	37291
-寒	hán	han	37029
-汗	hàn	han	36936
-旱	hàn	han	26854
-航	háng	hang	38852
-好	hǎo	hao	59137
-号	hào	hao	46919
-豪	háo	hao	39597
-毫	háo	hao	35197
-耗	hào	hao	34533
-浩	hào	hao	32670
-和	hé	he	55107
-合	hé	he	47076
-喝	hē	he	45967
-何	hé	he	45212
-河	hé	he	41856
-核	hé	he	37603
-盒	hé	he	37265
-荷	hé	he	35602
-贺	hè	he	34030
-禾	hé	he	24810
-黑	hēi	hei	46263
-很	hěn	hen	54972
-恨	hèn	hen	39956
-狠	hěn	hen	36213
-痕	hén	hen	33448
-横	héng	heng	35189
-衡	héng	heng	32610
-恒	héng	heng	32182
-红	hóng	hong	45782
-洪	hóng	hong	33298
-哄	hǒng	hong	33069
-轰	hōng	hong	32769
-宏	hóng	hong	31824
-虹	hóng	hong	30734
-烘	hōng	hong	27699
-后	hòu	hou	52637
-候	hòu	hou	46662
-厚	hòu	hou	39006
-吼	hǒu	hou	36004
-猴	hóu	hou	35743
-喉	hóu	hou	32325
-护	hù	hu	42059
-湖	hú	hu	41853
-呼	hū	hu	41054
-互	hù	hu	39915
-乎	hū	hu	39886
-户	hù	hu	39798
-胡	hú	hu	39644
-虎	hǔ	hu	37731
-糊	hú	hu	35752
-忽	hū	hu	35587
-壶	hú	hu	31202
-狐	hú	hu	30987
-蝴	hú	hu	26895
-话	huà	hua	50583
-花	huā	hua	47925
-化	huà	hua	45772
-画	huà	hua	43645
-华	huá	hua	42249
-划	huá	hua	40381
-滑	huá	hua	37919
-哗	huá	hua	29320
-猾	huá	hua	20731
-坏	huài	huai	42921
-怀	huái	huai	40983
-槐	huái	huai	21911
-欢	huān	huan	46394
-换	huàn	huan	45727
-环	huán	huan	40912
-患	huàn	huan	36166
-幻	huàn	huan	35259
-缓	huǎn	huan	34725
-唤	huàn	huan	31741
-黄	huáng	huang	42313
-皇	huáng	huang	37631
-慌	huāng	huang	35263
-晃	huàng	huang	34046
-荒	huāng	huang	33043
-谎	huǎng	huang	32858
-煌	huáng	huang	26340
-会	huì	hui	56616
-回	huí	hui	52964
-灰	huī	hui	38404
-毁	huǐ	hui	38285
-挥	huī	hui	37246
-惠	huì	hui	36188
-悔	huǐ	hui	36060
-慧	huì	hui	34177
-汇	huì	hui	33904
-恢	huī	hui	32827
-绘	huì	hui	31035
-辉	huī	hui	30906
-贿	huì	hui	18160
-婚	hūn	hun	43604
-混	hùn	hun	40330
-魂	hún	hun	36292
-昏	hūn	hun	34610
-浑	hún	hun	32313
-活	huó	huo	49112
-火	huǒ	huo	46190
-或	huò	huo	46101
-货	huò	huo	41126
-伙	huǒ	huo	39595
-获	huò	huo	37957
-惑	huò	huo	34162
-祸	huò	huo	33111
-几	jǐ	ji	49375
-机	jī	ji	48994
-己	jǐ	ji	48353
-记	jì	ji	47492
-及	jí	ji	45798
-级	jí	ji	44680
-基	jī	ji	44634
-集	jí	ji	44410
-计	jì	ji	44136
-季	jì	ji	42740
-急	jí	ji	42492
-极	jí	ji	41813
-即	jí	ji	41560
-技	jì	ji	41427
-鸡	jī	ji	41382
-击	jī	ji	41056
-继	jì	ji	40928
-吉	jí	ji	40628
-纪	jì	ji	40597
-激	jī	ji	40180
-寄	jì	ji	39676
-既	jì	ji	39361
-际	jì	ji	38796
-积	jī	ji	38426
-济	jì	ji	38345
-挤	jǐ	ji	36170
-迹	jì	ji	35477
-肌	jī	ji	35354
-绩	jì	ji	34483
-剂	jì	ji	34257
-籍	jí	ji	33267
-圾	jī	ji	32834
-疾	jí	ji	32322
-忌	jì	ji	32139
-饥	jī	ji	30125
-脊	jǐ	ji	28743
-家	jiā	jia	54239
-加	jiā	jia	50793
-假	jiǎ	jia	46479
-价	jià	jia	41735
-架	jià	jia	41189
-佳	jiā	jia	38863
-甲	jiǎ	jia	38545
-嫁	jià	jia	38460
-驾	jià	jia	37758
-嘉	jiā	jia	36430
-夹	jiā	jia	35919
-稼	jià	jia	20754
-见	jiàn	jian	50235
-间	jiān	jian	48763
-件	jiàn	jian	47028
-建	jiàn	jian	44193
-坚	jiān	jian	42275
-减	jiǎn	jian	42150
-健	jiàn	jian	41896
-简	jiǎn	jian	41639
-剪	jiǎn	jian	40311
-检	jiǎn	jian	39461
-键	jiàn	jian	39260
-尖	jiān	jian	36273
-监	jiān	jian	36203
-肩	jiān	jian	35809
-剑	jiàn	jian	35341
-渐	jiàn	jian	34790
-荐	jiàn	jian	34750
-煎	jiān	jian	34468
-捡	jiǎn	jian	34436
-兼	jiān	jian	34203
-舰	jiàn	jian	33255
-艰	jiān	jian	33122
-鉴	jiàn	jian	33096
-箭	jiàn	jian	32967
-践	jiàn	jian	31974
-俭	jiǎn	jian	26961
-茧	jiǎn	jian	25810
-拣	jiǎn	jian	25784
-歼	jiān	jian	24240
-奸	jiān	jian	22789
-贱	jiàn	jian	22061
-将	jiāng	jiang	46323
-讲	jiǎng	jiang	44071
-江	jiāng	jiang	41505
-奖	jiǎng	jiang	40454
-降	jiàng	jiang	40077
-酱	jiàng	jiang	36831
-姜	jiāng	jiang	33262
-疆	jiāng	jiang	32541
-浆	jiāng	jiang	31294
-僵	jiāng	jiang	31067
-匠	jiàng	jiang	28849
-桨	jiǎng	jiang	23682
-叫	jiào	jiao	47837
-教	jiào	jiao	46749
-交	jiāo	jiao	45782
-较	jiào	jiao	43019
-角	jiǎo	jiao	42775
-脚	jiǎo	jiao	42525
-焦	jiāo	jiao	36824
-胶	jiāo	jiao	34172
-娇	jiāo	jiao	34052
-椒	jiāo	jiao	33730
-骄	jiāo	jiao	32693
-饺	jiǎo	jiao	32425
-浇	jiāo	jiao	31465
-郊	jiāo	jiao	30302
-搅	jiǎo	jiao	29736
-蕉	jiāo	jiao	29533
-缴	jiǎo	jiao	26516
-绞	jiǎo	jiao	25243
-狡	jiǎo	jiao	24926
-轿	jiào	jiao	24802
-嚼	jiáo	jiao	980
-接	jiē	jie	48502
-结	jié	jie	46612
-解	jiě	jie	46499
-节	jié	jie	45819
-姐	jiě	jie	44556
-界	jiè	jie	44327
-街	jiē	jie	42837
-借	jiè	jie	41277
-介	jiè	jie	40585
-杰	jié	jie	38405
-戒	jiè	jie	37848
-截	jié	jie	37445
-洁	jié	jie	35777
-届	jiè	jie	35363
-皆	jiē	jie	35130
-阶	jiē	jie	34764
-劫	jié	jie	33548
-揭	jiē	jie	32790
-捷	jié	jie	32742
-竭	jié	jie	26457
-金	jīn	jin	65773
-今	jīn	jin	49011
-进	jìn	jin	48348
-近	jìn	jin	47637
-紧	jǐn	jin	43931
-尽	jìn	jin	42831
-仅	jǐn	jin	39708
-劲	jìn	jin	38477
-禁	jìn	jin	37933
-斤	jīn	jin	37819
-津	jīn	jin	35838
-巾	jīn	jin	34113
-锦	jǐn	jin	32569
-谨	jǐn	jin	31707
-筋	jīn	jin	31691
-晋	jìn	jin	31532
-浸	jìn	jin	30267
-经	jīng	jing	48708
-精	jīng	jing	43808
-警	jǐng	jing	43275
-京	jīng	jing	42903
-竟	jìng	jing	41426
-景	jǐng	jing	41210
-静	jìng	jing	40824
-镜	jìng	jing	40585
-敬	jìng	jing	40281
-惊	jīng	jing	40092
-境	jìng	jing	39802
-净	jìng	jing	36989
-睛	jīng	jing	36951
-井	jǐng	jing	35270
-竞	jìng	jing	33775
-晶	jīng	jing	33533
-径	jìng	jing	30944
-颈	jǐng	jing	30464
-茎	jīng	jing	17390
-就	jiù	jiu	58096
-久	jiǔ	jiu	46795
-酒	jiǔ	jiu	45455
-救	jiù	jiu	42951
-九	jiǔ	jiu	42368
-旧	jiù	jiu	39458
-究	jiū	jiu	39143
-纠	jiū	jiu	35186
-舅	jiù	jiu	31076
-揪	jiū	jiu	29735
-句	jù	ju	44523
-局	jú	ju	43443
-剧	jù	ju	42941
-居	jū	ju	42853
-具	jù	ju	42132
-据	jù	ju	41789
-举	jǔ	ju	41625
-聚	jù	ju	41395
-巨	jù	ju	38803
-距	jù	ju	38262
-拒	jù	ju	38078
-惧	jù	ju	33218
-橘	jú	ju	33011
-俱	jù	ju	32825
-矩	jǔ	ju	30932
-菊	jú	ju	29452
-拘	jū	ju	28967
-锯	jù	ju	26982
-鞠	jū	ju	26837
-卷	juàn	juan	40157
-捐	juān	juan	34799
-倦	juàn	juan	27845
-绢	juàn	juan	21850
-觉	jué	jue	48781
-绝	jué	jue	43196
-决	jué	jue	42751
-掘	jué	jue	30594
-军	jūn	jun	43338
-君	jūn	jun	38647
-均	jūn	jun	37502
-俊	jùn	jun	35634
-菌	jūn	jun	33479
-卡	kǎ	ka	44450
-开	kāi	kai	52610
-凯	kǎi	kai	36987
-慨	kǎi	kai	31563
-看	kàn	kan	55779
-堪	kān	kan	34538
-砍	kǎn	kan	34095
-刊	kān	kan	30302
-康	kāng	kang	42050
-抗	kàng	kang	39027
-扛	káng	kang	32048
-炕	kàng	kang	22530
-糠	kāng	kang	21409
-靠	kào	kao	52324
-考	kǎo	kao	46546
-烤	kǎo	kao	38943
-可	kě	ke	55599
-克	kè	ke	44547
-科	kē	ke	44149
-客	kè	ke	44072
-课	kè	ke	43428
-刻	kè	ke	40804
-颗	kē	ke	38754
-咳	ké	ke	35100
-壳	ké	ke	34993
-渴	kě	ke	32903
-棵	kē	ke	31935
-肯	kěn	ken	43386
-恳	kěn	ken	25657
-垦	kěn	ken	23115
-坑	kēng	keng	37884
-空	kōng	kong	46208
-控	kòng	kong	42322
-恐	kǒng	kong	39197
-孔	kǒng	kong	35461
-口	kǒu	kou	47829
-扣	kòu	kou	37507
-寇	kòu	kou	27273
-苦	kǔ	ku	43809
-哭	kū	ku	42810
-酷	kù	ku	40302
-裤	kù	ku	38507
-库	kù	ku	35500
-枯	kū	ku	28777
-夸	kuā	kua	38594
-跨	kuà	kua	35729
-垮	kuǎ	kua	31145
-挎	kuà	kua	21862
-快	kuài	kuai	52325
-块	kuài	kuai	43214
-款	kuǎn	kuan	41714
-宽	kuān	kuan	36733
-狂	kuáng	kuang	39672
-况	kuàng	kuang	39283
-框	kuàng	kuang	33069
-矿	kuàng	kuang	32152
-旷	kuàng	kuang	26987
-筐	kuāng	kuang	25830
-亏	kuī	kui	34227
-愧	kuì	kui	31320
-葵	kuí	kui	20574
-困	kùn	kun	42346
-昆	kūn	kun	33904
-捆	kǔn	kun	28485
-括	kuò	kuo	35426
-阔	kuò	kuo	34050
-扩	kuò	kuo	31621
-啦	lā	la	48016
-拉	lā	la	46624
-辣	là	la	41404
-垃	lā	la	34270
-腊	là	la	31780
-蜡	là	la	30994
-喇	lǎ	la	29653
-来	lái	lai	57430
-赖	lài	lai	35604
-蓝	lán	lan	40132
-兰	lán	lan	40038
-懒	lǎn	lan	37418
-烂	làn	lan	36019
-篮	lán	lan	34451
-拦	lán	lan	31968
-栏	lán	lan	31715
-滥	làn	lan	30630
-览	lǎn	lan	30159
-浪	làng	lang	41766
-朗	lǎng	lang	37883
-狼	láng	lang	36702
-郎	láng	lang	35045
-廊	láng	lang	30380
-老	lǎo	lao	50896
-劳	láo	lao	38366
-牢	láo	lao	34951
-捞	lāo	lao	34786
-姥	lǎo	lao	29274
-涝	lào	lao	21401
-了	le	le	62590
-乐	lè	le	47771
-勒	lè	le	999
-累	lèi	lei	44082
-类	lèi	lei	42826
-雷	léi	lei	40481
-泪	lèi	lei	37372
-垒	lěi	lei	29701
-冷	lěng	leng	44597
-里	lǐ	li	53149
-力	lì	li	49078
-理	lǐ	li	48510
-利	lì	li	45405
-离	lí	li	45183
-立	lì	li	43258
-礼	lǐ	li	41538
-李	lǐ	li	41355
-丽	lì	li	41162
-历	lì	li	40887
-例	lì	li	39245
-厉	lì	li	38062
-励	lì	li	35402
-粒	lì	li	34310
-黎	lí	li	33876
-梨	lí	li	33144
-厘	lí	li	31574
-璃	lí	li	30487
-栗	lì	li	30372
-狸	lí	li	27648
-隶	lì	li	25246
-犁	lí	li	23585
-鹂	lì	li	12879
-连	lián	lian	44933
-脸	liǎn	lian	44784
-联	lián	lian	41721
-恋	liàn	lian	41248
-练	liàn	lian	41026
-怜	lián	lian	35990
-炼	liàn	lian	35817
-莲	lián	lian	35742
-链	liàn	lian	35519
-廉	lián	lian	31576
-帘	lián	lian	29298
-镰	lián	lian	21785
-两	liǎng	liang	50244
-量	liàng	liang	45256
-亮	liàng	liang	43589
-良	liáng	liang	39613
-凉	liáng	liang	39478
-辆	liàng	liang	38218
-粮	liáng	liang	37194
-梁	liáng	liang	33799
-谅	liàng	liang	33351
-粱	liáng	liang	20984
-俩	liǎng	liang	1000
-料	liào	liao	41751
-疗	liáo	liao	35459
-辽	liáo	liao	30712
-僚	liáo	liao	25793
-列	liè	lie	40747
-烈	liè	lie	37402
-裂	liè	lie	34258
-猎	liè	lie	32502
-劣	liè	lie	29737
-林	lín	lin	42469
-临	lín	lin	37693
-淋	lín	lin	34598
-邻	lín	lin	31886
-另	lìng	ling	43437
-领	lǐng	ling	42113
-令	lìng	ling	42022
-灵	líng	ling	40659
-零	líng	ling	39977
-龄	líng	ling	35762
-铃	líng	ling	32193
-陵	líng	ling	32056
-岭	lǐng	ling	31418
-伶	líng	ling	25296
-留	liú	liu	46024
-流	liú	liu	45199
-六	liù	liu	44710
-刘	liú	liu	38899
-溜	liū	liu	36457
-柳	liǔ	liu	33097
-榴	liú	liu	31944
-龙	lóng	long	41687
-隆	lóng	long	35589
-笼	lóng	long	32733
-聋	lóng	long	27137
-拢	lǒng	long	25616
-垄	lǒng	long	17991
-楼	lóu	lou	42696
-漏	lòu	lou	35839
-搂	lǒu	lou	27370
-路	lù	lu	48443
-露	lù	lu	41520
-录	lù	lu	40114
-鹿	lù	lu	38187
-陆	lù	lu	35513
-鲁	lǔ	lu	35437
-炉	lú	lu	32354
-芦	lú	lu	30823
-碌	lù	lu	30527
-虏	lǔ	lu	23149
-乱	luàn	luan	42242
-卵	luǎn	luan	22945
-论	lùn	lun	42197
-轮	lún	lun	30318
-落	luò	luo	43080
-罗	luó	luo	39929
-络	luò	luo	35805
-萝	luó	luo	35311
-螺	luó	luo	30454
-锣	luó	luo	26462
-骆	luò	luo	25462
-骡	luó	luo	22619
-箩	luó	luo	21043
-滤	lǜ	lv	1000
-驴	lǘ	lv	1000
-旅	lǚ	lv	1000
-屡	lǚ	lv	1000
-律	lǜ	lv	1000
-虑	lǜ	lv	1000
-率	lǜ	lv	1000
-绿	lǜ	lv	1000
-掠	lüě	lve	1000
-略	lüè	lve	1000
-吗	ma	ma	52280
-马	mǎ	ma	46267
-妈	mā	ma	44870
-麻	má	ma	41653
-码	mǎ	ma	40194
-骂	mà	ma	39555
-蚂	mǎ	ma	26364
-买	mǎi	mai	48488
-卖	mài	mai	43789
-麦	mài	mai	37897
-埋	mái	mai	36185
-迈	mài	mai	34529
-脉	mài	mai	31338
-满	mǎn	man	44749
-慢	màn	man	43703
-蛮	mán	man	37964
-漫	màn	man	37793
-瞒	mán	man	31392
-馒	mán	man	26980
-忙	máng	mang	43919
-芒	máng	mang	33471
-盲	máng	mang	33370
-茫	máng	mang	31883
-毛	máo	mao	45021
-猫	māo	mao	42098
-冒	mào	mao	40838
-貌	mào	mao	37962
-帽	mào	mao	37141
-矛	máo	mao	33512
-茂	mào	mao	30491
-贸	mào	mao	30428
-茅	máo	mao	27994
-么	me	me	55122
-没	méi	mei	56254
-美	měi	mei	51060
-每	měi	mei	48782
-妹	mèi	mei	43325
-梅	méi	mei	37430
-眉	méi	mei	37198
-霉	méi	mei	32612
-煤	méi	mei	32175
-们	mén	men	54480
-门	mén	men	47375
-闷	mèn	men	35558
-梦	mèng	meng	44592
-蒙	méng	meng	38507
-萌	méng	meng	37280
-猛	měng	meng	36004
-盟	méng	meng	34393
-孟	mèng	meng	30668
-米	mǐ	mi	44444
-迷	mí	mi	41505
-密	mì	mi	41332
-秘	mì	mi	37673
-蜜	mì	mi	37571
-谜	mí	mi	29295
-眯	mī	mi	15543
-面	miàn	mian	50356
-免	miǎn	mian	40388
-眠	mián	mian	37643
-棉	mián	mian	35200
-勉	miǎn	mian	32171
-绵	mián	mian	32010
-秒	miǎo	miao	39515
-妙	miào	miao	36682
-苗	miáo	miao	34550
-描	miáo	miao	33393
-庙	miào	miao	31854
-灭	miè	mie	36684
-蔑	miè	mie	26433
-民	mín	min	44195
-敏	mǐn	min	36651
-明	míng	ming	49757
-名	míng	ming	48895
-命	mìng	ming	45142
-鸣	míng	ming	32256
-默	mò	mo	59857
-模	mó	mo	42017
-末	mò	mo	40917
-摸	mō	mo	40436
-莫	mò	mo	40309
-魔	mó	mo	38534
-磨	mó	mo	38173
-摩	mó	mo	37362
-膜	mó	mo	36143
-墨	mò	mo	35929
-抹	mò	mo	35297
-漠	mò	mo	31240
-沫	mò	mo	29478
-某	mǒu	mou	41466
-谋	móu	mou	33775
-目	mù	mu	44154
-木	mù	mu	43170
-母	mǔ	mu	41468
-慕	mù	mu	39477
-幕	mù	mu	38817
-墓	mù	mu	33218
-牧	mù	mu	30561
-暮	mù	mu	27366
-亩	mǔ	mu	27067
-那	nà	na	55544
-哪	nǎ	na	49308
-拿	ná	na	47351
-纳	nà	na	38082
-奶	nǎi	nai	41532
-耐	nai	nai	36758
-乃	nǎi	nai	34651
-难	nán	nan	48568
-男	nán	nan	48052
-南	nán	nan	46264
-囊	náng	nang	31081
-脑	nǎo	nao	42770
-闹	nào	nao	39508
-恼	nǎo	nao	33209
-挠	náo	nao	30295
-呢	ne	ne	50929
-内	nèi	nei	46354
-嫩	nèn	nen	34804
-能	néng	neng	56032
-你	nǐ	ni	60634
-尼	ní	ni	41741
-泥	ní	ni	36598
-逆	nì	ni	35238
-年	nián	nian	54252
-念	niàn	nian	43444
-娘	niáng	niang	40626
-酿	niàng	niang	30653
-鸟	niǎo	niao	39293
-尿	niào	niao	27409
-捏	niē	nie	34442
-您	nín	nin	44304
-宁	níng	ning	38665
-凝	níng	ning	31769
-牛	niú	niu	42734
-扭	niǔ	niu	34800
-纽	niǔ	niu	31561
-弄	nòng	nong	42516
-农	nóng	nong	39379
-浓	nóng	nong	35232
-努	nǔ	nu	41057
-怒	nù	nu	36086
-奴	nú	nu	33250
-暖	nuǎn	nuan	41328
-挪	nuó	nuo	30325
-女	nǚ	nv	1000
-偶	ǒu	ou	40469
-欧	ōu	ou	38586
-怕	pà	pa	45964
-爬	pá	pa	38633
-趴	pā	pa	32314
-拍	pāi	pai	46197
-排	pái	pai	42338
-牌	pái	pai	42338
-派	pai	pai	41794
-盘	pán	pan	39764
-判	pàn	pan	38216
-盼	pàn	pan	33810
-叛	pàn	pan	30898
-攀	pān	pan	30787
-胖	pàng	pang	42445
-旁	páng	pang	38935
-乓	pāng	pang	25494
-跑	pǎo	pao	45270
-泡	pào	pao	39794
-炮	pào	pao	36679
-抛	pāo	pao	35139
-袍	páo	pao	30263
-配	pèi	pei	43292
-陪	péi	pei	42112
-佩	pèi	pei	37050
-培	péi	pei	37013
-赔	péi	pei	33040
-盆	pén	pen	36153
-喷	pēn	pen	26406
-朋	péng	peng	44002
-碰	pèng	peng	39545
-捧	pěng	peng	33658
-棚	péng	peng	31872
-蓬	péng	peng	30972
-膨	péng	peng	28450
-皮	pí	pi	43919
-批	pī	pi	40042
-披	pī	pi	34471
-匹	pǐ	pi	34376
-脾	pí	pi	33220
-劈	pī	pi	30803
-疲	pí	pi	30797
-辟	pì	pi	30735
-僻	pì	pi	25536
-片	piàn	pian	46389
-骗	piàn	pian	40663
-偏	piān	pian	38581
-篇	piān	pian	37808
-票	piào	piao	45102
-漂	piāo	piao	39585
-飘	piāo	piao	36510
-撇	piě	pie	28584
-品	pǐn	pin	44308
-拼	pīn	pin	38970
-贫	pín	pin	35854
-平	píng	ping	46432
-瓶	píng	ping	39294
-评	píng	ping	39206
-凭	píng	ping	36495
-苹	píng	ping	34820
-萍	píng	ping	27340
-乒	pīng	ping	24878
-破	pò	po	42638
-婆	pó	po	40020
-迫	pò	po	36072
-坡	pō	po	34642
-泼	pō	po	32325
-魄	pò	po	28630
-剖	pōu	pou	27972
-普	pǔ	pu	42111
-铺	pù	pu	35946
-扑	pū	pu	34187
-朴	pǔ	pu	33107
-谱	pǔ	pu	32674
-葡	pú	pu	31050
-仆	pú	pu	19861
-起	qǐ	qi	52561
-其	qí	qi	49248
-气	qì	qi	48554
-期	qī	qi	47929
-七	qī	qi	43416
-奇	qí	qi	43119
-器	qì	qi	42200
-弃	qì	qi	40601
-骑	qí	qi	38430
-齐	qí	qi	38232
-妻	qī	qi	36744
-企	qǐ	qi	36714
-旗	qí	qi	36682
-欺	qī	qi	36514
-启	qǐ	qi	35584
-汽	qì	qi	34671
-岂	qǐ	qi	32798
-棋	qí	qi	32213
-戚	qī	qi	31143
-漆	qī	qi	30993
-乞	qǐ	qi	27302
-砌	qì	qi	24732
-恰	qià	qia	32987
-洽	qià	qia	24663
-前	qián	qian	51945
-钱	qián	qian	48119
-千	qiān	qian	44577
-签	qiān	qian	40273
-欠	qiàn	qian	37695
-牵	qiān	qian	35644
-歉	qiàn	qian	35219
-潜	qián	qian	34838
-浅	qiǎn	qian	34533
-谦	qiān	qian	34417
-迁	qiān	qian	31787
-遣	qiǎn	qian	29772
-铅	qiān	qian	28571
-钳	qián	qian	25283
-强	qiáng	qiang	46393
-抢	qiǎng	qiang	40688
-枪	qiāng	qiang	39872
-墙	qiáng	qiang	38054
-腔	qiāng	qiang	30905
-巧	qiǎo	qiao	39869
-桥	qiáo	qiao	38350
-敲	qiāo	qiao	35599
-乔	qiáo	qiao	35532
-瞧	qiáo	qiao	35232
-悄	qiāo	qiao	33240
-侨	qiáo	qiao	24030
-锹	qiāo	qiao	18697
-切	qiē	qie	44143
-且	qiě	qie	43844
-窃	qiè	qie	27944
-茄	qié	qie	999
-亲	qīn	qin	45841
-勤	qín	qin	37118
-琴	qín	qin	35350
-侵	qīn	qin	31980
-芹	qín	qin	26102
-禽	qín	qin	25932
-情	qíng	qing	50464
-请	qǐng	qing	48052
-清	qīng	qing	46168
-轻	qīng	qing	43334
-青	qīng	qing	43065
-庆	qìng	qing	39564
-倾	qīng	qing	34339
-晴	qíng	qing	33816
-蜻	qīng	qing	22102
-顷	qǐng	qing	19501
-穷	qióng	qiong	38271
-求	qiú	qiu	48419
-球	qiú	qiu	46283
-秋	qiū	qiu	39869
-丘	qiū	qiu	32103
-去	qù	qu	56025
-区	qū	qu	45019
-取	qǔ	qu	44259
-曲	qǔ	qu	39705
-趣	qù	qu	39651
-屈	qū	qu	35608
-驱	qū	qu	32257
-渠	qú	qu	29196
-趋	qū	qu	27677
-全	quán	quan	49615
-圈	quān	quan	41930
-权	quán	quan	40417
-泉	quán	quan	35819
-拳	quán	quan	35800
-劝	quàn	quan	34851
-犬	quǎn	quan	34254
-券	quàn	quan	32266
-确	què	que	44062
-却	què	que	43628
-缺	quē	que	40949
-雀	què	que	31002
-鹊	què	que	22307
-群	qún	qun	43919
-裙	qún	qun	36351
-然	rán	ran	49509
-染	rǎn	ran	40573
-燃	rán	ran	34126
-让	ràng	rang	51181
-嚷	rǎng	rang	27856
-壤	rǎng	rang	25412
-绕	rào	rao	35782
-扰	rǎo	rao	34980
-饶	ráo	rao	31125
-热	rè	re	45680
-惹	rě	re	37292
-人	rén	ren	58863
-认	rèn	ren	45968
-任	rèn	ren	45031
-忍	rěn	ren	40732
-仁	rén	ren	35226
-刃	rèn	ren	26902
-仍	réng	reng	39152
-扔	rēng	reng	37285
-日	rì	ri	50499
-容	róng	rong	44338
-荣	róng	rong	38054
-融	róng	rong	35226
-绒	róng	rong	33373
-熔	róng	rong	26911
-肉	ròu	rou	45042
-柔	róu	rou	36447
-揉	róu	rou	30864
-如	rú	ru	49405
-入	rù	ru	46175
-辱	rǔ	ru	32490
-乳	rǔ	ru	25479
-软	ruǎn	ruan	39092
-瑞	ruì	rui	37327
-锐	ruì	rui	30200
-润	rùn	run	34689
-若	ruò	ruo	39765
-弱	ruò	ruo	39510
-撒	sā	sa	40290
-洒	sǎ	sa	35686
-赛	sài	sai	41334
-塞	sāi	sai	40839
-三	sān	san	50340
-散	sàn	san	40516
-伞	sǎn	san	34190
-桑	sāng	sang	36623
-丧	sàng	sang	34038
-嗓	sǎng	sang	29565
-扫	sǎo	sao	36831
-嫂	sǎo	sao	30024
-色	sè	se	46061
-森	sēn	sen	38777
-杀	shā	sha	43437
-沙	shā	sha	41226
-傻	shǎ	sha	39850
-纱	shā	sha	32029
-晒	shai	shai	38752
-筛	shāi	shai	25221
-山	shān	shan	46270
-善	shàn	shan	42164
-闪	shǎn	shan	37393
-删	shān	shan	35823
-扇	shàn	shan	35170
-衫	shān	shan	33881
-陕	shǎn	shan	28116
-上	shàng	shang	56590
-伤	shāng	shang	44285
-商	shāng	shang	42859
-尚	shàng	shang	37710
-赏	shǎng	shang	36185
-裳	shang	shang	21740
-晌	shǎng	shang	16260
-少	shǎo	shao	48816
-烧	shāo	shao	41232
-稍	shāo	shao	37467
-绍	shào	shao	35835
-勺	sháo	shao	29220
-哨	shào	shao	28842
-捎	shāo	shao	26510
-梢	shāo	shao	23272
-社	shè	she	43239
-设	shè	she	42004
-舍	shě	she	40990
-摄	shè	she	37069
-蛇	shé	she	35109
-舌	shé	she	34273
-涉	shè	she	33743
-射	shè	she	32400
-身	shēn	shen	49064
-神	shén	shen	47234
-深	shēn	shen	45591
-甚	shèn	shen	38295
-申	shēn	shen	36235
-审	shěn	shen	35777
-伸	shēn	shen	35324
-沈	shěn	shen	33571
-慎	shèn	shen	31924
-肾	shèn	shen	31584
-婶	shěn	shen	27689
-渗	shèn	shen	24962
-生	shēng	sheng	52916
-声	shēng	sheng	44550
-省	shěng	sheng	42392
-升	shēng	sheng	41252
-胜	shèng	sheng	39787
-圣	shèng	sheng	39692
-剩	shèng	sheng	38903
-盛	shèng	sheng	36448
-绳	shéng	sheng	32791
-牲	shēng	sheng	32231
-是	shì	shi	62830
-时	shí	shi	54057
-事	shì	shi	53623
-实	shí	shi	48268
-十	shí	shi	48094
-试	shì	shi	46580
-师	shī	shi	46165
-市	shì	shi	45446
-使	shǐ	shi	45336
-世	shì	shi	45207
-失	shī	shi	44557
-食	shí	shi	44536
-式	shì	shi	44146
-始	shǐ	shi	44112
-室	shì	shi	43885
-视	shì	shi	43348
-士	shì	shi	43189
-示	shì	shi	43049
-识	shí	shi	42445
-石	shí	shi	41209
-史	shǐ	shi	41029
-适	shì	shi	40394
-诗	shī	shi	39491
-施	shī	shi	39091
-势	shì	shi	39051
-释	shì	shi	37387
-湿	shī	shi	36614
-尸	shī	shi	35163
-拾	shí	shi	35070
-氏	shì	shi	34865
-饰	shì	shi	34060
-逝	shì	shi	32910
-誓	shì	shi	32665
-狮	shī	shi	32509
-驶	shǐ	shi	32413
-柿	shì	shi	29156
-侍	shì	shi	28296
-蚀	shí	shi	24647
-什	shí	shi	992
-手	shǒu	shou	50780
-受	shòu	shou	48221
-收	shōu	shou	46127
-首	shǒu	shou	44800
-瘦	shòu	shou	41745
-守	shǒu	shou	40442
-售	shòu	shou	37295
-寿	shòu	shou	34916
-授	shòu	shou	34916
-兽	shòu	shou	33285
-书	shū	shu	46628
-数	shù	shu	45193
-术	shù	shu	41563
-熟	shú	shu	41156
-输	shū	shu	40550
-树	shù	shu	40536
-属	shǔ	shu	39450
-束	shù	shu	39204
-舒	shū	shu	38261
-叔	shū	shu	38248
-鼠	shǔ	shu	36672
-述	shù	shu	36267
-暑	shǔ	shu	34571
-薯	shǔ	shu	33795
-殊	shū	shu	32904
-疏	shū	shu	31479
-梳	shū	shu	30982
-蔬	shū	shu	30483
-竖	shù	shu	29060
-刷	shuā	shua	39687
-耍	shuǎ	shua	38745
-帅	shuài	shuai	43175
-摔	shuāi	shuai	37083
-甩	shuǎi	shuai	34961
-衰	shuāi	shuai	33615
-拴	shuān	shuan	26177
-双	shuāng	shuang	43395
-霜	shuāng	shuang	33369
-爽	shuǎng	shuang	28082
-水	shuǐ	shui	49004
-睡	shuì	shui	47857
-谁	shuí	shui	47843
-税	shuì	shui	26463
-顺	shùn	shun	42252
-说	shuō	shuo	55985
-死	sǐ	si	49395
-四	sì	si	47397
-思	sī	si	46085
-斯	sī	si	44347
-司	sī	si	43879
-似	sì	si	41280
-私	sī	si	40244
-丝	sī	si	39155
-撕	sī	si	34037
-寺	sì	si	33267
-肆	sì	si	30191
-饲	sì	si	25907
-送	sòng	song	46891
-松	sōng	song	40595
-宋	sòng	song	34737
-颂	sòng	song	28577
-诵	sòng	song	24501
-搜	sōu	sou	38864
-艘	sōu	sou	31526
-嗽	sòu	sou	28211
-素	sù	su	41970
-速	sù	su	41833
-诉	sù	su	41780
-宿	sù	su	39861
-苏	sū	su	39388
-俗	sú	su	36114
-塑	sù	su	33423
-肃	sù	su	31152
-算	suàn	suan	47511
-酸	suān	suan	40113
-蒜	suàn	suan	31230
-岁	suì	sui	44504
-随	suí	sui	43940
-虽	suī	sui	40694
-碎	suì	sui	38702
-穗	suì	sui	23607
-孙	sūn	sun	35706
-损	sǔn	sun	34408
-笋	sǔn	sun	26798
-所	suǒ	suo	50865
-锁	suǒ	suo	38126
-索	suǒ	suo	37932
-缩	suō	suo	34631
-他	tā	ta	56549
-她	tā	ta	52448
-它	tā	ta	47880
-塔	tǎ	ta	37970
-踏	tà	ta	36308
-塌	tā	ta	31926
-太	tai	tai	52433
-台	tái	tai	45407
-态	tai	tai	40801
-泰	tai	tai	39051
-抬	tái	tai	35392
-谈	tán	tan	43268
-探	tàn	tan	40138
-坦	tǎn	tan	35736
-摊	tān	tan	33217
-贪	tān	tan	32642
-滩	tān	tan	32474
-叹	tàn	tan	32216
-坛	tán	tan	30234
-毯	tǎn	tan	30192
-炭	tàn	tan	29078
-痰	tán	tan	25951
-糖	táng	tang	40398
-堂	táng	tang	40316
-汤	tāng	tang	39355
-躺	tǎng	tang	37435
-唐	táng	tang	37046
-趟	tàng	tang	35424
-烫	tàng	tang	35078
-塘	táng	tang	31966
-膛	táng	tang	25046
-倘	tǎng	tang	22974
-套	tào	tao	42791
-讨	tǎo	tao	40495
-逃	táo	tao	39196
-桃	táo	tao	37715
-淘	táo	tao	33220
-陶	táo	tao	32956
-涛	tāo	tao	32595
-掏	tāo	tao	32035
-萄	táo	tao	29535
-滔	tāo	tao	24847
-特	tè	te	48625
-疼	téng	teng	41499
-腾	téng	teng	35424
-提	tí	ti	47184
-体	tǐ	ti	46957
-题	tí	ti	45588
-替	tì	ti	39871
-踢	tī	ti	35853
-梯	tī	ti	34400
-蹄	tí	ti	31315
-剃	tì	ti	31082
-惕	tì	ti	25144
-天	tiān	tian	55705
-甜	tián	tian	41919
-田	tián	tian	38334
-填	tián	tian	35506
-添	tiān	tian	34705
-条	tiáo	tiao	45908
-跳	tiào	tiao	42430
-挑	tiāo	tiao	40515
-铁	tiě	tie	41826
-贴	tiē	tie	39672
-帖	tiē	tie	33463
-听	tīng	ting	48934
-挺	tǐng	ting	44938
-停	tíng	ting	44376
-庭	tíng	ting	38766
-厅	tīng	ting	36459
-亭	tíng	ting	31622
-艇	tǐng	ting	29930
-同	tóng	tong	50097
-通	tōng	tong	46454
-痛	tòng	tong	42544
-童	tóng	tong	39238
-统	tǒng	tong	39210
-桶	tǒng	tong	35277
-筒	tǒng	tong	33006
-铜	tóng	tong	32389
-桐	tóng	tong	28801
-头	tóu	tou	49572
-偷	tōu	tou	42531
-投	tóu	tou	42170
-透	tòu	tou	40947
-图	tú	tu	43740
-土	tǔ	tu	42962
-突	tū	tu	41624
-吐	tǔ	tu	39731
-途	tú	tu	37219
-涂	tú	tu	36611
-兔	tù	tu	36586
-徒	tú	tu	35507
-秃	tū	tu	30737
-屠	tú	tu	29105
-团	tuán	tuan	42478
-推	tuī	tui	44401
-腿	tuǐ	tui	42368
-退	tuì	tui	41576
-吞	tūn	tun	33836
-屯	tún	tun	30130
-托	tuō	tuo	49610
-脱	tuō	tuo	42093
-拖	tuō	tuo	39199
-妥	tuǒ	tuo	35601
-驼	tuó	tuo	29317
-娃	wá	wa	38150
-挖	wā	wa	36799
-瓦	wǎ	wa	36116
-袜	wà	wa	32322
-蛙	wā	wa	32043
-外	wài	wai	48341
-歪	wāi	wai	34501
-晚	wǎn	wan	49470
-完	wán	wan	49203
-玩	wán	wan	48092
-万	wàn	wan	45834
-碗	wǎn	wan	38259
-弯	wān	wan	34873
-湾	wān	wan	34808
-丸	wán	wan	33397
-挽	wǎn	wan	31249
-顽	wán	wan	28097
-望	wàng	wang	45295
-王	wáng	wang	44665
-往	wǎng	wang	44515
-网	wǎng	wang	44235
-忘	wàng	wang	44235
-亡	wáng	wang	36193
-旺	wàng	wang	34831
-汪	wāng	wang	34038
-妄	wàng	wang	29838
-为	wéi	wei	54726
-位	wèi	wei	48175
-未	wèi	wei	44275
-味	wèi	wei	43673
-微	wēi	wei	41110
-围	wéi	wei	40496
-维	wéi	wei	40368
-威	wēi	wei	39608
-喂	wèi	wei	39435
-唯	wéi	wei	39274
-卫	wèi	wei	39164
-委	wěi	wei	38925
-尾	wěi	wei	38230
-慰	wèi	wei	37039
-胃	wèi	wei	36874
-危	wēi	wei	36751
-伟	wěi	wei	36228
-违	wéi	wei	33305
-伪	wěi	wei	33179
-畏	wèi	wei	32102
-问	wèn	wen	50171
-文	wén	wen	46893
-温	wēn	wen	41685
-闻	wén	wen	40559
-稳	wěn	wen	39375
-纹	wén	wen	37143
-蚊	wén	wen	32976
-翁	wēng	weng	28763
-我	wǒ	wo	62743
-握	wò	wo	38055
-窝	wō	wo	36720
-卧	wò	wo	32945
-沃	wò	wo	32138
-无	wú	wu	49166
-五	wǔ	wu	46993
-物	wù	wu	46320
-午	wǔ	wu	43104
-舞	wǔ	wu	41957
-武	wǔ	wu	41110
-务	wù	wu	40058
-屋	wū	wu	39864
-误	wù	wu	38890
-呜	wū	wu	36553
-乌	wū	wu	35515
-雾	wù	wu	35378
-吴	wú	wu	35083
-污	wū	wu	34970
-悟	wù	wu	34879
-伍	wǔ	wu	33935
-勿	wù	wu	32566
-侮	wǔ	wu	28148
-西	xī	xi	48138
-喜	xǐ	xi	47918
-系	xì	xi	45730
-希	xī	xi	44232
-洗	xǐ	xi	43955
-息	xī	xi	43220
-戏	xì	xi	42986
-吸	xī	xi	41421
-细	xì	xi	40662
-习	xí	xi	40547
-惜	xī	xi	38782
-席	xí	xi	36580
-袭	xí	xi	35211
-夕	xī	xi	35014
-稀	xī	xi	35003
-悉	xī	xi	34848
-析	xī	xi	34411
-溪	xī	xi	33370
-膝	xī	xi	32073
-锡	xī	xi	31805
-熄	xī	xi	28515
-牺	xī	xi	28219
-隙	xì	xi	27126
-下	xià	xia	54918
-夏	xià	xia	40725
-吓	xià	xia	40229
-瞎	xiā	xia	37523
-虾	xiā	xia	36905
-霞	xiá	xia	30449
-峡	xiá	xia	28482
-狭	xiá	xia	27674
-厦	xià	xia	992
-现	xiàn	xian	49971
-先	xiān	xian	47937
-线	xiàn	xian	45369
-显	xiǎn	xian	41627
-仙	xiān	xian	40536
-限	xiàn	xian	39901
-险	xiǎn	xian	38860
-鲜	xiān	xian	38749
-嫌	xián	xian	38515
-闲	xián	xian	38208
-县	xiàn	xian	37811
-羡	xiàn	xian	36699
-献	xiàn	xian	36460
-陷	xiàn	xian	35170
-咸	xián	xian	34687
-贤	xián	xian	34371
-弦	xián	xian	30759
-馅	xiàn	xian	30196
-掀	xiān	xian	28606
-纤	xiān	xian	27839
-衔	xián	xian	27372
-宪	xiàn	xian	27119
-想	xiǎng	xiang	55533
-像	xiàng	xiang	50080
-相	xiāng	xiang	47834
-向	xiàng	xiang	46787
-象	xiàng	xiang	44962
-香	xiāng	xiang	43733
-响	xiǎng	xiang	41164
-项	xiàng	xiang	40194
-乡	xiāng	xiang	39225
-箱	xiāng	xiang	39033
-享	xiǎng	xiang	38089
-祥	xiáng	xiang	34039
-详	xiáng	xiang	31766
-巷	xiàng	xiang	31115
-橡	xiàng	xiang	27852
-小	xiǎo	xiao	53731
-笑	xiào	xiao	46105
-校	xiào	xiao	45416
-消	xiāo	xiao	42955
-效	xiào	xiao	40887
-晓	xiǎo	xiao	37584
-宵	xiāo	xiao	36210
-销	xiāo	xiao	35738
-孝	xiào	xiao	33286
-些	xiē	xie	49476
-谢	xiè	xie	48058
-写	xiě	xie	45940
-鞋	xié	xie	40834
-协	xié	xie	35179
-歇	xiē	xie	35048
-卸	xiè	xie	34040
-邪	xié	xie	33827
-泄	xiè	xie	32144
-斜	xié	xie	31350
-携	xié	xie	31006
-屑	xiè	xie	30856
-械	xiè	xie	30270
-胁	xié	xie	29104
-泻	xiè	xie	22387
-心	xīn	xin	53190
-新	xīn	xin	51317
-信	xìn	xin	48166
-辛	xīn	xin	40394
-欣	xīn	xin	35880
-薪	xīn	xin	31734
-行	xíng	xing	52062
-性	xìng	xing	46175
-星	xīng	xing	45841
-醒	xǐng	xing	44324
-幸	xìng	xing	44105
-型	xíng	xing	44071
-形	xíng	xing	42849
-兴	xīng	xing	41338
-姓	xìng	xing	38234
-杏	xìng	xing	30527
-腥	xīng	xing	28635
-刑	xíng	xing	27951
-熊	xióng	xiong	39096
-胸	xiōng	xiong	39083
-兄	xiōng	xiong	38620
-雄	xióng	xiong	37370
-凶	xiōng	xiong	35960
-休	xiū	xiu	43114
-秀	xiù	xiu	43111
-修	xiū	xiu	42975
-羞	xiū	xiu	35983
-袖	xiù	xiu	35812
-绣	xiù	xiu	30565
-朽	xiǔ	xiu	26588
-锈	xiù	xiu	26465
-需	xū	xu	45320
-许	xǔ	xu	42772
-须	xū	xu	42580
-续	xù	xu	41983
-虚	xū	xu	38079
-序	xù	xu	35530
-徐	xú	xu	33676
-绪	xù	xu	33631
-蓄	xù	xu	30963
-叙	xù	xu	28362
-絮	xù	xu	27003
-渲	xuān	xuan	44930
-选	xuǎn	xuan	44930
-宣	xuān	xuan	37921
-旋	xuán	xuan	33452
-悬	xuán	xuan	32628
-学	xué	xue	51351
-雪	xuě	xue	42933
-血	xuè	xue	42575
-削	xuē	xue	33494
-穴	xué	xue	22228
-训	xùn	xun	38423
-寻	xún	xun	36870
-循	xún	xun	33810
-巡	xún	xun	33764
-迅	xùn	xun	33695
-讯	xùn	xun	31398
-询	xún	xun	30949
-旬	xún	xun	30764
-呀	ya	ya	47047
-牙	yá	ya	41840
-压	yā	ya	41759
-亚	yà	ya	40487
-雅	yǎ	ya	38042
-鸭	yā	ya	36005
-押	yā	ya	34357
-芽	yá	ya	31122
-哑	yǎ	ya	29673
-崖	yá	ya	28765
-鸦	yā	ya	27529
-眼	yǎn	yan	47020
-演	yǎn	yan	44939
-言	yán	yan	44377
-严	yán	yan	40335
-研	yán	yan	40202
-验	yàn	yan	40031
-颜	yán	yan	39244
-烟	yān	yan	38808
-厌	yàn	yan	37726
-延	yán	yan	37265
-艳	yàn	yan	35618
-炎	yán	yan	35513
-盐	yán	yan	35041
-燕	yàn	yan	33750
-沿	yán	yan	33614
-岩	yán	yan	32990
-掩	yǎn	yan	32051
-宴	yàn	yan	31338
-咽	yān	yan	30484
-淹	yān	yan	30058
-雁	yàn	yan	27178
-焰	yàn	yan	25636
-蜒	yán	yan	15407
-样	yàng	yang	49907
-养	yǎng	yang	45000
-阳	yáng	yang	42785
-羊	yáng	yang	38508
-洋	yáng	yang	38507
-杨	yáng	yang	37619
-扬	yáng	yang	36650
-央	yāng	yang	35160
-仰	yǎng	yang	33563
-氧	yǎng	yang	33466
-痒	yǎng	yang	32209
-秧	yāng	yang	22744
-殃	yāng	yang	21990
-要	yào	yao	58120
-药	yào	yao	42562
-咬	yǎo	yao	38888
-腰	yāo	yao	37529
-摇	yáo	yao	35877
-妖	yāo	yao	35398
-耀	yào	yao	35174
-邀	yāo	yao	34682
-遥	yáo	yao	34293
-谣	yáo	yao	32183
-钥	yào	yao	31146
-窑	yáo	yao	25251
-也	yě	ye	56807
-业	yè	ye	46342
-夜	yè	ye	45148
-野	yě	ye	39606
-叶	yè	ye	37917
-爷	yé	ye	37683
-页	yè	ye	36712
-液	yè	ye	35938
-冶	yě	ye	22854
-一	yī	yi	60582
-以	yǐ	yi	54861
-已	yǐ	yi	49879
-意	yì	yi	49808
-易	yì	yi	44569
-衣	yī	yi	43921
-医	yī	yi	42177
-义	yì	yi	41767
-依	yī	yi	40813
-艺	yì	yi	40790
-疑	yí	yi	39327
-移	yí	yi	39136
-异	yì	yi	38901
-议	yì	yi	38884
-宜	yí	yi	38222
-亦	yì	yi	38061
-忆	yì	yi	37769
-姨	yí	yi	36959
-遗	yí	yi	36317
-亿	yì	yi	36057
-益	yì	yi	36021
-仪	yí	yi	34564
-疫	yì	yi	34044
-译	yì	yi	33254
-翼	yì	yi	32836
-椅	yǐ	yi	32175
-役	yì	yi	31551
-谊	yì	yi	30016
-蚁	yǐ	yi	29681
-毅	yì	yi	29174
-乙	yǐ	yi	28764
-倚	yǐ	yi	25083
-因	yīn	yin	48907
-音	yīn	yin	43670
-印	yìn	yin	41268
-引	yǐn	yin	41266
-银	yín	yin	38715
-阴	yīn	yin	37973
-隐	yǐn	yin	36668
-饮	yǐn	yin	36557
-姻	yīn	yin	30329
-应	yīng	ying	47313
-影	yǐng	ying	45680
-英	yīng	ying	42816
-赢	yíng	ying	41362
-迎	yíng	ying	39844
-硬	yìng	ying	39692
-营	yíng	ying	39213
-映	yìng	ying	35436
-樱	yīng	ying	31705
-鹰	yīng	ying	30357
-盈	yíng	ying	30210
-蝇	yíng	ying	27756
-用	yòng	yong	52975
-永	yǒng	yong	41544
-勇	yǒng	yong	38732
-拥	yōng	yong	37674
-泳	yǒng	yong	35728
-涌	yǒng	yong	31833
-庸	yōng	yong	29287
-咏	yǒng	yong	24308
-佣	yòng	yong	23813
-有	yǒu	you	60173
-又	yòu	you	51233
-友	yǒu	you	47145
-油	yóu	you	46764
-由	yóu	you	45665
-游	yóu	you	44554
-右	yòu	you	41222
-优	yōu	you	40560
-尤	yóu	you	36668
-忧	yōu	you	36482
-邮	yóu	you	36417
-幼	yòu	you	35849
-悠	yōu	you	35250
-犹	yóu	you	33910
-诱	yòu	you	33796
-于	yú	yu	48723
-与	yǔ	yu	46176
-雨	yǔ	yu	44005
-语	yǔ	yu	43953
-遇	yù	yu	43080
-鱼	yú	yu	42566
-育	yù	yu	40000
-预	yù	yu	39675
-欲	yù	yu	37766
-玉	yù	yu	37471
-域	yù	yu	36411
-宇	yǔ	yu	36314
-羽	yǔ	yu	34544
-愈	yù	yu	34188
-予	yǔ	yu	34094
-郁	yù	yu	33832
-愉	yú	yu	33620
-狱	yù	yu	33305
-浴	yù	yu	33123
-御	yù	yu	32738
-娱	yú	yu	31531
-愚	yú	yu	31219
-裕	yù	yu	29565
-渔	yú	yu	29276
-誉	yù	yu	29162
-余	yú	yu	29037
-屿	yǔ	yu	28329
-榆	yú	yu	25512
-原	yuán	yuan	46578
-远	yuǎn	yuan	45955
-员	yuán	yuan	45928
-元	yuán	yuan	43810
-院	yuàn	yuan	43809
-愿	yuàn	yuan	43789
-源	yuán	yuan	40398
-园	yuán	yuan	39786
-圆	yuán	yuan	39638
-缘	yuán	yuan	38048
-援	yuán	yuan	35039
-怨	yuàn	yuan	35020
-冤	yuān	yuan	29771
-月	yuè	yue	50478
-越	yuè	yue	47076
-约	yuē	yue	45439
-跃	yuè	yue	32568
-阅	yuè	yue	32424
-悦	yuè	yue	32257
-运	yùn	yun	44360
-云	yún	yun	40672
-晕	yūn	yun	36945
-允	yǔn	yun	33991
-韵	yùn	yun	31752
-匀	yún	yun	28301
-孕	yùn	yun	25223
-杂	zá	za	38366
-在	zài	zai	59736
-再	zài	zai	51094
-载	zǎi	zai	38794
-宰	zǎi	zai	32139
-栽	zāi	zai	29328
-灾	zāi	zai	25597
-仔	zǎi	zai	994
-赞	zàn	zan	41611
-咱	zán	zan	39078
-暂	zàn	zan	35582
-脏	zāng	zang	37465
-葬	zàng	zang	31374
-早	zǎo	zao	50160
-造	zào	zao	43156
-遭	zāo	zao	38008
-糟	zāo	zao	37290
-澡	zǎo	zao	36338
-躁	zào	zao	33094
-燥	zào	zao	30531
-皂	zào	zao	29267
-枣	zǎo	zao	29218
-灶	zào	zao	26531
-则	zé	ze	40333
-责	zé	ze	39351
-择	zé	ze	38332
-泽	zé	ze	34734
-贼	zéi	zei	35524
-怎	zěn	zen	47563
-增	zēng	zeng	39924
-赠	zèng	zeng	31368
-炸	zhà	zha	40341
-扎	zhā	zha	39742
-渣	zhā	zha	36689
-榨	zhà	zha	28982
-闸	zhá	zha	28123
-眨	zhǎ	zha	27548
-轧	zhá	zha	998
-宅	zhái	zhai	35611
-摘	zhāi	zhai	34649
-债	zhài	zhai	31466
-寨	zhài	zhai	30844
-窄	zhǎi	zhai	29792
-站	zhàn	zhan	45264
-战	zhàn	zhan	44120
-展	zhǎn	zhan	42183
-占	zhàn	zhan	38186
-沾	zhān	zhan	33733
-粘	zhān	zhan	33531
-斩	zhǎn	zhan	29667
-盏	zhǎn	zhan	26295
-崭	zhǎn	zhan	21290
-张	zhāng	zhang	46828
-章	zhāng	zhang	39266
-掌	zhǎng	zhang	38301
-障	zhàng	zhang	35225
-涨	zhǎng	zhang	34650
-帐	zhàng	zhang	34370
-仗	zhàng	zhang	33129
-丈	zhàng	zhang	31560
-胀	zhàng	zhang	30582
-找	zhǎo	zhao	49665
-照	zhào	zhao	47076
-招	zhāo	zhao	41073
-罩	zhào	zhao	37410
-召	zhào	zhao	35310
-赵	zhào	zhao	34242
-爪	zhǎo	zhao	33995
-兆	zhào	zhao	30519
-这	zhè	zhe	58225
-着	zhe	zhe	53181
-者	zhě	zhe	48164
-折	zhé	zhe	39463
-遮	zhē	zhe	34579
-哲	zhé	zhe	33537
-浙	zhè	zhe	30304
-真	zhēn	zhen	53908
-珍	zhēn	zhen	39152
-镇	zhèn	zhen	38856
-针	zhēn	zhen	38680
-阵	zhèn	zhen	37600
-震	zhèn	zhen	36870
-振	zhèn	zhen	33657
-枕	zhěn	zhen	31807
-诊	zhěn	zhen	31262
-侦	zhēn	zhen	29700
-贞	zhēn	zhen	28987
-帧	zhēn	zhen	857
-正	zhèng	zheng	50213
-整	zhěng	zheng	45313
-证	zhèng	zheng	42791
-政	zhèng	zheng	41035
-争	zhēng	zheng	40427
-症	zhèng	zheng	39247
-征	zhēng	zheng	35960
-挣	zhèng	zheng	35318
-郑	zhèng	zheng	34441
-蒸	zhēng	zheng	33541
-睁	zhēng	zheng	33302
-筝	zhēng	zheng	24583
-只	zhī	zhi	52552
-之	zhī	zhi	50835
-知	zhī	zhi	50393
-直	zhí	zhi	48528
-指	zhǐ	zhi	45927
-至	zhì	zhi	44899
-支	zhī	zhi	44494
-制	zhì	zhi	44159
-值	zhí	zhi	43349
-治	zhì	zhi	42970
-质	zhì	zhi	42728
-止	zhǐ	zhi	41441
-致	zhì	zhi	41264
-智	zhì	zhi	41214
-纸	zhǐ	zhi	41116
-置	zhì	zhi	40680
-职	zhí	zhi	40355
-志	zhì	zhi	40085
-织	zhī	zhi	38696
-执	zhí	zhi	36285
-植	zhí	zhi	35520
-汁	zhī	zhi	35170
-址	zhǐ	zhi	34834
-枝	zhī	zhi	33779
-脂	zhī	zhi	33297
-芝	zhī	zhi	32995
-殖	zhí	zhi	29775
-旨	zhǐ	zhi	28562
-侄	zhí	zhi	28320
-肢	zhī	zhi	26103
-秩	zhì	zhi	25533
-蜘	zhī	zhi	25506
-帜	zhì	zhi	23020
-中	zhōng	zhong	53308
-种	zhǒng	zhong	49560
-重	zhòng	zhong	49471
-终	zhōng	zhong	42899
-钟	zhōng	zhong	41790
-众	zhòng	zhong	41436
-肿	zhǒng	zhong	35941
-忠	zhōng	zhong	35216
-周	zhōu	zhou	48179
-州	zhōu	zhou	46147
-洲	zhōu	zhou	37622
-粥	zhōu	zhou	33688
-舟	zhōu	zhou	30699
-宙	zhòu	zhou	30593
-皱	zhòu	zhou	29587
-昼	zhòu	zhou	26885
-骤	zhòu	zhou	24197
-主	zhǔ	zhu	48785
-住	zhù	zhu	48186
-注	zhù	zhu	45215
-祝	zhù	zhu	44273
-助	zhù	zhu	41481
-猪	zhū	zhu	41435
-煮	zhǔ	zhu	37514
-著	zhù	zhu	37215
-珠	zhū	zhu	36549
-竹	zhú	zhu	34979
-逐	zhú	zhu	34662
-朱	zhū	zhu	34554
-筑	zhù	zhu	33585
-诸	zhū	zhu	33269
-驻	zhù	zhu	33153
-柱	zhù	zhu	31889
-株	zhū	zhu	29838
-蛛	zhū	zhu	28619
-烛	zhú	zhu	28288
-铸	zhù	zhu	25511
-嘱	zhǔ	zhu	24891
-抓	zhuā	zhua	43058
-转	zhuǎn	zhuan	44680
-专	zhuān	zhuan	42236
-砖	zhuān	zhuan	34025
-装	zhuāng	zhuang	44761
-状	zhuàng	zhuang	40139
-撞	zhuàng	zhuang	38563
-壮	zhuàng	zhuang	36834
-庄	zhuāng	zhuang	34167
-追	zhuī	zhui	43195
-准	zhǔn	zhun	45647
-桌	zhuō	zhuo	38178
-捉	zhuō	zhuo	34975
-浊	zhuó	zhuo	23417
-啄	zhuó	zhuo	22334
-子	zǐ	zi	52856
-自	zì	zi	52231
-字	zì	zi	46159
-资	zī	zi	40989
-紫	zǐ	zi	36752
-滋	zī	zi	35989
-姿	zī	zi	34730
-总	zǒng	zong	47298
-宗	zōng	zong	38790
-纵	zòng	zong	33119
-踪	zōng	zong	32693
-棕	zōng	zong	29910
-走	zǒu	zou	50615
-奏	zòu	zou	37053
-组	zǔ	zu	43538
-足	zú	zu	42486
-族	zú	zu	40232
-租	zū	zu	39348
-祖	zǔ	zu	36279
-阻	zǔ	zu	35252
-钻	zuàn	zuan	35510
-赚	zuàn	zuan	1000
-最	zuì	zui	53053
-嘴	zuǐ	zui	42539
-醉	zuì	zui	39066
-罪	zuì	zui	32315
-尊	zūn	zun	38115
-遵	zūn	zun	32501
-做	zuò	zuo	52602
-作	zuò	zuo	49906
-坐	zuò	zuo	45447
-座	zuò	zuo	42034
-左	zuǒ	zuo	41594
-昨	zuó	zuo	40650
+# character	TAB input pinyin	TAB weight
+啊	a	53595
+阿	a	45839
+呵	a	27960
+锕	a	14751
+嗄	a	1000
+爱	ai	51458
+唉	ai	37694
+埃	ai	37175
+矮	ai	35939
+挨	ai	34325
+哀	ai	33279
+癌	ai	33139
+艾	ai	33043
+碍	ai	32612
+哎	ai	29615
+隘	ai	26720
+蔼	ai	23899
+嗳	ai	23880
+暧	ai	22399
+霭	ai	22382
+皑	ai	20408
+嗌	ai	14372
+毐	ai	13886
+砹	ai	12949
+嫒	ai	11729
+锿	ai	11224
+欸	ai	8052
+安	an	49509
+案	an	42632
+按	an	41669
+暗	an	39100
+岸	an	35227
+氨	an	34204
+俺	an	32004
+庵	an	29839
+鞍	an	29560
+胺	an	29463
+黯	an	25631
+谙	an	23673
+铵	an	22675
+鹌	an	18209
+桉	an	17639
+犴	an	12501
+盦	an	9443
+揞	an	7354
+埯	an	1000
+昂	ang	35629
+盎	ang	24992
+肮	ang	23624
+奥	ao	38852
+傲	ao	36067
+澳	ao	35039
+熬	ao	29712
+凹	ao	29224
+鳌	ao	28309
+袄	ao	27093
+拗	ao	25684
+懊	ao	24843
+敖	ao	23298
+嗷	ao	23207
+坳	ao	22556
+翱	ao	22361
+螯	ao	22212
+鏖	ao	20660
+遨	ao	17437
+鏊	ao	16022
+骜	ao	15811
+璈	ao	13500
+獒	ao	13074
+媪	ao	12165
+聱	ao	11464
+廒	ao	10217
+岙	ao	9143
+吧	ba	52796
+把	ba	51842
+八	ba	44424
+巴	ba	43584
+爸	ba	41540
+拔	ba	38977
+霸	ba	37457
+罢	ba	33605
+扒	ba	29945
+粑	ba	29860
+跋	ba	29274
+疤	ba	29201
+坝	ba	28391
+灞	ba	28135
+靶	ba	27182
+叭	ba	27117
+芭	ba	27043
+耙	ba	26882
+笆	ba	23746
+钯	ba	23646
+魃	ba	19505
+捌	ba	14003
+鲅	ba	12800
+菝	ba	10381
+鲃	ba	8235
+鲌	ba	1000
+白	bai	47528
+百	bai	44449
+拜	bai	41513
+摆	bai	38597
+败	bai	38535
+柏	bai	34042
+掰	bai	23520
+稗	bai	15946
+捭	bai	12215
+佰	bai	11373
+擘	bai	11122
+呗	bai	1000
+班	ban	46526
+半	ban	46306
+办	ban	45978
+般	ban	42937
+板	ban	42019
+版	ban	41565
+搬	ban	39887
+伴	ban	39811
+颁	ban	35120
+扮	ban	34841
+斑	ban	32706
+拌	ban	31857
+瓣	ban	29616
+扳	ban	27978
+绊	ban	25135
+阪	ban	24087
+瘢	ban	22410
+坂	ban	22273
+钣	ban	12577
+癍	ban	12012
+舨	ban	10882
+柈	ban	1000
+靽	ban	1000
+帮	bang	46508
+棒	bang	44928
+邦	bang	41156
+浜	bang	35084
+榜	bang	34470
+绑	bang	33717
+镑	bang	32555
+膀	bang	30913
+傍	bang	29799
+磅	bang	27175
+蚌	bang	27053
+梆	bang	23868
+谤	bang	23225
+蒡	bang	8644
+搒	bang	1000
+包	bao	46958
+保	bao	45915
+宝	bao	44581
+报	bao	44383
+抱	bao	44251
+爆	bao	41964
+暴	bao	40586
+饱	bao	37820
+薄	bao	36936
+堡	bao	35704
+剥	bao	33165
+胞	bao	32463
+豹	bao	29970
+鲍	bao	29053
+孢	bao	27366
+曝	bao	24939
+苞	bao	24208
+煲	bao	23932
+褒	bao	23885
+雹	bao	23214
+龅	bao	23117
+鸨	bao	22159
+葆	bao	18303
+褓	bao	17084
+趵	bao	12626
+刨	bao	3117
+被	bei	52046
+北	bei	46122
+备	bei	43775
+背	bei	42744
+杯	bei	41413
+贝	bei	39694
+悲	bei	37697
+辈	bei	37648
+倍	bei	37386
+卑	bei	33100
+碑	bei	30773
+狈	bei	25804
+悖	bei	25650
+惫	bei	25374
+钡	bei	24360
+焙	bei	23217
+呗	bei	22712
+孛	bei	22608
+鞴	bei	14237
+蓓	bei	13687
+鐾	bei	12622
+碚	bei	11845
+邶	bei	10869
+鹎	bei	9358
+褙	bei	9230
+臂	bei	7717
+鞁	bei	5476
+陂	bei	2011
+椑	bei	1000
+本	ben	49928
+奔	ben	38225
+锛	ben	37228
+笨	ben	34966
+苯	ben	31336
+贲	ben	22103
+畚	ben	12960
+坌	ben	10124
+栟	ben	9119
+蹦	beng	32039
+崩	beng	30872
+泵	beng	28534
+绷	beng	25935
+迸	beng	25271
+甭	beng	25055
+嘣	beng	18857
+甏	beng	10601
+琫	beng	9091
+蚌	beng	6903
+镚	beng	1000
+比	bi	50505
+必	bi	45511
+毕	bi	41353
+笔	bi	41221
+闭	bi	40641
+鼻	bi	37821
+避	bi	37366
+彼	bi	35773
+壁	bi	35728
+碧	bi	33742
+臂	bi	32676
+币	bi	32586
+蔽	bi	31344
+陛	bi	30852
+鄙	bi	30624
+弊	bi	29754
+璧	bi	29600
+逼	bi	29482
+婢	bi	29395
+毙	bi	29344
+弼	bi	28785
+庇	bi	28673
+匕	bi	27730
+敝	bi	27393
+痹	bi	24623
+俾	bi	23827
+吡	bi	22908
+裨	bi	22546
+濞	bi	22402
+跸	bi	22147
+嬖	bi	20673
+蓖	bi	20507
+铋	bi	19576
+愎	bi	17652
+毖	bi	15975
+篦	bi	15561
+薜	bi	14870
+髀	bi	14666
+哔	bi	13155
+秕	bi	12161
+筚	bi	12010
+荜	bi	11791
+妣	bi	11367
+荸	bi	11239
+畀	bi	11176
+赑	bi	11058
+襞	bi	10797
+箅	bi	10605
+辟	bi	10516
+狴	bi	9935
+觱	bi	8809
+鲾	bi	8522
+诐	bi	8085
+沘	bi	8044
+庳	bi	7768
+滗	bi	7683
+秘	bi	1134
+贲	bi	1000
+变	bian	47308
+边	bian	46490
+便	bian	45352
+遍	bian	41706
+编	bian	39699
+辩	bian	35161
+扁	bian	32065
+辨	bian	31440
+匾	bian	30974
+鞭	bian	30485
+贬	bian	29431
+辫	bian	29268
+卞	bian	29178
+汴	bian	25429
+蝙	bian	23339
+鳊	bian	23067
+弁	bian	22565
+砭	bian	20355
+苄	bian	19125
+缏	bian	13942
+笾	bian	12324
+褊	bian	12246
+煸	bian	11415
+忭	bian	9679
+抃	bian	9342
+碥	bian	1000
+表	biao	47871
+标	biao	41156
+彪	biao	30367
+镖	biao	29745
+婊	biao	25165
+鳔	biao	24692
+飙	biao	23003
+裱	biao	22203
+杓	biao	21292
+骠	biao	20774
+镳	biao	20587
+膘	biao	16915
+摽	biao	11009
+飑	biao	10758
+俵	biao	9006
+瀌	biao	1000
+瘭	biao	1000
+别	bie	51740
+憋	bie	27275
+鳖	bie	24811
+瘪	bie	22525
+蹩	bie	15928
+宾	bin	34908
+滨	bin	32330
+斌	bin	29798
+彬	bin	27846
+濒	bin	27347
+殡	bin	25659
+鬓	bin	25084
+槟	bin	23858
+缤	bin	23005
+摈	bin	22216
+膑	bin	14808
+镔	bin	14603
+髌	bin	12511
+傧	bin	11722
+豳	bin	11478
+玢	bin	10395
+并	bing	46687
+病	bing	46173
+冰	bing	41810
+兵	bing	39524
+饼	bing	38706
+秉	bing	33135
+禀	bing	32410
+炳	bing	29508
+柄	bing	27356
+丙	bing	26446
+摒	bing	22549
+槟	bing	15967
+邴	bing	8799
+屏	bing	3082
+播	bo	42508
+博	bo	41922
+波	bo	41497
+伯	bo	36682
+玻	bo	33740
+卜	bo	33578
+拨	bo	33335
+剥	bo	33165
+勃	bo	33035
+脖	bo	32812
+驳	bo	31989
+泊	bo	31215
+搏	bo	30571
+舶	bo	29677
+蕃	bo	29095
+膊	bo	28995
+菠	bo	27815
+渤	bo	27312
+箔	bo	24989
+钵	bo	24948
+帛	bo	24928
+簸	bo	23581
+铂	bo	23462
+跛	bo	23347
+鲌	bo	22838
+薄	bo	22763
+饽	bo	22209
+礴	bo	21449
+亳	bo	21347
+啵	bo	20315
+钹	bo	18756
+鹁	bo	15917
+擘	bo	14830
+柏	bo	14040
+浡	bo	13842
+檗	bo	12838
+僰	bo	11518
+镈	bo	9380
+踣	bo	8559
+嶓	bo	7399
+袯	bo	1000
+不	bu	62450
+部	bu	47842
+步	bu	45034
+布	bu	42829
+补	bu	40958
+捕	bu	34802
+怖	bu	33768
+埔	bu	29336
+哺	bu	27706
+簿	bu	27614
+埠	bu	25525
+卟	bu	19556
+钚	bu	19318
+逋	bu	15013
+瓿	bu	14688
+醭	bu	11310
+晡	bu	10319
+卜	bu	5995
+堡	bu	1000
+擦	ca	34294
+嚓	ca	23761
+礤	ca	6545
+才	cai	51037
+菜	cai	43396
+猜	cai	41388
+彩	cai	39744
+材	cai	38721
+采	cai	38065
+财	cai	37168
+裁	cai	35990
+踩	cai	34980
+蔡	cai	32459
+睬	cai	22818
+偲	cai	8502
+餐	can	42096
+参	can	39953
+惨	can	38343
+残	can	36655
+灿	can	30258
+惭	can	27424
+蚕	can	27395
+掺	can	24678
+粲	can	20901
+璨	can	20727
+骖	can	10320
+孱	can	3622
+藏	cang	41172
+苍	cang	32223
+仓	cang	31885
+舱	cang	30531
+沧	cang	29453
+伧	cang	11848
+曹	cao	36070
+槽	cao	34602
+操	cao	31793
+草	cao	30141
+漕	cao	28372
+糙	cao	25108
+嘈	cao	23853
+艚	cao	11389
+螬	cao	9410
+测	ce	39170
+策	ce	36605
+侧	ce	36267
+厕	ce	33962
+册	ce	32245
+恻	ce	23736
+涔	cen	32100
+岑	cen	24177
+曾	ceng	42949
+层	ceng	41118
+蹭	ceng	24715
+噌	ceng	14209
+差	cha	45312
+查	cha	44083
+茶	cha	41479
+察	cha	38723
+叉	cha	33201
+刹	cha	29742
+诧	cha	29262
+杈	cha	29243
+插	cha	28072
+姹	cha	26817
+岔	cha	26726
+茬	cha	26543
+槎	cha	24698
+汊	cha	24194
+嚓	cha	23761
+搽	cha	21435
+碴	cha	19705
+衩	cha	17781
+锸	cha	12806
+檫	cha	10612
+馇	cha	10261
+镲	cha	7892
+嵖	cha	7405
+垞	cha	6136
+蹅	cha	5541
+猹	cha	1000
+喳	cha	1000
+拆	chai	46627
+柴	chai	32773
+钗	chai	24727
+豺	chai	22254
+侪	chai	14842
+虿	chai	12825
+茝	chai	7689
+差	chai	5388
+瘥	chai	1000
+产	chan	42184
+缠	chan	32682
+澶	chan	32370
+阐	chan	32121
+禅	chan	31639
+馋	chan	29217
+颤	chan	28725
+铲	chan	28095
+蝉	chan	27097
+蟾	chan	25817
+搀	chan	25565
+掺	chan	24678
+谄	chan	23376
+忏	chan	23195
+浐	chan	22527
+谗	chan	22366
+潺	chan	22241
+婵	chan	19132
+孱	chan	16526
+廛	chan	12871
+觇	chan	10987
+巉	chan	10333
+羼	chan	9065
+韂	chan	8257
+瀍	chan	8033
+躔	chan	7149
+骣	chan	7102
+冁	chan	7036
+镡	chan	6348
+镵	chan	6347
+啴	chan	1000
+蒇	chan	1000
+长	chang	50767
+场	chang	47388
+常	chang	47363
+唱	chang	44168
+尝	chang	38300
+厂	chang	36376
+昌	chang	35555
+肠	chang	35188
+畅	chang	32504
+偿	chang	32269
+敞	chang	28763
+倡	chang	25978
+猖	chang	24233
+娼	chang	23943
+怅	chang	23593
+嫦	chang	22856
+阊	chang	22210
+苌	chang	19692
+氅	chang	15381
+菖	chang	13914
+鲳	chang	12727
+伥	chang	12231
+鬯	chang	11768
+昶	chang	11019
+惝	chang	9672
+裳	chang	1344
+玚	chang	1000
+超	chao	47007
+朝	chao	40742
+炒	chao	38697
+吵	chao	37551
+潮	chao	36885
+抄	chao	35458
+巢	chao	29931
+嘲	chao	29188
+钞	chao	26787
+晁	chao	23508
+焯	chao	23441
+耖	chao	8307
+怊	chao	6003
+车	che	49513
+扯	che	36173
+彻	che	35691
+撤	che	34484
+澈	che	25609
+掣	che	25338
+砗	che	15341
+坼	che	10355
+陈	chen	38848
+沉	chen	38748
+晨	chen	38445
+趁	chen	35872
+尘	chen	34248
+臣	chen	33336
+宸	chen	33023
+衬	chen	32153
+辰	chen	30228
+琛	chen	27994
+嗔	chen	25612
+谌	chen	25162
+忱	chen	23906
+谶	chen	23348
+郴	chen	20653
+龀	chen	18147
+碜	chen	16520
+抻	chen	14564
+榇	chen	12541
+伧	chen	5924
+称	chen	2509
+疢	chen	1000
+成	cheng	51284
+城	cheng	45027
+程	cheng	42957
+称	cheng	41461
+承	cheng	39357
+撑	cheng	37546
+乘	cheng	37337
+诚	cheng	36614
+呈	cheng	33103
+丞	cheng	30487
+惩	cheng	29931
+澄	cheng	29379
+秤	cheng	28221
+橙	cheng	27468
+逞	cheng	27144
+骋	cheng	23353
+晟	cheng	23274
+瞠	cheng	22319
+蛏	cheng	19725
+盛	cheng	16201
+柽	cheng	12599
+琤	cheng	12477
+牚	cheng	11412
+裎	cheng	10378
+宬	cheng	9857
+埕	cheng	9531
+塍	cheng	9334
+枨	cheng	9300
+酲	cheng	7558
+赪	cheng	6288
+铛	cheng	1380
+吃	chi	52289
+持	chi	45247
+迟	chi	38772
+池	chi	35939
+尺	chi	35075
+齿	chi	34196
+赤	chi	33546
+耻	chi	32719
+翅	chi	31960
+痴	chi	29734
+驰	chi	29579
+嗤	chi	28884
+斥	chi	27898
+匙	chi	27491
+敕	chi	27296
+侈	chi	27050
+弛	chi	25678
+炽	chi	25301
+叱	chi	24854
+哧	chi	24704
+螭	chi	23987
+鸱	chi	23678
+饬	chi	23498
+笞	chi	22409
+墀	chi	22347
+魑	chi	22187
+蚩	chi	20308
+啻	chi	19569
+篪	chi	18516
+瘛	chi	17109
+褫	chi	15981
+媸	chi	15630
+踟	chi	15613
+豉	chi	12481
+彳	chi	10215
+眵	chi	10104
+茌	chi	9768
+坻	chi	2510
+瓻	chi	1000
+冲	chong	41316
+充	chong	40304
+虫	chong	37036
+崇	chong	32564
+宠	chong	30387
+忡	chong	24205
+舂	chong	23556
+憧	chong	23053
+铳	chong	22918
+艟	chong	11324
+重	chong	10160
+丑	chou	39930
+臭	chou	37944
+愁	chou	35555
+仇	chou	34991
+筹	chou	32463
+畴	chou	30954
+瞅	chou	29454
+抽	chou	29422
+酬	chou	28435
+踌	chou	25049
+稠	chou	24575
+绸	chou	24096
+惆	chou	22191
+雠	chou	19363
+俦	chou	16645
+杻	chou	7721
+瘳	chou	7227
+帱	chou	1000
+出	chu	54116
+处	chu	45137
+初	chu	43299
+除	chu	42699
+楚	chu	39239
+触	chu	36938
+厨	chu	35596
+础	chu	31433
+储	chu	31298
+矗	chu	26898
+褚	chu	25744
+橱	chu	25433
+躇	chu	25105
+雏	chu	25073
+杵	chu	24016
+黜	chu	23763
+绌	chu	23690
+畜	chu	23529
+搐	chu	23134
+刍	chu	22315
+怵	chu	22195
+蜍	chu	22189
+亍	chu	22186
+锄	chu	21556
+滁	chu	19479
+蹰	chu	15042
+憷	chu	14586
+樗	chu	14316
+俶	chu	13461
+楮	chu	10915
+揣	chuai	27209
+踹	chuai	23190
+啜	chuai	22295
+膪	chuai	6976
+搋	chuai	6820
+嘬	chuai	1000
+穿	chuan	46629
+传	chuan	43675
+船	chuan	39989
+川	chuan	38506
+串	chuan	37022
+喘	chuan	31140
+椽	chuan	21585
+钏	chuan	20754
+舛	chuan	19401
+氚	chuan	12965
+遄	chuan	12624
+床	chuang	43188
+创	chuang	39427
+窗	chuang	37372
+闯	chuang	32117
+幢	chuang	26270
+疮	chuang	25280
+怆	chuang	21702
+吹	chui	39935
+锤	chui	31980
+垂	chui	31522
+椎	chui	29552
+捶	chui	25469
+棰	chui	24808
+槌	chui	24079
+陲	chui	23877
+炊	chui	21648
+春	chun	42419
+纯	chun	39369
+蠢	chun	35880
+唇	chun	33730
+醇	chun	32243
+淳	chun	29620
+椿	chun	25153
+莼	chun	23247
+鹑	chun	22250
+蝽	chun	12198
+戳	chuo	29292
+绰	chuo	27233
+辍	chuo	25280
+啜	chuo	22295
+龊	chuo	21654
+踔	chuo	18503
+次	ci	52019
+此	ci	47023
+词	ci	41780
+刺	ci	37789
+辞	ci	35564
+赐	ci	33077
+瓷	ci	32315
+慈	ci	31718
+磁	ci	31619
+雌	ci	30862
+茨	ci	30049
+祠	ci	29298
+伺	ci	27916
+糍	ci	25754
+疵	ci	22245
+泚	ci	14294
+呲	ci	13704
+鹚	ci	13297
+茈	ci	5620
+兹	ci	2646
+差	ci	1000
+从	cong	49617
+聪	cong	36136
+葱	cong	33008
+匆	cong	30389
+璁	cong	27606
+丛	cong	27450
+淙	cong	25584
+熜	cong	23444
+囱	cong	22453
+骢	cong	21428
+苁	cong	20084
+琮	cong	18991
+枞	cong	12385
+凑	cou	35351
+辏	cou	23454
+腠	cou	11743
+粗	cu	37875
+醋	cu	33761
+促	cu	33189
+簇	cu	29199
+蹙	cu	23882
+猝	cu	23641
+蹴	cu	22128
+徂	cu	9512
+殂	cu	9467
+蔟	cu	9058
+卒	cu	1000
+酢	cu	1000
+窜	cuan	28170
+篡	cuan	25132
+蹿	cuan	24363
+撺	cuan	22047
+爨	cuan	12706
+汆	cuan	10091
+攒	cuan	9014
+镩	cuan	7839
+催	cui	35966
+脆	cui	34569
+翠	cui	31355
+粹	cui	29589
+崔	cui	29511
+摧	cui	28686
+萃	cui	24866
+悴	cui	24260
+淬	cui	22915
+啐	cui	22532
+璀	cui	22267
+瘁	cui	21531
+毳	cui	9107
+存	cun	42676
+村	cun	40995
+寸	cun	34371
+忖	cun	23973
+皴	cun	18097
+错	cuo	48526
+措	cuo	37184
+挫	cuo	29696
+撮	cuo	27445
+磋	cuo	27261
+搓	cuo	26688
+锉	cuo	21819
+厝	cuo	18134
+嵯	cuo	14677
+蹉	cuo	13428
+痤	cuo	12535
+矬	cuo	11403
+脞	cuo	8304
+大	da	56183
+打	da	51277
+达	da	43311
+答	da	41047
+搭	da	40041
+鞑	da	29260
+瘩	da	25004
+沓	da	24274
+嗒	da	24008
+靼	da	23744
+耷	da	21771
+褡	da	19087
+怛	da	14671
+垯	da	13897
+跶	da	13483
+笪	da	12852
+妲	da	10949
+炟	da	9938
+荙	da	5618
+阘	da	1000
+带	dai	49719
+待	dai	46169
+代	dai	45620
+戴	dai	41760
+呆	dai	40203
+袋	dai	38707
+逮	dai	33783
+岱	dai	29308
+歹	dai	29271
+贷	dai	27422
+傣	dai	27163
+黛	dai	25732
+怠	dai	24044
+殆	dai	23844
+玳	dai	18271
+迨	dai	18084
+甙	dai	17985
+呔	dai	11647
+埭	dai	11109
+骀	dai	10021
+大	dai	1000
+轪	dai	1000
+单	dan	61782
+但	dan	52029
+蛋	dan	42732
+担	dan	39708
+淡	dan	39288
+弹	dan	39236
+丹	dan	37446
+胆	dan	35844
+旦	dan	34995
+诞	dan	34767
+耽	dan	30055
+氮	dan	29222
+惮	dan	25700
+澹	dan	25383
+郸	dan	23469
+眈	dan	22643
+掸	dan	22476
+疸	dan	20800
+殚	dan	19993
+儋	dan	17578
+亶	dan	15741
+啖	dan	14479
+疍	dan	13981
+箪	dan	12911
+萏	dan	10389
+聃	dan	9244
+瘅	dan	8132
+膻	dan	1000
+当	dang	50350
+党	dang	41347
+档	dang	36387
+挡	dang	36253
+荡	dang	33916
+垱	dang	29341
+珰	dang	24397
+宕	dang	24282
+裆	dang	22350
+铛	dang	20388
+筜	dang	19466
+谠	dang	18699
+菪	dang	17584
+砀	dang	16843
+凼	dang	16448
+到	dao	56717
+道	dao	51586
+倒	dao	44021
+导	dao	41192
+岛	dao	40567
+刀	dao	40343
+盗	dao	34090
+蹈	dao	30330
+叨	dao	30025
+捣	dao	29829
+稻	dao	28912
+祷	dao	27073
+悼	dao	24577
+纛	dao	17762
+氘	dao	15876
+鱽	dao	7093
+捯	dao	6826
+焘	dao	1000
+忉	dao	1000
+的	de	65535
+得	de	55514
+德	de	43943
+地	de	30917
+锝	de	15520
+嘚	de	8980
+得	dei	5888
+等	deng	51724
+灯	deng	39766
+登	deng	39356
+邓	deng	35249
+瞪	deng	31077
+凳	deng	30097
+蹬	deng	25204
+磴	deng	24103
+镫	deng	22298
+噔	deng	22107
+簦	deng	14423
+戥	deng	10323
+嶝	deng	7777
+地	di	51724
+第	di	48821
+底	di	44928
+低	di	43611
+滴	di	41965
+弟	di	41188
+帝	di	38227
+敌	di	38130
+递	di	37097
+抵	di	35348
+迪	di	34198
+棣	di	32130
+蒂	di	31878
+缔	di	29852
+狄	di	29346
+笛	di	28669
+堤	di	28247
+砥	di	26995
+邸	di	25451
+涤	di	25262
+嫡	di	24787
+谛	di	24597
+嘀	di	24416
+氐	di	23816
+荻	di	23222
+翟	di	23197
+娣	di	22551
+诋	di	18253
+骶	di	17688
+籴	di	16891
+柢	di	16075
+碲	di	15572
+羝	di	14412
+坻	di	11713
+镝	di	11584
+觌	di	11299
+睇	di	9870
+菂	di	5614
+的	di	2134
+踶	di	1000
+蹢	di	1000
+嗲	dia	18864
+点	dian	53689
+电	dian	47060
+店	dian	44706
+典	dian	38039
+垫	dian	33377
+颠	dian	32088
+奠	dian	31087
+殿	dian	31015
+甸	dian	30327
+淀	dian	29563
+滇	dian	27861
+佃	dian	27409
+碘	dian	26955
+靛	dian	24612
+癫	dian	24478
+巅	dian	23979
+惦	dian	23820
+掂	dian	23477
+玷	dian	19731
+钿	dian	17517
+踮	dian	16472
+癜	dian	15248
+簟	dian	14882
+坫	dian	8741
+阽	dian	7541
+掉	diao	44935
+调	diao	44778
+钓	diao	32127
+雕	diao	31686
+叼	diao	27981
+貂	diao	25298
+吊	diao	25000
+凋	diao	23398
+碉	diao	23316
+鲷	diao	16609
+铫	diao	10371
+铞	diao	7131
+汈	diao	6690
+爹	die	34029
+跌	die	33399
+叠	die	31633
+蝶	die	31586
+迭	die	29287
+碟	die	28940
+牒	die	26965
+谍	die	25353
+喋	die	22557
+嗲	die	18864
+堞	die	14819
+鲽	die	12798
+耋	die	10885
+蹀	die	9901
+垤	die	9337
+瓞	die	6593
+定	ding	51013
+顶	ding	40014
+订	ding	37498
+丁	ding	36716
+盯	ding	34577
+钉	ding	32593
+鼎	ding	32291
+叮	ding	31449
+锭	ding	27038
+啶	ding	22770
+仃	ding	21157
+玎	ding	17115
+碇	ding	15007
+酊	ding	13346
+疔	ding	12823
+腚	ding	11793
+耵	ding	8589
+铤	ding	1730
+丢	diu	40161
+铥	diu	8543
+动	dong	49824
+东	dong	46799
+懂	dong	44973
+冬	dong	39701
+洞	dong	39051
+冻	dong	37312
+栋	dong	32797
+董	dong	31660
+侗	dong	27499
+咚	dong	27298
+峒	dong	23008
+恫	dong	19376
+硐	dong	17096
+氡	dong	15266
+胴	dong	12526
+胨	dong	12320
+鸫	dong	11654
+垌	dong	1000
+都	dou	56835
+斗	dou	40775
+豆	dou	40154
+逗	dou	37069
+抖	dou	35257
+兜	dou	29601
+窦	dou	29109
+陡	dou	24453
+痘	dou	23098
+篼	dou	10588
+钭	dou	9751
+蔸	dou	9416
+度	du	47267
+读	du	43070
+毒	du	42518
+独	du	40450
+肚	du	38013
+堵	du	36245
+督	du	36157
+杜	du	35579
+渡	du	34586
+赌	du	34447
+睹	du	29444
+笃	du	27272
+妒	du	27087
+嘟	du	25798
+渎	du	24643
+镀	du	23936
+牍	du	23238
+犊	du	23137
+蠹	du	22428
+椟	du	20995
+阇	du	17242
+芏	du	15111
+黩	du	11889
+髑	du	11474
+都	du	5176
+碡	du	1475
+厾	du	1000
+短	duan	51005
+段	duan	44960
+断	duan	42620
+端	duan	39551
+锻	duan	33063
+缎	duan	19483
+椴	duan	19356
+煅	duan	16229
+簖	duan	6521
+对	dui	54693
+队	dui	44868
+堆	dui	38479
+兑	dui	32526
+怼	dui	21252
+碓	dui	12858
+憝	dui	8428
+镦	dui	1000
+顿	dun	40689
+盾	dun	34943
+敦	dun	34224
+蹲	dun	33520
+墩	dun	32189
+吨	dun	29799
+炖	dun	26975
+钝	dun	26850
+遁	dun	24881
+沌	dun	23204
+囤	dun	22654
+盹	dun	22511
+趸	dun	22372
+镦	dun	19641
+惇	dun	18851
+楯	dun	11504
+砘	dun	11401
+蹾	dun	9587
+礅	dun	9435
+多	duo	55334
+躲	duo	36589
+朵	duo	36519
+夺	duo	35266
+舵	duo	29792
+堕	duo	29191
+跺	duo	28277
+剁	duo	26753
+垛	duo	26398
+惰	duo	25017
+咄	duo	25010
+哆	duo	24802
+踱	duo	24706
+掇	duo	24566
+亸	duo	23866
+铎	duo	23015
+裰	duo	20760
+哚	duo	12449
+剟	duo	8186
+柁	duo	1000
+饳	duo	1000
+饿	e	40801
+额	e	40136
+鄂	e	39387
+俄	e	39246
+恶	e	38669
+鹅	e	34627
+娥	e	29710
+峨	e	29466
+厄	e	29307
+遏	e	29038
+萼	e	28364
+愕	e	27284
+鳄	e	27239
+扼	e	27005
+讹	e	24825
+噩	e	24436
+蛾	e	23773
+垩	e	23408
+颚	e	22784
+鹗	e	22763
+轭	e	22433
+婀	e	22374
+呃	e	22222
+腭	e	22163
+谔	e	20988
+锷	e	18128
+屙	e	16711
+锇	e	13031
+莪	e	12628
+苊	e	11596
+哦	e	8018
+阿	e	1049
+阏	e	1000
+恩	en	45395
+嗯	en	29810
+蒽	en	23379
+摁	en	17904
+而	er	51359
+儿	er	48135
+二	er	48041
+尔	er	44298
+耳	er	39885
+饵	er	27299
+迩	er	23938
+贰	er	23403
+洱	er	22373
+珥	er	12864
+鸸	er	12354
+铒	er	9385
+佴	er	1000
+发	fa	51916
+法	fa	48781
+罚	fa	35463
+伐	fa	31675
+乏	fa	31659
+筏	fa	25365
+阀	fa	24541
+砝	fa	21225
+珐	fa	20955
+垡	fa	11972
+反	fan	46457
+饭	fan	45110
+翻	fan	41984
+烦	fan	41418
+犯	fan	40159
+范	fan	38376
+凡	fan	36956
+返	fan	36383
+番	fan	35778
+繁	fan	34389
+泛	fan	33794
+帆	fan	31739
+樊	fan	29808
+藩	fan	29411
+蕃	fan	29095
+贩	fan	28601
+梵	fan	26430
+矾	fan	24681
+钒	fan	24268
+幡	fan	23789
+墦	fan	23658
+畈	fan	11832
+璠	fan	11605
+蘩	fan	11422
+燔	fan	10303
+蹯	fan	5537
+放	fang	49870
+方	fang	49197
+房	fang	44147
+防	fang	42454
+访	fang	36081
+仿	fang	34492
+芳	fang	33598
+坊	fang	31625
+肪	fang	29561
+妨	fang	27764
+纺	fang	24435
+鲂	fang	19395
+枋	fang	18921
+舫	fang	17560
+昉	fang	17133
+钫	fang	12704
+邡	fang	10855
+非	fei	45469
+飞	fei	44582
+费	fei	43529
+肥	fei	42587
+废	fei	36700
+肺	fei	36555
+菲	fei	34285
+妃	fei	34255
+匪	fei	29955
+啡	fei	29753
+斐	fei	29181
+沸	fei	26370
+扉	fei	24617
+吠	fei	24358
+腓	fei	24238
+绯	fei	23865
+芾	fei	23546
+翡	fei	23470
+霏	fei	23319
+诽	fei	22989
+蜚	fei	22370
+淝	fei	20547
+榧	fei	19986
+鲱	fei	18441
+狒	fei	14277
+痱	fei	11493
+悱	fei	11305
+镄	fei	10761
+剕	fei	9551
+篚	fei	7622
+分	fen	50042
+份	fen	45007
+粉	fen	39181
+奋	fen	36996
+芬	fen	33528
+愤	fen	32449
+氛	fen	32325
+纷	fen	31263
+焚	fen	29901
+粪	fen	29888
+坟	fen	29306
+酚	fen	27924
+瀵	fen	25531
+忿	fen	25304
+汾	fen	24822
+吩	fen	19870
+鲼	fen	11857
+棻	fen	11821
+偾	fen	10964
+鼢	fen	9600
+棼	fen	7710
+玢	fen	1949
+风	feng	46068
+封	feng	40343
+疯	feng	39924
+丰	feng	37219
+峰	feng	36923
+奉	feng	34126
+缝	feng	34096
+蜂	feng	34058
+锋	feng	33909
+凤	feng	33897
+冯	feng	33052
+逢	feng	32737
+讽	feng	30125
+俸	feng	26158
+枫	feng	25081
+烽	feng	23791
+葑	feng	22492
+沣	feng	22127
+酆	feng	17431
+砜	feng	14131
+唪	feng	7458
+沨	feng	7288
+佛	fo	39130
+否	fou	39391
+缶	fou	17303
+服	fu	46828
+福	fu	45667
+复	fu	43863
+富	fu	42217
+负	fu	41696
+夫	fu	41647
+付	fu	40991
+父	fu	40700
+副	fu	39561
+佛	fu	39130
+附	fu	38423
+府	fu	38364
+妇	fu	37660
+扶	fu	36396
+肤	fu	36177
+腐	fu	35971
+幅	fu	35901
+浮	fu	35725
+符	fu	35497
+赋	fu	34694
+腹	fu	34602
+伏	fu	33634
+傅	fu	33484
+辐	fu	33067
+芙	fu	33037
+辅	fu	32808
+弗	fu	32306
+甫	fu	31837
+赴	fu	30936
+抚	fu	30445
+缚	fu	29805
+拂	fu	29652
+釜	fu	29321
+敷	fu	29230
+腑	fu	28757
+覆	fu	28607
+袱	fu	28520
+阜	fu	28246
+俯	fu	27435
+氟	fu	27232
+斧	fu	26834
+孵	fu	25801
+驸	fu	25735
+俘	fu	25663
+蝠	fu	24288
+孚	fu	24022
+茯	fu	23962
+苻	fu	23334
+涪	fu	22894
+匐	fu	22398
+黼	fu	22190
+咐	fu	22104
+绋	fu	20894
+呋	fu	20534
+馥	fu	18985
+绂	fu	18870
+跗	fu	18309
+凫	fu	17806
+蝮	fu	17449
+讣	fu	16927
+拊	fu	16735
+麸	fu	16005
+鲋	fu	15352
+滏	fu	13992
+蚨	fu	13986
+怫	fu	13412
+罘	fu	12938
+趺	fu	12742
+蜉	fu	12601
+菔	fu	12424
+幞	fu	12158
+祓	fu	11796
+桴	fu	11563
+黻	fu	11471
+簠	fu	11248
+莩	fu	10578
+郛	fu	10474
+洑	fu	9946
+赙	fu	9591
+艴	fu	6475
+鳆	fu	1000
+茀	fu	1000
+韨	fu	1000
+尬	ga	29257
+伽	ga	29209
+噶	ga	27048
+嘎	ga	26206
+呷	ga	22437
+尕	ga	18485
+旮	ga	14802
+钆	ga	9579
+尜	ga	1000
+咖	ga	1000
+该	gai	49574
+改	gai	45129
+盖	gai	39571
+概	gai	37375
+丐	gai	32050
+钙	gai	29685
+垓	gai	21668
+溉	gai	18676
+赅	gai	16933
+陔	gai	8536
+感	gan	50231
+干	gan	49584
+敢	gan	45432
+赶	gan	42619
+甘	gan	35825
+杆	gan	33961
+肝	gan	33445
+赣	gan	29401
+尴	gan	29302
+柑	gan	27092
+竿	gan	26460
+苷	gan	25037
+橄	gan	24834
+酐	gan	22179
+绀	gan	22040
+擀	gan	21558
+淦	gan	19881
+矸	gan	17030
+秆	gan	16496
+旰	gan	16312
+坩	gan	15185
+疳	gan	12906
+泔	gan	12639
+澉	gan	11816
+玕	gan	11334
+鳡	gan	8232
+刚	gang	46669
+港	gang	40476
+钢	gang	35139
+岗	gang	34483
+杠	gang	31047
+缸	gang	29786
+冈	gang	29117
+纲	gang	28342
+肛	gang	24327
+罡	gang	23246
+戆	gang	11432
+筻	gang	8321
+扛	gang	1000
+高	gao	50262
+告	gao	45427
+搞	gao	44232
+糕	gao	36983
+稿	gao	33804
+膏	gao	32496
+皋	gao	27591
+诰	gao	27402
+镐	gao	24919
+睾	gao	24054
+羔	gao	23321
+篙	gao	22243
+缟	gao	22130
+锆	gao	22067
+槁	gao	18115
+杲	gao	16247
+藁	gao	12683
+槔	gao	11621
+郜	gao	11136
+个	ge	57660
+哥	ge	46846
+歌	ge	45601
+各	ge	44819
+格	ge	44722
+隔	ge	39825
+革	ge	35480
+割	ge	35401
+葛	ge	32386
+戈	ge	32312
+阁	ge	30223
+搁	ge	28891
+鸽	ge	28881
+胳	ge	27709
+咯	ge	27331
+铬	ge	25760
+骼	ge	25644
+疙	ge	25064
+圪	ge	24501
+仡	ge	23997
+镉	ge	22530
+虼	ge	22200
+嗝	ge	22184
+硌	ge	21901
+膈	ge	19260
+鬲	ge	13041
+舸	ge	11681
+哿	ge	10537
+袼	ge	10043
+饹	ge	8250
+纥	ge	5650
+蛤	ge	3248
+塥	ge	1000
+给	gei	52661
+跟	gen	49747
+根	gen	44360
+亘	gen	23739
+艮	gen	22981
+茛	gen	12479
+哏	gen	11974
+更	geng	50329
+耿	geng	29174
+耕	geng	28398
+梗	geng	28341
+羹	geng	27784
+庚	geng	26769
+哽	geng	25138
+绠	geng	23306
+埂	geng	22821
+鲠	geng	13150
+暅	geng	12769
+赓	geng	10677
+颈	geng	1257
+工	gong	47886
+公	gong	47135
+共	gong	43462
+功	gong	41625
+供	gong	40178
+攻	gong	40111
+恭	gong	37583
+宫	gong	37319
+拱	gong	34353
+贡	gong	33115
+弓	gong	27907
+汞	gong	27391
+躬	gong	26494
+龚	gong	25356
+巩	gong	25190
+蚣	gong	25040
+觥	gong	22259
+肱	gong	19712
+珙	gong	16502
+唝	gong	1000
+够	gou	45781
+狗	gou	45704
+购	gou	38028
+沟	gou	35612
+勾	gou	35085
+构	gou	34634
+钩	gou	29506
+苟	gou	27141
+垢	gou	24975
+枸	gou	22974
+媾	gou	22257
+佝	gou	22247
+彀	gou	22235
+诟	gou	22180
+篝	gou	22123
+岣	gou	21326
+笱	gou	16945
+鞲	gou	12672
+觏	gou	10778
+缑	gou	10583
+遘	gou	9212
+故	gu	41347
+古	gu	40938
+估	gu	39970
+顾	gu	39668
+骨	gu	39093
+鼓	gu	38852
+孤	gu	37743
+姑	gu	37439
+股	gu	37066
+谷	gu	36951
+固	gu	34861
+雇	gu	32059
+咕	gu	29604
+菇	gu	29386
+沽	gu	29344
+辜	gu	28953
+鸪	gu	27322
+箍	gu	25725
+钴	gu	24886
+鹘	gu	23905
+锢	gu	23616
+鹄	gu	23400
+呱	gu	23351
+蛊	gu	23292
+毂	gu	22906
+汩	gu	22305
+牯	gu	22171
+诂	gu	22167
+蛄	gu	17707
+崮	gu	16801
+梏	gu	15660
+痼	gu	13232
+榖	gu	13003
+觚	gu	12827
+菰	gu	12746
+瞽	gu	12616
+轱	gu	12244
+嘏	gu	11716
+罟	gu	11674
+蓇	gu	11063
+鲴	gu	10557
+酤	gu	10268
+臌	gu	7951
+堌	gu	6127
+贾	gu	2387
+馉	gu	1000
+挂	gua	39216
+瓜	gua	38828
+寡	gua	35142
+刮	gua	34344
+卦	gua	30079
+褂	gua	27030
+剐	gua	23385
+聒	gua	19196
+诖	gua	17750
+胍	gua	16939
+鸹	gua	15765
+栝	gua	10314
+呱	gua	4872
+怪	guai	42944
+乖	guai	38668
+拐	guai	32377
+掴	guai	11565
+夬	guai	6109
+关	guan	48564
+管	guan	46640
+官	guan	42040
+观	guan	41887
+馆	guan	38961
+冠	guan	38926
+惯	guan	36674
+罐	guan	34411
+棺	guan	33155
+灌	guan	32839
+贯	guan	31004
+莞	guan	23917
+倌	guan	21764
+掼	guan	19634
+鹳	guan	18453
+盥	guan	16040
+涫	guan	14176
+鳏	guan	13145
+琯	guan	12272
+瓘	guan	11888
+祼	guan	9077
+纶	guan	1533
+鳤	guan	1000
+光	guang	46407
+广	guang	42990
+逛	guang	29391
+胱	guang	24430
+犷	guang	22154
+咣	guang	21874
+桄	guang	8399
+贵	gui	42126
+鬼	gui	41588
+归	gui	39637
+规	gui	38845
+闺	gui	38845
+跪	gui	34607
+柜	gui	34435
+轨	gui	33910
+桂	gui	33367
+龟	gui	32252
+硅	gui	30882
+圭	gui	29645
+瑰	gui	29637
+诡	gui	29414
+癸	gui	23861
+鳜	gui	23230
+皈	gui	23187
+桧	gui	23031
+妫	gui	22516
+庋	gui	22451
+匦	gui	22012
+鲑	gui	21476
+刽	gui	19927
+晷	gui	17621
+宄	gui	17291
+簋	gui	15237
+刿	gui	12101
+姽	gui	11358
+邽	gui	10568
+鬶	gui	8243
+匮	gui	1000
+炔	gui	1000
+傀	gui	1000
+棍	gun	33486
+滚	gun	29537
+衮	gun	29193
+绲	gun	21089
+鲧	gun	19582
+辊	gun	16105
+磙	gun	11715
+过	guo	54943
+国	guo	48284
+果	guo	47273
+锅	guo	39775
+郭	guo	37181
+裹	guo	32980
+椁	guo	25713
+虢	guo	19816
+聒	guo	19196
+帼	guo	19106
+埚	guo	13903
+蝈	guo	12518
+崞	guo	10937
+呙	guo	10447
+蜾	guo	9237
+馘	guo	8248
+馃	guo	7882
+涡	guo	1000
+哈	ha	54187
+蛤	ha	24758
+铪	ha	12355
+还	hai	55960
+海	hai	46940
+害	hai	45500
+孩	hai	43850
+亥	hai	30608
+骇	hai	29577
+骸	hai	27265
+氦	hai	23941
+嗨	hai	23631
+咳	hai	19011
+醢	hai	10473
+胲	hai	1000
+汉	han	41938
+喊	han	39345
+含	han	37291
+韩	han	37219
+寒	han	37029
+汗	han	36936
+函	han	33143
+罕	han	32780
+翰	han	32136
+涵	han	31960
+憾	han	29465
+悍	han	27963
+撼	han	27453
+旱	han	26854
+焊	han	25497
+酣	han	25371
+捍	han	24541
+憨	han	24408
+邯	han	24101
+鼾	han	23429
+瀚	han	22592
+颔	han	22196
+晗	han	18497
+邗	han	17000
+蚶	han	16957
+焓	han	15958
+菡	han	13610
+顸	han	10671
+撖	han	7349
+阚	han	1000
+航	hang	38852
+杭	hang	35150
+夯	hang	24933
+绗	hang	24495
+沆	hang	10909
+颃	hang	10025
+行	hang	6320
+巷	hang	1064
+吭	hang	1000
+珩	hang	1000
+好	hao	59137
+号	hao	46919
+豪	hao	39597
+毫	hao	35197
+耗	hao	34533
+浩	hao	32670
+灏	hao	29821
+郝	hao	29282
+蒿	hao	28645
+壕	hao	25833
+嚎	hao	24916
+皓	hao	24246
+濠	hao	23538
+昊	hao	21970
+嗥	hao	19298
+貉	hao	18016
+蚝	hao	15323
+颢	hao	14451
+薅	hao	11938
+淏	hao	6667
+嚆	hao	1000
+和	he	55107
+合	he	47076
+喝	he	45967
+何	he	45212
+河	he	41856
+核	he	37603
+盒	he	37265
+荷	he	35602
+赫	he	34398
+贺	he	34030
+鹤	he	33081
+呵	he	32366
+褐	he	29774
+劾	he	26940
+颌	he	26366
+禾	he	24810
+菏	he	23946
+壑	he	23870
+阖	he	23722
+诃	he	23431
+涸	he	23308
+嗬	he	22424
+阂	he	22280
+纥	he	20834
+曷	he	12862
+鞨	he	12620
+翮	he	11281
+盍	he	11075
+盉	he	10292
+龁	he	8513
+饸	he	5461
+貉	he	2300
+吓	he	2288
+翯	he	1000
+黑	hei	46263
+嘿	hei	30227
+很	hen	54972
+恨	hen	39956
+狠	hen	36213
+痕	hen	33448
+横	heng	35189
+哼	heng	33049
+衡	heng	32610
+恒	heng	32182
+亨	heng	29701
+珩	heng	23350
+桁	heng	23120
+蘅	heng	16341
+鸻	heng	9360
+红	hong	45782
+鸿	hong	35425
+洪	hong	33298
+哄	hong	33069
+轰	hong	32769
+宏	hong	31824
+虹	hong	30734
+弘	hong	29305
+烘	hong	27699
+讧	hong	26238
+闳	hong	22456
+泓	hong	19947
+訇	hong	17541
+竑	hong	12265
+薨	hong	12200
+蕻	hong	10058
+黉	hong	7507
+荭	hong	1000
+葓	hong	1000
+唝	hong	1000
+后	hou	52637
+候	hou	46662
+厚	hou	39006
+吼	hou	36004
+猴	hou	35743
+侯	hou	34520
+喉	hou	32325
+逅	hou	21408
+鲎	hou	19440
+骺	hou	12802
+篌	hou	11882
+堠	hou	10228
+糇	hou	10171
+瘊	hou	8640
+齁	hou	8515
+郈	hou	1000
+护	hu	42059
+湖	hu	41853
+呼	hu	41054
+互	hu	39915
+乎	hu	39886
+户	hu	39798
+胡	hu	39644
+虎	hu	37731
+糊	hu	35752
+忽	hu	35587
+沪	hu	32062
+壶	hu	31202
+狐	hu	30987
+弧	hu	29555
+瑚	hu	28743
+葫	hu	28357
+唬	hu	27354
+蝴	hu	26895
+扈	hu	24884
+惚	hu	24219
+浒	hu	23561
+琥	hu	22416
+斛	hu	22208
+祜	hu	22161
+唿	hu	19803
+猢	hu	19679
+煳	hu	19017
+滹	hu	18459
+囫	hu	17799
+觳	hu	16276
+笏	hu	16111
+槲	hu	14322
+瓠	hu	13445
+鹕	hu	13292
+怙	hu	13243
+岵	hu	12398
+醐	hu	12036
+鹱	hu	11987
+烀	hu	9458
+戽	hu	7362
+鹘	hu	2151
+鹄	hu	1851
+冱	hu	1000
+轷	hu	1000
+话	hua	50583
+花	hua	47925
+化	hua	45772
+画	hua	43645
+华	hua	42249
+划	hua	40381
+滑	hua	37919
+哗	hua	29320
+桦	hua	25647
+骅	hua	23249
+猾	hua	20731
+铧	hua	15654
+砉	hua	12154
+婳	hua	10115
+坏	huai	42921
+怀	huai	40983
+淮	huai	34267
+徊	huai	26318
+踝	huai	23199
+槐	huai	21911
+耲	huai	1000
+欢	huan	46394
+换	huan	45727
+环	huan	40912
+患	huan	36166
+幻	huan	35259
+缓	huan	34725
+唤	huan	31741
+浣	huan	30679
+焕	huan	30128
+寰	huan	29779
+桓	huan	29359
+宦	huan	29171
+獾	huan	25313
+痪	huan	24652
+鬟	huan	24346
+涣	huan	23629
+鲩	huan	22742
+豢	huan	22705
+圜	huan	22570
+洹	huan	21729
+锾	huan	18604
+奂	huan	16544
+萑	huan	11141
+逭	huan	11137
+鹮	huan	11007
+擐	huan	10419
+郇	huan	8798
+漶	huan	8370
+澴	huan	5797
+缳	huan	5647
+还	huan	1429
+黄	huang	42313
+皇	huang	37631
+慌	huang	35263
+晃	huang	34046
+荒	huang	33043
+谎	huang	32858
+凰	huang	29731
+惶	huang	29715
+恍	huang	29388
+簧	huang	26996
+煌	huang	26340
+幌	huang	24875
+蝗	huang	24721
+磺	huang	24675
+鳇	huang	24402
+潢	huang	22735
+徨	huang	22381
+湟	huang	22365
+璜	huang	22248
+隍	huang	22168
+肓	huang	19183
+遑	huang	18883
+蟥	huang	13814
+篁	huang	12028
+癀	huang	9453
+喤	huang	6986
+锽	huang	1000
+塃	huang	1000
+会	hui	56616
+回	hui	52964
+灰	hui	38404
+毁	hui	38285
+挥	hui	37246
+惠	hui	36188
+悔	hui	36060
+徽	hui	34291
+慧	hui	34177
+汇	hui	33904
+恢	hui	32827
+绘	hui	31035
+辉	hui	30906
+讳	hui	29253
+晖	hui	27737
+诲	hui	27314
+晦	hui	27190
+烩	hui	27041
+秽	hui	25500
+卉	hui	25070
+蛔	hui	24391
+麾	hui	24063
+洄	hui	23784
+彗	hui	23604
+喙	hui	23216
+诙	hui	23144
+荟	hui	22802
+恚	hui	22166
+蕙	hui	19048
+贿	hui	18160
+茴	hui	16567
+哕	hui	15905
+隳	hui	14299
+咴	hui	12662
+虺	hui	12505
+蟪	hui	12196
+翚	hui	11672
+浍	hui	11004
+袆	hui	7589
+翙	hui	1000
+珲	hui	1000
+婚	hun	43604
+混	hun	40330
+魂	hun	36292
+昏	hun	34610
+浑	hun	32313
+荤	hun	27165
+馄	hun	22299
+诨	hun	22223
+珲	hun	20928
+阍	hun	12792
+溷	hun	10534
+活	huo	49112
+火	huo	46190
+或	huo	46101
+货	huo	41126
+伙	huo	39595
+获	huo	37957
+惑	huo	34162
+霍	huo	33730
+祸	huo	33111
+豁	huo	28238
+夥	huo	23411
+镬	huo	18927
+蠖	huo	18896
+藿	huo	14338
+砉	huo	12154
+嚯	huo	11915
+锪	huo	10982
+攉	huo	10625
+钬	huo	8266
+耠	huo	5632
+和	huo	1000
+劐	huo	1000
+嚄	huo	1000
+几	ji	49375
+机	ji	48994
+己	ji	48353
+记	ji	47492
+及	ji	45798
+级	ji	44680
+基	ji	44634
+集	ji	44410
+计	ji	44136
+季	ji	42740
+急	ji	42492
+极	ji	41813
+即	ji	41560
+技	ji	41427
+鸡	ji	41382
+辑	ji	41197
+击	ji	41056
+继	ji	40928
+吉	ji	40628
+纪	ji	40597
+激	ji	40180
+寄	ji	39676
+既	ji	39361
+际	ji	38796
+积	ji	38426
+济	ji	38345
+挤	ji	36170
+祭	ji	35949
+迹	ji	35477
+肌	ji	35354
+绩	ji	34483
+剂	ji	34257
+籍	ji	33267
+圾	ji	32834
+疾	ji	32322
+稷	ji	32219
+忌	ji	32139
+寂	ji	31806
+饥	ji	30125
+冀	ji	29584
+戟	ji	29428
+妓	ji	29219
+脊	ji	28743
+稽	ji	28729
+棘	ji	28269
+藉	ji	27799
+矶	ji	27753
+缉	ji	27598
+羁	ji	27395
+畸	ji	27197
+唧	ji	27015
+嫉	ji	26990
+讥	ji	26623
+姬	ji	25967
+暨	ji	24942
+蓟	ji	24925
+叽	ji	24770
+汲	ji	24701
+箕	ji	24490
+跻	ji	24456
+诘	ji	24428
+伎	ji	24128
+悸	ji	23840
+亟	ji	23828
+畿	ji	23753
+笈	ji	23675
+髻	ji	23623
+赍	ji	23442
+芰	ji	22866
+瘠	ji	22661
+骥	ji	22468
+玑	ji	22278
+偈	ji	22157
+鲫	ji	22146
+觊	ji	22122
+岌	ji	21640
+乩	ji	20881
+咭	ji	20441
+姞	ji	19686
+霁	ji	18908
+麂	ji	18390
+楫	ji	16741
+芨	ji	16687
+蒺	ji	16556
+荠	ji	16496
+犄	ji	16407
+屐	ji	16176
+嵴	ji	16170
+齑	ji	16158
+虮	ji	15852
+笄	ji	14717
+戢	ji	12993
+佶	ji	12729
+罽	ji	12590
+嵇	ji	12032
+鲚	ji	11990
+蹐	ji	11446
+殛	ji	10816
+掎	ji	10627
+蕺	ji	10575
+鹡	ji	10140
+墼	ji	10121
+跽	ji	9401
+檵	ji	9289
+穄	ji	8855
+伋	ji	8212
+垍	ji	7819
+洎	ji	6674
+剞	ji	6195
+给	ji	4373
+塈	ji	1000
+系	ji	1000
+鱾	ji	1000
+家	jia	54239
+加	jia	50793
+假	jia	46479
+价	jia	41735
+架	jia	41189
+佳	jia	38863
+甲	jia	38545
+嫁	jia	38460
+驾	jia	37758
+嘉	jia	36430
+夹	jia	35919
+贾	jia	34312
+颊	jia	29538
+钾	jia	29357
+迦	jia	29236
+伽	jia	29209
+茄	jia	27172
+珈	jia	24637
+枷	jia	24589
+戛	jia	23492
+浃	jia	23485
+袈	jia	23244
+荚	jia	22896
+岬	jia	22781
+稼	jia	20754
+镓	jia	19324
+郏	jia	18554
+胛	jia	17756
+痂	jia	16723
+葭	jia	16573
+笳	jia	15870
+蛱	jia	12462
+跏	jia	12127
+斝	jia	11175
+铗	jia	9682
+槚	jia	6730
+恝	jia	1000
+见	jian	50235
+间	jian	48763
+件	jian	47028
+建	jian	44193
+坚	jian	42275
+减	jian	42150
+健	jian	41896
+简	jian	41639
+剪	jian	40311
+检	jian	39461
+键	jian	39260
+尖	jian	36273
+监	jian	36203
+肩	jian	35809
+剑	jian	35341
+渐	jian	34790
+荐	jian	34750
+煎	jian	34468
+捡	jian	34436
+兼	jian	34203
+舰	jian	33255
+艰	jian	33122
+鉴	jian	33096
+僭	jian	33087
+碱	jian	33053
+箭	jian	32967
+践	jian	31974
+谏	jian	29510
+蹇	jian	29404
+柬	jian	29182
+溅	jian	27208
+俭	jian	26961
+茧	jian	25810
+拣	jian	25784
+涧	jian	25117
+笺	jian	25046
+锏	jian	24535
+歼	jian	24240
+缄	jian	23220
+鞯	jian	23041
+饯	jian	22791
+奸	jian	22789
+睑	jian	22536
+硷	jian	22175
+贱	jian	22061
+謇	jian	21888
+犍	jian	21103
+腱	jian	20361
+翦	jian	19621
+楗	jian	19350
+缣	jian	15601
+笕	jian	13047
+菅	jian	12464
+鲣	jian	12235
+毽	jian	12209
+裥	jian	11789
+鹣	jian	11732
+湔	jian	11500
+趼	jian	11199
+蒹	jian	11065
+搛	jian	10322
+枧	jian	8676
+戬	jian	8425
+谫	jian	7955
+戋	jian	7747
+踺	jian	7567
+囝	jian	6150
+牮	jian	5766
+将	jiang	46323
+讲	jiang	44071
+江	jiang	41505
+奖	jiang	40454
+降	jiang	40077
+酱	jiang	36831
+蒋	jiang	35195
+姜	jiang	33262
+疆	jiang	32541
+浆	jiang	31294
+僵	jiang	31067
+匠	jiang	28849
+缰	jiang	25253
+绛	jiang	24444
+桨	jiang	23682
+犟	jiang	21936
+豇	jiang	12193
+糨	jiang	11546
+鳉	jiang	10456
+耩	jiang	8835
+礓	jiang	8617
+膙	jiang	7603
+茳	jiang	6468
+洚	jiang	1000
+叫	jiao	47837
+教	jiao	46749
+交	jiao	45782
+较	jiao	43019
+角	jiao	42775
+脚	jiao	42525
+焦	jiao	36824
+胶	jiao	34172
+娇	jiao	34052
+椒	jiao	33730
+骄	jiao	32693
+饺	jiao	32425
+浇	jiao	31465
+郊	jiao	30302
+剿	jiao	29836
+搅	jiao	29736
+蕉	jiao	29533
+礁	jiao	29196
+嚼	jiao	29173
+窖	jiao	27675
+矫	jiao	27317
+缴	jiao	26516
+蛟	jiao	25776
+侥	jiao	25541
+酵	jiao	25386
+绞	jiao	25243
+狡	jiao	24926
+轿	jiao	24802
+跤	jiao	23925
+姣	jiao	23873
+皎	jiao	23516
+佼	jiao	23227
+鲛	jiao	23125
+铰	jiao	22367
+鹪	jiao	22121
+醮	jiao	20921
+艽	jiao	18378
+湫	jiao	17297
+茭	jiao	14271
+峤	jiao	13450
+挢	jiao	11834
+敫	jiao	11693
+徼	jiao	11180
+僬	jiao	9722
+噍	jiao	9539
+滘	jiao	8658
+觉	jiao	7524
+藠	jiao	6450
+校	jiao	1000
+峧	jiao	1000
+接	jie	48502
+结	jie	46612
+解	jie	46499
+节	jie	45819
+姐	jie	44556
+界	jie	44327
+街	jie	42837
+借	jie	41277
+介	jie	40585
+杰	jie	38405
+戒	jie	37848
+截	jie	37445
+洁	jie	35777
+届	jie	35363
+皆	jie	35130
+阶	jie	34764
+劫	jie	33548
+揭	jie	32790
+捷	jie	32742
+芥	jie	27127
+竭	jie	26457
+诫	jie	25402
+睫	jie	24816
+诘	jie	24428
+嗟	jie	24076
+桔	jie	23846
+秸	jie	23707
+羯	jie	22528
+颉	jie	22495
+桀	jie	22390
+蚧	jie	22253
+拮	jie	22234
+婕	jie	21029
+碣	jie	20827
+孑	jie	19699
+玠	jie	18197
+讦	jie	16064
+疥	jie	15700
+疖	jie	12206
+湝	jie	10806
+喈	jie	10002
+藉	jie	6248
+金	jin	65773
+今	jin	49011
+进	jin	48348
+近	jin	47637
+紧	jin	43931
+尽	jin	42831
+仅	jin	39708
+劲	jin	38477
+禁	jin	37933
+斤	jin	37819
+津	jin	35838
+巾	jin	34113
+锦	jin	32569
+谨	jin	31707
+筋	jin	31691
+晋	jin	31532
+浸	jin	30267
+襟	jin	29504
+瑾	jin	24374
+矜	jin	24210
+缙	jin	23920
+觐	jin	23257
+妗	jin	23149
+烬	jin	22793
+噤	jin	22206
+馑	jin	18566
+槿	jin	17157
+荩	jin	16669
+堇	jin	15208
+靳	jin	14598
+衿	jin	13764
+琎	jin	13068
+殣	jin	12539
+卺	jin	10957
+赆	jin	9228
+祲	jin	6538
+浕	jin	1000
+经	jing	48708
+精	jing	43808
+警	jing	43275
+京	jing	42903
+竟	jing	41426
+景	jing	41210
+荆	jing	41138
+静	jing	40824
+镜	jing	40585
+敬	jing	40281
+惊	jing	40092
+境	jing	39802
+净	jing	36989
+睛	jing	36951
+井	jing	35270
+靖	jing	34236
+竞	jing	33775
+晶	jing	33533
+径	jing	30944
+颈	jing	30464
+兢	jing	27160
+鲸	jing	26479
+阱	jing	24878
+旌	jing	24577
+泾	jing	24060
+痉	jing	23872
+粳	jing	23326
+憬	jing	22765
+胫	jing	22719
+腈	jing	22162
+靓	jing	21497
+菁	jing	21286
+倞	jing	19215
+儆	jing	18623
+璟	jing	18047
+茎	jing	17390
+婧	jing	16318
+肼	jing	15093
+獍	jing	10399
+刭	jing	8755
+鼱	jing	8228
+猄	jing	7661
+劲	jing	7315
+炯	jiong	27363
+迥	jiong	25328
+窘	jiong	24857
+炅	jiong	11814
+扃	jiong	9669
+就	jiu	58096
+久	jiu	46795
+酒	jiu	45455
+救	jiu	42951
+九	jiu	42368
+旧	jiu	39458
+究	jiu	39143
+纠	jiu	35186
+舅	jiu	31076
+揪	jiu	29735
+鸠	jiu	27228
+灸	jiu	26932
+柩	jiu	25310
+阄	jiu	25237
+咎	jiu	24546
+疚	jiu	24419
+臼	jiu	24169
+桕	jiu	23482
+韭	jiu	22531
+鹫	jiu	22512
+啾	jiu	22244
+厩	jiu	21524
+赳	jiu	19764
+玖	jiu	18966
+僦	jiu	11777
+鬏	jiu	7527
+句	ju	44523
+局	ju	43443
+剧	ju	42941
+居	ju	42853
+具	ju	42132
+据	ju	41789
+举	ju	41625
+聚	ju	41395
+巨	ju	38803
+距	ju	38262
+拒	ju	38078
+惧	ju	33218
+橘	ju	33011
+俱	ju	32825
+矩	ju	30932
+炬	ju	29782
+菊	ju	29452
+咀	ju	29314
+拘	ju	28967
+驹	ju	27398
+锯	ju	26982
+鞠	ju	26837
+沮	ju	25547
+踞	ju	24666
+桔	ju	23846
+狙	ju	23361
+琚	ju	23178
+疽	ju	22535
+飓	ju	22480
+掬	ju	22262
+遽	ju	22169
+龃	ju	21401
+讵	ju	20262
+莒	ju	18472
+倨	ju	18340
+苣	ju	18315
+趄	ju	17602
+鞫	ju	17078
+裾	ju	16765
+苴	ju	15329
+榉	ju	15047
+踽	ju	13357
+窭	ju	12372
+雎	ju	11773
+锔	ju	11589
+屦	ju	11365
+菹	ju	11041
+醵	ju	10676
+椐	ju	10614
+湨	ju	9280
+泃	ju	9103
+犋	ju	8882
+蒟	ju	6456
+枸	ju	1006
+腒	ju	1000
+卷	juan	40157
+涓	juan	37245
+捐	juan	34799
+鹃	juan	29566
+眷	juan	29334
+娟	juan	29237
+倦	juan	27845
+隽	juan	22887
+镌	juan	22543
+绢	juan	21850
+鄄	juan	20647
+蠲	juan	14502
+锩	juan	12738
+朘	juan	10203
+狷	juan	8879
+桊	juan	6760
+圈	juan	2799
+棬	juan	1000
+觉	jue	48781
+绝	jue	43196
+决	jue	42751
+爵	jue	32103
+掘	jue	30594
+诀	jue	29495
+厥	jue	29381
+嚼	jue	29173
+崛	jue	27010
+抉	jue	24986
+倔	jue	24158
+獗	jue	23709
+蕨	jue	23505
+撅	jue	23289
+攫	jue	23236
+蹶	jue	21164
+谲	jue	20124
+镢	jue	16585
+矍	jue	16028
+橛	jue	14916
+桷	jue	10415
+玦	jue	9929
+珏	jue	8949
+孓	jue	8461
+劂	jue	6192
+角	jue	5513
+噱	jue	3952
+爝	jue	1000
+觖	jue	1000
+军	jun	43338
+君	jun	38647
+均	jun	37502
+郡	jun	37253
+俊	jun	35634
+菌	jun	33479
+钧	jun	31471
+峻	jun	30247
+浚	jun	25782
+竣	jun	25513
+骏	jun	24828
+麇	jun	11904
+皲	jun	11812
+捃	jun	8692
+畯	jun	7656
+焌	jun	7260
+鲪	jun	6287
+莙	jun	5617
+隽	jun	1000
+龟	jun	1000
+卡	ka	44450
+喀	ka	32858
+咖	ka	29691
+咔	ka	23279
+胩	ka	11943
+咯	ka	1262
+开	kai	52610
+凯	kai	36987
+慨	kai	31563
+楷	kai	27093
+揩	kai	24526
+恺	kai	23433
+铠	kai	22863
+忾	kai	22751
+闿	kai	16825
+锴	kai	11438
+剀	kai	10547
+锎	kai	10466
+垲	kai	1000
+蒈	kai	1000
+看	kan	55779
+堪	kan	34538
+砍	kan	34095
+刊	kan	30302
+勘	kan	29699
+坎	kan	29350
+槛	kan	27136
+瞰	kan	26939
+侃	kan	25123
+龛	kan	23273
+戡	kan	11770
+阚	kan	10148
+莰	kan	8295
+墈	kan	1000
+康	kang	42050
+抗	kang	39027
+扛	kang	32048
+慷	kang	28025
+亢	kang	27422
+炕	kang	22530
+糠	kang	21409
+钪	kang	17529
+闶	kang	15567
+伉	kang	14042
+靠	kao	52324
+考	kao	46546
+烤	kao	38943
+拷	kao	25195
+铐	kao	23808
+犒	kao	22471
+栲	kao	20032
+尻	kao	15718
+可	ke	55599
+克	ke	44547
+科	ke	44149
+客	ke	44072
+课	ke	43428
+刻	ke	40804
+颗	ke	38754
+咳	ke	35100
+壳	ke	34993
+渴	ke	32903
+棵	ke	31935
+柯	ke	31618
+磕	ke	30217
+珂	ke	27321
+苛	ke	26463
+恪	ke	25201
+蝌	ke	23891
+坷	ke	22899
+缂	ke	22682
+瞌	ke	22587
+颏	ke	22446
+窠	ke	22120
+稞	ke	21784
+岢	ke	21116
+髁	ke	19144
+嗑	ke	17713
+轲	ke	17151
+氪	ke	16140
+锞	ke	15677
+疴	ke	12279
+溘	ke	11505
+牁	ke	9272
+骒	ke	7103
+肯	ken	43386
+啃	ken	25681
+恳	ken	25657
+垦	ken	23115
+龈	ken	19780
+裉	ken	14137
+坑	keng	37884
+吭	keng	27251
+铿	keng	24293
+硁	keng	9923
+空	kong	46208
+控	kong	42322
+恐	kong	39197
+孔	kong	35461
+崆	kong	22819
+倥	kong	13456
+箜	kong	11679
+口	kou	47829
+扣	kou	37507
+叩	kou	30669
+寇	kou	27273
+抠	kou	23670
+蔻	kou	16401
+眍	kou	8868
+筘	kou	8605
+苦	ku	43809
+哭	ku	42810
+酷	ku	40302
+裤	ku	38507
+库	ku	35500
+窟	ku	31160
+枯	ku	28777
+绔	ku	23609
+骷	ku	22998
+喾	ku	16627
+刳	ku	12408
+矻	ku	8727
+夸	kua	38594
+跨	kua	35729
+垮	kua	31145
+胯	kua	24003
+挎	kua	21862
+侉	kua	10743
+快	kuai	52325
+块	kuai	43214
+筷	kuai	28325
+蒯	kuai	27063
+脍	kuai	19492
+狯	kuai	16849
+侩	kuai	12563
+哙	kuai	11291
+郐	kuai	10884
+鲙	kuai	5438
+会	kuai	1000
+款	kuan	41714
+宽	kuan	36733
+髋	kuan	15514
+狂	kuang	39672
+况	kuang	39283
+框	kuang	33069
+矿	kuang	32152
+眶	kuang	27324
+旷	kuang	26987
+筐	kuang	25830
+匡	kuang	25722
+诳	kuang	22564
+诓	kuang	22144
+哐	kuang	21388
+邝	kuang	14985
+圹	kuang	11642
+纩	kuang	8838
+贶	kuang	8561
+夼	kuang	8167
+亏	kui	34227
+溃	kui	31939
+愧	kui	31320
+魁	kui	29264
+逵	kui	28143
+盔	kui	28088
+窥	kui	27791
+奎	kui	27211
+馈	kui	27085
+夔	kui	25575
+傀	kui	24892
+匮	kui	23716
+隗	kui	23012
+睽	kui	22795
+葵	kui	20574
+喹	kui	18902
+喟	kui	18228
+揆	kui	16270
+馗	kui	16241
+聩	kui	15555
+篑	kui	15300
+蝰	kui	13809
+愦	kui	12649
+悝	kui	12605
+骙	kui	12456
+暌	kui	12283
+岿	kui	11635
+跬	kui	11039
+蒉	kui	7178
+困	kun	42346
+昆	kun	33904
+坤	kun	32033
+捆	kun	28485
+醌	kun	23594
+锟	kun	22125
+髡	kun	19337
+鲲	kun	12233
+阃	kun	11380
+悃	kun	11012
+焜	kun	10405
+琨	kun	9797
+裈	kun	9771
+括	kuo	35426
+阔	kuo	34050
+扩	kuo	31621
+廓	kuo	27139
+蛞	kuo	14996
+啦	la	48016
+拉	la	46624
+辣	la	41404
+垃	la	34270
+腊	la	31780
+蜡	la	30994
+喇	la	29653
+剌	la	27460
+邋	la	16211
+旯	la	15053
+瘌	la	10653
+镴	la	7891
+落	la	1223
+鞡	la	1000
+来	lai	57430
+赖	lai	35604
+莱	lai	34687
+睐	lai	25510
+涞	lai	23185
+籁	lai	22419
+癞	lai	22343
+梾	lai	21517
+崃	lai	21381
+徕	lai	18428
+濑	lai	13919
+赉	lai	13676
+铼	lai	11526
+蓝	lan	40132
+兰	lan	40038
+懒	lan	37418
+烂	lan	36019
+篮	lan	34451
+拦	lan	31968
+栏	lan	31715
+滥	lan	30630
+览	lan	30159
+揽	lan	29315
+澜	lan	28380
+缆	lan	28072
+岚	lan	25556
+榄	lan	25396
+婪	lan	24411
+斓	lan	23908
+阑	lan	23139
+褴	lan	21977
+襕	lan	13604
+镧	lan	12804
+谰	lan	11900
+罱	lan	11795
+漤	lan	5806
+浪	lang	41766
+朗	lang	37883
+狼	lang	36702
+郎	lang	35045
+廊	lang	30380
+琅	lang	27033
+啷	lang	24782
+螂	lang	22594
+榔	lang	22548
+阆	lang	18548
+锒	lang	15099
+烺	lang	12376
+蒗	lang	11193
+稂	lang	10972
+老	lao	50896
+劳	lao	38366
+牢	lao	34951
+捞	lao	34786
+姥	lao	29274
+佬	lao	27058
+烙	lao	24984
+唠	lao	23548
+酪	lao	23387
+崂	lao	22460
+涝	lao	21401
+痨	lao	19973
+醪	lao	16117
+嫪	lao	11837
+铑	lao	11734
+潦	lao	10394
+栳	lao	9117
+耢	lao	8836
+铹	lao	8265
+了	le	62590
+乐	le	47771
+勒	le	37168
+肋	le	25836
+叻	le	14378
+鳓	le	9881
+泐	le	9101
+饹	le	1000
+仂	le	1000
+累	lei	44082
+类	lei	42826
+雷	lei	40481
+泪	lei	37372
+勒	lei	37168
+垒	lei	29701
+蕾	lei	27170
+擂	lei	26607
+肋	lei	25836
+儡	lei	24790
+磊	lei	23699
+嫘	lei	22977
+镭	lei	19934
+诔	lei	16753
+缧	lei	16675
+耒	lei	15439
+羸	lei	13417
+嘞	lei	13264
+礌	lei	11886
+酹	lei	10151
+檑	lei	6715
+冷	leng	44597
+愣	leng	29800
+棱	leng	29532
+楞	leng	27107
+塄	leng	12656
+里	li	53149
+力	li	49078
+理	li	48510
+利	li	45405
+离	li	45183
+立	li	43258
+礼	li	41538
+李	li	41355
+丽	li	41162
+历	li	40887
+例	li	39245
+厉	li	38062
+励	li	35402
+粒	li	34310
+吏	li	34232
+黎	li	33876
+哩	li	33168
+梨	li	33144
+厘	li	31574
+璃	li	30487
+栗	li	30372
+莉	li	28057
+狸	li	27648
+蠡	li	27379
+鲤	li	27247
+娌	li	27226
+漓	li	27109
+澧	li	26945
+砾	li	25516
+沥	li	25350
+隶	li	25246
+栎	li	24860
+篱	li	24442
+荔	li	24038
+雳	li	23830
+锂	li	23813
+醴	li	23748
+俐	li	23702
+犁	li	23585
+笠	li	23540
+痢	li	23460
+砺	li	23262
+戾	li	23103
+俚	li	23079
+莅	li	22599
+俪	li	22486
+藜	li	22314
+骊	li	21722
+詈	li	21320
+逦	li	21049
+蛎	li	20414
+缡	li	20183
+傈	li	20170
+罹	li	19654
+溧	li	16413
+唳	li	16258
+粝	li	15805
+鲡	li	14853
+郦	li	13571
+猁	li	13079
+黧	li	13014
+鹂	li	12879
+呖	li	12714
+苈	li	12248
+嫠	li	12163
+疠	li	12014
+蜊	li	11667
+枥	li	11623
+喱	li	11574
+疬	li	10801
+跞	li	10773
+篥	li	10589
+鳢	li	10452
+坜	li	10014
+蓠	li	9646
+俩	lia	33153
+连	lian	44933
+脸	lian	44784
+联	lian	41721
+恋	lian	41248
+练	lian	41026
+怜	lian	35990
+炼	lian	35817
+莲	lian	35742
+链	lian	35519
+廉	lian	31576
+敛	lian	29349
+帘	lian	29298
+濂	lian	29187
+鲢	lian	26978
+涟	lian	24595
+楝	lian	22798
+琏	lian	22768
+殓	lian	22696
+奁	lian	21929
+镰	lian	21785
+臁	lian	20012
+蠊	lian	15934
+裢	lian	15800
+裣	lian	11936
+潋	lian	10511
+蔹	lian	8343
+两	liang	50244
+量	liang	45256
+亮	liang	43589
+良	liang	39613
+凉	liang	39478
+辆	liang	38218
+粮	liang	37194
+梁	liang	33799
+谅	liang	33351
+俩	liang	33153
+踉	liang	24872
+椋	liang	23837
+晾	liang	23688
+粱	liang	20984
+魉	liang	15753
+靓	liang	14779
+悢	liang	1000
+辌	liang	1000
+料	liao	41751
+疗	liao	35459
+聊	liao	32279
+辽	liao	30712
+寮	liao	29212
+廖	liao	27166
+寥	liao	26866
+僚	liao	25793
+撩	liao	25362
+缭	liao	24422
+撂	liao	23787
+燎	liao	23628
+瞭	liao	22854
+潦	liao	22689
+镣	liao	22526
+獠	liao	22176
+嘹	liao	20157
+蓼	liao	19408
+钌	liao	13172
+尥	liao	11906
+鹩	liao	11043
+蹽	liao	9588
+了	liao	1582
+列	lie	40747
+烈	lie	37402
+裂	lie	34258
+猎	lie	32502
+劣	lie	29737
+咧	lie	27373
+冽	lie	21661
+洌	lie	20288
+鬣	lie	19953
+趔	lie	16747
+埒	lie	11653
+捩	lie	11346
+躐	lie	9046
+林	lin	42469
+临	lin	37693
+淋	lin	34598
+磷	lin	32741
+霖	lin	32109
+邻	lin	31886
+鳞	lin	30709
+琳	lin	29648
+凛	lin	29617
+麟	lin	27120
+拎	lin	24718
+赁	lin	24139
+躏	lin	23854
+璘	lin	23611
+吝	lin	23374
+嶙	lin	22185
+遴	lin	20341
+廪	lin	19940
+啉	lin	19862
+粼	lin	19550
+蔺	lin	17523
+辚	lin	11996
+膦	lin	11469
+檩	lin	10821
+瞵	lin	9790
+另	ling	43437
+领	ling	42113
+令	ling	42022
+灵	ling	40659
+零	ling	39977
+龄	ling	35762
+凌	ling	34235
+铃	ling	32193
+陵	ling	32056
+菱	ling	32018
+岭	ling	31418
+玲	ling	29301
+羚	ling	25572
+伶	ling	25296
+棂	ling	24603
+苓	ling	24425
+绫	ling	23732
+聆	ling	23055
+翎	ling	22426
+呤	ling	22117
+蛉	ling	18661
+泠	ling	17036
+囹	ling	12783
+瓴	ling	12708
+鲮	ling	12300
+酃	ling	11739
+鸰	ling	10252
+祾	ling	9432
+柃	ling	1000
+留	liu	46024
+流	liu	45199
+六	liu	44710
+刘	liu	38899
+溜	liu	36457
+柳	liu	33097
+瘤	liu	33036
+榴	liu	31944
+硫	liu	31713
+琉	liu	30000
+浏	liu	29549
+馏	liu	24773
+镏	liu	23887
+绺	liu	22142
+遛	liu	19836
+鎏	liu	18636
+镠	liu	18447
+鹨	liu	12396
+旒	liu	12350
+熘	liu	12328
+骝	liu	11625
+蹓	liu	11139
+飗	liu	10463
+鹠	liu	8229
+碌	liu	1000
+龙	long	41687
+隆	long	35589
+笼	long	32733
+聋	long	27137
+胧	long	27035
+陇	long	25827
+拢	long	25616
+珑	long	25087
+咙	long	24889
+窿	long	24117
+砻	long	22192
+茏	long	18978
+眬	long	18190
+垄	long	17991
+垅	long	14462
+栊	long	13858
+泷	long	11616
+癃	long	10692
+弄	long	1378
+昽	long	1000
+楼	lou	42696
+漏	lou	35839
+剅	lou	29709
+陋	lou	28096
+搂	lou	27370
+镂	lou	25126
+喽	lou	24543
+娄	lou	23331
+篓	lou	23313
+髅	lou	22852
+偻	lou	22479
+瘘	lou	18686
+蝼	lou	17658
+嵝	lou	12030
+耧	lou	10784
+蒌	lou	10697
+溇	lou	8376
+露	lou	2454
+路	lu	48443
+露	lu	41520
+录	lu	40114
+鹿	lu	38187
+陆	lu	35513
+鲁	lu	35437
+卢	lu	34464
+炉	lu	32354
+芦	lu	30823
+碌	lu	30527
+禄	lu	29880
+麓	lu	29750
+庐	lu	29657
+卤	lu	29624
+胪	lu	29496
+颅	lu	26350
+赂	lu	25919
+戮	lu	25887
+璐	lu	25405
+掳	lu	25347
+噜	lu	24957
+漉	lu	23661
+泸	lu	23523
+虏	lu	23149
+橹	lu	22747
+潞	lu	22663
+辘	lu	22436
+辂	lu	22411
+鲈	lu	22407
+鹭	lu	22379
+渌	lu	22281
+撸	lu	22242
+鸬	lu	21606
+箓	lu	16693
+舻	lu	14876
+氇	lu	14536
+逯	lu	12677
+轳	lu	12423
+栌	lu	11093
+垆	lu	10837
+僇	lu	10552
+镥	lu	8542
+簏	lu	8319
+甪	lu	8009
+绿	lu	1304
+乱	luan	42242
+鸾	luan	24271
+挛	luan	23849
+峦	luan	23619
+滦	luan	23258
+卵	luan	22945
+銮	luan	22828
+娈	luan	22160
+孪	luan	21579
+栾	luan	16424
+脔	luan	10544
+论	lun	42197
+伦	lun	37222
+轮	lun	30318
+仑	lun	29752
+沦	lun	29626
+纶	lun	24000
+抡	lun	23447
+囵	lun	17793
+落	luo	43080
+罗	luo	39929
+洛	luo	37266
+络	luo	35805
+萝	luo	35311
+逻	luo	33097
+珞	luo	31067
+螺	luo	30454
+裸	luo	29592
+锣	luo	26462
+骆	luo	25462
+椤	luo	23693
+啰	luo	23166
+骡	luo	22619
+雒	luo	22469
+摞	luo	22464
+箩	luo	21043
+漯	luo	19330
+荦	luo	17163
+瘰	luo	11803
+泺	luo	11609
+蠃	luo	9236
+猡	luo	6614
+烙	luo	1000
+脶	luo	1000
+捋	luo	1000
+律	lv	42845
+率	lv	42268
+旅	lv	41390
+绿	lv	39133
+虑	lv	37242
+吕	lv	33055
+履	lv	32888
+屡	lv	30588
+氯	lv	29921
+驴	lv	29728
+铝	lv	29726
+滤	lv	28898
+缕	lv	27365
+侣	lv	27270
+捋	lv	24475
+榈	lv	23358
+闾	lv	23065
+膂	lv	20888
+褛	lv	20714
+偻	lv	1013
+稆	lv	1000
+略	lve	41262
+掠	lve	32701
+锊	lve	13925
+吗	ma	52280
+马	ma	46267
+妈	ma	44870
+麻	ma	41653
+码	ma	40194
+骂	ma	39555
+抹	ma	35297
+嘛	ma	34185
+玛	ma	33054
+蚂	ma	26364
+蟆	ma	24524
+犸	ma	12274
+祃	ma	7635
+唛	ma	1000
+嬷	ma	1000
+买	mai	48488
+卖	mai	43789
+麦	mai	37897
+埋	mai	36185
+迈	mai	34529
+脉	mai	31338
+霾	mai	22292
+劢	mai	11293
+荬	mai	7600
+唛	mai	1000
+满	man	44749
+慢	man	43703
+蛮	man	37964
+漫	man	37793
+曼	man	35096
+瞒	man	31392
+蔓	man	27279
+馒	man	26980
+幔	man	23756
+谩	man	23650
+螨	man	23394
+鳗	man	23039
+缦	man	13936
+嫚	man	11922
+颟	man	10263
+墁	man	8975
+镘	man	7129
+埋	man	5368
+忙	mang	43919
+芒	mang	33471
+盲	mang	33370
+茫	mang	31883
+莽	mang	29280
+氓	mang	25820
+蟒	mang	24450
+邙	mang	13803
+杧	mang	10200
+硭	mang	9921
+漭	mang	5805
+毛	mao	45021
+猫	mao	42098
+冒	mao	40838
+貌	mao	37962
+帽	mao	37141
+矛	mao	33512
+茂	mao	30491
+贸	mao	30428
+茅	mao	27994
+卯	mao	26110
+髦	mao	24655
+锚	mao	24461
+瑁	mao	22948
+峁	mao	22913
+牦	mao	22645
+铆	mao	22230
+懋	mao	20520
+耄	mao	19004
+袤	mao	18800
+旄	mao	14558
+蟊	mao	12654
+昴	mao	12645
+茆	mao	10179
+泖	mao	9100
+瞀	mao	8337
+蝥	mao	7730
+眊	mao	7646
+芼	mao	1000
+么	me	55122
+没	mei	56254
+美	mei	51060
+每	mei	48782
+妹	mei	43325
+梅	mei	37430
+眉	mei	37198
+媒	mei	36335
+枚	mei	34426
+霉	mei	32612
+煤	mei	32175
+酶	mei	29773
+媚	mei	29519
+魅	mei	29024
+嵋	mei	28827
+玫	mei	28589
+昧	mei	28285
+浼	mei	27126
+镁	mei	26447
+寐	mei	23506
+楣	mei	22519
+湄	mei	22394
+袂	mei	22251
+莓	mei	21915
+镅	mei	16017
+郿	mei	11663
+鹛	mei	9734
+糜	mei	1634
+猸	mei	1000
+们	men	54480
+门	men	47375
+闷	men	35558
+焖	men	27552
+懑	men	21069
+扪	men	19434
+钔	men	10373
+梦	meng	44592
+蒙	meng	38507
+萌	meng	37280
+猛	meng	36004
+盟	meng	34393
+孟	meng	30668
+锰	meng	28841
+朦	meng	26985
+檬	meng	24252
+懵	meng	23543
+虻	meng	22666
+蠓	meng	18648
+勐	meng	16199
+艋	meng	12059
+艨	meng	12057
+蜢	meng	11320
+獴	meng	9931
+礞	meng	9434
+瞢	meng	8191
+鹲	meng	7871
+幪	meng	6399
+氓	meng	1000
+黾	meng	1000
+米	mi	44444
+迷	mi	41505
+密	mi	41332
+秘	mi	37673
+蜜	mi	37571
+弥	mi	33172
+泌	mi	31847
+麋	mi	29797
+觅	mi	29501
+谜	mi	29295
+靡	mi	27319
+醚	mi	25534
+縻	mi	25247
+咪	mi	24799
+糜	mi	24507
+猕	mi	22672
+幂	mi	22265
+谧	mi	22140
+宓	mi	21265
+嘧	mi	20567
+弭	mi	18510
+眯	mi	15543
+汨	mi	15151
+祢	mi	12592
+蘼	mi	12522
+芈	mi	12426
+敉	mi	11425
+脒	mi	10594
+洣	mi	8039
+醾	mi	1000
+面	mian	50356
+免	mian	40388
+眠	mian	37643
+棉	mian	35200
+勉	mian	32171
+绵	mian	32010
+沔	mian	30933
+缅	mian	29505
+冕	mian	25390
+娩	mian	23606
+腼	mian	22384
+湎	mian	22172
+渑	mian	14910
+眄	mian	9084
+秒	miao	39515
+妙	miao	36682
+苗	miao	34550
+描	miao	33393
+庙	miao	31854
+瞄	miao	29277
+渺	miao	25174
+喵	miao	24521
+缈	miao	23270
+藐	miao	22538
+邈	miao	17701
+眇	miao	11491
+鹋	miao	11472
+杪	miao	9963
+灭	mie	36684
+蔑	mie	26433
+篾	mie	20554
+乜	mie	16365
+咩	mie	13908
+民	min	44195
+敏	min	36651
+闽	min	29365
+闵	min	24764
+悯	min	24166
+抿	min	23859
+皿	min	23282
+岷	min	23265
+泯	min	21798
+黾	min	17929
+缗	min	16681
+旻	min	12771
+珉	min	9123
+鳘	min	7517
+苠	min	1000
+明	ming	49757
+名	ming	48895
+命	ming	45142
+鸣	ming	32256
+铭	ming	32091
+冥	ming	27830
+洺	ming	24433
+茗	ming	22970
+瞑	ming	22383
+螟	ming	20540
+溟	ming	14553
+酩	ming	11933
+暝	ming	11377
+蓂	ming	5599
+谬	miu	27483
+缪	miu	1962
+默	mo	59857
+模	mo	42017
+末	mo	40917
+摸	mo	40436
+莫	mo	40309
+魔	mo	38534
+磨	mo	38173
+摩	mo	37362
+膜	mo	36143
+墨	mo	35929
+抹	mo	35297
+漠	mo	31240
+沫	mo	29478
+陌	mo	29255
+摹	mo	27263
+蓦	mo	27183
+寞	mo	27000
+蘑	mo	25578
+谟	mo	25183
+馍	mo	24695
+麽	mo	24183
+嬷	mo	23976
+茉	mo	23456
+秣	mo	21279
+殁	mo	17960
+靺	mo	12674
+镆	mo	12419
+貘	mo	12361
+嫫	mo	11511
+貊	mo	10774
+瘼	mo	8626
+耱	mo	8591
+没	mo	1323
+礳	mo	1000
+脉	mo	1000
+某	mou	41466
+谋	mou	33775
+牟	mou	27132
+缪	mou	23608
+眸	mou	23397
+鍪	mou	22133
+蛑	mou	14615
+侔	mou	12413
+哞	mou	10236
+目	mu	44154
+木	mu	43170
+母	mu	41468
+慕	mu	39477
+幕	mu	38817
+姆	mu	34673
+穆	mu	34274
+墓	mu	33218
+牧	mu	30561
+募	mu	29761
+沐	mu	29398
+牡	mu	29331
+拇	mu	27838
+睦	mu	27476
+暮	mu	27366
+亩	mu	27067
+钼	mu	23596
+苜	mu	16759
+仫	mu	14047
+模	mu	8217
+毪	mu	7291
+牟	mu	6326
+那	na	55544
+哪	na	49308
+拿	na	47351
+纳	na	38082
+娜	na	33166
+钠	na	29744
+呐	na	29272
+捺	na	24399
+衲	na	24369
+肭	na	12007
+镎	na	11222
+奶	nai	41532
+耐	nai	36758
+乃	nai	34651
+奈	nai	34190
+氖	nai	24583
+鼐	nai	23156
+艿	nai	22529
+萘	nai	21647
+柰	nai	9832
+佴	nai	1000
+难	nan	48568
+男	nan	48052
+南	nan	46264
+喃	nan	29723
+楠	nan	27575
+赧	nan	14570
+囡	nan	11839
+腩	nan	11764
+蝻	nan	8575
+囊	nang	31081
+囔	nang	22106
+馕	nang	18997
+攮	nang	10826
+曩	nang	10518
+齉	nang	5415
+脑	nao	42770
+闹	nao	39508
+恼	nao	33209
+挠	nao	30295
+瑙	nao	29278
+淖	nao	24071
+呶	nao	18296
+孬	nao	16532
+铙	nao	16205
+蛲	nao	15846
+猱	nao	14660
+臑	nao	12630
+硇	nao	12067
+呢	ne	50929
+呐	ne	29108
+讷	ne	23773
+内	nei	46354
+馁	nei	22341
+嫩	nen	34804
+恁	nen	23636
+能	neng	56032
+嗯	ng	29810
+你	ni	60634
+尼	ni	41741
+泥	ni	36598
+逆	ni	35238
+拟	ni	34684
+腻	ni	29413
+倪	ni	27699
+妮	ni	27055
+匿	ni	25675
+溺	ni	24848
+霓	ni	24266
+鲵	ni	23571
+昵	ni	23036
+睨	ni	22331
+怩	ni	20052
+铌	ni	19960
+旎	ni	18409
+猊	ni	15485
+坭	ni	10839
+呢	ni	1000
+年	nian	54252
+念	nian	43444
+拈	nian	28464
+碾	nian	27430
+捻	nian	26949
+辇	nian	25830
+黏	nian	25168
+鲇	nian	23953
+撵	nian	23825
+廿	nian	22506
+蔫	nian	22271
+埝	nian	9530
+粘	nian	7750
+辗	nian	5597
+娘	niang	40626
+酿	niang	30653
+鸟	niao	39293
+尿	niao	27409
+袅	niao	24161
+脲	niao	18667
+茑	niao	8592
+溺	niao	1000
+捏	nie	34442
+涅	nie	29244
+聂	nie	28065
+孽	nie	27303
+镍	nie	27137
+蹑	nie	23660
+啮	nie	22478
+嗫	nie	22432
+蘖	nie	17725
+颞	nie	17676
+镊	nie	15770
+臬	nie	14031
+陧	nie	9575
+您	nin	44304
+宁	ning	38665
+凝	ning	31769
+拧	ning	25460
+柠	ning	23677
+狞	ning	23541
+佞	ning	22833
+咛	ning	22205
+泞	ning	22181
+聍	ning	7957
+牛	niu	42734
+扭	niu	34800
+纽	niu	31561
+拗	niu	25684
+妞	niu	24186
+钮	niu	23569
+忸	niu	19784
+狃	niu	8020
+弄	nong	42516
+农	nong	39379
+浓	nong	35232
+脓	nong	27220
+哝	nong	23626
+侬	nong	17510
+秾	nong	12835
+耨	nou	11498
+努	nu	41057
+怒	nu	36086
+奴	nu	33250
+弩	nu	26254
+驽	nu	14260
+胬	nu	11544
+孥	nu	11451
+砮	nu	6551
+暖	nuan	41328
+诺	nuo	36789
+挪	nuo	30325
+糯	nuo	29514
+懦	nuo	24913
+喏	nuo	23578
+搦	nuo	20613
+傩	nuo	19208
+锘	nuo	11929
+娜	nuo	1319
+女	nv	45524
+衄	nv	13319
+钕	nv	12187
+恧	nv	7755
+虐	nve	27065
+疟	nve	23438
+哦	o	32517
+噢	o	26046
+喔	o	19517
+偶	ou	40469
+欧	ou	38586
+藕	ou	34183
+呕	ou	27955
+殴	ou	24324
+鸥	ou	23286
+瓯	ou	22573
+耦	ou	22474
+讴	ou	19602
+沤	ou	19023
+怄	ou	17492
+怕	pa	45964
+爬	pa	38633
+帕	pa	32711
+趴	pa	32314
+啪	pa	27404
+琶	pa	25377
+杷	pa	20091
+葩	pa	15747
+筢	pa	6523
+扒	pa	1824
+耙	pa	1336
+拍	pai	46197
+排	pai	42338
+牌	pai	42338
+派	pai	41794
+徘	pai	25058
+湃	pai	23714
+俳	pai	19061
+哌	pai	15393
+蒎	pai	11315
+迫	pai	1325
+盘	pan	39764
+判	pan	38216
+盼	pan	33810
+叛	pan	30898
+攀	pan	30787
+潘	pan	29857
+畔	pan	29507
+拚	pan	29363
+蟠	pan	25672
+磐	pan	24344
+蹒	pan	20962
+爿	pan	20196
+袢	pan	12132
+襻	pan	11567
+泮	pan	11294
+番	pan	1000
+胖	pang	42445
+旁	pang	38935
+庞	pang	33048
+乓	pang	25494
+彷	pang	22870
+螃	pang	22296
+滂	pang	21688
+耪	pang	13335
+逄	pang	10766
+鳑	pang	9883
+磅	pang	4330
+膀	pang	4310
+跑	pao	45270
+泡	pao	39794
+炮	pao	36679
+抛	pao	35139
+袍	pao	30263
+刨	pao	25779
+咆	pao	22882
+庖	pao	22761
+疱	pao	22652
+狍	pao	19673
+匏	pao	12558
+脬	pao	7188
+配	pei	43292
+陪	pei	42112
+佩	pei	37050
+培	pei	37013
+赔	pei	33040
+胚	pei	29422
+沛	pei	29180
+裴	pei	27124
+呸	pei	24572
+辔	pei	23096
+霈	pei	22698
+旆	pei	16152
+帔	pei	14215
+锫	pei	9382
+醅	pei	7557
+盆	pen	36153
+喷	pen	26406
+朋	peng	44002
+碰	peng	39545
+捧	peng	33658
+彭	peng	33112
+鹏	peng	32216
+棚	peng	31872
+蓬	peng	30972
+烹	peng	29607
+篷	peng	29177
+膨	peng	28450
+砰	peng	28420
+怦	peng	27192
+澎	peng	24895
+抨	peng	24106
+硼	peng	23875
+嘭	peng	22105
+堋	peng	17382
+蟛	peng	16663
+皮	pi	43919
+批	pi	40042
+披	pi	34471
+匹	pi	34376
+脾	pi	33220
+屁	pi	32030
+劈	pi	30803
+疲	pi	30797
+辟	pi	30735
+陂	pi	29460
+啤	pi	27333
+譬	pi	27214
+丕	pi	27154
+毗	pi	27105
+僻	pi	25536
+琵	pi	25482
+霹	pi	23934
+坯	pi	23682
+纰	pi	23086
+癖	pi	22953
+媲	pi	22631
+痞	pi	22388
+噼	pi	22217
+枇	pi	22113
+砒	pi	20269
+邳	pi	19247
+铍	pi	19100
+庀	pi	18290
+蚍	pi	15468
+淠	pi	15145
+鼙	pi	14905
+郫	pi	13593
+罴	pi	13516
+蜱	pi	13194
+圮	pi	11197
+甓	pi	11159
+貔	pi	10477
+鲏	pi	9886
+睥	pi	9794
+伾	pi	9187
+狉	pi	8881
+仳	pi	7068
+陴	pi	5481
+澼	pi	1000
+裨	pi	1000
+片	pian	46389
+骗	pian	40663
+偏	pian	38581
+篇	pian	37808
+翩	pian	24310
+谝	pian	23521
+骈	pian	23290
+胼	pian	12869
+犏	pian	9271
+蹁	pian	9221
+便	pian	2087
+扁	pian	1000
+票	piao	45102
+漂	piao	39585
+飘	piao	36510
+瓢	piao	24136
+嫖	piao	23551
+瞟	piao	23497
+缥	piao	22707
+剽	piao	22297
+嘌	piao	21456
+骠	piao	20774
+殍	piao	11859
+螵	piao	9652
+朴	piao	8437
+莩	piao	4231
+撇	pie	28584
+瞥	pie	27621
+苤	pie	16223
+氕	pie	8047
+丿	pie	1000
+品	pin	44308
+拼	pin	38970
+频	pin	37197
+贫	pin	35854
+聘	pin	35363
+嫔	pin	26962
+姘	pin	24712
+颦	pin	19537
+牝	pin	17200
+榀	pin	7312
+平	ping	46432
+瓶	ping	39294
+评	ping	39206
+凭	ping	36495
+苹	ping	34820
+屏	ping	33609
+坪	ping	29451
+萍	ping	27340
+娉	ping	25445
+乒	ping	24878
+枰	ping	22112
+鲆	ping	18478
+俜	ping	12176
+洴	ping	8898
+帡	ping	8137
+破	po	42638
+婆	po	40020
+迫	po	36072
+坡	po	34642
+颇	po	34605
+泼	po	32325
+泊	po	31215
+魄	po	28630
+珀	po	24796
+鄱	po	23511
+叵	po	22726
+粕	po	21743
+笸	po	15776
+钋	po	15526
+皤	po	9632
+钷	po	9578
+朴	po	1862
+酦	po	1000
+剖	pou	27972
+裒	pou	10155
+掊	pou	10016
+抔	pou	9020
+普	pu	42111
+铺	pu	35946
+扑	pu	34187
+朴	pu	33107
+谱	pu	32674
+浦	pu	32349
+葡	pu	31050
+蒲	pu	29816
+菩	pu	29651
+埔	pu	29336
+瀑	pu	29290
+濮	pu	25795
+噗	pu	25292
+曝	pu	24939
+圃	pu	24869
+脯	pu	24663
+溥	pu	23952
+璞	pu	22873
+莆	pu	22613
+蹼	pu	20144
+仆	pu	19861
+氆	pu	14649
+镤	pu	8263
+镨	pu	8262
+堡	pu	1000
+潽	pu	1000
+起	qi	52561
+其	qi	49248
+气	qi	48554
+期	qi	47929
+七	qi	43416
+奇	qi	43119
+器	qi	42200
+弃	qi	40601
+骑	qi	38430
+齐	qi	38232
+妻	qi	36744
+企	qi	36714
+旗	qi	36682
+欺	qi	36514
+启	qi	35584
+汽	qi	34671
+契	qi	33031
+岂	qi	32798
+棋	qi	32213
+栖	qi	32207
+戚	qi	31143
+漆	qi	30993
+鳍	qi	30317
+琦	qi	29873
+歧	qi	29729
+蕲	qi	29609
+凄	qi	29528
+泣	qi	29469
+绮	qi	29382
+祁	qi	29175
+祈	qi	28687
+迄	qi	28404
+祺	qi	27537
+乞	qi	27302
+杞	qi	27301
+圻	qi	27006
+锜	qi	26030
+琪	qi	25319
+耆	qi	25265
+崎	qi	24954
+淇	qi	24741
+砌	qi	24732
+葺	qi	24221
+麒	qi	24197
+蹊	qi	23743
+憩	qi	23345
+俟	qi	23294
+讫	qi	23024
+岐	qi	22903
+脐	qi	22824
+沏	qi	22449
+碛	qi	22375
+芪	qi	22317
+嘁	qi	22202
+槭	qi	20203
+畦	qi	18819
+蛴	qi	15882
+亓	qi	15509
+桤	qi	15030
+颀	qi	13303
+萁	qi	13226
+綦	qi	12651
+芑	qi	12250
+骐	qi	11523
+萋	qi	10485
+屺	qi	10434
+汔	qi	7692
+荠	qi	7572
+蜞	qi	6439
+埼	qi	6129
+柒	qi	5913
+碶	qi	1000
+鲯	qi	1000
+稽	qi	1000
+綮	qi	1000
+恰	qia	32987
+掐	qia	24960
+洽	qia	24663
+髂	qia	13577
+拤	qia	10829
+葜	qia	9910
+卡	qia	1000
+前	qian	51945
+钱	qian	48119
+千	qian	44577
+签	qian	40273
+欠	qian	37695
+牵	qian	35644
+歉	qian	35219
+潜	qian	34838
+浅	qian	34533
+谦	qian	34417
+乾	qian	34307
+迁	qian	31787
+遣	qian	29772
+嵌	qian	29569
+谴	qian	29202
+黔	qian	29168
+铅	qian	28571
+褰	qian	27350
+骞	qian	27242
+搴	qian	25522
+虔	qian	25341
+钳	qian	25283
+堑	qian	25216
+倩	qian	22800
+茜	qian	22496
+缱	qian	22420
+佥	qian	22325
+钤	qian	22264
+阡	qian	21592
+慊	qian	20038
+扦	qian	18334
+愆	qian	18259
+芊	qian	18246
+芡	qian	17997
+钎	qian	17315
+掮	qian	14440
+肷	qian	12528
+悭	qian	12331
+仟	qian	11375
+岍	qian	8143
+鹐	qian	7088
+椠	qian	6841
+犍	qian	6796
+纤	qian	1641
+强	qiang	46393
+抢	qiang	40688
+枪	qiang	39872
+墙	qiang	38054
+腔	qiang	30905
+羌	qiang	28080
+呛	qiang	25640
+羟	qiang	25289
+跄	qiang	24729
+蔷	qiang	23779
+锵	qiang	22691
+戗	qiang	17787
+戕	qiang	17627
+襁	qiang	16837
+炝	qiang	16371
+樯	qiang	15503
+锖	qiang	12928
+嫱	qiang	11639
+蜣	qiang	10992
+镪	qiang	10288
+巧	qiao	39869
+桥	qiao	38350
+敲	qiao	35599
+乔	qiao	35532
+瞧	qiao	35232
+悄	qiao	33240
+鞘	qiao	28996
+窍	qiao	28617
+峭	qiao	27345
+翘	qiao	27249
+俏	qiao	27129
+撬	qiao	26993
+跷	qiao	24831
+侨	qiao	24030
+憔	qiao	23832
+樵	qiao	23768
+硚	qiao	22703
+橇	qiao	22502
+荞	qiao	22498
+谯	qiao	20163
+诮	qiao	19771
+锹	qiao	18697
+鞒	qiao	16579
+壳	qiao	13279
+硗	qiao	13009
+愀	qiao	12097
+劁	qiao	10654
+缲	qiao	5648
+切	qie	44143
+且	qie	43844
+怯	qie	29526
+妾	qie	29338
+窃	qie	27944
+茄	qie	27172
+惬	qie	23260
+挈	qie	20058
+趄	qie	17602
+锲	qie	17254
+箧	qie	17066
+郄	qie	10852
+伽	qie	4076
+亲	qin	45841
+秦	qin	37214
+勤	qin	37118
+琴	qin	35350
+钦	qin	33050
+侵	qin	31980
+擒	qin	30719
+寝	qin	29340
+沁	qin	27051
+芹	qin	26102
+禽	qin	25932
+噙	qin	22360
+嗪	qin	21943
+衾	qin	19511
+揿	qin	17911
+芩	qin	17139
+锓	qin	13286
+吣	qin	12096
+骎	qin	10666
+檎	qin	10249
+嵚	qin	8957
+溱	qin	6655
+情	qing	50464
+请	qing	48052
+清	qing	46168
+轻	qing	43334
+青	qing	43065
+庆	qing	39564
+倾	qing	34339
+晴	qing	33816
+卿	qing	32147
+氢	qing	31991
+擎	qing	25694
+氰	qing	23266
+箐	qing	22728
+罄	qing	22425
+蜻	qing	22102
+磬	qing	19738
+顷	qing	19501
+黥	qing	12571
+鲭	qing	12184
+檠	qing	10410
+苘	qing	9914
+綮	qing	7614
+圊	qing	6149
+庼	qing	6032
+勍	qing	1000
+穷	qiong	38271
+琼	qiong	29531
+穹	qiong	23655
+邛	qiong	20467
+蛩	qiong	19285
+筇	qiong	12531
+銎	qiong	11786
+茕	qiong	11322
+芎	qiong	1000
+求	qiu	48419
+球	qiu	46283
+秋	qiu	39869
+丘	qiu	32103
+裘	qiu	29541
+囚	qiu	29417
+邱	qiu	27223
+酋	qiu	26934
+蚯	qiu	23989
+鳅	qiu	23903
+俅	qiu	23122
+虬	qiu	22967
+楸	qiu	20006
+遒	qiu	18642
+逑	qiu	14575
+泅	qiu	14310
+巯	qiu	12503
+糗	qiu	9784
+犰	qiu	9452
+璆	qiu	9090
+蝤	qiu	8292
+赇	qiu	6837
+萩	qiu	6462
+訄	qiu	6417
+鞧	qiu	5473
+龟	qiu	2816
+去	qu	56025
+区	qu	45019
+取	qu	44259
+曲	qu	39705
+趣	qu	39651
+屈	qu	35608
+驱	qu	32257
+娶	qu	31629
+躯	qu	29776
+衢	qu	29294
+渠	qu	29196
+趋	qu	27677
+觑	qu	27023
+瞿	qu	25380
+祛	qu	23806
+龋	qu	23589
+岖	qu	22991
+蛆	qu	22385
+蛐	qu	21957
+劬	qu	17572
+阒	qu	16460
+朐	qu	14053
+诎	qu	13864
+蠼	qu	12842
+癯	qu	12821
+蕖	qu	12315
+黢	qu	12307
+鸲	qu	11989
+磲	qu	11752
+氍	qu	11614
+璩	qu	11570
+鼩	qu	11125
+袪	qu	10157
+蘧	qu	8819
+苣	qu	1000
+全	quan	49615
+圈	quan	41930
+权	quan	40417
+泉	quan	35819
+拳	quan	35800
+劝	quan	34851
+犬	quan	34254
+券	quan	32266
+醛	quan	27018
+荃	quan	23672
+痊	quan	23663
+诠	quan	23576
+蜷	quan	22875
+绻	quan	22568
+颧	quan	21469
+铨	quan	21354
+棬	quan	17898
+悛	quan	12567
+鬈	quan	11780
+畎	quan	10071
+筌	quan	9189
+辁	quan	1000
+鳈	quan	1000
+确	que	44062
+却	que	43628
+缺	que	40949
+雀	que	31002
+阙	que	30417
+榷	que	23695
+炔	que	22849
+瘸	que	22552
+鹊	que	22307
+阕	que	18140
+悫	que	8435
+群	qun	43919
+裙	qun	36351
+逡	qun	12933
+麇	qun	1050
+然	ran	49509
+染	ran	40573
+燃	ran	34126
+冉	ran	26972
+髯	ran	24188
+苒	ran	13281
+蚺	ran	10679
+让	rang	51181
+嚷	rang	27856
+攘	rang	26967
+壤	rang	25412
+瓤	rang	19138
+禳	rang	15019
+穰	rang	14109
+蘘	rang	9415
+绕	rao	35782
+扰	rao	34980
+饶	rao	31125
+娆	rao	23992
+桡	rao	19921
+荛	rao	9720
+热	re	45680
+惹	re	37292
+人	ren	58863
+认	ren	45968
+任	ren	45031
+忍	ren	40732
+仁	ren	35226
+韧	ren	27368
+刃	ren	26902
+妊	ren	25031
+仞	ren	24936
+壬	ren	24646
+饪	ren	24352
+纫	ren	22684
+稔	ren	18541
+衽	ren	16252
+荏	ren	15398
+轫	ren	14254
+葚	ren	9653
+纴	ren	1000
+仍	reng	39152
+扔	reng	37285
+日	ri	50499
+容	rong	44338
+荣	rong	38054
+融	rong	35226
+溶	rong	34644
+绒	rong	33373
+蓉	rong	33042
+戎	rong	27287
+茸	rong	27204
+熔	rong	26911
+榕	rong	23960
+冗	rong	23151
+嵘	rong	20111
+蝾	rong	12808
+狨	rong	9635
+瑢	rong	1000
+肉	rou	45042
+柔	rou	36447
+揉	rou	30864
+蹂	rou	23856
+鞣	rou	22288
+糅	rou	15893
+如	ru	49405
+入	ru	46175
+汝	ru	33114
+儒	ru	33047
+辱	ru	32490
+乳	ru	25479
+濡	ru	25408
+蠕	ru	24851
+孺	ru	24318
+褥	ru	24277
+茹	ru	22958
+嚅	ru	22485
+缛	ru	18718
+铷	ru	14243
+洳	ru	12700
+薷	ru	11870
+襦	ru	11481
+溽	ru	10311
+颥	ru	10024
+蓐	ru	7945
+软	ruan	39092
+阮	ruan	29613
+朊	ruan	11759
+瑞	rui	37327
+锐	rui	30200
+睿	rui	28222
+蕊	rui	25747
+芮	rui	18781
+蚋	rui	14142
+枘	rui	11846
+蕤	rui	11539
+汭	rui	9106
+润	run	34689
+闰	run	22996
+若	ruo	39765
+弱	ruo	39510
+偌	ruo	23360
+箬	ruo	11750
+撒	sa	40290
+萨	sa	37168
+洒	sa	35686
+潵	sa	27293
+卅	sa	23228
+飒	sa	22730
+仨	sa	17006
+挲	sa	16377
+靸	sa	7537
+脎	sa	7190
+赛	sai	41334
+塞	sai	40839
+腮	sai	26988
+鳃	sai	24467
+噻	sai	17566
+三	san	50340
+散	san	40516
+伞	san	34190
+糁	san	13958
+馓	san	13615
+叁	san	11649
+毵	san	10812
+桑	sang	36623
+丧	sang	34038
+嗓	sang	29565
+搡	sang	21002
+颡	sang	10144
+磉	sang	6838
+扫	sao	36831
+嫂	sao	30024
+骚	sao	29703
+搔	sao	24538
+臊	sao	23017
+缫	sao	22400
+埽	sao	20740
+瘙	sao	20190
+色	se	46061
+瑟	se	29475
+涩	se	27361
+啬	se	22412
+穑	se	19530
+铯	se	17719
+塞	se	7104
+森	sen	38777
+僧	seng	35932
+杀	sha	43437
+沙	sha	41226
+傻	sha	39850
+砂	sha	33070
+啥	sha	33066
+纱	sha	32029
+厦	sha	31409
+刹	sha	29742
+莎	sha	29419
+煞	sha	28575
+霎	sha	27336
+鲨	sha	27151
+裟	sha	23464
+铩	sha	22141
+痧	sha	19868
+嗄	sha	18221
+歃	sha	12381
+唼	sha	8479
+杉	sha	7128
+晒	shai	38752
+筛	shai	25221
+酾	shai	8912
+山	shan	46270
+善	shan	42164
+闪	shan	37393
+删	shan	35823
+扇	shan	35170
+衫	shan	33881
+珊	shan	33013
+擅	shan	32080
+杉	shan	31492
+膳	shan	29353
+缮	shan	29318
+陕	shan	28116
+煽	shan	25488
+姗	shan	24978
+汕	shan	24313
+鳝	shan	23995
+讪	shan	23823
+赡	shan	23459
+蟮	shan	23251
+苫	shan	22877
+膻	shan	22323
+跚	shan	21736
+芟	shan	19777
+鄯	shan	19595
+舢	shan	19080
+嬗	shan	17633
+潸	shan	16046
+疝	shan	15254
+剡	shan	11771
+骟	shan	11217
+钐	shan	10565
+埏	shan	8774
+栅	shan	5311
+禅	shan	1835
+上	shang	56590
+伤	shang	44285
+商	shang	42859
+尚	shang	37710
+赏	shang	36185
+熵	shang	22371
+墒	shang	22318
+裳	shang	21740
+觞	shang	16813
+晌	shang	16260
+殇	shang	14226
+垧	shang	8472
+少	shao	48816
+烧	shao	41232
+稍	shao	37467
+绍	shao	35835
+邵	shao	29378
+勺	shao	29220
+哨	shao	28842
+苕	shao	27645
+捎	shao	26510
+韶	shao	24095
+梢	shao	23272
+芍	shao	23089
+艄	shao	22393
+劭	shao	12496
+蛸	shao	11825
+筲	shao	10922
+潲	shao	10083
+杓	shao	1000
+社	she	43239
+设	she	42004
+舍	she	40990
+摄	she	37069
+蛇	she	35109
+舌	she	34273
+涉	she	33743
+射	she	32400
+赦	she	29659
+奢	she	29493
+慑	she	26986
+麝	she	24600
+畲	she	24447
+赊	she	22131
+厍	she	21340
+歙	she	20368
+佘	she	16442
+猞	she	12696
+滠	she	8374
+折	she	1984
+身	shen	49064
+神	shen	47234
+深	shen	45591
+什	shen	44895
+甚	shen	38295
+申	shen	36235
+审	shen	35777
+伸	shen	35324
+沈	shen	33571
+慎	shen	31924
+肾	shen	31584
+绅	shen	28771
+婶	shen	27689
+呻	shen	26126
+渗	shen	24962
+娠	shen	24750
+砷	shen	23323
+哂	shen	22417
+蜃	shen	22335
+诜	shen	19842
+莘	shen	19382
+胂	shen	15433
+谂	shen	12129
+矧	shen	9261
+瘆	shen	8346
+鲹	shen	7519
+参	shen	1865
+葚	shen	1000
+生	sheng	52916
+声	sheng	44550
+省	sheng	42392
+升	sheng	41252
+胜	sheng	39787
+圣	sheng	39692
+剩	sheng	38903
+盛	sheng	36448
+绳	sheng	32791
+牲	sheng	32231
+笙	sheng	26960
+甥	sheng	23950
+嵊	sheng	20494
+眚	sheng	8620
+是	shi	62830
+时	shi	54057
+事	shi	53623
+实	shi	48268
+十	shi	48094
+试	shi	46580
+师	shi	46165
+市	shi	45446
+使	shi	45336
+世	shi	45207
+什	shi	44895
+失	shi	44557
+食	shi	44536
+式	shi	44146
+始	shi	44112
+室	shi	43885
+视	shi	43348
+士	shi	43189
+示	shi	43049
+识	shi	42445
+石	shi	41209
+史	shi	41029
+似	shi	40696
+适	shi	40394
+诗	shi	39491
+施	shi	39091
+势	shi	39051
+释	shi	37387
+湿	shi	36614
+尸	shi	35163
+拾	shi	35070
+氏	shi	34865
+饰	shi	34060
+逝	shi	32910
+誓	shi	32665
+狮	shi	32509
+驶	shi	32413
+仕	shi	29367
+柿	shi	29156
+侍	shi	28296
+矢	shi	28214
+匙	shi	27491
+嗜	shi	26094
+恃	shi	25808
+屎	shi	25569
+噬	shi	25250
+拭	shi	25075
+蚀	shi	24647
+谥	shi	24044
+虱	shi	23638
+鲥	shi	23377
+轼	shi	22831
+舐	shi	22194
+弑	shi	22095
+浉	shi	20514
+螫	shi	19279
+豕	shi	18010
+湜	shi	17954
+筮	shi	16729
+奭	shi	16538
+铈	shi	12207
+蓍	shi	12114
+莳	shi	11873
+埘	shi	11360
+炻	shi	10604
+酾	shi	8912
+贳	shi	7925
+鲺	shi	7518
+鸤	shi	7510
+豉	shi	5295
+鼫	shi	1000
+手	shou	50780
+受	shou	48221
+收	shou	46127
+首	shou	44800
+瘦	shou	41745
+守	shou	40442
+售	shou	37295
+寿	shou	34916
+授	shou	34916
+兽	shou	33285
+狩	shou	26736
+绶	shou	23755
+书	shu	46628
+数	shu	45193
+术	shu	41563
+熟	shu	41156
+输	shu	40550
+树	shu	40536
+属	shu	39450
+束	shu	39204
+舒	shu	38261
+叔	shu	38248
+署	shu	36853
+鼠	shu	36672
+述	shu	36267
+暑	shu	34571
+薯	shu	33795
+枢	shu	33633
+殊	shu	32904
+蜀	shu	32536
+疏	shu	31479
+梳	shu	30982
+蔬	shu	30483
+淑	shu	29525
+恕	shu	29372
+庶	shu	29195
+竖	shu	29060
+曙	shu	28261
+抒	shu	28049
+姝	shu	27195
+赎	shu	27104
+倏	shu	25594
+戍	shu	25025
+墅	shu	25022
+孰	shu	24459
+漱	shu	24263
+塾	shu	23142
+黍	shu	22520
+腧	shu	22279
+纾	shu	22268
+沭	shu	19228
+菽	shu	15295
+澍	shu	13709
+殳	shu	12537
+秫	shu	12533
+毹	shu	11561
+摅	shu	8413
+刷	shua	39687
+耍	shua	38745
+帅	shuai	43175
+摔	shuai	37083
+甩	shuai	34961
+衰	shuai	33615
+蟀	shuai	23046
+率	shuai	12759
+拴	shuan	26177
+栓	shuan	25507
+闩	shuan	23535
+涮	shuan	22307
+双	shuang	43395
+霜	shuang	33369
+爽	shuang	28082
+孀	shuang	21750
+水	shui	49004
+睡	shui	47857
+谁	shui	47843
+税	shui	26463
+顺	shun	42252
+瞬	shun	31682
+舜	shun	27153
+吮	shun	23428
+说	shuo	55985
+硕	shuo	32083
+烁	shuo	27199
+朔	shuo	27187
+蒴	shuo	22578
+搠	shuo	22491
+铄	shuo	19221
+槊	shuo	16963
+妁	shuo	11455
+死	si	49395
+四	si	47397
+思	si	46085
+斯	si	44347
+司	si	43879
+似	si	41280
+私	si	40244
+丝	si	39155
+撕	si	34037
+寺	si	33267
+祀	si	32391
+嗣	si	31139
+厮	si	30548
+肆	si	30191
+嘶	si	27305
+饲	si	25907
+涘	si	25322
+驷	si	25186
+泗	si	24084
+巳	si	23922
+咝	si	21394
+缌	si	20348
+锶	si	19855
+汜	si	18794
+耜	si	17266
+姒	si	16982
+笥	si	16951
+蛳	si	14990
+鸶	si	12796
+兕	si	10658
+澌	si	8368
+伺	si	6874
+俟	si	1113
+飔	si	1000
+送	song	46891
+松	song	40595
+宋	song	34737
+讼	song	30307
+耸	song	29448
+颂	song	28577
+嵩	song	27359
+淞	song	25093
+诵	song	24501
+怂	song	23648
+悚	song	23369
+竦	song	22454
+凇	song	20322
+忪	song	12976
+菘	song	11097
+搜	sou	38864
+艘	sou	31526
+嗽	sou	28211
+嗖	sou	23811
+飕	sou	23553
+擞	sou	23233
+叟	sou	21846
+馊	sou	20242
+薮	sou	18109
+溲	sou	12436
+嗾	sou	11287
+螋	sou	8291
+瞍	sou	6558
+素	su	41970
+速	su	41833
+诉	su	41780
+宿	su	39861
+苏	su	39388
+俗	su	36114
+塑	su	33423
+肃	su	31152
+粟	su	29275
+溯	su	29170
+酥	su	28198
+簌	su	24558
+稣	su	24473
+夙	su	22396
+涑	su	22088
+谡	su	20734
+僳	su	19875
+窣	su	16164
+愫	su	16069
+嗉	su	12554
+蔌	su	8144
+觫	su	7585
+蹜	su	1000
+算	suan	47511
+酸	suan	40113
+蒜	suan	31230
+狻	suan	22542
+岁	sui	44504
+随	sui	43940
+虽	sui	40694
+碎	sui	38702
+遂	sui	34251
+隋	sui	32071
+髓	sui	29478
+隧	sui	29200
+绥	sui	25691
+祟	sui	25234
+穗	sui	23607
+邃	sui	22693
+睢	sui	22541
+燧	sui	22489
+濉	sui	22138
+谇	sui	13599
+荽	sui	12367
+眭	sui	9441
+孙	sun	35706
+损	sun	34408
+笋	sun	26798
+荪	sun	23457
+隼	sun	22590
+狲	sun	22522
+飧	sun	22422
+榫	sun	21599
+所	suo	50865
+锁	suo	38126
+索	suo	37932
+缩	suo	34631
+梭	suo	29245
+琐	suo	28926
+娑	suo	27036
+嗦	suo	25587
+唆	suo	25219
+羧	suo	22805
+唢	suo	22136
+蓑	suo	19543
+嗍	suo	15899
+睃	suo	15289
+桫	suo	11341
+莎	suo	1039
+他	ta	56549
+她	ta	52448
+它	ta	47880
+塔	ta	37970
+踏	ta	36308
+拓	ta	33072
+塌	ta	31926
+榻	ta	27286
+蹋	ta	23451
+獭	ta	22721
+鳎	ta	22656
+沓	ta	20781
+挞	ta	20223
+漯	ta	19330
+遢	ta	15306
+趿	ta	15105
+闼	ta	14962
+铊	ta	13472
+阘	ta	8538
+溻	ta	1000
+太	tai	52433
+台	tai	45407
+态	tai	40801
+泰	tai	39051
+抬	tai	35392
+胎	tai	33154
+汰	tai	29067
+苔	tai	27854
+钛	tai	27213
+肽	tai	24901
+邰	tai	22962
+薹	tai	17849
+跆	tai	15416
+酞	tai	12637
+鲐	tai	11924
+炱	tai	11893
+谈	tan	43268
+探	tan	40138
+坦	tan	35736
+摊	tan	33217
+碳	tan	33113
+贪	tan	32642
+滩	tan	32474
+叹	tan	32216
+潭	tan	32010
+谭	tan	31201
+坛	tan	30234
+毯	tan	30192
+炭	tan	29078
+檀	tan	27668
+瘫	tan	27189
+痰	tan	25951
+昙	tan	23981
+袒	tan	23738
+坍	tan	23564
+忐	tan	22510
+钽	tan	21184
+覃	tan	21137
+倓	tan	16264
+郯	tan	13588
+锬	tan	10981
+弹	tan	5961
+菼	tan	5610
+澹	tan	2705
+糖	tang	40398
+堂	tang	40316
+汤	tang	39355
+躺	tang	37435
+唐	tang	37046
+趟	tang	35424
+烫	tang	35078
+塘	tang	31966
+棠	tang	27194
+淌	tang	25274
+膛	tang	25046
+搪	tang	23082
+倘	tang	22974
+镗	tang	22387
+羰	tang	21306
+螳	tang	19810
+傥	tang	17388
+帑	tang	16807
+瑭	tang	16603
+樘	tang	14541
+溏	tang	14305
+嘡	tang	10444
+螗	tang	9055
+铴	tang	6350
+镋	tang	5491
+鄌	tang	1000
+饧	tang	1000
+耥	tang	1000
+套	tao	42791
+讨	tao	40495
+逃	tao	39196
+桃	tao	37715
+淘	tao	33220
+陶	tao	32956
+涛	tao	32595
+掏	tao	32035
+萄	tao	29535
+韬	tao	27075
+滔	tao	24847
+焘	tao	24244
+绦	tao	22932
+饕	tao	22610
+洮	tao	22440
+啕	tao	22165
+鼗	tao	13407
+绹	tao	8594
+叨	tao	1590
+特	te	48625
+忒	te	25141
+忑	te	22408
+慝	te	10328
+铽	te	7545
+螣	te	1000
+疼	teng	41499
+腾	teng	35424
+藤	teng	29737
+滕	teng	25007
+誊	teng	22810
+熥	teng	7256
+螣	teng	1000
+提	ti	47184
+体	ti	46957
+题	ti	45588
+替	ti	39871
+踢	ti	35853
+梯	ti	34400
+蹄	ti	31315
+剃	ti	31082
+啼	ti	27277
+涕	ti	26174
+剔	ti	25463
+惕	ti	25144
+屉	ti	24969
+锑	ti	23287
+缇	ti	22601
+嚏	ti	22566
+倜	ti	21218
+悌	ti	14592
+绨	ti	12865
+鹈	ti	12309
+醍	ti	12222
+裼	ti	12130
+逖	ti	11827
+鳀	ti	11044
+荑	ti	10779
+天	tian	55705
+甜	tian	41919
+田	tian	38334
+填	tian	35506
+添	tian	34705
+舔	tian	23563
+恬	tian	23180
+腆	tian	22636
+阗	tian	18693
+忝	tian	17042
+殄	tian	12430
+湉	tian	12076
+畋	tian	11158
+掭	tian	8420
+黇	tian	1000
+条	tiao	45908
+跳	tiao	42430
+挑	tiao	40515
+调	tiao	28200
+眺	tiao	24744
+迢	tiao	24330
+祧	tiao	20700
+笤	tiao	19660
+窕	tiao	18403
+龆	tiao	16819
+粜	tiao	15864
+佻	tiao	12998
+髫	tiao	10532
+蜩	tiao	9596
+鲦	tiao	8782
+铁	tie	41826
+贴	tie	39672
+帖	tie	33463
+萜	tie	19823
+餮	tie	17670
+听	ting	48934
+挺	ting	44938
+停	ting	44376
+廷	ting	39003
+庭	ting	38766
+厅	ting	36459
+亭	ting	31622
+艇	ting	29930
+婷	ting	25316
+烃	ting	25210
+汀	ting	24863
+霆	ting	24125
+町	ting	22246
+蜓	ting	22204
+铤	ting	20130
+梃	ting	12765
+莛	ting	10135
+葶	ting	9419
+珽	ting	9092
+颋	ting	7884
+同	tong	50097
+通	tong	46454
+痛	tong	42544
+童	tong	39238
+统	tong	39210
+桶	tong	35277
+筒	tong	33006
+铜	tong	32389
+桐	tong	28801
+酮	tong	27021
+潼	tong	25738
+捅	tong	25189
+佟	tong	24846
+彤	tong	24114
+瞳	tong	23939
+僮	tong	22934
+恸	tong	22880
+嗵	tong	21211
+橦	tong	11092
+茼	tong	10279
+砼	tong	9259
+峂	tong	6923
+曈	tong	1000
+头	tou	49572
+偷	tou	42531
+投	tou	42170
+透	tou	40947
+骰	tou	24291
+钭	tou	1000
+图	tu	43740
+土	tu	42962
+突	tu	41624
+吐	tu	39731
+途	tu	37219
+涂	tu	36611
+兔	tu	36586
+徒	tu	35507
+秃	tu	30737
+凸	tu	29687
+屠	tu	29105
+荼	tu	23395
+钍	tu	20137
+菟	tu	16294
+葖	tu	11317
+堍	tu	8737
+酴	tu	5519
+团	tuan	42478
+湍	tuan	24910
+疃	tuan	18103
+抟	tuan	14445
+彖	tuan	10636
+推	tui	44401
+腿	tui	42368
+退	tui	41576
+褪	tui	25622
+颓	tui	25177
+蜕	tui	23884
+煺	tui	11495
+吞	tun	33836
+屯	tun	30130
+豚	tun	29270
+臀	tun	26382
+氽	tun	24355
+饨	tun	22287
+囤	tun	19231
+鲀	tun	12922
+暾	tun	11690
+褪	tun	2013
+托	tuo	49610
+脱	tuo	42093
+拖	tuo	39199
+妥	tuo	35601
+拓	tuo	33072
+陀	tuo	32367
+驼	tuo	29317
+椭	tuo	27335
+唾	tuo	27173
+驮	tuo	24966
+庹	tuo	24498
+沱	tuo	23835
+鸵	tuo	22429
+坨	tuo	21757
+橐	tuo	21490
+佗	tuo	19999
+鼍	tuo	18159
+跎	tuo	18066
+砣	tuo	16187
+箨	tuo	10687
+酡	tuo	9895
+柝	tuo	9483
+柁	tuo	7324
+娃	wa	38150
+挖	wa	36799
+瓦	wa	36116
+袜	wa	32322
+蛙	wa	32043
+哇	wa	29733
+洼	wa	28333
+娲	wa	24649
+佤	wa	20328
+腽	wa	7952
+外	wai	48341
+歪	wai	34501
+崴	wai	18060
+晚	wan	49470
+完	wan	49203
+玩	wan	48092
+万	wan	45834
+碗	wan	38259
+弯	wan	34873
+湾	wan	34808
+丸	wan	33397
+宛	wan	32021
+挽	wan	31249
+腕	wan	29941
+皖	wan	29758
+婉	wan	29627
+顽	wan	28097
+烷	wan	27522
+蜿	wan	26958
+豌	wan	26575
+绾	wan	25034
+纨	wan	24761
+惋	wan	23050
+畹	wan	22308
+剜	wan	22284
+脘	wan	19273
+菀	wan	15735
+芄	wan	15116
+琬	wan	10965
+莞	wan	3954
+蔓	wan	2166
+塆	wan	1000
+望	wang	45295
+王	wang	44665
+往	wang	44515
+忘	wang	44235
+网	wang	44235
+亡	wang	36193
+旺	wang	34831
+汪	wang	34038
+妄	wang	29838
+枉	wang	29481
+惘	wang	23533
+罔	wang	22633
+魍	wang	15214
+辋	wang	10986
+为	wei	54726
+位	wei	48175
+未	wei	44275
+味	wei	43673
+微	wei	41110
+围	wei	40496
+维	wei	40368
+威	wei	39608
+喂	wei	39435
+唯	wei	39274
+卫	wei	39164
+委	wei	38925
+尾	wei	38230
+韦	wei	37271
+谓	wei	37197
+慰	wei	37039
+胃	wei	36874
+危	wei	36751
+伟	wei	36228
+魏	wei	35510
+违	wei	33305
+伪	wei	33179
+纬	wei	33127
+惟	wei	32731
+尉	wei	32300
+畏	wei	32102
+巍	wei	29407
+苇	wei	29240
+薇	wei	28506
+渭	wei	27178
+煨	wei	26991
+萎	wei	25951
+帷	wei	25590
+蔚	wei	24756
+玮	wei	24191
+桅	wei	24098
+娓	wei	23729
+偎	wei	23618
+圩	wei	23019
+隗	wei	23012
+猬	wei	22758
+潍	wei	22435
+诿	wei	22220
+猥	wei	21709
+痿	wei	21463
+闱	wei	20071
+韪	wei	19311
+逶	wei	17535
+炜	wei	16087
+嵬	wei	14344
+涠	wei	13648
+帏	wei	13538
+崴	wei	10782
+葳	wei	10684
+鲔	wei	10460
+洧	wei	10220
+鳚	wei	10141
+沩	wei	9464
+隈	wei	9034
+鳂	wei	8958
+溦	wei	1000
+问	wen	50171
+文	wen	46893
+温	wen	41685
+闻	wen	40559
+稳	wen	39375
+纹	wen	37143
+吻	wen	33032
+蚊	wen	32976
+紊	wen	27061
+汶	wen	24509
+瘟	wen	24349
+雯	wen	24041
+刎	wen	22812
+阌	wen	14745
+鳁	wen	9884
+揾	wen	9498
+蕰	wen	1000
+辒	wen	1000
+翁	weng	28763
+嗡	weng	27397
+滃	weng	27080
+瓮	weng	25871
+蕹	weng	10880
+蓊	weng	10484
+鹟	weng	9023
+我	wo	62743
+握	wo	38055
+窝	wo	36720
+卧	wo	32945
+沃	wo	32138
+涡	wo	29327
+斡	wo	27560
+倭	wo	27102
+挝	wo	23719
+渥	wo	23421
+蜗	wo	23329
+龌	wo	21695
+幄	wo	21015
+硪	wo	19234
+肟	wo	17236
+莴	wo	12848
+喔	wo	1000
+无	wu	49166
+五	wu	46993
+物	wu	46320
+午	wu	43104
+舞	wu	41957
+武	wu	41110
+务	wu	40058
+屋	wu	39864
+误	wu	38890
+呜	wu	36553
+乌	wu	35515
+雾	wu	35378
+吴	wu	35083
+污	wu	34970
+悟	wu	34879
+吾	wu	34270
+伍	wu	33935
+勿	wu	32566
+兀	wu	29855
+巫	wu	29234
+侮	wu	28148
+芜	wu	28002
+晤	wu	27280
+诬	wu	27143
+坞	wu	27031
+梧	wu	25710
+毋	wu	25603
+捂	wu	25454
+戊	wu	25295
+钨	wu	25096
+蜈	wu	24922
+庑	wu	24669
+唔	wu	24216
+邬	wu	23413
+鹉	wu	22716
+妩	wu	22354
+婺	wu	22270
+忤	wu	21832
+寤	wu	21442
+鋈	wu	19151
+鹜	wu	19074
+骛	wu	18359
+焐	wu	17867
+杌	wu	13385
+浯	wu	12077
+仵	wu	12048
+鼯	wu	11983
+芴	wu	11669
+迕	wu	10769
+牾	wu	10523
+怃	wu	9847
+铻	wu	9203
+恶	wu	8943
+痦	wu	8872
+圬	wu	7447
+阢	wu	6340
+鹀	wu	6268
+靰	wu	1000
+郚	wu	1000
+西	xi	48138
+喜	xi	47918
+系	xi	45730
+希	xi	44232
+洗	xi	43955
+息	xi	43220
+戏	xi	42986
+吸	xi	41421
+细	xi	40662
+习	xi	40547
+惜	xi	38782
+席	xi	36580
+袭	xi	35211
+夕	xi	35014
+稀	xi	35003
+悉	xi	34848
+析	xi	34411
+熙	xi	34296
+浠	xi	34254
+溪	xi	33370
+禧	xi	32497
+膝	xi	32073
+媳	xi	31919
+锡	xi	31805
+昔	xi	30148
+嘻	xi	29846
+晰	xi	29662
+羲	xi	29635
+烯	xi	29457
+徙	xi	28968
+熄	xi	28515
+牺	xi	28219
+隙	xi	27126
+玺	xi	27098
+兮	xi	25751
+犀	xi	25436
+熹	xi	24575
+嬉	xi	24316
+螅	xi	23847
+奚	xi	23724
+檄	xi	23452
+铣	xi	23416
+汐	xi	23407
+蜥	xi	23241
+曦	xi	22861
+蟋	xi	22545
+硒	xi	22151
+淅	xi	22111
+潟	xi	21422
+唏	xi	21042
+饩	xi	20680
+阋	xi	18617
+醯	xi	18353
+矽	xi	18184
+僖	xi	17664
+翕	xi	16093
+晞	xi	13997
+穸	xi	13737
+舾	xi	12846
+隰	xi	12840
+屣	xi	12352
+窸	xi	12266
+鼷	xi	12005
+豨	xi	11282
+粞	xi	11070
+葸	xi	10802
+郤	xi	10751
+舄	xi	10437
+晳	xi	10317
+樨	xi	9966
+觋	xi	9407
+屃	xi	9320
+菥	xi	9241
+蓰	xi	7944
+禊	xi	7213
+郗	xi	7146
+绤	xi	5649
+蹊	xi	4084
+郄	xi	1628
+茜	xi	1000
+裼	xi	1000
+饻	xi	1000
+下	xia	54918
+辖	xia	41132
+夏	xia	40725
+吓	xia	40229
+瞎	xia	37523
+虾	xia	36905
+侠	xia	33682
+厦	xia	31409
+霞	xia	30449
+暇	xia	29595
+峡	xia	28482
+匣	xia	28104
+瑕	xia	27932
+狭	xia	27674
+遐	xia	24321
+呷	xia	22437
+黠	xia	22116
+罅	xia	20948
+狎	xia	19485
+硖	xia	12635
+柙	xia	12290
+现	xian	49971
+先	xian	47937
+线	xian	45369
+显	xian	41627
+仙	xian	40536
+限	xian	39901
+险	xian	38860
+鲜	xian	38749
+嫌	xian	38515
+闲	xian	38208
+县	xian	37811
+羡	xian	36699
+献	xian	36460
+陷	xian	35170
+咸	xian	34687
+贤	xian	34371
+腺	xian	33117
+弦	xian	30759
+馅	xian	30196
+掀	xian	28606
+纤	xian	27839
+娴	xian	27375
+衔	xian	27372
+宪	xian	27119
+酰	xian	27060
+涎	xian	24093
+舷	xian	23794
+藓	xian	23760
+岘	xian	23146
+痫	xian	22339
+暹	xian	22114
+锨	xian	21998
+苋	xian	21867
+霰	xian	19343
+祆	xian	17339
+蚬	xian	15532
+籼	xian	15462
+氙	xian	15358
+跣	xian	15002
+冼	xian	14836
+跹	xian	14768
+鹇	xian	12689
+燹	xian	12497
+挦	xian	11852
+筅	xian	10892
+莶	xian	9061
+猃	xian	7662
+见	xian	6202
+想	xiang	55533
+像	xiang	50080
+相	xiang	47834
+向	xiang	46787
+象	xiang	44962
+香	xiang	43733
+响	xiang	41164
+项	xiang	40194
+襄	xiang	39405
+乡	xiang	39225
+箱	xiang	39033
+享	xiang	38089
+湘	xiang	35652
+祥	xiang	34039
+详	xiang	31766
+巷	xiang	31115
+厢	xiang	29824
+翔	xiang	29680
+镶	xiang	28301
+橡	xiang	27852
+饷	xiang	27356
+缃	xiang	22368
+飨	xiang	21150
+骧	xiang	17407
+芗	xiang	17090
+庠	xiang	16081
+降	xiang	11007
+鲞	xiang	10162
+小	xiao	53731
+笑	xiao	46105
+校	xiao	45416
+消	xiao	42955
+效	xiao	40887
+晓	xiao	37584
+宵	xiao	36210
+销	xiao	35738
+孝	xiao	33286
+萧	xiao	32156
+肖	xiao	32068
+啸	xiao	29707
+硝	xiao	29663
+潇	xiao	29216
+逍	xiao	27413
+嚣	xiao	27389
+霄	xiao	26953
+枭	xiao	25662
+箫	xiao	25538
+哮	xiao	25393
+淆	xiao	23815
+骁	xiao	23750
+鸮	xiao	16657
+崤	xiao	15174
+绡	xiao	14893
+魈	xiao	12710
+筱	xiao	12169
+哓	xiao	11363
+枵	xiao	10100
+洨	xiao	8664
+削	xiao	5193
+些	xie	49476
+谢	xie	48058
+写	xie	45940
+鞋	xie	40834
+协	xie	35179
+歇	xie	35048
+卸	xie	34040
+邪	xie	33827
+泄	xie	32144
+谐	xie	31419
+斜	xie	31350
+携	xie	31006
+屑	xie	30856
+械	xie	30270
+蟹	xie	29537
+胁	xie	29104
+挟	xie	28230
+懈	xie	28010
+蝎	xie	24814
+偕	xie	24299
+榭	xie	23799
+亵	xie	23480
+楔	xie	23284
+泻	xie	22387
+绁	xie	22258
+邂	xie	20394
+缬	xie	19112
+獬	xie	18022
+燮	xie	17394
+廨	xie	15497
+勰	xie	14722
+撷	xie	14087
+瀣	xie	11612
+渫	xie	11210
+薤	xie	10274
+榍	xie	9958
+躞	xie	9048
+澥	xie	7684
+血	xie	7543
+揳	xie	6821
+颉	xie	1651
+塮	xie	1000
+心	xin	53190
+新	xin	51317
+信	xin	48166
+辛	xin	40394
+欣	xin	35880
+薪	xin	31734
+芯	xin	30108
+锌	xin	29631
+馨	xin	27168
+衅	xin	25228
+昕	xin	24109
+歆	xin	23613
+鑫	xin	23544
+忻	xin	22255
+囟	xin	16324
+寻	xin	4000
+行	xing	52062
+性	xing	46175
+星	xing	45841
+醒	xing	44324
+幸	xing	44105
+型	xing	44071
+形	xing	42849
+兴	xing	41338
+姓	xing	38234
+杏	xing	30527
+邢	xing	29384
+腥	xing	28635
+刑	xing	27951
+惺	xing	25757
+猩	xing	24388
+悻	xing	23384
+荥	xing	22207
+硎	xing	20687
+陉	xing	18434
+饧	xing	16419
+擤	xing	12285
+钘	xing	11226
+荇	xing	10277
+骍	xing	8643
+婞	xing	1000
+熊	xiong	39096
+胸	xiong	39083
+兄	xiong	38620
+雄	xiong	37370
+凶	xiong	35960
+匈	xiong	31388
+汹	xiong	27384
+芎	xiong	17279
+休	xiu	43114
+秀	xiu	43111
+修	xiu	42975
+羞	xiu	35983
+袖	xiu	35812
+绣	xiu	30565
+嗅	xiu	26980
+朽	xiu	26588
+锈	xiu	26465
+溴	xiu	24175
+馐	xiu	23405
+岫	xiu	22326
+咻	xiu	15387
+庥	xiu	15191
+鸺	xiu	12917
+琇	xiu	12693
+髹	xiu	11782
+貅	xiu	9403
+宿	xiu	8978
+臭	xiu	1000
+滫	xiu	1000
+需	xu	45320
+许	xu	42772
+须	xu	42580
+续	xu	41983
+虚	xu	38079
+序	xu	35530
+徐	xu	33676
+绪	xu	33631
+蓄	xu	30963
+旭	xu	30903
+吁	xu	29837
+叙	xu	28362
+墟	xu	27377
+婿	xu	27328
+胥	xu	27161
+絮	xu	27003
+嘘	xu	25283
+恤	xu	24776
+戌	xu	23804
+煦	xu	23566
+栩	xu	23368
+诩	xu	22321
+酗	xu	21083
+蓿	xu	18712
+顼	xu	17127
+勖	xu	16347
+盱	xu	15952
+畜	xu	14593
+溆	xu	14524
+洫	xu	10700
+魆	xu	10560
+醑	xu	7905
+糈	xu	7203
+圩	xu	2233
+浒	xu	1000
+渲	xuan	44930
+选	xuan	44930
+宣	xuan	37921
+玄	xuan	34316
+旋	xuan	33452
+悬	xuan	32628
+轩	xuan	32249
+璇	xuan	30558
+喧	xuan	29392
+眩	xuan	25439
+漩	xuan	25426
+炫	xuan	25043
+绚	xuan	24257
+萱	xuan	23924
+煊	xuan	23467
+暄	xuan	22740
+癣	xuan	22108
+谖	xuan	18165
+铉	xuan	16335
+楦	xuan	15788
+揎	xuan	14796
+瑄	xuan	12085
+泫	xuan	11610
+烜	xuan	11164
+儇	xuan	8499
+碹	xuan	5705
+痃	xuan	1000
+禤	xuan	1000
+学	xue	51351
+雪	xue	42933
+血	xue	42575
+削	xue	33494
+薛	xue	29790
+靴	xue	26704
+踅	xue	24453
+谑	xue	23584
+穴	xue	22228
+鳕	xue	21333
+噱	xue	14114
+茓	xue	12136
+训	xun	38423
+寻	xun	36870
+循	xun	33810
+巡	xun	33764
+迅	xun	33695
+逊	xun	32094
+讯	xun	31398
+勋	xun	31180
+询	xun	30949
+旬	xun	30764
+鲟	xun	29185
+驯	xun	28450
+汛	xun	27971
+熏	xun	27437
+殉	xun	27340
+荀	xun	23614
+埙	xun	23276
+薰	xun	23115
+徇	xun	22352
+醺	xun	22313
+巽	xun	22277
+峋	xun	21144
+浔	xun	20640
+荨	xun	18705
+窨	xun	17645
+洵	xun	15625
+蕈	xun	15456
+噀	xun	13775
+獯	xun	12695
+恂	xun	12492
+曛	xun	11828
+珣	xun	10503
+栒	xun	5910
+呀	ya	47047
+牙	ya	41840
+压	ya	41759
+亚	ya	40487
+雅	ya	38042
+鸭	ya	36005
+押	ya	34357
+衙	ya	33585
+丫	ya	32127
+芽	ya	31122
+涯	ya	29819
+哑	ya	29673
+讶	ya	28954
+崖	ya	28765
+鸦	ya	27529
+轧	ya	27026
+蚜	ya	22517
+娅	ya	22303
+垭	ya	20627
+氩	ya	19093
+砑	ya	12391
+迓	ya	12191
+伢	ya	10849
+睚	ya	10750
+玡	ya	10397
+揠	ya	9306
+岈	ya	8454
+眼	yan	47020
+演	yan	44939
+言	yan	44377
+严	yan	40335
+研	yan	40202
+验	yan	40031
+颜	yan	39244
+烟	yan	38808
+厌	yan	37726
+延	yan	37265
+艳	yan	35618
+炎	yan	35513
+堰	yan	35348
+盐	yan	35041
+燕	yan	33750
+沿	yan	33614
+岩	yan	32990
+掩	yan	32051
+檐	yan	31827
+宴	yan	31338
+咽	yan	30484
+衍	yan	30337
+淹	yan	30058
+阎	yan	29551
+嫣	yan	29468
+彦	yan	29410
+焉	yan	29238
+雁	yan	27178
+筵	yan	27028
+焰	yan	25636
+腌	yan	25528
+砚	yan	25457
+阉	yan	25016
+奄	yan	24629
+晏	yan	24439
+偃	yan	23919
+俨	yan	23892
+胭	yan	23692
+谚	yan	23680
+兖	yan	23212
+妍	yan	22984
+湮	yan	22452
+唁	yan	22344
+魇	yan	22182
+鄢	yan	20861
+赝	yan	19446
+郾	yan	17596
+芫	yan	17455
+厣	yan	15999
+蜒	yan	15407
+焱	yan	14389
+阏	yan	14059
+餍	yan	12790
+谳	yan	12613
+恹	yan	12546
+鼹	yan	12516
+酽	yan	11738
+罨	yan	11497
+琰	yan	11173
+滟	yan	11088
+弇	yan	10930
+崦	yan	10720
+埏	yan	5264
+铅	yan	1000
+殷	yan	1000
+扊	yan	1000
+样	yang	49907
+养	yang	45000
+阳	yang	42785
+羊	yang	38508
+洋	yang	38507
+杨	yang	37619
+扬	yang	36650
+央	yang	35160
+仰	yang	33563
+氧	yang	33466
+痒	yang	32209
+鸯	yang	27070
+疡	yang	24235
+佯	yang	23780
+漾	yang	23536
+恙	yang	23490
+炀	yang	23168
+秧	yang	22744
+怏	yang	22338
+鞅	yang	22272
+殃	yang	21990
+烊	yang	16430
+徉	yang	15993
+旸	yang	15964
+泱	yang	15584
+蛘	yang	15318
+垟	yang	11029
+玚	yang	5759
+要	yao	58120
+药	yao	42562
+咬	yao	38888
+腰	yao	37529
+摇	yao	35877
+妖	yao	35398
+耀	yao	35174
+邀	yao	34682
+遥	yao	34293
+瑶	yao	33019
+幺	yao	32267
+姚	yao	32201
+谣	yao	32183
+肴	yao	31566
+钥	yao	31146
+吆	yao	26944
+尧	yao	25653
+窑	yao	25251
+夭	yao	24414
+徭	yao	23970
+舀	yao	23060
+峣	yao	22946
+鹞	yao	22503
+曜	yao	22286
+杳	yao	21076
+爻	yao	19744
+繇	yao	19055
+窈	yao	17615
+鳐	yao	12575
+轺	yao	9584
+靿	yao	8532
+珧	yao	8381
+徼	yao	1000
+窅	yao	1000
+也	ye	56807
+业	ye	46342
+夜	ye	45148
+野	ye	39606
+叶	ye	37917
+爷	ye	37683
+页	ye	36712
+液	ye	35938
+耶	ye	34227
+咽	ye	30484
+椰	ye	25824
+腋	ye	24963
+谒	ye	24640
+曳	ye	24552
+掖	ye	24484
+邺	ye	24230
+噎	ye	24027
+晔	ye	23311
+冶	ye	22854
+靥	ye	19421
+烨	ye	13781
+揶	ye	13396
+倻	ye	9184
+馌	ye	6273
+铘	ye	1000
+一	yi	60582
+以	yi	54861
+已	yi	49879
+意	yi	49808
+易	yi	44569
+衣	yi	43921
+医	yi	42177
+义	yi	41767
+依	yi	40813
+艺	yi	40790
+伊	yi	39344
+疑	yi	39327
+移	yi	39136
+异	yi	38901
+议	yi	38884
+宜	yi	38222
+亦	yi	38061
+忆	yi	37769
+姨	yi	36959
+遗	yi	36317
+亿	yi	36057
+益	yi	36021
+仪	yi	34564
+疫	yi	34044
+译	yi	33254
+夷	yi	33105
+抑	yi	33098
+翼	yi	32836
+椅	yi	32175
+役	yi	31551
+逸	yi	30447
+矣	yi	30059
+谊	yi	30016
+蚁	yi	29681
+怡	yi	29674
+溢	yi	29439
+驿	yi	29268
+裔	yi	29248
+翊	yi	29231
+彝	yi	29184
+毅	yi	29174
+乙	yi	28764
+奕	yi	27776
+揖	yi	27545
+邑	yi	27407
+懿	yi	27266
+颐	yi	27216
+翌	yi	27056
+咦	yi	26222
+胰	yi	25697
+诣	yi	25466
+熠	yi	25448
+贻	yi	25256
+绎	yi	25192
+倚	yi	25083
+佚	yi	24819
+沂	yi	24529
+轶	yi	24338
+漪	yi	23965
+祎	yi	23685
+迤	yi	23621
+饴	yi	23420
+肄	yi	23300
+弈	yi	23254
+缢	yi	23105
+弋	yi	22571
+臆	yi	22567
+屹	yi	22493
+刈	yi	22060
+咿	yi	21130
+蜴	yi	20574
+诒	yi	18737
+苡	yi	18172
+噫	yi	17935
+壹	yi	17818
+铱	yi	17590
+旖	yi	17212
+呓	yi	16988
+猗	yi	16639
+翳	yi	15197
+眙	yi	15128
+镒	yi	14848
+薏	yi	14762
+钇	yi	14181
+羿	yi	13560
+挹	yi	13161
+峄	yi	12982
+劓	yi	12884
+嶷	yi	12794
+悒	yi	12773
+痍	yi	12451
+黟	yi	12305
+癔	yi	11951
+圯	yi	11114
+怿	yi	9676
+簃	yi	9608
+瘗	yi	9446
+舣	yi	9165
+佾	yi	9007
+匜	yi	8490
+螠	yi	7935
+镱	yi	7893
+繄	yi	7609
+殪	yi	7294
+埸	yi	6963
+浥	yi	6670
+廙	yi	6028
+勚	yi	1000
+鹝	yi	1000
+扅	yi	1000
+尾	yi	1000
+酏	yi	1000
+因	yin	48907
+音	yin	43670
+印	yin	41268
+引	yin	41266
+银	yin	38715
+阴	yin	37973
+隐	yin	36668
+饮	yin	36557
+殷	yin	33561
+吟	yin	33058
+尹	yin	31232
+姻	yin	30329
+淫	yin	29612
+荫	yin	29328
+胤	yin	26968
+瘾	yin	26950
+寅	yin	25669
+茵	yin	25625
+蚓	yin	24255
+龈	yin	23077
+垠	yin	18813
+窨	yin	17645
+夤	yin	17504
+氤	yin	17413
+喑	yin	15823
+鄞	yin	14249
+吲	yin	14120
+铟	yin	13632
+茚	yin	12811
+崟	yin	12439
+堙	yin	12224
+狺	yin	10185
+愔	yin	10107
+洇	yin	10089
+霪	yin	7888
+嚚	yin	6314
+慭	yin	1000
+应	ying	47313
+影	ying	45680
+英	ying	42816
+赢	ying	41362
+迎	ying	39844
+硬	ying	39692
+营	ying	39213
+映	ying	35436
+樱	ying	31705
+婴	ying	31587
+鹰	ying	30357
+盈	ying	30210
+颖	ying	29416
+瀛	ying	29320
+郢	ying	29210
+蝇	ying	27756
+莹	ying	27221
+荧	ying	25687
+萤	ying	25335
+瑛	ying	24907
+莺	ying	24672
+楹	ying	24470
+膺	ying	24120
+颍	ying	23697
+缨	ying	23371
+鹦	ying	23340
+嘤	ying	22901
+罂	ying	22679
+萦	ying	22649
+瘿	ying	19563
+嬴	ying	16182
+茔	ying	12781
+蓥	ying	12664
+撄	ying	11427
+璎	ying	10699
+滢	ying	9640
+媵	ying	9157
+潆	ying	7274
+哟	yo	29682
+唷	yo	22847
+用	yong	52975
+永	yong	41544
+勇	yong	38732
+拥	yong	37674
+泳	yong	35728
+涌	yong	31833
+雍	yong	29312
+庸	yong	29287
+鳙	yong	27343
+甬	yong	25619
+咏	yong	24308
+俑	yong	24241
+佣	yong	23813
+踊	yong	23726
+蛹	yong	23518
+饔	yong	22951
+恿	yong	22943
+痈	yong	22380
+臃	yong	21991
+壅	yong	20874
+慵	yong	20117
+邕	yong	20098
+墉	yong	12725
+喁	yong	12609
+镛	yong	12346
+颙	yong	11660
+鄘	yong	10566
+鲬	yong	1000
+有	you	60173
+又	you	51233
+友	you	47145
+油	you	46764
+由	you	45665
+游	you	44554
+右	you	41222
+优	you	40560
+尤	you	36668
+忧	you	36482
+邮	you	36417
+幼	you	35849
+悠	you	35250
+幽	you	34186
+犹	you	33910
+诱	you	33796
+佑	you	29760
+铀	you	27177
+攸	you	25485
+釉	you	25061
+黝	you	24405
+鱿	you	24394
+酉	you	23588
+猷	you	22885
+宥	you	22670
+柚	you	22576
+疣	you	22269
+鼬	you	22110
+蚴	you	22104
+呦	you	21022
+囿	you	20975
+卣	you	20065
+莠	you	18762
+蚰	you	18560
+侑	you	18522
+牖	you	15636
+莸	you	14428
+蝣	you	11537
+莜	you	11318
+鲉	you	10663
+羑	you	10050
+铕	you	9383
+耰	you	8306
+于	yu	48723
+与	yu	46176
+雨	yu	44005
+语	yu	43953
+遇	yu	43080
+鱼	yu	42566
+育	yu	40000
+预	yu	39675
+欲	yu	37766
+玉	yu	37471
+域	yu	36411
+宇	yu	36314
+羽	yu	34544
+豫	yu	34271
+愈	yu	34188
+予	yu	34094
+郁	yu	33832
+愉	yu	33620
+狱	yu	33305
+浴	yu	33123
+御	yu	32738
+舆	yu	32183
+瑜	yu	31857
+娱	yu	31531
+愚	yu	31219
+俞	yu	31149
+喻	yu	30029
+寓	yu	29802
+谕	yu	29655
+裕	yu	29565
+渝	yu	29483
+淤	yu	29304
+渔	yu	29276
+隅	yu	29227
+禹	yu	29214
+誉	yu	29162
+余	yu	29037
+逾	yu	28799
+屿	yu	28329
+虞	yu	27939
+吁	yu	27918
+芋	yu	27514
+榆	yu	25512
+禺	yu	25491
+毓	yu	25078
+迂	yu	24609
+於	yu	24563
+峪	yu	24366
+驭	yu	24134
+彧	yu	23772
+盂	yu	23549
+谀	yu	23154
+钰	yu	22993
+臾	yu	22603
+阈	yu	22389
+煜	yu	22260
+觎	yu	22081
+俣	yu	21860
+欤	yu	21510
+馀	yu	20914
+龉	yu	20593
+昱	yu	20374
+庾	yu	19908
+鬻	yu	19524
+妤	yu	19202
+腴	yu	18535
+聿	yu	18215
+纡	yu	17358
+竽	yu	17224
+鹬	yu	17187
+圉	yu	17054
+窬	yu	16490
+饫	yu	15730
+揄	yu	15474
+妪	yu	15179
+鹆	yu	14973
+萸	yu	14705
+圄	yu	12658
+蜮	yu	12565
+窳	yu	11884
+嵛	yu	11700
+瑀	yu	11410
+燠	yu	11368
+蓣	yu	11238
+嵎	yu	11185
+堉	yu	10733
+蝓	yu	10159
+伛	yu	10133
+雩	yu	9772
+狳	yu	9450
+燏	yu	9095
+瘐	yu	8627
+潏	yu	7273
+玙	yu	7248
+蔚	yu	1765
+尉	yu	1571
+熨	yu	1235
+滪	yu	1000
+原	yuan	46578
+远	yuan	45955
+员	yuan	45928
+元	yuan	43810
+院	yuan	43809
+愿	yuan	43789
+源	yuan	40398
+园	yuan	39786
+圆	yuan	39638
+缘	yuan	38048
+袁	yuan	37757
+援	yuan	35039
+怨	yuan	35020
+垸	yuan	34229
+渊	yuan	32007
+冤	yuan	29771
+苑	yuan	29220
+垣	yuan	28412
+猿	yuan	27637
+沅	yuan	27382
+鸳	yuan	27131
+辕	yuan	25811
+箢	yuan	25766
+媛	yuan	24035
+塬	yuan	22302
+鼋	yuan	22026
+瑗	yuan	21096
+爰	yuan	19979
+掾	yuan	18072
+螈	yuan	17843
+鸢	yuan	17775
+橼	yuan	11342
+眢	yuan	9628
+湲	yuan	8919
+蜎	yuan	8380
+芫	yuan	3575
+圜	yuan	1000
+月	yue	50478
+越	yue	47076
+约	yue	45439
+曰	yue	37175
+岳	yue	36689
+跃	yue	32568
+阅	yue	32424
+悦	yue	32257
+瀹	yue	29487
+粤	yue	29394
+钺	yue	22074
+乐	yue	21546
+刖	yue	15817
+樾	yue	14126
+玥	yue	8878
+龠	yue	7505
+钥	yue	1000
+运	yun	44360
+云	yun	40672
+晕	yun	36945
+允	yun	33991
+郧	yun	32225
+韵	yun	31752
+蕴	yun	29849
+匀	yun	28301
+孕	yun	25223
+陨	yun	24951
+芸	yun	24735
+酝	yun	24580
+纭	yun	23796
+耘	yun	23526
+涢	yun	22775
+氲	yun	22505
+郓	yun	22392
+熨	yun	22337
+赟	yun	21950
+愠	yun	21245
+殒	yun	19029
+筠	yun	17285
+韫	yun	15712
+恽	yun	15370
+昀	yun	14092
+狁	yun	12854
+鋆	yun	8792
+沄	yun	8038
+筼	yun	7207
+杂	za	38366
+砸	za	30831
+咋	za	29435
+匝	za	23310
+咂	za	22444
+拶	za	10827
+臜	za	10280
+扎	za	2915
+咱	za	1000
+在	zai	59736
+再	zai	51094
+载	zai	38794
+仔	zai	33093
+宰	zai	32139
+栽	zai	29328
+哉	zai	27352
+灾	zai	25597
+崽	zai	22859
+甾	zai	21839
+赞	zan	41611
+咱	zan	39078
+暂	zan	35582
+攒	zan	27180
+簪	zan	23710
+瓒	zan	23410
+錾	zan	16921
+趱	zan	15231
+糌	zan	11396
+昝	zan	9829
+脏	zang	37465
+葬	zang	31374
+赃	zang	25628
+臧	zang	23022
+奘	zang	22826
+牂	zang	11413
+藏	zang	11092
+驵	zang	7528
+早	zao	50160
+造	zao	43156
+遭	zao	38008
+糟	zao	37290
+澡	zao	36338
+藻	zao	33146
+躁	zao	33094
+燥	zao	30531
+凿	zao	29695
+皂	zao	29267
+枣	zao	29218
+噪	zao	29189
+灶	zao	26531
+蚤	zao	22397
+唣	zao	12490
+璪	zao	8633
+慥	zao	6854
+簉	zao	1000
+则	ze	40333
+责	ze	39351
+择	ze	38332
+泽	ze	34734
+啧	ze	24019
+帻	ze	23084
+仄	ze	22332
+笮	ze	17948
+赜	ze	16879
+舴	ze	11940
+昃	ze	11628
+迮	ze	7911
+箦	ze	7206
+咋	ze	1066
+贼	zei	35524
+怎	zen	47563
+谮	zen	11060
+增	zeng	39924
+赠	zeng	31368
+憎	zeng	27095
+甑	zeng	20229
+锃	zeng	15596
+缯	zeng	14159
+罾	zeng	10887
+炸	zha	40341
+扎	zha	39742
+渣	zha	36689
+诈	zha	29632
+榨	zha	28982
+闸	zha	28123
+眨	zha	27548
+乍	zha	27240
+栅	zha	27235
+轧	zha	27026
+札	zha	26078
+楂	zha	24302
+喳	zha	23651
+铡	zha	22562
+柞	zha	22377
+蚱	zha	19718
+咤	zha	18240
+哳	zha	10347
+砟	zha	10063
+拃	zha	8695
+揸	zha	8689
+痄	zha	8347
+鲊	zha	7092
+溠	zha	1000
+咋	zha	1000
+宅	zhai	35611
+摘	zhai	34649
+斋	zhai	32168
+债	zhai	31466
+寨	zhai	30844
+窄	zhai	29792
+瘵	zhai	5738
+站	zhan	45264
+战	zhan	44120
+展	zhan	42183
+占	zhan	38186
+沾	zhan	33733
+粘	zhan	33531
+斩	zhan	29667
+瞻	zhan	29581
+詹	zhan	29351
+湛	zhan	28206
+绽	zhan	27506
+毡	zhan	26998
+盏	zhan	26295
+栈	zhan	25773
+辗	zhan	24492
+蘸	zhan	23700
+崭	zhan	21290
+旃	zhan	19790
+谵	zhan	13183
+搌	zhan	6819
+飐	zhan	6310
+颤	zhan	1722
+长	zhang	50767
+张	zhang	46828
+章	zhang	39266
+掌	zhang	38301
+障	zhang	35225
+涨	zhang	34650
+帐	zhang	34370
+仗	zhang	33129
+杖	zhang	33119
+账	zhang	32346
+璋	zhang	32153
+丈	zhang	31560
+胀	zhang	30582
+彰	zhang	27411
+漳	zhang	27372
+樟	zhang	24285
+瘴	zhang	23525
+獐	zhang	22554
+嶂	zhang	20982
+鄣	zhang	19157
+蟑	zhang	17553
+仉	zhang	12108
+嫜	zhang	9323
+找	zhao	49665
+照	zhao	47076
+招	zhao	41073
+罩	zhao	37410
+召	zhao	35310
+诏	zhao	35238
+赵	zhao	34242
+爪	zhao	33995
+昭	zhao	32198
+兆	zhao	30519
+沼	zhao	29646
+钊	zhao	29517
+肇	zhao	28428
+棹	zhao	14945
+笊	zhao	12632
+啁	zhao	12404
+着	zhao	2675
+朝	zhao	1885
+著	zhao	1760
+这	zhe	58225
+着	zhe	53181
+者	zhe	48164
+折	zhe	39463
+遮	zhe	34579
+著	zhe	34363
+哲	zhe	33537
+浙	zhe	30304
+蔗	zhe	27869
+鹧	zhe	27273
+褶	zhe	27025
+辙	zhe	25013
+辄	zhe	23332
+摺	zhe	23163
+蛰	zhe	22118
+锗	zhe	21681
+谪	zhe	21565
+赭	zhe	19068
+蜇	zhe	18731
+柘	zhe	16783
+磔	zhe	12634
+真	zhen	53908
+珍	zhen	39152
+镇	zhen	38856
+针	zhen	38680
+阵	zhen	37600
+震	zhen	36870
+振	zhen	33657
+圳	zhen	33060
+祯	zhen	33040
+枕	zhen	31807
+诊	zhen	31262
+朕	zhen	30357
+侦	zhen	29700
+贞	zhen	28987
+斟	zhen	28396
+疹	zhen	25666
+甄	zhen	25243
+赈	zhen	24227
+臻	zhen	24144
+帧	zhen	23894
+榛	zhen	23449
+桢	zhen	22455
+鸩	zhen	22329
+砧	zhen	22178
+缜	zhen	22145
+箴	zhen	21551
+轸	zhen	14474
+畛	zhen	12666
+胗	zhen	11325
+浈	zhen	10190
+蓁	zhen	9417
+袗	zhen	1000
+正	zheng	50213
+整	zheng	45313
+证	zheng	42791
+政	zheng	41035
+争	zheng	40427
+症	zheng	39247
+征	zheng	35960
+挣	zheng	35318
+郑	zheng	34441
+蒸	zheng	33541
+睁	zheng	33302
+怔	zheng	31888
+铮	zheng	27760
+拯	zheng	25067
+筝	zheng	24583
+狰	zheng	22555
+徵	zheng	22518
+诤	zheng	22275
+峥	zheng	18876
+钲	zheng	9892
+烝	zheng	9355
+只	zhi	52552
+之	zhi	50835
+知	zhi	50393
+直	zhi	48528
+指	zhi	45927
+至	zhi	44899
+支	zhi	44494
+制	zhi	44159
+值	zhi	43349
+治	zhi	42970
+质	zhi	42728
+止	zhi	41441
+致	zhi	41264
+智	zhi	41214
+纸	zhi	41116
+置	zhi	40680
+职	zhi	40355
+志	zhi	40085
+织	zhi	38696
+执	zhi	36285
+植	zhi	35520
+汁	zhi	35170
+址	zhi	34834
+枝	zhi	33779
+脂	zhi	33297
+芝	zhi	32995
+掷	zhi	32048
+滞	zhi	30178
+殖	zhi	29775
+芷	zhi	29403
+旨	zhi	28562
+侄	zhi	28320
+趾	zhi	27252
+酯	zhi	27237
+稚	zhi	27119
+吱	zhi	26963
+肢	zhi	26103
+峙	zhi	25999
+挚	zhi	25615
+秩	zhi	25533
+蜘	zhi	25506
+窒	zhi	25277
+炙	zhi	24383
+郅	zhi	23640
+咫	zhi	23418
+雉	zhi	23373
+蛭	zhi	23219
+帜	zhi	23020
+庤	zhi	22733
+痔	zhi	22714
+痣	zhi	22581
+栉	zhi	22558
+徵	zhi	22518
+帙	zhi	22311
+祗	zhi	22226
+卮	zhi	20580
+彘	zhi	18674
+觯	zhi	17327
+鸷	zhi	16615
+陟	zhi	15543
+栀	zhi	15451
+胝	zhi	14933
+跖	zhi	14785
+枳	zhi	13665
+梽	zhi	13379
+祉	zhi	13275
+贽	zhi	13123
+桎	zhi	13117
+骘	zhi	11992
+豸	zhi	11891
+踯	zhi	11066
+黹	zhi	10867
+铚	zhi	10864
+摭	zhi	10712
+轾	zhi	10362
+踬	zhi	9590
+埴	zhi	9336
+沚	zhi	9284
+轵	zhi	9043
+絷	zhi	8315
+忮	zhi	8225
+锧	zhi	7895
+扺	zhi	7360
+滍	zhi	1000
+氏	zhi	1000
+泜	zhi	1000
+中	zhong	53308
+种	zhong	49560
+重	zhong	49471
+终	zhong	42899
+钟	zhong	41790
+众	zhong	41436
+肿	zhong	35941
+忠	zhong	35216
+仲	zhong	32478
+衷	zhong	30098
+冢	zhong	25473
+踵	zhong	25028
+盅	zhong	23568
+螽	zhong	10481
+周	zhou	48179
+州	zhou	46147
+洲	zhou	37622
+轴	zhou	34216
+粥	zhou	33688
+舟	zhou	30699
+宙	zhou	30593
+皱	zhou	29587
+咒	zhou	29250
+肘	zhou	27306
+绉	zhou	27011
+昼	zhou	26885
+骤	zhou	24197
+帚	zhou	24090
+胄	zhou	23770
+纣	zhou	23478
+诌	zhou	20600
+妯	zhou	18845
+啁	zhou	12404
+籀	zhou	11880
+碡	zhou	11798
+酎	zhou	11591
+柚	zhou	1123
+辀	zhou	1000
+鸼	zhou	1000
+主	zhu	48785
+住	zhu	48186
+注	zhu	45215
+祝	zhu	44273
+助	zhu	41481
+猪	zhu	41435
+煮	zhu	37514
+著	zhu	37215
+珠	zhu	36549
+竹	zhu	34979
+逐	zhu	34662
+朱	zhu	34554
+筑	zhu	33585
+诸	zhu	33269
+驻	zhu	33153
+柱	zhu	31889
+株	zhu	29838
+贮	zhu	29389
+诛	zhu	29206
+蛛	zhu	28619
+烛	zhu	28288
+瞩	zhu	27683
+铸	zhu	25511
+竺	zhu	25198
+嘱	zhu	24891
+渚	zhu	23968
+铢	zhu	23434
+拄	zhu	23382
+侏	zhu	23183
+蛀	zhu	22540
+炷	zhu	22152
+苎	zhu	22109
+伫	zhu	21716
+箸	zhu	21503
+茱	zhu	16994
+杼	zhu	16651
+潴	zhu	16389
+翥	zhu	12452
+洙	zhu	12160
+舳	zhu	11875
+邾	zhu	11862
+纻	zhu	11745
+槠	zhu	11502
+躅	zhu	11488
+麈	zhu	10756
+蠋	zhu	9233
+橥	zhu	8906
+疰	zhu	8007
+瘃	zhu	1000
+抓	zhua	43058
+爪	zhua	14854
+拽	zhuai	27900
+转	zhuan	44680
+专	zhuan	42236
+砖	zhuan	34025
+撰	zhuan	31786
+赚	zhuan	31242
+篆	zhuan	27020
+馔	zhuan	25414
+颛	zhuan	17072
+啭	zhuan	12094
+传	zhuan	1226
+装	zhuang	44761
+状	zhuang	40139
+撞	zhuang	38563
+壮	zhuang	36834
+庄	zhuang	34167
+妆	zhuang	29741
+桩	zhuang	29324
+追	zhui	43195
+锥	zhui	29676
+椎	zhui	29552
+坠	zhui	29477
+缀	zhui	27652
+赘	zhui	24377
+惴	zhui	24180
+缒	zhui	22201
+骓	zhui	12618
+准	zhun	45647
+谆	zhun	22779
+肫	zhun	12140
+窀	zhun	10387
+桌	zhuo	38178
+捉	zhuo	34975
+卓	zhuo	32139
+灼	zhuo	28388
+拙	zhuo	27077
+酌	zhuo	26973
+镯	zhuo	23731
+擢	zhuo	23591
+涿	zhuo	23487
+浊	zhuo	23417
+琢	zhuo	22974
+斫	zhuo	22395
+啄	zhuo	22334
+濯	zhuo	18611
+茁	zhuo	18573
+浞	zhuo	16699
+倬	zhuo	12723
+诼	zhuo	12584
+棁	zhuo	11763
+着	zhuo	1642
+禚	zhuo	1000
+著	zhuo	1000
+子	zi	52856
+自	zi	52231
+字	zi	46159
+资	zi	40989
+紫	zi	36752
+滋	zi	35989
+姿	zi	34730
+姊	zi	34580
+咨	zi	34195
+仔	zi	33093
+兹	zi	31534
+缁	zi	29434
+梓	zi	27405
+孜	zi	27082
+秭	zi	26511
+籽	zi	24981
+淄	zi	24131
+渍	zi	24030
+孳	zi	23948
+恣	zi	23335
+辎	zi	22283
+龇	zi	22129
+滓	zi	17352
+笫	zi	17272
+眦	zi	17169
+髭	zi	16970
+锱	zi	11787
+鲻	zi	11670
+镃	zi	11588
+嵫	zi	11441
+訾	zi	10510
+觜	zi	9763
+嗞	zi	8176
+趑	zi	7572
+鼒	zi	1000
+耔	zi	1000
+总	zong	47298
+宗	zong	38790
+综	zong	37223
+纵	zong	33119
+踪	zong	32693
+棕	zong	29910
+粽	zong	23741
+鬃	zong	22414
+偬	zong	13726
+腙	zong	9423
+疭	zong	6585
+枞	zong	5593
+走	zou	50615
+奏	zou	37053
+邹	zou	28151
+揍	zou	23027
+诹	zou	14967
+陬	zou	11976
+鄹	zou	11054
+驺	zou	10476
+鲰	zou	5437
+组	zu	43538
+足	zu	42486
+族	zu	40232
+租	zu	39348
+祖	zu	36279
+阻	zu	35252
+卒	zu	34295
+镞	zu	23586
+诅	zu	23173
+俎	zu	19266
+菹	zu	11041
+钻	zuan	35510
+纂	zuan	26142
+攥	zuan	23342
+缵	zuan	9798
+躜	zuan	7916
+最	zui	53053
+嘴	zui	42539
+醉	zui	39066
+罪	zui	32315
+蕞	zui	11236
+朘	zui	10203
+槜	zui	8055
+尊	zun	38115
+遵	zun	32501
+樽	zun	18347
+鳟	zun	13654
+撙	zun	9019
+做	zuo	52602
+作	zuo	49906
+坐	zuo	45447
+座	zuo	42034
+左	zuo	41594
+昨	zuo	40650
+佐	zuo	31734
+琢	zuo	28912
+祚	zuo	23782
+唑	zuo	22777
+柞	zuo	22377
+酢	zuo	19589
+嘬	zuo	15076
+胙	zuo	11651
+怍	zuo	10635
+阼	zuo	7126

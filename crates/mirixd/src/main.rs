@@ -8,7 +8,6 @@ use anyhow::{Context, Result};
 use clap::Parser;
 use mirix_core::{EngineManager, Instance};
 use mirix_engine_process::{ProcessEngine, default_search_roots, discover, find};
-use tracing_subscriber::EnvFilter;
 
 #[derive(Debug, Parser)]
 #[command(version, about = "Mirix input method daemon")]
@@ -69,11 +68,14 @@ fn main() -> Result<()> {
     let arguments = std::env::args_os().skip(1).collect::<Vec<_>>();
     let cli = Cli::parse();
 
-    tracing_subscriber::fmt()
-        .with_env_filter(
-            EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")),
-        )
-        .init();
+    // signalfd only masks the calling thread. Register shutdown signals before
+    // the logger or engine workers start so they inherit the mask.
+    let signals = calloop::signals::Signals::new(&[
+        calloop::signals::Signal::SIGINT,
+        calloop::signals::Signal::SIGTERM,
+    ])
+    .context("listen for shutdown signals")?;
+    let logger = mirix_log::init("mirixd")?;
 
     let mut roots = default_search_roots();
     roots.extend(cli.input_method_dirs);
@@ -97,7 +99,7 @@ fn main() -> Result<()> {
             if selection_locked || find(name, roots.clone()).is_some() {
                 true
             } else {
-                tracing::warn!(engine = %name, "selected input method is not installed");
+                log::warn!("selected input method is not installed engine={}", name);
                 false
             }
         })
@@ -117,7 +119,14 @@ fn main() -> Result<()> {
         language: cli.language,
     });
 
-    tracing::info!(engines = ?enabled, socket = %socket.display(), wayland, xim, panel = !cli.no_panel, "starting");
+    log::info!(
+        "starting engines={:?} socket={} wayland={} xim={} panel={}",
+        enabled,
+        socket.display(),
+        wayland,
+        xim,
+        !cli.no_panel
+    );
     let methods = server::methods::Options {
         roots,
         config_path,
@@ -136,12 +145,13 @@ fn main() -> Result<()> {
         .map(|(name, _)| name.to_owned())
         .collect(),
     };
-    match server::run(instance, socket, wayland, xim, panel, methods)? {
+    match server::run(instance, socket, wayland, xim, panel, methods, signals)? {
         server::ExitAction::Quit => Ok(()),
         server::ExitAction::Restart => {
             // run() has dropped engines, flushed learning and released socket
             // ownership. exec keeps the PID/systemd main-process identity.
-            tracing::info!("restarting daemon");
+            log::info!("restarting daemon");
+            logger.shutdown();
             Err(std::process::Command::new(executable)
                 .args(arguments)
                 .exec())

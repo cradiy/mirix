@@ -1,5 +1,6 @@
 //! Child-process lifetime, bounded request exchange, and engine adaptation.
 use std::process::{Child, ChildStdin, ChildStdout, Command, Stdio};
+use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use anyhow::{Context, Result, bail};
@@ -15,6 +16,9 @@ use crate::InputMethod;
 const HANDSHAKE_TIMEOUT: Duration = Duration::from_secs(2);
 const REQUEST_TIMEOUT: Duration = Duration::from_millis(250);
 
+#[cfg(test)]
+mod tests;
+
 pub struct ProcessEngine {
     icon: Option<std::sync::Arc<mirix_engine_protocol::EngineIcon>>,
     configuration_revision: u64,
@@ -24,13 +28,15 @@ pub struct ProcessEngine {
     stdin: Option<ChildStdin>,
     stdout: Option<ChildStdout>,
     read_buffer: Vec<u8>,
-    candidates: Vec<Candidate>,
+    // Share immutable lists with the main-loop snapshot while a worker owns I/O.
+    // Arc<Vec<_>> also retains the response's allocation without moving its elements.
+    candidates: Arc<Vec<Candidate>>,
     selected: usize,
-    page_ends: Vec<usize>,
+    page_ends: Arc<Vec<usize>>,
     failed: bool,
     reset_pending: bool,
     failure: Option<String>,
-    menus: Vec<EngineMenu>,
+    menus: Arc<Vec<EngineMenu>>,
     punctuation_mode: Option<PunctuationMode>,
     configuration_cache: Option<(String, mirix_engine_protocol::Configuration)>,
 }
@@ -71,13 +77,13 @@ impl ProcessEngine {
             stdin: Some(stdin),
             stdout: Some(stdout),
             read_buffer: Vec::new(),
-            candidates: Vec::new(),
+            candidates: Arc::default(),
             selected: 0,
-            page_ends: Vec::new(),
+            page_ends: Arc::default(),
             failed: false,
             reset_pending: false,
             failure: None,
-            menus: Vec::new(),
+            menus: Arc::default(),
             punctuation_mode: None,
             configuration_cache: None,
         };
@@ -92,7 +98,7 @@ impl ProcessEngine {
                 punctuation_mode,
             } => {
                 engine.configuration_revision = configuration_revision;
-                engine.menus = menus;
+                engine.menus = Arc::new(menus);
                 engine.punctuation_mode = punctuation_mode;
                 Ok(engine)
             }
@@ -111,7 +117,7 @@ impl ProcessEngine {
                     punctuation_mode,
                 } => {
                     self.configuration_revision = configuration_revision;
-                    self.menus = menus;
+                    self.menus = Arc::new(menus);
                     self.punctuation_mode = punctuation_mode;
                 }
                 _ => bail!("unexpected reset response"),
@@ -147,9 +153,18 @@ impl ProcessEngine {
         })();
         let elapsed = started.elapsed();
         // Never record request payloads: key text and vocabulary are user data.
-        tracing::debug!(engine = %self.name, elapsed_us = elapsed.as_micros() as u64, success = result.is_ok(), "engine exchange");
+        log::debug!(
+            "engine exchange engine={} elapsed_us={} success={}",
+            self.name,
+            elapsed.as_micros() as u64,
+            result.is_ok()
+        );
         if elapsed > Duration::from_millis(16) {
-            tracing::warn!(engine = %self.name, elapsed_ms = elapsed.as_millis() as u64, "slow engine exchange");
+            log::warn!(
+                "slow engine exchange engine={} elapsed_ms={}",
+                self.name,
+                elapsed.as_millis() as u64
+            );
         }
         if let Ok(response) = &result {
             response.validate().map_err(anyhow::Error::msg)?;
@@ -158,10 +173,10 @@ impl ProcessEngine {
     }
 
     fn update_state(&mut self, candidates: Vec<Candidate>, selected: u32) {
-        if self.candidates != candidates {
-            self.page_ends.clear();
+        if self.candidates.as_ref() != &candidates {
+            self.page_ends = Arc::default();
+            self.candidates = Arc::new(candidates);
         }
-        self.candidates = candidates;
         self.selected = selected as usize;
     }
 
@@ -191,7 +206,7 @@ impl ProcessEngine {
             }) => {
                 configuration.validate()?;
                 self.configuration_revision = revision;
-                self.menus = menus;
+                self.menus = Arc::new(menus);
                 self.punctuation_mode = punctuation_mode;
                 self.update_state(candidates, selected);
                 Ok((configuration, ActionResult::new(message, output)))
@@ -213,16 +228,20 @@ impl ProcessEngine {
 
     fn fail(&mut self, error: anyhow::Error) {
         if !self.failed {
-            tracing::error!(engine = %self.name, ?error, "input method process disabled");
+            log::error!(
+                "input method process disabled engine={} error={:?}",
+                self.name,
+                error
+            );
         }
         self.failed = true;
         self.failure = Some(error.to_string());
         self.icon = None;
-        self.menus.clear();
+        self.menus = Arc::default();
         self.configuration_cache = None;
         self.configuration_revision = self.configuration_revision.wrapping_add(1);
         self.punctuation_mode = None;
-        self.candidates.clear();
+        self.candidates = Arc::default();
         self.selected = 0;
         self.stdin.take();
         self.stdout.take();
@@ -237,7 +256,11 @@ impl ProcessEngine {
 
 impl Drop for ProcessEngine {
     fn drop(&mut self) {
-        if let Some(cleanup) = self.retire() {
+        // Read-only snapshots own no process. Dropping one only releases its
+        // shared lists; it need not allocate empty replacement state first.
+        if (self.child.is_some() || self.reaper.is_some())
+            && let Some(cleanup) = self.retire()
+        {
             cleanup();
         }
     }
@@ -286,10 +309,10 @@ impl Engine for ProcessEngine {
         self.failed = true;
         self.configuration_cache = None;
         self.failure = Some("input method stopped".into());
-        self.menus.clear();
+        self.menus = Arc::default();
         self.configuration_revision = self.configuration_revision.wrapping_add(1);
-        self.candidates.clear();
-        self.page_ends.clear();
+        self.candidates = Arc::default();
+        self.page_ends = Arc::default();
         self.selected = 0;
         self.punctuation_mode = None;
         self.stdin.take();
@@ -376,7 +399,7 @@ impl Engine for ProcessEngine {
                 selected,
             }) => {
                 self.configuration_revision = configuration_revision;
-                self.menus = menus;
+                self.menus = Arc::new(menus);
                 self.update_state(candidates, selected);
                 Ok(ActionResult::new(result, output))
             }
@@ -398,7 +421,7 @@ impl Engine for ProcessEngine {
         self.punctuation_mode
     }
     fn menus(&self) -> Vec<EngineMenu> {
-        self.menus.clone()
+        self.menus.as_ref().clone()
     }
 
     fn select_menu(&mut self, menu: &str, entry: &str) -> Result<EngineOutput, String> {
@@ -421,7 +444,7 @@ impl Engine for ProcessEngine {
                 selected,
             }) => {
                 self.configuration_revision = configuration_revision;
-                self.menus = menus;
+                self.menus = Arc::new(menus);
                 self.punctuation_mode = punctuation_mode;
                 self.update_state(candidates, selected);
                 Ok(output)
@@ -463,13 +486,17 @@ impl Engine for ProcessEngine {
                 selected,
             }) => {
                 self.configuration_revision = configuration_revision;
-                self.menus = menus;
+                self.menus = Arc::new(menus);
                 self.punctuation_mode = punctuation_mode;
                 self.update_state(candidates, selected);
                 output
             }
             Ok(EngineResponse::Error { message }) => {
-                tracing::warn!(engine = %self.name, %message, "input method rejected key");
+                log::warn!(
+                    "input method rejected key engine={} message={}",
+                    self.name,
+                    message
+                );
                 EngineOutput::pass()
             }
             Ok(response) => {
@@ -485,8 +512,8 @@ impl Engine for ProcessEngine {
 
     fn reset(&mut self) {
         self.configuration_cache = None;
-        self.page_ends.clear();
-        self.candidates.clear();
+        self.page_ends = Arc::default();
+        self.candidates = Arc::default();
         self.selected = 0;
         // Reset is ordered before the next exchange, without waiting on a focus callback.
         self.reset_pending = true;
@@ -508,7 +535,7 @@ impl Engine for ProcessEngine {
             &EngineRequest::SetCandidatePages { ends: ends.clone() },
             REQUEST_TIMEOUT,
         ) {
-            Ok(EngineResponse::PagesSet) => self.page_ends = ends,
+            Ok(EngineResponse::PagesSet) => self.page_ends = Arc::new(ends),
             Ok(response) => self.fail(anyhow::anyhow!(
                 "unexpected pagination response: {response:?}"
             )),
@@ -534,13 +561,17 @@ impl Engine for ProcessEngine {
                 selected,
             }) => {
                 self.configuration_revision = configuration_revision;
-                self.menus = menus;
+                self.menus = Arc::new(menus);
                 self.punctuation_mode = punctuation_mode;
                 self.update_state(candidates, selected);
                 output
             }
             Ok(EngineResponse::Error { message }) => {
-                tracing::warn!(engine = %self.name, %message, "input method rejected selection");
+                log::warn!(
+                    "input method rejected selection engine={} message={}",
+                    self.name,
+                    message
+                );
                 EngineOutput::consume()
             }
             Ok(response) => {

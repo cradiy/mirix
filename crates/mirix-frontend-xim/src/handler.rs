@@ -43,7 +43,7 @@ impl ServerHandler<X11rbServer<RustConnection>> for Handler<'_> {
         &mut self,
         _server: &mut X11rbServer<RustConnection>,
     ) -> Result<(), ServerError> {
-        tracing::debug!("xim client connected");
+        log::debug!("xim client connected");
         Ok(())
     }
 
@@ -52,7 +52,7 @@ impl ServerHandler<X11rbServer<RustConnection>> for Handler<'_> {
         server: &mut X11rbServer<RustConnection>,
         user_ic: &mut UserInputContext<Self::InputContextData>,
     ) -> Result<(), ServerError> {
-        tracing::info!(id = user_ic.user_data.0, "xim IC created");
+        log::info!("xim IC created id={}", user_ic.user_data.0);
         server.set_event_mask(&user_ic.ic, KEY_PRESS_MASK, 0)
     }
 
@@ -81,7 +81,7 @@ impl ServerHandler<X11rbServer<RustConnection>> for Handler<'_> {
         user_ic: &mut UserInputContext<Self::InputContextData>,
     ) -> Result<(), ServerError> {
         self.instance.focus_in(user_ic.user_data);
-        tracing::info!(id = user_ic.user_data.0, "xim focus");
+        log::info!("xim focus id={}", user_ic.user_data.0);
         Ok(())
     }
 

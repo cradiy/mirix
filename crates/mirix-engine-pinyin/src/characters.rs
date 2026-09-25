@@ -62,14 +62,14 @@ mod tests {
         assert!(!first.entries().is_empty());
         assert_eq!(fs::read_to_string(&path).unwrap(), DEFAULT_CHARACTERS);
 
-        let edited = "# My dictionary\n闺  guī gui 38845\n女\tnǚ nv\t 300  \n";
+        let edited = "# My dictionary\n闺\tgui\t38845\n女\tnv\t300  \n";
         fs::write(&path, edited).unwrap();
         let next = load(&config, &table).unwrap();
         assert_eq!(next.len(), 2);
         assert_eq!(next.exact(&[table.id("gui").unwrap()])[0].text, "闺");
         assert_eq!(
             next.exact(&[table.id("nv").unwrap()])[0].reading.display(),
-            "nǚ"
+            "nv"
         );
         assert_eq!(fs::read_to_string(&path).unwrap(), edited);
         assert!(next.exact(&[table.id("ai").unwrap()]).is_empty());
@@ -79,7 +79,7 @@ mod tests {
     fn invalid_rows_report_file_and_line_without_replacing_the_file() {
         let root = tempfile::tempdir().unwrap();
         let path = root.path().join("characters.tsv");
-        let source = "# Header\n闺 guī gui 38845\n坏 huài huai nope\n";
+        let source = "# Header\n闺\tgui\t38845\n坏\thuai\tnope\n";
         fs::write(&path, source).unwrap();
         let error = load(root.path(), &SyllableTable::standard())
             .err()

@@ -45,9 +45,8 @@ Open `mirix-panel --settings` and select Chinese Pinyin:
 - **Reload dictionaries:** apply changes to dictionary files.
 - **Personal vocabulary:** manage personal entries, learning, and preferences.
 
-Candidate readings come from dictionary entries or decoding results.
-Tone marks are shown when available; otherwise complete untoned syllables are shown,
-not the unfinished input prefix. The display preference is stored as `show_reading`
+Candidate readings use lowercase letters with spaces between syllables, such as
+`你好 [ni hao]` and `女 [nv]`. The display preference is stored as `show_reading`
 in the Pinyin configuration directory's `config.toml`; normally use the UI.
 
 In Chinese punctuation mode, punctuation commits the selected candidate together with the symbol.
@@ -93,15 +92,15 @@ Back up both configuration and data; exit Mirix normally before copying learning
 
 ### Characters
 
-Each `characters.tsv` row has four whitespace-separated fields:
+Each `characters.tsv` row has three whitespace-separated fields:
 
 ```text
-# character display-reading input-key weight
-闺 guī gui 38845
-女 nǚ nv 30000
+# character input-key weight
+闺 gui 38845
+女 nv 30000
 ```
 
-Use complete single-syllable readings and nonnegative integer weights.
+Use complete lowercase letter syllables (`v` for `ü`) and nonnegative integer weights.
 Program updates do not overwrite an existing character file.
 
 ### Phrases

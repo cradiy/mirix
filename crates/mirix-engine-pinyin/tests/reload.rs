@@ -44,7 +44,7 @@ fn reload_replaces_all_sources_without_losing_composition_or_learning() {
     let root = tempfile::tempdir().unwrap();
     let config = root.path().join("config");
     let data = root.path().join("data");
-    write(config.join("characters.tsv"), "你 nǐ ni 10\n尼 ní ni 5\n");
+    write(config.join("characters.tsv"), "你\tni\t10\n尼\tni\t5\n");
     write(config.join("extensions/exact.tsv"), "ni shared 100\n");
     write(
         config.join("profiles/日常/extensions/exact.tsv"),
@@ -80,7 +80,7 @@ fn reload_replaces_all_sources_without_losing_composition_or_learning() {
 
     write(
         config.join("characters.tsv"),
-        "你 nǐ ni 10\n尼 ní ni 5\n拟 nǐ ni 4\n",
+        "你\tni\t10\n尼\tni\t5\n拟\tni\t4\n",
     );
     write(config.join("extensions/exact.tsv"), "ni replacement 200\n");
     write(
@@ -122,7 +122,7 @@ fn reload_replaces_all_sources_without_losing_composition_or_learning() {
 fn failed_reload_keeps_every_live_source_and_can_be_retried() {
     let root = tempfile::tempdir().unwrap();
     let config = root.path().join("config");
-    write(config.join("characters.tsv"), "你 nǐ ni 10\n");
+    write(config.join("characters.tsv"), "你\tni\t10\n");
     write(config.join("extensions/exact.tsv"), "ni original 100\n");
     write(
         config.join("profiles/Other/extensions/exact.tsv"),

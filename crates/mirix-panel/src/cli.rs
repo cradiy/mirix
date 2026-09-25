@@ -32,6 +32,7 @@ struct Cli {
 
 pub fn run_cli() -> anyhow::Result<()> {
     let cli = Cli::parse();
+    let _logger = mirix_log::init("mirix-panel")?;
     if let Some(path) = cli.settings_demo {
         return crate::app::settings::demo::run(path, cli.language);
     }
@@ -41,10 +42,11 @@ pub fn run_cli() -> anyhow::Result<()> {
             cli.language,
         );
     }
-    run(PanelOptions {
+    let options = PanelOptions {
         demo: cli.demo,
         skin_path: cli.skin,
         socket: cli.socket.unwrap_or_else(mirix_ipc::default_socket_path),
         language: cli.language,
-    })
+    };
+    run(options)
 }

@@ -2,6 +2,7 @@
 resolver = "2"
 members = [
   "crates/mirix-config",
+  "crates/mirix-log",
   "crates/mirix-core",
   "crates/mirix-i18n",
   "crates/mirix-ipc",
@@ -36,6 +37,7 @@ publish = false
 
 [workspace.dependencies]
 mirix-config = { path = "crates/mirix-config" }
+mirix-log = { path = "crates/mirix-log" }
 mirix-core = { path = "crates/mirix-core" }
 mirix-i18n = { path = "crates/mirix-i18n" }
 mirix-ipc = { path = "crates/mirix-ipc" }
@@ -56,10 +58,10 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 toml = "0.8"
 thiserror = "2"
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+log = "0.4"
+flexi_logger = { version = "0.31", default-features = false, features = ["async"] }
 calloop = { version = "0.14", features = ["signals"] }
-calloop-wayland-source = "0.4"
+gpui_wayland_source = { git = "https://github.com/cradiy/gpui.git", rev = "707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4" }
 wayland-client = "0.31"
 wayland-protocols-misc = { version = "0.3", features = ["client"] }
 xkbcommon = "0.9"
@@ -76,10 +78,10 @@ sys-locale = "0.3"
 x11rb = "0.13"
 xim = { version = "0.5", default-features = false, features = ["x11rb-server"] }
 
-gpui = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da", default-features = false }
-gpui_effects = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da" }
-uic = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da" }
-gpui_platform = { git = "https://github.com/cradiy/gpui.git", rev = "07c5749ee34e2ad6262ae2c73c8f1e252120f2da", features = [
+gpui = { git = "https://github.com/cradiy/gpui.git", rev = "707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4", default-features = false }
+gpui_effects = { git = "https://github.com/cradiy/gpui.git", rev = "707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4" }
+uic = { git = "https://github.com/cradiy/gpui.git", rev = "707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4" }
+gpui_platform = { git = "https://github.com/cradiy/gpui.git", rev = "707d50a1102f340b4de8d1e8c2b3d5489a1a3cc4", features = [
   "wayland",
 ] }
 

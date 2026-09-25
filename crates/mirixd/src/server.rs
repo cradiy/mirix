@@ -13,7 +13,7 @@ mod outbound;
 mod preference_tests;
 mod socket;
 use calloop::generic::Generic;
-use calloop::signals::{Signal, Signals};
+use calloop::signals::Signals;
 use calloop::{EventLoop, Interest, Mode, PostAction};
 use mirix_core::{ContextId, Instance, PanelSnapshot};
 use mirix_frontend_wayland::{ImHost, WaylandCtx, delegate_im_host};
@@ -79,6 +79,7 @@ pub enum ExitAction {
     Restart,
 }
 
+#[derive(Clone)]
 pub struct PanelConfig {
     pub skin: Option<PathBuf>,
     pub executable: Option<PathBuf>,
@@ -126,6 +127,7 @@ pub fn run(
     enable_xim: bool,
     panel: Option<PanelConfig>,
     methods: methods::Options,
+    signals: Signals,
 ) -> Result<ExitAction> {
     let (listener, _guard) = bind_socket(&socket)?;
     listener.set_nonblocking(true)?;
@@ -133,15 +135,11 @@ pub fn run(
     let mut event_loop: EventLoop<State> = EventLoop::try_new().context("event loop")?;
     let handle = event_loop.handle();
     let accept_handle = handle.clone();
-
     handle
-        .insert_source(
-            Signals::new(&[Signal::SIGINT, Signal::SIGTERM]).context("listen for signals")?,
-            |event, _, state| {
-                tracing::info!(signal = ?event.signal(), "shutting down");
-                request_shutdown(state, false);
-            },
-        )
+        .insert_source(signals, move |event, _, state| {
+            log::info!("shutting down signal={:?}", event.signal());
+            request_shutdown(state, false);
+        })
         .context("signal source")?;
 
     handle
@@ -152,12 +150,12 @@ pub fn run(
                     match listener.accept() {
                         Ok((stream, _)) => {
                             if let Err(err) = accept_client(&accept_handle, stream, state) {
-                                tracing::warn!(?err, "accept client");
+                                log::warn!("accept client err={:?}", err);
                             }
                         }
                         Err(err) if err.kind() == io::ErrorKind::WouldBlock => break,
                         Err(err) => {
-                            tracing::error!(?err, "accept");
+                            log::error!("accept err={:?}", err);
                             break;
                         }
                     }
@@ -171,7 +169,7 @@ pub fn run(
         match WaylandCtx::connect(&handle) {
             Ok(ctx) => Some(ctx),
             Err(err) => {
-                tracing::warn!(?err, "wayland input-method disabled");
+                log::warn!("wayland input-method disabled err={:?}", err);
                 None
             }
         }
@@ -197,15 +195,15 @@ pub fn run(
                     });
                     if let Err(err) = mirix_panel::run_with_wayland_popup(options, connection, role)
                     {
-                        tracing::error!(?err, "native candidate panel stopped");
+                        log::error!("native candidate panel stopped err={:?}", err);
                     }
                 })
                 .context("start native candidate panel")?;
-            tracing::info!("native input-popup candidate panel started");
+            log::info!("native input-popup candidate panel started");
             (Some(thread), None)
         }
         (Some(config), None) => {
-            tracing::warn!("Wayland unavailable; using layer-shell candidate panel fallback");
+            log::warn!("Wayland unavailable; using layer-shell candidate panel fallback");
             (None, start_fallback_panel(&socket, config))
         }
         (None, _) => (None, None),
@@ -215,7 +213,7 @@ pub fn run(
         match XimCtx::connect() {
             Ok(ctx) => Some(ctx),
             Err(err) => {
-                tracing::warn!(?err, "XIM disabled");
+                log::warn!("XIM disabled err={:?}", err);
                 None
             }
         }
@@ -234,7 +232,7 @@ pub fn run(
                             return Ok(PostAction::Disable);
                         }
                         if let Err(err) = dispatch_xim(state) {
-                            tracing::error!(?err, "xim dispatch");
+                            log::error!("xim dispatch err={:?}", err);
                         }
                         Ok(PostAction::Continue)
                     },
@@ -263,7 +261,7 @@ pub fn run(
         exit_action: None,
     };
 
-    tracing::info!("listening");
+    log::info!("listening");
     while state.exit_action.is_none()
         || state.methods.as_ref().is_some_and(|methods| methods.busy)
         || engine_jobs::pending(&state)
@@ -306,14 +304,7 @@ fn request_shutdown(state: &mut State, restart: bool) {
 }
 
 fn start_fallback_panel(socket: &Path, config: PanelConfig) -> Option<PanelProcess> {
-    let executable = config
-        .executable
-        .or_else(|| {
-            std::env::current_exe()
-                .ok()
-                .and_then(|path| path.parent().map(|parent| parent.join("mirix-panel")))
-        })
-        .unwrap_or_else(|| PathBuf::from("mirix-panel"));
+    let executable = panel_executable(config.executable);
     let mut command = Command::new(&executable);
     command.arg("--socket").arg(socket);
     if let Some(skin) = config.skin {
@@ -325,10 +316,24 @@ fn start_fallback_panel(socket: &Path, config: PanelConfig) -> Option<PanelProce
     match command.spawn() {
         Ok(child) => Some(PanelProcess(child)),
         Err(err) => {
-            tracing::warn!(executable = %executable.display(), ?err, "candidate panel unavailable");
+            log::warn!(
+                "candidate panel unavailable executable={} err={:?}",
+                executable.display(),
+                err
+            );
             None
         }
     }
+}
+
+fn panel_executable(executable: Option<PathBuf>) -> PathBuf {
+    executable
+        .or_else(|| {
+            std::env::current_exe()
+                .ok()
+                .and_then(|path| path.parent().map(|parent| parent.join("mirix-panel")))
+        })
+        .unwrap_or_else(|| PathBuf::from("mirix-panel"))
 }
 
 fn accept_client(
@@ -339,7 +344,7 @@ fn accept_client(
     stream.set_nonblocking(true)?;
     let id = state.next_token;
     state.next_token += 1;
-    tracing::debug!(id, "client connected");
+    log::debug!("client connected id={}", id);
 
     let watch = stream.try_clone().context("clone stream for calloop")?;
     handle
@@ -349,11 +354,11 @@ fn accept_client(
                 Ok(true) => Ok(PostAction::Continue),
                 Ok(false) => {
                     remove_client(id, state);
-                    tracing::debug!(id, "client gone");
+                    log::debug!("client gone id={}", id);
                     Ok(PostAction::Remove)
                 }
                 Err(err) => {
-                    tracing::warn!(id, ?err, "client error");
+                    log::warn!("client error id={} err={:?}", id, err);
                     remove_client(id, state);
                     Ok(PostAction::Remove)
                 }
@@ -506,16 +511,16 @@ fn broadcast_candidates(state: &mut State) {
         return;
     }
     if snap.visible {
-        tracing::debug!(candidates = snap.candidates.len(), "panel");
+        log::debug!("panel candidates={}", snap.candidates.len());
     } else if state.last_panel.as_ref().is_some_and(|prev| prev.visible) {
-        tracing::info!("panel hidden");
+        log::info!("panel hidden");
     }
     state.last_panel = Some(snap.clone());
     state.panel_revision += 1;
     let frame = match encode_frame(&Response::panel_update(&snap, state.panel_revision)) {
         Ok(frame) => frame,
         Err(err) => {
-            tracing::warn!(?err, "encode panel update");
+            log::warn!("encode panel update err={:?}", err);
             return;
         }
     };
@@ -526,7 +531,7 @@ fn broadcast_candidates(state: &mut State) {
         .collect::<Vec<_>>();
     for id in subscribers {
         if let Err(err) = queue_output(id, frame.clone(), true, state) {
-            tracing::debug!(id, ?err, "panel client write");
+            log::debug!("panel client write id={} err={:?}", id, err);
             remove_client(id, state);
         }
     }
@@ -578,7 +583,7 @@ fn queue_output(id: u32, frame: Vec<u8>, snapshot: bool, state: &mut State) -> R
                     // a separate still-registered write watcher.
                     client.write_watch = None;
                     if let Err(err) = result {
-                        tracing::debug!(id, ?err, "client write");
+                        log::debug!("client write id={} err={:?}", id, err);
                         remove_client(id, state);
                     }
                     Ok(PostAction::Remove)
@@ -780,7 +785,7 @@ fn handle_request(client_id: u32, state: &mut State, req: Request) -> (Response,
             if let Some(client) = state.clients.get_mut(&client_id) {
                 client.panel = true;
             }
-            tracing::info!(client_id, "panel subscribed");
+            log::info!("panel subscribed client_id={}", client_id);
             (
                 Response::panel_update(&state.instance.panel_snapshot(), state.panel_revision),
                 false,
@@ -839,7 +844,7 @@ fn handle_request(client_id: u32, state: &mut State, req: Request) -> (Response,
             {
                 wayland.clear_preedit_from_control(id);
             }
-            tracing::info!(input_method = %name, "input method switched");
+            log::info!("input method switched input_method={}", name);
             (input_method_response(state), true)
         }
         Request::SelectEngineMenu {

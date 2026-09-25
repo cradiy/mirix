@@ -279,7 +279,10 @@ impl PinyinEngine {
                     id,
                     text: candidate.text,
                     comment: None,
-                    reading: candidate.reading.filter(|_| self.show_reading),
+                    reading: candidate
+                        .reading
+                        .filter(|_| self.show_reading)
+                        .map(|reading| crate::vocabulary::reading_key(&reading)),
                 }
             })
             .collect();
@@ -313,7 +316,7 @@ impl PinyinEngine {
                             &graph,
                             &self.active_lexicon,
                             limit,
-                            &|prefix, next| learning.sentence_boost(prefix, next, epoch * 3600),
+                            &learning.sentence_scorer(epoch * 3600),
                         )
                     };
                     self.decode_cache.insert(&self.buffer, limit, &decoded);
@@ -570,7 +573,7 @@ impl Engine for PinyinEngine {
                             .candidate_readings
                             .get(&candidate.id)
                             .filter(|_| value)
-                            .cloned();
+                            .map(|reading| crate::vocabulary::reading_key(reading));
                     }
                     self.configuration_revision = self.configuration_revision.wrapping_add(1);
                 }
@@ -1092,14 +1095,14 @@ mod tests {
         drop(PinyinEngine::open(&data, &config).unwrap());
         let path = config.join("characters.tsv");
         assert!(path.is_file());
-        std::fs::write(&path, "闺 guī gui 38845\n").unwrap();
+        std::fs::write(&path, "闺\tgui\t38845\n").unwrap();
         {
             let mut engine = PinyinEngine::open(&data, &config).unwrap();
             type_text(&mut engine, "gui");
             assert_eq!(engine.candidates().len(), 1);
             assert_eq!(engine.candidates()[0].text, "闺");
         }
-        std::fs::write(&path, "贵\tguì\tgui\t42126\n").unwrap();
+        std::fs::write(&path, "贵\tgui\t42126\n").unwrap();
         let mut engine = PinyinEngine::open(&data, &config).unwrap();
         type_text(&mut engine, "gui");
         assert_eq!(engine.candidates().len(), 1);
@@ -1328,7 +1331,7 @@ mod tests {
         engine.process_key(&press_text("'"));
         type_text(&mut engine, "an");
         assert_eq!(engine.candidates()[0].text, "西安");
-        assert_eq!(engine.candidates()[0].reading.as_deref(), Some("xī ān"));
+        assert_eq!(engine.candidates()[0].reading.as_deref(), Some("xi an"));
     }
 
     #[test]
@@ -1341,19 +1344,19 @@ mod tests {
         );
         type_text(&mut engine, "ceshic");
         assert!(engine.candidates().iter().any(|candidate| {
-            candidate.text == "测试词" && candidate.reading.as_deref() == Some("cè shì cí")
+            candidate.text == "测试词" && candidate.reading.as_deref() == Some("ce shi ci")
         }));
     }
 
     #[test]
-    fn character_dictionary_adds_complete_display_pinyin() {
+    fn character_dictionary_adds_complete_letter_readings() {
         let mut engine = test_engine();
-        let issues = engine.extend_character_dictionary("的\tdē\tde\t1000\n地\tdì\tdi\t1000\n");
+        let issues = engine.extend_character_dictionary("的\tde\t1000\n地\tdi\t1000\n");
         assert!(issues.is_empty());
 
         type_text(&mut engine, "d");
         assert!(engine.candidates().iter().any(|candidate| {
-            candidate.text == "地" && candidate.reading.as_deref() == Some("dì")
+            candidate.text == "地" && candidate.reading.as_deref() == Some("di")
         }));
     }
 
@@ -1594,10 +1597,14 @@ mod tests {
             .iter()
             .find(|candidate| candidate.text == "帧")
             .unwrap();
-        assert_eq!(frame.reading.as_deref(), Some("zhēn"));
+        assert_eq!(frame.reading.as_deref(), Some("zhen"));
         choose(&mut engine, "帧");
+        let learned = engine.profiles.current().learning.words["zhen"]
+            .iter()
+            .find(|word| word.text == "帧")
+            .unwrap();
+        assert_eq!(learned.inputs["zhen"].count, 1);
         type_text(&mut engine, "zhen");
-        assert_ne!(engine.candidates()[0].text, "帧");
         for _ in 0..10 {
             choose(&mut engine, "帧");
             engine.reset();
@@ -1761,6 +1768,41 @@ mod tests {
     }
 
     #[test]
+    fn letter_annotations_survive_toggling_without_changing_phrase_learning() {
+        use mirix_engine_protocol::{ConfigurationEvent, ConfigurationValue};
+        let mut engine = PinyinEngine::empty();
+        assert!(
+            engine
+                .extend_dictionary("nvhai\tnǚ hái\t女孩\t100\n")
+                .is_empty()
+        );
+        type_text(&mut engine, "nvh");
+        let id = engine.candidates()[0].id;
+        assert_eq!(engine.candidates()[0].reading.as_deref(), Some("nv hai"));
+        for enabled in [false, true] {
+            engine
+                .configure(
+                    "en-US",
+                    engine.configuration_revision(),
+                    ConfigurationEvent::Change {
+                        id: "show-reading".into(),
+                        value: ConfigurationValue::Bool(enabled),
+                    },
+                )
+                .unwrap();
+            assert_eq!(engine.candidates()[0].id, id);
+            assert_eq!(
+                engine.candidates()[0].reading.as_deref(),
+                enabled.then_some("nv hai")
+            );
+        }
+        engine.select(id);
+        let word = &engine.profiles.current().learning.words["nvhai"][0];
+        assert_eq!(word.reading, "nǚ hái");
+        assert_eq!(word.inputs["nvh"].count, 1);
+    }
+
+    #[test]
     fn abbreviated_selection_is_learned_by_full_reading_and_actual_input() {
         let mut engine = PinyinEngine::empty();
         assert!(
@@ -1778,7 +1820,7 @@ mod tests {
         engine.rebuild_active_lexicon();
         type_text(&mut engine, "nh");
         assert_eq!(engine.candidates[0].text, "泥号");
-        assert_eq!(engine.candidates[0].reading.as_deref(), Some("ní hào"));
+        assert_eq!(engine.candidates[0].reading.as_deref(), Some("ni hao"));
         engine.reset();
         type_text(&mut engine, "nhao");
         assert_eq!(engine.candidates[0].text, "泥号");
@@ -1904,7 +1946,7 @@ mod tests {
         std::fs::create_dir_all(config.join("dictionaries")).unwrap();
         std::fs::write(
             config.join("characters.tsv"),
-            "我 wǒ wo 100\n在 zài zai 100\n些 xiē xie 100\n写 xiě xie 20\n",
+            "我\two\t100\n在\tzai\t100\n些\txie\t100\n写\txie\t20\n",
         )
         .unwrap();
         std::fs::write(

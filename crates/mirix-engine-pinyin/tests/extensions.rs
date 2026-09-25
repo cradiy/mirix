@@ -44,7 +44,7 @@ fn write(path: impl AsRef<Path>, text: &str) {
 
 fn config(root: &Path) -> std::path::PathBuf {
     let config = root.join("config");
-    write(config.join("characters.tsv"), "你 nǐ ni 10\n好 hǎo hao 8\n");
+    write(config.join("characters.tsv"), "你\tni\t10\n好\thao\t8\n");
     config
 }
 

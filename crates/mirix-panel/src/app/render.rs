@@ -2,7 +2,7 @@
 use super::client::navigate_candidates;
 use super::effects;
 use super::layers::SkinScene;
-use super::layout::{INLINE_GAP, NAV_HEIGHT, NAV_WIDTH, candidate_annotation};
+use super::layout::{INLINE_GAP, NAV_HEIGHT, NAV_WIDTH};
 use super::view::CandidatePanel;
 use gpui::{
     Background, BoxShadow, Context as GpuiContext, FontWeight, PathBuilder, Window,
@@ -15,6 +15,7 @@ use std::time::Instant;
 
 impl Render for CandidatePanel {
     fn render(&mut self, window: &mut Window, cx: &mut GpuiContext<Self>) -> impl IntoElement {
+        let animations_enabled = self.animations_enabled;
         self.update_window_size(window, cx);
         let now = Instant::now();
         let visible = self.visible();
@@ -29,15 +30,17 @@ impl Render for CandidatePanel {
         if !visible {
             return surface.into_any_element();
         }
-        let show_progress = if !self.animations_enabled || self.skin.transitions.duration_ms == 0 {
+        let show_progress = if !animations_enabled || self.skin.transitions.duration_ms == 0 {
             1.0
         } else {
             (self.motion.age_ms(now) / self.skin.transitions.duration_ms as f32).min(1.0)
         };
-        if self.animations_enabled
+        let animating = animations_enabled
             && (self.motion.running(&self.skin, now)
-                || (matches!(self.skin.transitions.show, MotionStyle::Fade) && show_progress < 1.0))
-        {
+                || (matches!(self.skin.transitions.show, MotionStyle::Fade)
+                    && show_progress < 1.0));
+        self.report_rebuilt_show(window);
+        if animating {
             window.request_animation_frame();
         }
         let mut root = div()
@@ -72,23 +75,21 @@ impl Render for CandidatePanel {
                     size: body_bounds.size,
                 },
                 motion: &self.motion,
-                animations_enabled: self.animations_enabled,
+                animations_enabled,
                 now,
             });
         if let Some(scene) = &scene {
             root = root.children(scene.render(LayerPlane::Background));
         }
         // Particles belong inside the rounded panel, beneath its interactive text.
-        if self.animations_enabled
-            && let Some(particles) = &skin.particles
-        {
+        if animations_enabled && let Some(particles) = &skin.particles {
             root = root.child(effects::particles(particles, self.motion.age_ms(now)));
         }
         let context_id = self.snapshot.context_id.map(|id| id.0);
         let commands = self.services.commands();
         let page = self.layout.page.clone();
         let selected = self.snapshot.selected as usize;
-        let selection_motion = if self.animations_enabled {
+        let selection_motion = if animations_enabled {
             self.motion.values(skin, "selection", now)
         } else {
             Default::default()
@@ -213,14 +214,7 @@ impl Render for CandidatePanel {
                 text.whitespace_nowrap()
             };
             content = content.child(text);
-            if let Some(comment) = candidate_annotation(
-                candidate.reading.as_deref(),
-                candidate.comment.as_deref(),
-                self.snapshot.panel_text(),
-                self.snapshot
-                    .show_panel_preedit(self.show_preedit && skin.layout.show_preedit),
-                skin,
-            ) {
+            if let Some(comment) = &measured.annotation {
                 let font_size = (skin.candidate.font_size - 2.0).max(10.0);
                 let mut annotation = div()
                     .flex_shrink_0()
@@ -231,7 +225,7 @@ impl Render for CandidatePanel {
                     } else {
                         skin.candidate.comment.0
                     }))
-                    .child(comment.to_owned());
+                    .child(comment.clone());
                 annotation = if measured.stacked {
                     annotation.w_full().whitespace_normal()
                 } else {
@@ -426,7 +420,7 @@ impl Render for CandidatePanel {
                     }),
             );
         }
-        let body_opacity = if self.animations_enabled {
+        let body_opacity = if animations_enabled {
             self.motion.values(skin, "panel", now).opacity
         } else {
             1.0

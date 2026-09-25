@@ -14,6 +14,7 @@ pub(super) struct CandidateMeasure {
     pub height: f32,
     pub text_width: f32,
     pub stacked: bool,
+    pub annotation: Option<SharedString>,
 }
 
 #[derive(Clone, Debug, Default)]
@@ -106,22 +107,24 @@ pub(super) fn calculate(
                 skin.candidate.font_size,
                 FontWeight::NORMAL,
             );
-            let comment = candidate_annotation(
+            let annotation = candidate_annotation(
                 candidate.reading.as_deref(),
                 candidate.comment.as_deref(),
                 snapshot.panel_text(),
                 show_preedit,
                 skin,
-            )
-            .map(|text| measure(window, text, label_size, FontWeight::NORMAL))
-            .unwrap_or(0.0);
-            (text, comment)
+            );
+            let comment = annotation
+                .as_deref()
+                .map(|text| measure(window, text, label_size, FontWeight::NORMAL))
+                .unwrap_or(0.0);
+            (text, comment, annotation)
         })
         .collect();
     let first_widths: f32 = widths
         .iter()
         .take(3)
-        .map(|(text, comment)| {
+        .map(|(text, comment, _)| {
             text + comment
                 + if *comment > 0.0 { INLINE_GAP } else { 0.0 }
                 + label_space
@@ -159,7 +162,7 @@ pub(super) fn calculate(
         - skin.candidate.padding_x * 2.0;
     let vertical_width = widths
         .iter()
-        .map(|(text, comment)| text.max(*comment))
+        .map(|(text, comment, _)| text.max(*comment))
         .fold(0.0, f32::max)
         .max(min_vertical_text)
         .max(40.0)
@@ -167,7 +170,8 @@ pub(super) fn calculate(
     let items: Vec<_> = widths
         .iter()
         .enumerate()
-        .map(|(index, &(text, comment))| {
+        .map(|(index, (text, comment, annotation))| {
+            let (text, comment) = (*text, *comment);
             let stacked = vertical || text + comment + INLINE_GAP > text_limit;
             let text_width = if vertical {
                 vertical_width
@@ -177,6 +181,7 @@ pub(super) fn calculate(
                 text + comment + if comment > 0.0 { INLINE_GAP } else { 0.0 }
             }
             .max(1.0);
+            let text_width = fitted_text_width(text_width, text_limit, window.scale_factor());
             let candidate = &snapshot.candidates[index];
             let text_height = wrapped_height(
                 window,
@@ -189,7 +194,7 @@ pub(super) fn calculate(
                     + 2.0
                     + wrapped_height(
                         window,
-                        candidate.comment.as_deref().unwrap_or(""),
+                        annotation.as_deref().unwrap_or(""),
                         label_size,
                         text_width,
                     )
@@ -201,6 +206,7 @@ pub(super) fn calculate(
                 height: height + skin.candidate.padding_y * 2.0,
                 text_width,
                 stacked,
+                annotation: annotation.clone(),
             }
         })
         .collect();
@@ -287,18 +293,25 @@ impl PanelLayout {
     }
 }
 
-pub(super) fn candidate_annotation<'a>(
-    reading: Option<&'a str>,
-    comment: Option<&'a str>,
+fn candidate_annotation(
+    reading: Option<&str>,
+    comment: Option<&str>,
     preedit: &str,
     show_preedit: bool,
     skin: &Skin,
-) -> Option<&'a str> {
-    reading.filter(|text| !text.is_empty()).or_else(|| {
-        comment.filter(|text| {
-            skin.layout.show_comments && !text.is_empty() && (show_preedit || *text != preedit)
+) -> Option<SharedString> {
+    reading
+        .filter(|text| !text.is_empty())
+        .map(|text| format!("[{text}]").into())
+        .or_else(|| {
+            comment
+                .filter(|text| {
+                    skin.layout.show_comments
+                        && !text.is_empty()
+                        && (show_preedit || *text != preedit)
+                })
+                .map(|text| text.to_owned().into())
         })
-    })
 }
 
 pub(super) fn measure(window: &Window, text: &str, font_size: f32, weight: FontWeight) -> f32 {
@@ -322,7 +335,20 @@ pub(super) fn measure(window: &Window, text: &str, font_size: f32, weight: FontW
     )
 }
 
+fn fitted_text_width(natural: f32, limit: f32, scale: f32) -> f32 {
+    // GPUI aligns explicit widths to device pixels. Rounding a tightly fitted
+    // width down can wrap the last glyph even though measurement fit one line.
+    // Use the same aligned width for shaping and drawing, without exceeding
+    // the available space when a long candidate really needs to wrap.
+    (natural * scale)
+        .ceil()
+        .min((limit * scale).floor())
+        .max(1.0)
+        / scale
+}
+
 fn wrapped_height(window: &Window, text: &str, font_size: f32, width: f32) -> f32 {
+    let line_height = window.pixel_snap(px(font_size * 1.5));
     let mut font = window.text_style().font();
     font.weight = FontWeight::NORMAL;
     let run = TextRun {
@@ -342,11 +368,11 @@ fn wrapped_height(window: &Window, text: &str, font_size: f32, width: f32) -> f3
         .map(|lines| {
             lines
                 .iter()
-                .map(|line| f32::from(line.size(px(font_size * 1.5)).height))
+                .map(|line| f32::from(line.size(line_height).height))
                 .sum::<f32>()
         })
-        .unwrap_or(font_size * 1.5)
-        .max(font_size * 1.5)
+        .unwrap_or(f32::from(line_height))
+        .max(f32::from(line_height))
 }
 
 fn paginate(
@@ -448,21 +474,112 @@ mod tests {
     fn reading_is_not_hidden_by_skin_or_duplicate_preedit() {
         let skin = mirix_skin::Skin::default();
         assert_eq!(
-            super::candidate_annotation(Some("きみ"), None, "きみ", false, &skin),
-            Some("きみ")
+            super::candidate_annotation(Some("きみ"), None, "きみ", false, &skin).as_deref(),
+            Some("[きみ]")
         );
         assert_eq!(
             super::candidate_annotation(None, Some("note"), "", false, &skin),
             None
         );
     }
+
+    #[test]
+    fn brackets_apply_only_to_readings_and_empty_readings_allow_comments() {
+        let mut skin = mirix_skin::Skin::default();
+        skin.layout.show_comments = true;
+        for (reading, comment, expected) in [
+            (Some("nǐ hǎo"), Some("greeting"), Some("[nǐ hǎo]")),
+            (Some(""), Some("greeting"), Some("greeting")),
+            (None, Some("greeting"), Some("greeting")),
+            (Some(""), None, None),
+        ] {
+            assert_eq!(
+                super::candidate_annotation(reading, comment, "", false, &skin).as_deref(),
+                expected,
+            );
+        }
+    }
     use super::*;
+    #[test]
+    fn fractional_scale_does_not_wrap_fitting_candidates() {
+        let platform = gpui_platform::current_platform(true);
+        let text_system = gpui::WindowTextSystem::new(std::sync::Arc::new(gpui::TextSystem::new(
+            platform.text_system(),
+        )));
+        for scale in [1.0_f32, 1.25, 1.5, 1.75, 2.0] {
+            for count in 12..=36 {
+                let text: SharedString = "候".repeat(count).into();
+                let runs = [TextRun {
+                    len: text.len(),
+                    font: gpui::font(".SystemUIFont"),
+                    ..Default::default()
+                }];
+                let natural = f32::from(
+                    text_system
+                        .shape_line(text.clone(), px(17.0), &runs, None)
+                        .width(),
+                );
+                let fitted = fitted_text_width(natural, 700.0, scale);
+                // GPUI's layout rounds positive lengths to the nearest device
+                // pixel, with half-pixel ties rounded down.
+                let rendered = (fitted * scale - 0.5).ceil() / scale;
+                let lines = text_system
+                    .shape_text(text, px(17.0), &runs, Some(px(rendered)), None)
+                    .unwrap();
+                let height: f32 = lines
+                    .iter()
+                    .map(|line| f32::from(line.size(px(26.0)).height))
+                    .sum();
+                assert_eq!(
+                    height, 26.0,
+                    "scale={scale} characters={count} natural={natural} rendered={rendered}"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn capped_candidate_has_the_same_wrapped_height_after_pixel_alignment() {
+        let platform = gpui_platform::current_platform(true);
+        let text_system = gpui::WindowTextSystem::new(std::sync::Arc::new(gpui::TextSystem::new(
+            platform.text_system(),
+        )));
+        let text: SharedString = "候".repeat(40).into();
+        let runs = [TextRun {
+            len: text.len(),
+            font: gpui::font(".SystemUIFont"),
+            ..Default::default()
+        }];
+        let height = |width| {
+            text_system
+                .shape_text(text.clone(), px(17.0), &runs, Some(px(width)), None)
+                .unwrap()
+                .iter()
+                .map(|line| f32::from(line.size(px(26.0)).height))
+                .sum::<f32>()
+        };
+        for scale in [1.0_f32, 1.25, 1.5, 1.75, 2.0] {
+            for limit in [220.5, 221.0, 221.5, 222.0] {
+                let fitted = fitted_text_width(680.0, limit, scale);
+                let rendered = (fitted * scale - 0.5).ceil() / scale;
+                assert!(fitted <= limit);
+                assert!(height(fitted) > 26.0);
+                assert_eq!(
+                    height(fitted),
+                    height(rendered),
+                    "scale={scale} limit={limit}"
+                );
+            }
+        }
+    }
+
     fn item(width: f32, height: f32) -> CandidateMeasure {
         CandidateMeasure {
             width,
             height,
             text_width: width,
             stacked: false,
+            annotation: None,
         }
     }
 

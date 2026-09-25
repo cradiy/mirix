@@ -15,12 +15,11 @@ pub fn on_popup_event<D: ImHost>(_state: &mut D, event: zwp_input_popup_surface_
         height,
     } = event
     {
-        tracing::debug!(x, y, width, height, "input popup text rectangle");
+        log::debug!("input popup text rectangle x={x} y={y} width={width} height={height}");
     }
 }
 
 pub fn on_im_event<D: ImHost>(state: &mut D, event: zwp_input_method_v2::Event) {
-    tracing::debug!(?event, "im event");
     match event {
         zwp_input_method_v2::Event::Activate => {
             if let Some(wl) = state.wayland() {
@@ -35,7 +34,7 @@ pub fn on_im_event<D: ImHost>(state: &mut D, event: zwp_input_method_v2::Event) 
             }
         }
         zwp_input_method_v2::Event::Unavailable => {
-            tracing::error!(
+            log::error!(
                 "zwp_input_method_v2 unavailable — another input method already owns the seat"
             );
         }
@@ -54,7 +53,7 @@ pub fn on_im_event<D: ImHost>(state: &mut D, event: zwp_input_method_v2::Event) 
             }
         }
         zwp_input_method_v2::Event::SurroundingText { text, cursor, .. } => {
-            tracing::debug!(len = text.len(), cursor, "surrounding_text");
+            log::debug!("surrounding_text len={} cursor={}", text.len(), cursor);
         }
         zwp_input_method_v2::Event::TextChangeCause { cause } => {
             if let Some(wl) = state.wayland() {
@@ -74,7 +73,12 @@ fn apply_done<D: ImHost>(state: &mut D) {
         Some(wl) => (wl.pending_activate, wl.pending_deactivate, wl.serial),
         None => return,
     };
-    tracing::debug!(activate, deactivate, serial, "im done");
+    log::debug!(
+        "im done activate={} deactivate={} serial={}",
+        activate,
+        deactivate,
+        serial
+    );
     if deactivate {
         deactivate_host(state);
     }
@@ -91,7 +95,11 @@ fn apply_done<D: ImHost>(state: &mut D) {
         wl.pending_activate = false;
         wl.pending_deactivate = false;
         wl.serial = wl.serial.wrapping_add(1);
-        tracing::debug!(serial = wl.serial, purpose = ?wl.purpose(), "im serial now");
+        log::debug!(
+            "im serial now serial={} purpose={:?}",
+            wl.serial,
+            wl.purpose()
+        );
         if activate {
             // A few clients retain their last rendered preedit across leave.
             // Clear it only after activation has been applied, when this
@@ -124,10 +132,10 @@ fn activate_host<D: ImHost>(state: &mut D) {
         wl.active = true;
         wl.clear_held();
         wl.apply_pending_text_state();
-        tracing::debug!(
-            ?id,
-            purpose = ?wl.purpose(),
-            "text field focused — keyboard grab (mirixd is in the path)"
+        log::debug!(
+            "text field focused — keyboard grab (mirixd is in the path) id={:?} purpose={:?}",
+            id,
+            wl.purpose()
         );
         wl.flush();
     }
@@ -151,7 +159,7 @@ fn deactivate_host<D: ImHost>(state: &mut D) {
     if let Some(id) = old {
         state.instance().focus_out(id);
         state.instance().destroy_context(id);
-        tracing::info!(?id, "text field unfocused — released grab");
+        log::info!("text field unfocused — released grab id={:?}", id);
     }
     state.notify_panel();
 }
@@ -170,11 +178,11 @@ pub fn on_grab_event<D: ImHost>(state: &mut D, event: zwp_input_method_keyboard_
                         wl.keymap_blob = Some((format, bytes));
                         wl.vk_keymap_sent = false;
                         wl.send_vk_keymap();
-                        tracing::debug!(size, "loaded keymap");
+                        log::debug!("loaded keymap size={}", size);
                     }
                 }
                 Err(err) => {
-                    tracing::error!(?err, "keymap unavailable; releasing keyboard grab");
+                    log::error!("keymap unavailable; releasing keyboard grab err={:?}", err);
                     fail_keyboard_grab(state);
                 }
             }
@@ -211,7 +219,7 @@ pub fn on_grab_event<D: ImHost>(state: &mut D, event: zwp_input_method_keyboard_
                 WEnum::Unknown(1) => true,
                 WEnum::Unknown(0) => false,
                 WEnum::Unknown(other) => {
-                    tracing::warn!(other, "unknown key state, treating as release");
+                    log::warn!("unknown key state, treating as release other={}", other);
                     false
                 }
                 _ => false,
@@ -222,7 +230,7 @@ pub fn on_grab_event<D: ImHost>(state: &mut D, event: zwp_input_method_keyboard_
             if let Some(wl) = state.wayland() {
                 wl.set_repeat_info(rate, delay);
             }
-            tracing::debug!(rate, delay, "repeat info");
+            log::debug!("repeat info rate={} delay={}", rate, delay);
         }
         _ => {}
     }
@@ -246,9 +254,9 @@ fn handle_key<D: ImHost>(state: &mut D, time: u32, evdev_key: u32, pressed: bool
         _ => return,
     };
     if !keymap_ready {
-        tracing::error!(
-            evdev_key,
-            "key received before keymap; releasing keyboard grab"
+        log::error!(
+            "key received before keymap; releasing keyboard grab evdev_key={}",
+            evdev_key
         );
         fail_keyboard_grab(state);
         return;
