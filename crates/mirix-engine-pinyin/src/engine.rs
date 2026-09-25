@@ -1039,6 +1039,37 @@ mod tests {
     }
 
     #[test]
+    fn kei_supports_commit_backspace_and_continuous_input() {
+        let mut engine = test_engine();
+        type_text(&mut engine, "kei");
+        assert_eq!(engine.candidates()[0].text, "剋");
+        assert_eq!(engine.candidates()[0].reading.as_deref(), Some("kei"));
+
+        engine.process_key(&press_sym(keysym::BACKSPACE));
+        assert_eq!(engine.buffer, "ke");
+        assert!(
+            engine
+                .candidates()
+                .iter()
+                .any(|candidate| candidate.text == "可")
+        );
+        type_text(&mut engine, "i");
+        assert_eq!(
+            engine
+                .process_key(&press_sym(keysym::SPACE))
+                .commit
+                .unwrap()
+                .text,
+            "剋"
+        );
+
+        type_text(&mut engine, "keini");
+        assert!(engine.candidates().iter().any(|candidate| {
+            candidate.text == "剋你" && candidate.reading.as_deref() == Some("kei ni")
+        }));
+    }
+
+    #[test]
     fn produces_and_commits_candidates() {
         let mut engine = test_engine();
         assert!(

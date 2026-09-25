@@ -119,7 +119,7 @@ fa fan fang fei fen feng fo fou fu
 ga gai gan gang gao ge gei gen geng gong gou gu gua guai guan guang gui gun guo
 ha hai han hang hao he hei hen heng hong hou hu hua huai huan huang hui hun huo
 ji jia jian jiang jiao jie jin jing jiong jiu ju juan jue jun
-ka kai kan kang kao ke ken keng kong kou ku kua kuai kuan kuang kui kun kuo
+ka kai kan kang kao ke kei ken keng kong kou ku kua kuai kuan kuang kui kun kuo
 la lai lan lang lao le lei leng li lia lian liang liao lie lin ling liu lo long lou lu luan lun luo lv lve
 ma mai man mang mao me mei men meng mi mian miao mie min ming miu mo mou mu
 na nai nan nang nao ne nei nen neng ng ni nian niang niao nie nin ning niu nong nou nu nuan nun nuo nv nve
