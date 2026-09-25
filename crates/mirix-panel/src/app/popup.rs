@@ -14,11 +14,11 @@ use super::{panel_window_options, view::CandidatePanel};
 // has exhibited both slow animation and incorrect placement. Recreating the
 // window restored both, but did not establish whether GPUI or the compositor
 // caused the problem. Keep this until the underlying cause is verified fixed.
-// Ten minutes is a chosen idle threshold, not a measured failure boundary.
+// One minute is a chosen idle threshold, not a measured failure boundary.
 // Rebuild before the next show to avoid a visible replacement/flicker; reuse the
 // window during active input. This preserves the panel, engine and connection,
 // and does not periodically create windows while the input method is idle.
-pub(super) const IDLE_REBUILD_AFTER: Duration = Duration::from_secs(10 * 60);
+pub(super) const IDLE_REBUILD_AFTER: Duration = Duration::from_secs(60);
 
 /// Coalesce updates while waiting to replace a hidden window before mapping it.
 #[derive(Clone)]

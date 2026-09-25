@@ -579,7 +579,7 @@ mod tests {
     fn show_rebuild_requires_visible_content_in_an_unmapped_native_panel() {
         let mut panel = composing_panel();
         let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
-        let expired = start + IDLE_REBUILD_AFTER;
+        let expired = start + Duration::from_secs(60);
         assert!(!panel.can_rebuild_before_show(expired));
         panel.record_mapping(false, start);
         assert!(!panel.can_rebuild_before_show(expired - Duration::from_millis(1)));
@@ -599,7 +599,7 @@ mod tests {
         let mut panel = composing_panel();
         let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
         panel.record_mapping(false, start);
-        panel.record_mapping(false, start + Duration::from_secs(500));
+        panel.record_mapping(false, start + IDLE_REBUILD_AFTER / 2);
         assert!(panel.can_rebuild_before_show(start + IDLE_REBUILD_AFTER));
 
         let shown = start + IDLE_REBUILD_AFTER;
@@ -608,7 +608,11 @@ mod tests {
         assert!(!panel.can_rebuild_before_show(shown + IDLE_REBUILD_AFTER));
         let hidden_again = shown + Duration::from_secs(1);
         panel.record_mapping(false, hidden_again);
-        assert!(!panel.can_rebuild_before_show(hidden_again + Duration::from_secs(599)));
+        assert!(
+            !panel.can_rebuild_before_show(
+                hidden_again + IDLE_REBUILD_AFTER - Duration::from_secs(1)
+            )
+        );
         assert!(panel.can_rebuild_before_show(hidden_again + IDLE_REBUILD_AFTER));
     }
 
