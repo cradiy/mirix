@@ -63,7 +63,7 @@ flexi_logger = { version = "0.31", default-features = false, features = [
   "async",
 ] }
 calloop = { version = "0.14", features = ["signals"] }
-gpui_wayland_source = { git = "https://github.com/cradiy/gpui.git", rev = "14d74f272ada9cda1a589d4c1152f6d2e4217c07" }
+gpui_wayland_source = { git = "https://github.com/cradiy/gpui.git", rev = "ae0e507f4a36ad16302b782d0137addd63d68132" }
 wayland-client = "0.31"
 wayland-protocols-misc = { version = "0.3", features = ["client"] }
 xkbcommon = "0.9"
@@ -80,10 +80,10 @@ sys-locale = "0.3"
 x11rb = "0.13"
 xim = { version = "0.5", default-features = false, features = ["x11rb-server"] }
 
-gpui = { git = "https://github.com/cradiy/gpui.git", rev = "14d74f272ada9cda1a589d4c1152f6d2e4217c07", default-features = false }
-gpui_effects = { git = "https://github.com/cradiy/gpui.git", rev = "14d74f272ada9cda1a589d4c1152f6d2e4217c07" }
-uic = { git = "https://github.com/cradiy/gpui.git", rev = "14d74f272ada9cda1a589d4c1152f6d2e4217c07" }
-gpui_platform = { git = "https://github.com/cradiy/gpui.git", rev = "14d74f272ada9cda1a589d4c1152f6d2e4217c07", features = [
+gpui = { git = "https://github.com/cradiy/gpui.git", rev = "ae0e507f4a36ad16302b782d0137addd63d68132", default-features = false }
+gpui_effects = { git = "https://github.com/cradiy/gpui.git", rev = "ae0e507f4a36ad16302b782d0137addd63d68132" }
+uic = { git = "https://github.com/cradiy/gpui.git", rev = "ae0e507f4a36ad16302b782d0137addd63d68132" }
+gpui_platform = { git = "https://github.com/cradiy/gpui.git", rev = "ae0e507f4a36ad16302b782d0137addd63d68132", features = [
   "wayland",
   "x11",
 ] }
