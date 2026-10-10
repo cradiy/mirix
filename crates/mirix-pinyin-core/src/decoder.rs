@@ -458,8 +458,10 @@ impl Decoder {
                             .map(|state| (state.score, state.segments));
                     }
                 }
-                prune_beam(&mut destination, self.beam_width);
             }
+            // Sources all feed the same destination. Intermediate size caps
+            // bound memory; one final prune avoids sorting after every split.
+            prune_beam(&mut destination, self.beam_width);
             beams.push(destination);
         }
         beams[path.len()].clone()

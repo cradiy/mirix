@@ -188,6 +188,7 @@ pub(super) fn calculate(
                 &candidate.text,
                 skin.candidate.font_size,
                 text_width,
+                text,
             );
             let height = if stacked && comment > 0.0 {
                 text_height
@@ -197,6 +198,7 @@ pub(super) fn calculate(
                         annotation.as_deref().unwrap_or(""),
                         label_size,
                         text_width,
+                        comment,
                     )
             } else {
                 text_height
@@ -317,22 +319,26 @@ fn candidate_annotation(
 pub(super) fn measure(window: &Window, text: &str, font_size: f32, weight: FontWeight) -> f32 {
     let mut font = window.text_style().font();
     font.weight = weight;
-    let run = TextRun {
-        len: text.len(),
-        font,
-        ..Default::default()
-    };
-    f32::from(
-        window
-            .text_system()
-            .shape_line(
-                SharedString::from(text.to_owned()),
-                px(font_size),
-                &[run],
-                None,
+    text.split('\n')
+        .map(|line| {
+            let run = TextRun {
+                len: line.len(),
+                font: font.clone(),
+                ..Default::default()
+            };
+            f32::from(
+                window
+                    .text_system()
+                    .shape_line(
+                        SharedString::from(line.to_owned()),
+                        px(font_size),
+                        &[run],
+                        None,
+                    )
+                    .width(),
             )
-            .width(),
-    )
+        })
+        .fold(0.0, f32::max)
 }
 
 fn fitted_text_width(natural: f32, limit: f32, scale: f32) -> f32 {
@@ -347,8 +353,23 @@ fn fitted_text_width(natural: f32, limit: f32, scale: f32) -> f32 {
         / scale
 }
 
-fn wrapped_height(window: &Window, text: &str, font_size: f32, width: f32) -> f32 {
+fn fits_one_line(text: &str, natural_width: f32, width: f32) -> bool {
+    natural_width <= width && !text.contains('\n')
+}
+
+fn wrapped_height(
+    window: &Window,
+    text: &str,
+    font_size: f32,
+    width: f32,
+    natural_width: f32,
+) -> f32 {
     let line_height = window.pixel_snap(px(font_size * 1.5));
+    // Width was already shaped above. Only ask GPUI to build wrapped layouts
+    // when the aligned content width actually requires wrapping.
+    if fits_one_line(text, natural_width, width) {
+        return f32::from(line_height);
+    }
     let mut font = window.text_style().font();
     font.weight = FontWeight::NORMAL;
     let run = TextRun {
@@ -500,6 +521,69 @@ mod tests {
         }
     }
     use super::*;
+
+    #[test]
+    fn fitting_line_fast_path_agrees_with_gpui_at_fractional_widths() {
+        let platform = gpui_platform::current_platform(true);
+        let text_system = gpui::WindowTextSystem::new(std::sync::Arc::new(gpui::TextSystem::new(
+            platform.text_system(),
+        )));
+        for value in [
+            "",
+            "你好 [ni hao]",
+            "かな カナ",
+            "office AV",
+            "مرحبا",
+            "👩‍💻 🌏",
+            "one\ntwo",
+            "end\n",
+        ] {
+            let text: SharedString = value.to_owned().into();
+            let run = |len| TextRun {
+                len,
+                font: gpui::font(".SystemUIFont"),
+                ..Default::default()
+            };
+            let natural = value
+                .split('\n')
+                .map(|line| {
+                    f32::from(
+                        text_system
+                            .shape_line(line.to_owned().into(), px(17.0), &[run(line.len())], None)
+                            .width(),
+                    )
+                })
+                .fold(0.0, f32::max);
+            for scale in [1.0, 1.25, 1.5, 1.75, 2.0] {
+                let fitted = fitted_text_width(natural, 700.0, scale);
+                for width in [
+                    fitted,
+                    fitted + 1.0 / scale,
+                    (fitted - 1.0 / scale).max(1.0),
+                ] {
+                    let expected: f32 = text_system
+                        .shape_text(
+                            text.clone(),
+                            px(17.0),
+                            &[run(text.len())],
+                            Some(px(width)),
+                            None,
+                        )
+                        .unwrap()
+                        .iter()
+                        .map(|line| f32::from(line.size(px(26.0)).height))
+                        .sum::<f32>()
+                        .max(26.0);
+                    if fits_one_line(value, natural, width) {
+                        assert_eq!(expected, 26.0, "{value:?} at {width}, natural={natural}");
+                    } else if value.contains('\n') {
+                        assert!(expected > 26.0, "{value:?}");
+                    }
+                }
+            }
+        }
+    }
+
     #[test]
     fn fractional_scale_does_not_wrap_fitting_candidates() {
         let platform = gpui_platform::current_platform(true);

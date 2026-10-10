@@ -1,7 +1,7 @@
 //! Whole-phrase recall independent of composition and match-quality cutoffs.
-use std::collections::HashMap;
+use std::{collections::HashMap, sync::Arc};
 
-use super::{DecodedCandidate, EdgeKind, Lexicon, ParseGraph, SyllableId};
+use super::{DecodedCandidate, EdgeKind, Lexeme, Lexicon, ParseGraph, SyllableId};
 
 pub(super) fn recall(graph: &ParseGraph, lexicon: &Lexicon, limit: usize) -> Vec<DecodedCandidate> {
     let mut search = Search {
@@ -11,7 +11,7 @@ pub(super) fn recall(graph: &ParseGraph, lexicon: &Lexicon, limit: usize) -> Vec
         visited: HashMap::new(),
         candidates: Vec::new(),
     };
-    search.visit(0, &mut Vec::new(), false, 0);
+    search.visit(0, &mut Vec::new(), false, 0, lexicon.entries());
     search.prune();
     search.candidates
 }
@@ -31,6 +31,7 @@ impl Search<'_> {
         path: &mut Vec<SyllableId>,
         partial: bool,
         abbreviated: usize,
+        prefix_entries: &[Arc<Lexeme>],
     ) {
         let position = self.graph.skip_boundary(position);
         let key = (position, path.clone());
@@ -56,8 +57,8 @@ impl Search<'_> {
                 EdgeKind::Boundary => continue,
             };
             for id in ids {
+                let entries = Lexicon::extend_prefix(prefix_entries, path.len(), *id);
                 path.push(*id);
-                let entries = self.lexicon.with_prefix(path);
                 let end = self.graph.skip_boundary(edge.end);
                 if end == self.graph.input_len() && path.len() > 1 {
                     for entry in entries
@@ -86,7 +87,7 @@ impl Search<'_> {
                         .last()
                         .is_some_and(|entry| entry.reading.syllables().len() > path.len())
                 {
-                    self.visit(end, path, partial, abbreviated);
+                    self.visit(end, path, partial, abbreviated, entries);
                 }
                 path.pop();
             }

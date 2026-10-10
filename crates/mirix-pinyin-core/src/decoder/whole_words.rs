@@ -1,6 +1,7 @@
 //! Recall whole dictionary entries by intersecting their prefixes with the input graph.
 //! This search does not enumerate unrelated syllable segmentations or compose words.
-use crate::{EdgeKind, Lexicon, ParseGraph, SyllableId};
+use crate::{EdgeKind, Lexeme, Lexicon, ParseGraph, SyllableId};
+use std::sync::Arc;
 
 use super::{DecodedCandidate, prune_candidates};
 
@@ -17,7 +18,7 @@ pub(super) fn recall(
         partial,
         candidates: Vec::new(),
     };
-    search.visit(0, &mut Vec::new(), false);
+    search.visit(0, &mut Vec::new(), false, lexicon.entries());
     prune_candidates(&mut search.candidates, limit);
     search.candidates
 }
@@ -31,7 +32,13 @@ struct Search<'a> {
 }
 
 impl Search<'_> {
-    fn visit(&mut self, position: usize, path: &mut Vec<SyllableId>, partial: bool) {
+    fn visit(
+        &mut self,
+        position: usize,
+        path: &mut Vec<SyllableId>,
+        partial: bool,
+        prefix_entries: &[Arc<Lexeme>],
+    ) {
         let position = self.graph.skip_boundary(position);
         let single = self.graph.requires_single_character(position);
         if single && !path.is_empty() {
@@ -44,8 +51,8 @@ impl Search<'_> {
                 _ => continue,
             };
             for id in ids {
+                let entries = Lexicon::extend_prefix(prefix_entries, path.len(), *id);
                 path.push(*id);
-                let entries = self.lexicon.with_prefix(path);
                 let end = self.graph.skip_boundary(edge.end);
                 if end == self.graph.input_len() && partial == self.partial {
                     for entry in entries
@@ -75,7 +82,7 @@ impl Search<'_> {
                         .last()
                         .is_some_and(|entry| entry.reading.syllables().len() > path.len())
                 {
-                    self.visit(end, path, partial);
+                    self.visit(end, path, partial, entries);
                 }
                 path.pop();
             }

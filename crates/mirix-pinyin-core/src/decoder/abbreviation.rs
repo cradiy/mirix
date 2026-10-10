@@ -4,7 +4,7 @@ use super::{
     Transition, compare_candidates, match_rank, prune_candidates, retain_unique,
 };
 use crate::MatchQuality;
-use std::cmp::Reverse;
+use std::{cmp::Reverse, sync::Arc};
 
 #[derive(Clone)]
 struct State {
@@ -33,7 +33,6 @@ struct WordMatch<'a> {
 
 struct Search<'a> {
     graph: &'a ParseGraph,
-    lexicon: &'a Lexicon,
     remaining: usize,
     words: Vec<WordMatch<'a>>,
 }
@@ -45,6 +44,7 @@ impl<'a> Search<'a> {
         path: &mut Vec<SyllableId>,
         abbreviated: usize,
         partial: bool,
+        prefix_entries: &'a [Arc<Lexeme>],
     ) {
         if self.remaining == 0 {
             return;
@@ -66,8 +66,8 @@ impl<'a> Search<'a> {
                     return;
                 }
                 self.remaining -= 1;
+                let entries = Lexicon::extend_prefix(prefix_entries, path.len(), *id);
                 path.push(*id);
-                let entries = self.lexicon.with_prefix(path);
                 let end = self.graph.skip_boundary(edge.end);
                 for entry in entries
                     .iter()
@@ -87,7 +87,7 @@ impl<'a> Search<'a> {
                         .last()
                         .is_some_and(|entry| entry.reading.syllables().len() > path.len())
                 {
-                    self.visit(end, path, abbreviated, partial);
+                    self.visit(end, path, abbreviated, partial, entries);
                 }
                 path.pop();
             }
@@ -121,7 +121,6 @@ impl Decoder {
         let mut cutoffs: Vec<Option<CandidateRank>> = vec![None; beams.len()];
         let mut search = Search {
             graph,
-            lexicon,
             remaining: self.max_paths.saturating_mul(64),
             words: Vec::new(),
         };
@@ -131,7 +130,7 @@ impl Decoder {
             }
             prune_states(&mut beams[start], width);
             let states = std::mem::take(&mut beams[start]);
-            search.visit(start, &mut Vec::new(), 0, false);
+            search.visit(start, &mut Vec::new(), 0, false, lexicon.entries());
             for word in search.words.drain(..) {
                 let display = word.entry.reading.display();
                 let score = lexicon.score(word.entry);

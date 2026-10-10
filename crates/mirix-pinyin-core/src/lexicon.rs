@@ -201,6 +201,20 @@ impl Lexicon {
                 .partition_point(|entry| entry.reading.syllables.starts_with(prefix));
         &self.entries[start..end]
     }
+
+    /// Extend a known prefix range by one syllable. Entries must already share
+    /// the first `depth` syllables; within that range only the next ID matters.
+    pub(crate) fn extend_prefix(
+        entries: &[Arc<Lexeme>],
+        depth: usize,
+        syllable: SyllableId,
+    ) -> &[Arc<Lexeme>] {
+        let id = Some(&syllable);
+        let start = entries.partition_point(|entry| entry.reading.syllables.get(depth) < id);
+        let end = start
+            + entries[start..].partition_point(|entry| entry.reading.syllables.get(depth) == id);
+        &entries[start..end]
+    }
 }
 
 fn compare_lexemes(left: &Lexeme, right: &Lexeme) -> Ordering {
