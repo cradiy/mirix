@@ -28,6 +28,8 @@ pub enum ProfileError {
     Dictionary(String),
     #[error("invalid extensions: {0}")]
     Extensions(String),
+    #[error("invalid language model: {0}")]
+    LanguageModel(String),
 }
 
 #[derive(Clone)]

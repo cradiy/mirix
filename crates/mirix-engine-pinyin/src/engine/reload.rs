@@ -15,6 +15,7 @@ impl PinyinEngine {
         let words = load_dictionaries(&config.join("dictionaries"), self.parser.table())?;
         let shared = characters.into_iter().chain(words).collect();
         let extensions = Extensions::load(&config.join("extensions"))?;
+        let bigrams = super::bigram::load(config)?;
         let profiles = self
             .profiles
             .entries
@@ -35,6 +36,7 @@ impl PinyinEngine {
             .map(|candidate| candidate.text.clone());
         self.core_lexicon = shared;
         self.extensions = extensions;
+        self.bigrams = bigrams;
         for (name, lexicon, extensions) in profiles {
             let profile = self.profiles.entries.get_mut(&name).unwrap();
             profile.lexicon = lexicon;

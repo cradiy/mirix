@@ -19,6 +19,14 @@ pub struct DecodedCandidate {
     pub abbreviated_syllables: usize,
 }
 
+/// Word-boundary context for one beam expansion, before pruning.
+#[derive(Clone, Copy)]
+pub struct Transition<'a> {
+    pub prefix: &'a str,
+    pub previous_word: &'a str,
+    pub unigram_score: i64,
+}
+
 impl DecodedCandidate {
     pub fn match_quality(&self) -> MatchQuality {
         MatchQuality::pinyin(
@@ -86,6 +94,7 @@ struct BeamState {
     display_reading: String,
     score: i64,
     segments: usize,
+    last_word_start: usize,
 }
 
 /// Scratch space for adjacent paths in one decode; never shared across queries.
@@ -137,15 +146,15 @@ impl Decoder {
         self.decode_with_scorer(graph, lexicon, limit, &|_, _| 0)
     }
 
-    /// Add a sentence transition score before beam pruning. The prefix contains
-    /// only text generated in this query; the scorer must return zero for an
+    /// Add a sentence transition score before beam pruning. The context contains
+    /// only words generated in this query; the scorer must return zero for an
     /// empty prefix and remain deterministic throughout one decode.
     pub fn decode_with_scorer(
         &self,
         graph: &ParseGraph,
         lexicon: &Lexicon,
         limit: usize,
-        scorer: &impl Fn(&str, &Lexeme) -> i64,
+        scorer: &impl Fn(Transition<'_>, &Lexeme) -> i64,
     ) -> Vec<DecodedCandidate> {
         if limit == 0 || graph.input_len() == 0 || !graph.accepts_input() {
             return Vec::new();
@@ -275,7 +284,7 @@ impl Decoder {
         visited_paths: &mut usize,
         matches: &mut Vec<DecodedCandidate>,
         composition: &mut Composition,
-        scorer: &impl Fn(&str, &Lexeme) -> i64,
+        scorer: &impl Fn(Transition<'_>, &Lexeme) -> i64,
     ) {
         if *visited_paths >= self.max_paths || !can_finish[position] {
             return;
@@ -364,7 +373,7 @@ impl Decoder {
         path: &[SyllableId],
         lexicon: &Lexicon,
         composition: &mut Composition,
-        scorer: &impl Fn(&str, &Lexeme) -> i64,
+        scorer: &impl Fn(Transition<'_>, &Lexeme) -> i64,
     ) -> Vec<BeamState> {
         let Some(edges) = graph.syllable_edges(path) else {
             return Vec::new();
@@ -393,6 +402,7 @@ impl Decoder {
                 display_reading: String::new(),
                 score: 0,
                 segments: 0,
+                last_word_start: 0,
             }]);
         }
         beams.truncate(common + 1);
@@ -421,7 +431,12 @@ impl Decoder {
                     let score = lexicon.score(lexeme);
                     let reading = lexeme.reading.display();
                     for state in source_states {
-                        let score = score.saturating_add(scorer(&state.text, lexeme));
+                        let context = Transition {
+                            prefix: &state.text,
+                            previous_word: &state.text[state.last_word_start..],
+                            unigram_score: score,
+                        };
+                        let score = score.saturating_add(scorer(context, lexeme));
                         let next_score = state.score.saturating_add(score);
                         let next_segments = state.segments + 1;
                         // Only reject a strictly worse rank; tied ranks still
@@ -473,6 +488,7 @@ fn extend_state(state: &BeamState, lexeme: &Lexeme, reading: &str, score: i64) -
         display_reading,
         score: state.score.saturating_add(score),
         segments: state.segments + 1,
+        last_word_start: state.text.len(),
     }
 }
 
@@ -480,8 +496,9 @@ fn prune_beam(beam: &mut Vec<BeamState>, limit: usize) {
     beam.sort_by(|left, right| {
         compare_beam_rank(left.score, left.segments, right.score, right.segments)
             .then_with(|| left.text.cmp(&right.text))
+            .then_with(|| left.last_word_start.cmp(&right.last_word_start))
     });
-    retain_unique_text(beam, limit, |state| &state.text);
+    retain_unique(beam, limit, |state| (&state.text, state.last_word_start));
 }
 
 fn compare_beam_rank(
@@ -498,11 +515,11 @@ fn compare_beam_rank(
 
 fn prune_candidates(candidates: &mut Vec<DecodedCandidate>, limit: usize) {
     candidates.sort_by(compare_candidates);
-    retain_unique_text(candidates, limit, |candidate| &candidate.text);
+    retain_unique(candidates, limit, |candidate| (&candidate.text, 0));
 }
 
-/// Keep the first `limit` unique texts in rank order without cloning their strings.
-fn retain_unique_text<T>(items: &mut Vec<T>, limit: usize, text: impl Fn(&T) -> &str) {
+/// Keep unique text/boundary pairs in rank order without cloning strings.
+fn retain_unique<T>(items: &mut Vec<T>, limit: usize, key: impl Fn(&T) -> (&str, usize)) {
     let capacity = limit.min(items.len());
     let mut seen = HashSet::with_capacity(capacity);
     let mut kept = Vec::with_capacity(capacity);
@@ -510,7 +527,7 @@ fn retain_unique_text<T>(items: &mut Vec<T>, limit: usize, text: impl Fn(&T) -> 
         if kept.len() == limit {
             break;
         }
-        if seen.insert(text(item)) {
+        if seen.insert(key(item)) {
             kept.push(index);
         }
     }
@@ -563,7 +580,7 @@ mod tests {
                 }
                 expected.truncate(limit);
                 let mut actual = ranked[..count].to_vec();
-                retain_unique_text(&mut actual, limit, |item| &item.0);
+                retain_unique(&mut actual, limit, |item| (&item.0, 0));
                 assert_eq!(actual.iter().collect::<Vec<_>>(), expected);
             }
         }
@@ -904,7 +921,7 @@ mod tests {
             let graph = parser.parse(input).unwrap();
             assert_eq!(decoder.decode(&graph, &lexicon, 1)[0].text, "我些");
             let scored = decoder.decode_with_scorer(&graph, &lexicon, 1, &|prefix, next| {
-                if prefix == "我" && next.text == "写" {
+                if prefix.prefix == "我" && next.text == "写" {
                     5000
                 } else {
                     0

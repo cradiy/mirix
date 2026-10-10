@@ -6,7 +6,9 @@ use mirix_engine_protocol::{
     ActionResult, Candidate, CandidateId, Commit, Engine, EngineMenu, EngineOutput, KeyEvent,
     MenuEntry, PunctuationMode, keysym,
 };
-use mirix_pinyin_core::{Decoder, ImportIssue, Lexicon, Parser, import_character_tsv, import_tsv};
+use mirix_pinyin_core::{
+    BigramModel, Decoder, ImportIssue, Lexicon, Parser, import_character_tsv, import_tsv,
+};
 
 use crate::extensions::Extensions;
 use crate::keys::{input_letter, is_apostrophe, selection_index};
@@ -17,6 +19,7 @@ use mirix_pinyin_core::MatchQuality;
 
 const PREFIX_CANDIDATE_LIMIT: usize = 72;
 
+mod bigram;
 mod cache;
 mod reload;
 
@@ -49,6 +52,7 @@ pub struct PinyinEngine {
     decode_cache: cache::DecodeCache,
     core_lexicon: Lexicon,
     active_lexicon: Lexicon,
+    bigrams: BigramModel,
     extensions: Extensions,
     profiles: Profiles,
     history: String,
@@ -103,6 +107,7 @@ impl PinyinEngine {
             decoder: Decoder::default(),
             core_lexicon: Lexicon::default(),
             active_lexicon: Lexicon::default(),
+            bigrams: BigramModel::default(),
             extensions: Extensions::default(),
             profiles: Profiles::memory(),
             history: String::new(),
@@ -146,6 +151,7 @@ impl PinyinEngine {
         )?;
         engine.core_lexicon = characters.into_iter().chain(words).collect();
         engine.extensions = Extensions::load(&config.join("extensions"))?;
+        engine.bigrams = bigram::load(config)?;
         Ok(engine)
     }
 
@@ -337,14 +343,23 @@ impl PinyinEngine {
             let mut decoded = match self.decode_cache.get(&self.buffer, limit) {
                 Some(candidates) => candidates,
                 None => {
-                    let mut decoded = if learning.words.is_empty() {
+                    let personal = learning.sentence_scorer(epoch * 3600);
+                    let mut decoded = if learning.words.is_empty() && self.bigrams.is_empty() {
                         self.decoder.decode(&graph, &self.active_lexicon, limit)
                     } else {
                         self.decoder.decode_with_scorer(
                             &graph,
                             &self.active_lexicon,
                             limit,
-                            &learning.sentence_scorer(epoch * 3600),
+                            &|context, next| {
+                                self.bigrams
+                                    .adjustment(
+                                        context.previous_word,
+                                        &next.text,
+                                        context.unigram_score,
+                                    )
+                                    .saturating_add(personal(context.prefix, next))
+                            },
                         )
                     };
                     if prefer_phrases {

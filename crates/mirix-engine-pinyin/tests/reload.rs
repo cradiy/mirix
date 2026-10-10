@@ -40,6 +40,51 @@ fn words(engine: &PinyinEngine) -> Vec<&str> {
 }
 
 #[test]
+fn bigram_reload_changes_cached_compositions_atomically() {
+    let root = tempfile::tempdir().unwrap();
+    let config = root.path();
+    write(
+        config.join("characters.tsv"),
+        "我\two\t100\n些\txie\t100\n写\txie\t1\n",
+    );
+    let mut engine = PinyinEngine::from_config(config).unwrap();
+    for ch in "woxie".chars() {
+        engine.process_key(&key(ch));
+    }
+    assert_eq!(words(&engine)[0], "我些");
+    let model = config.join("bigrams.tsv");
+    write(&model, "我\t写\t1000\n");
+    reload(&mut engine).unwrap();
+    assert_eq!(words(&engine)[0], "我写");
+    let before = engine.candidates().to_vec();
+    let revision = engine.configuration_revision();
+
+    // A bad model must not partially install other newly read sources.
+    write(config.join("characters.tsv"), "我\two\t100\n些\txie\t100\n");
+    write(&model, "# pair counts\n我\t写\tbad\n");
+    let error = reload(&mut engine).unwrap_err();
+    assert!(error.contains(model.to_str().unwrap()), "{error}");
+    assert!(error.contains("line 2"), "{error}");
+    assert_eq!(engine.candidates(), before);
+    assert_eq!(engine.configuration_revision(), revision);
+    engine.process_key(&KeyEvent {
+        keysym: keysym::BACKSPACE,
+        text: None,
+        ..key('x')
+    });
+    engine.process_key(&key('e'));
+    assert_eq!(words(&engine)[0], "我写");
+
+    write(
+        config.join("characters.tsv"),
+        "我\two\t100\n些\txie\t100\n写\txie\t1\n",
+    );
+    fs::remove_file(model).unwrap();
+    reload(&mut engine).unwrap();
+    assert_eq!(words(&engine)[0], "我些");
+}
+
+#[test]
 fn nested_dictionaries_load_and_reload_without_partial_updates() {
     for directory in ["dictionaries", "profiles/日常/dictionaries"] {
         let root = tempfile::tempdir().unwrap();

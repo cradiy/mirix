@@ -65,6 +65,7 @@ The installed engine executable directory is not a personal-data directory.
 configuration/
 ├── config.toml
 ├── characters.tsv
+├── bigrams.tsv                    # Optional shared word-pair counts
 ├── dictionaries/                  # Shared phrases
 ├── extensions/                    # Shared extensions
 │   ├── exact.tsv
@@ -124,6 +125,30 @@ Weights are relative ranking values, not a way to override more accurate matches
 Profile-specific phrases use the same format under `profiles/<profile>/dictionaries/`.
 
 Save the file and select **Reload dictionaries**. No recompilation or installation registry edit is needed.
+
+## Word-pair scoring
+
+Create `~/.config/mirix/input-methods/pinyin/bigrams.tsv` as UTF-8 text.
+Each row has three required columns separated by actual tabs: previous word, next word, count.
+Do not add a header row.
+
+```text
+# Previous word, next word, count
+喝	水	1000
+喝	茶	400
+学习	中文	800
+```
+
+- Write output words, not pinyin. Each word must be available in the active dictionaries;
+  this file does not add vocabulary. Words cannot contain whitespace.
+- Counts are positive integers representing adjacent-word occurrences. For the same previous
+  word, a higher count favors that next word, together with dictionary frequency and personal learning.
+- Repeated pairs have their counts added. Blank lines and lines starting with `#` are allowed.
+- The file is optional and shared by all profiles. The engine does not create it or write learning into it.
+
+Pairs score adjacent dictionary words while composing a candidate, including full, abbreviated,
+and mixed input. `喝 → 水` applies to the segmentation `喝 + 水`, not the single dictionary entry `喝水`.
+Save and select **Reload dictionaries**. An absent or empty file disables these additional scores.
 
 ## Mappings, completions, and emoji
 
@@ -221,6 +246,6 @@ Forced termination may lose recent changes. Do not edit learning.json or vocabul
 | Profile changed while editing | Confirm the active profile and reopen the vocabulary page |
 | Saving failed | Check space, permissions, and another instance holding the data directory, then retry saving |
 
-Reload validates characters, shared phrases/extensions, and phrases/extensions for every loaded profile
+Reload validates characters, word-pair counts, shared phrases/extensions, and phrases/extensions for every loaded profile
 before replacing anything. Current input and learning remain; the selected word stays selected if still present.
 Follow logs with `journalctl --user -u mirix.service -f`.

@@ -1,10 +1,28 @@
 //! Intersect the input graph with actual dictionary prefixes before composing.
 use super::{
     CandidateRank, DecodedCandidate, Decoder, EdgeKind, Lexeme, Lexicon, ParseGraph, SyllableId,
-    match_rank, prune_candidates,
+    Transition, compare_candidates, match_rank, prune_candidates, retain_unique,
 };
 use crate::MatchQuality;
 use std::cmp::Reverse;
+
+#[derive(Clone)]
+struct State {
+    candidate: DecodedCandidate,
+    last_word_start: usize,
+}
+
+fn prune_states(states: &mut Vec<State>, limit: usize) {
+    states.sort_by(|left, right| {
+        compare_candidates(&left.candidate, &right.candidate)
+            .then_with(|| left.last_word_start.cmp(&right.last_word_start))
+    });
+    // Identical output can have distinct final words and therefore distinct
+    // next-word probabilities. Deduplicate text only after the final expansion.
+    retain_unique(states, limit, |state| {
+        (&state.candidate.text, state.last_word_start)
+    });
+}
 
 struct WordMatch<'a> {
     end: usize,
@@ -83,18 +101,21 @@ impl Decoder {
         graph: &ParseGraph,
         lexicon: &Lexicon,
         limit: usize,
-        scorer: &impl Fn(&str, &Lexeme) -> i64,
+        scorer: &impl Fn(Transition<'_>, &Lexeme) -> i64,
     ) -> Vec<DecodedCandidate> {
         let mut beams = vec![Vec::new(); graph.input_len() + 1];
-        beams[0].push(DecodedCandidate {
-            spelling_length: 0,
-            text: String::new(),
-            display_reading: String::new(),
-            score: 0,
-            segments: 0,
-            syllable_count: 0,
-            completed_partial_syllable: false,
-            abbreviated_syllables: 0,
+        beams[0].push(State {
+            last_word_start: 0,
+            candidate: DecodedCandidate {
+                spelling_length: 0,
+                text: String::new(),
+                display_reading: String::new(),
+                score: 0,
+                segments: 0,
+                syllable_count: 0,
+                completed_partial_syllable: false,
+                abbreviated_syllables: 0,
+            },
         });
         let width = self.beam_width.max(limit);
         let mut cutoffs: Vec<Option<CandidateRank>> = vec![None; beams.len()];
@@ -108,7 +129,7 @@ impl Decoder {
             if beams[start].is_empty() {
                 continue;
             }
-            prune_candidates(&mut beams[start], width);
+            prune_states(&mut beams[start], width);
             let states = std::mem::take(&mut beams[start]);
             search.visit(start, &mut Vec::new(), 0, false);
             for word in search.words.drain(..) {
@@ -116,7 +137,13 @@ impl Decoder {
                 let score = lexicon.score(word.entry);
                 let characters = word.entry.text.chars().take(2).count();
                 for state in &states {
-                    let score = score.saturating_add(scorer(&state.text, word.entry));
+                    let context = Transition {
+                        prefix: &state.candidate.text,
+                        previous_word: &state.candidate.text[state.last_word_start..],
+                        unigram_score: score,
+                    };
+                    let state = &state.candidate;
+                    let score = score.saturating_add(scorer(context, word.entry));
                     let next_score = state.score.saturating_add(score);
                     let segments = state.segments + 1;
                     let syllables = state.syllable_count + word.entry.reading.syllables().len();
@@ -154,27 +181,33 @@ impl Decoder {
                         reading.push(' ');
                     }
                     reading.push_str(&display);
-                    beams[word.end].push(DecodedCandidate {
-                        spelling_length,
-                        text,
-                        display_reading: reading,
-                        score: next_score,
-                        segments,
-                        syllable_count: syllables,
-                        completed_partial_syllable: partial,
-                        abbreviated_syllables: abbreviated,
+                    beams[word.end].push(State {
+                        last_word_start: state.text.len(),
+                        candidate: DecodedCandidate {
+                            spelling_length,
+                            text,
+                            display_reading: reading,
+                            score: next_score,
+                            segments,
+                            syllable_count: syllables,
+                            completed_partial_syllable: partial,
+                            abbreviated_syllables: abbreviated,
+                        },
                     });
                 }
                 if beams[word.end].len() >= width.saturating_mul(2) {
-                    prune_candidates(&mut beams[word.end], width);
+                    prune_states(&mut beams[word.end], width);
                     cutoffs[word.end] = beams[word.end]
                         .last()
                         .filter(|_| beams[word.end].len() == width)
-                        .map(DecodedCandidate::rank);
+                        .map(|state| state.candidate.rank());
                 }
             }
         }
-        let mut candidates = std::mem::take(&mut beams[graph.input_len()]);
+        let mut candidates = std::mem::take(&mut beams[graph.input_len()])
+            .into_iter()
+            .map(|state| state.candidate)
+            .collect::<Vec<_>>();
         candidates.retain(|candidate| candidate.abbreviated_syllables > 0);
         prune_candidates(&mut candidates, limit);
         candidates
