@@ -48,7 +48,10 @@ pub(super) fn open(cx: &mut App) {
         |window, cx| {
             let view = cx.new(|cx| {
                 let search = cx.new(TextInput::new);
-                let subscription = cx.subscribe(&search, |_, _, _, cx| cx.notify());
+                let subscription = cx.subscribe(
+                    &search,
+                    |_, _, _: &uic::components::input::InputEvent, cx| cx.notify(),
+                );
                 SettingsView {
                     focus: cx.focus_handle(),
                     form: Form::default(),

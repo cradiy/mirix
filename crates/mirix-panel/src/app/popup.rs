@@ -14,11 +14,10 @@ use super::{panel_window_options, view::CandidatePanel};
 // has exhibited both slow animation and incorrect placement. Recreating the
 // window restored both, but did not establish whether GPUI or the compositor
 // caused the problem. Keep this until the underlying cause is verified fixed.
-// One minute is a chosen idle threshold, not a measured failure boundary.
-// Rebuild before the next show to avoid a visible replacement/flicker; reuse the
-// window during active input. This preserves the panel, engine and connection,
+// An idle threshold did not reliably prevent recurrence. Rebuild before every
+// show to avoid a visible replacement/flicker; reuse the window during active
+// input. This preserves the panel, engine and connection,
 // and does not periodically create windows while the input method is idle.
-pub(super) const IDLE_REBUILD_AFTER: Duration = Duration::from_secs(60);
 
 /// Coalesce updates while waiting to replace a hidden window before mapping it.
 #[derive(Clone)]
@@ -168,15 +167,13 @@ fn install_show_rebuild(
     cx: &App,
 ) {
     log::info!(target: "mirix_panel::popup",
-        "native popup idle rebuild enabled idle_threshold_secs={} hidden_preparation=false pid={}",
-        IDLE_REBUILD_AFTER.as_secs(), std::process::id());
+        "native popup rebuild enabled policy=every_show hidden_preparation=false pid={}",
+        std::process::id());
     cx.spawn(async move |cx| {
         while requests.recv().await.is_ok() {
             let result = cx.update(|cx| -> Result<()> {
                 // The latest state wins if input was cleared before this task ran.
                 let now = SystemTime::now();
-                // Expiry was checked when scheduling. Do not undo the decision
-                // if the wall clock is adjusted while this request is queued.
                 if !panel.read(cx).awaiting_native_show() {
                     show.cancel();
                     return Ok(());
@@ -186,7 +183,7 @@ fn install_show_rebuild(
                     "native popup show rebuild requested idle_ms={} queue_us={}",
                     panel.read(cx).hidden_for(now).unwrap_or_default().as_millis(),
                     requested.elapsed().as_micros());
-                rebuild(&window, &panel, &generation, "idle_before_show", cx)
+                rebuild(&window, &panel, &generation, "before_show", cx)
             });
             if let Err(error) = result {
                 log::error!(target: "mirix_panel::popup",

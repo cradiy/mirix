@@ -4,6 +4,7 @@ use std::collections::HashSet;
 use crate::{EdgeKind, Lexeme, Lexicon, MatchQuality, ParseGraph, SyllableId};
 
 mod abbreviation;
+mod frequent;
 mod whole_words;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -95,6 +96,27 @@ struct Composition {
 }
 
 impl Decoder {
+    /// Recall existing multi-syllable phrases by frequency, including initials
+    /// and mixed spelling, without letting closer completions fill the budget.
+    pub fn frequent_phrases(
+        &self,
+        graph: &ParseGraph,
+        lexicon: &Lexicon,
+        limit: usize,
+    ) -> Vec<DecodedCandidate> {
+        if limit == 0 || graph.input_len() == 0 || !graph.accepts_input() {
+            return Vec::new();
+        }
+        let mut graph = graph.clone();
+        graph.constrain_closed_syllables(|id| {
+            lexicon
+                .exact(&[id])
+                .iter()
+                .any(|entry| entry.text.chars().count() == 1)
+        });
+        frequent::recall(&graph, lexicon, limit)
+    }
+
     pub fn new(max_paths: usize) -> Self {
         Self::with_limits(max_paths, 32)
     }

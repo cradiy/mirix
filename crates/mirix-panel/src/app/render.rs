@@ -139,7 +139,7 @@ impl Render for CandidatePanel {
                 .py(px(skin.candidate.padding_y))
                 .rounded(px(skin.candidate.radius))
                 .bg(if is_selected {
-                    selection_background
+                    selection_background.clone()
                 } else {
                     Background::from(rgba(0x00000000))
                 })

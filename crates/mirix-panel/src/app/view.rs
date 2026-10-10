@@ -13,7 +13,6 @@ use std::{
 use super::client::select_candidate;
 use super::layout::{self, PanelLayout};
 use super::motion::MotionState;
-use super::popup::IDLE_REBUILD_AFTER;
 use super::services::{PanelEvent, Services};
 
 pub(super) struct CandidatePanel {
@@ -330,17 +329,9 @@ impl CandidatePanel {
     }
 
     pub(super) fn hidden_for(&self, now: SystemTime) -> Option<Duration> {
-        // Wall time includes suspend. A clock rollback conservatively expires
-        // the window instead of allowing an unknown idle interval to persist.
+        // Diagnostic only: wall time includes suspend, but may move backwards.
         self.hidden_since
-            .map(|since| now.duration_since(since).unwrap_or(IDLE_REBUILD_AFTER))
-    }
-
-    pub(super) fn can_rebuild_before_show(&self, now: SystemTime) -> bool {
-        self.awaiting_native_show()
-            && self
-                .hidden_for(now)
-                .is_some_and(|idle| idle >= IDLE_REBUILD_AFTER)
+            .map(|since| now.duration_since(since).unwrap_or_default())
     }
 
     pub(super) fn awaiting_native_show(&self) -> bool {
@@ -388,7 +379,7 @@ impl CandidatePanel {
             return;
         }
         if self.visible() {
-            if self.can_rebuild_before_show(SystemTime::now())
+            if self.awaiting_native_show()
                 && let Some(rebuild) = &self.show_rebuild
             {
                 // Keep the old window unmapped. The worker installs the latest
@@ -579,19 +570,19 @@ mod tests {
     fn show_rebuild_requires_visible_content_in_an_unmapped_native_panel() {
         let mut panel = composing_panel();
         let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
-        let expired = start + Duration::from_secs(60);
-        assert!(!panel.can_rebuild_before_show(expired));
+        assert!(!panel.awaiting_native_show());
         panel.record_mapping(false, start);
-        assert!(!panel.can_rebuild_before_show(expired - Duration::from_millis(1)));
-        assert!(panel.can_rebuild_before_show(expired));
+        assert_eq!(panel.hidden_for(start), Some(Duration::ZERO));
+        assert!(panel.awaiting_native_show());
         panel.snapshot.visible = false;
-        assert!(!panel.can_rebuild_before_show(expired));
+        assert!(!panel.awaiting_native_show());
         panel.snapshot.visible = true;
         panel.embedded = Some(size(px(720.), px(480.)));
-        assert!(!panel.can_rebuild_before_show(expired));
+        assert!(!panel.awaiting_native_show());
         panel.embedded = None;
-        panel.record_mapping(true, expired);
-        assert!(!panel.can_rebuild_before_show(expired));
+        assert!(panel.awaiting_native_show());
+        panel.record_mapping(true, start);
+        assert!(!panel.awaiting_native_show());
     }
 
     #[test]
@@ -599,29 +590,29 @@ mod tests {
         let mut panel = composing_panel();
         let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
         panel.record_mapping(false, start);
-        panel.record_mapping(false, start + IDLE_REBUILD_AFTER / 2);
-        assert!(panel.can_rebuild_before_show(start + IDLE_REBUILD_AFTER));
+        panel.record_mapping(false, start + Duration::from_millis(10));
+        let shown = start + Duration::from_millis(20);
+        assert_eq!(panel.hidden_for(shown), Some(Duration::from_millis(20)));
 
-        let shown = start + IDLE_REBUILD_AFTER;
         panel.record_mapping(true, shown);
         assert_eq!(panel.hidden_for(shown), None);
-        assert!(!panel.can_rebuild_before_show(shown + IDLE_REBUILD_AFTER));
+        assert!(!panel.awaiting_native_show());
         let hidden_again = shown + Duration::from_secs(1);
         panel.record_mapping(false, hidden_again);
-        assert!(
-            !panel.can_rebuild_before_show(
-                hidden_again + IDLE_REBUILD_AFTER - Duration::from_secs(1)
-            )
-        );
-        assert!(panel.can_rebuild_before_show(hidden_again + IDLE_REBUILD_AFTER));
+        assert_eq!(panel.hidden_for(hidden_again), Some(Duration::ZERO));
+        assert!(panel.awaiting_native_show());
     }
 
     #[test]
-    fn clock_rollback_expires_a_hidden_window_without_panicking() {
+    fn clock_rollback_does_not_block_show_rebuild() {
         let mut panel = composing_panel();
         let start = SystemTime::UNIX_EPOCH + Duration::from_secs(1000);
         panel.record_mapping(false, start);
-        assert!(panel.can_rebuild_before_show(start - Duration::from_secs(1)));
+        assert_eq!(
+            panel.hidden_for(start - Duration::from_secs(1)),
+            Some(Duration::ZERO)
+        );
+        assert!(panel.awaiting_native_show());
     }
 
     fn composing_panel() -> CandidatePanel {

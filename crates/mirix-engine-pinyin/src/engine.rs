@@ -24,6 +24,7 @@ struct PendingCandidate {
     text: String,
     reading: Option<String>,
     quality: MatchQuality,
+    preferred: bool,
 }
 
 #[derive(Debug, thiserror::Error)]
@@ -250,18 +251,37 @@ impl PinyinEngine {
             &self.buffer,
             PREFIX_CANDIDATE_LIMIT,
         );
-        // Stable sorting preserves each source's tie-breakers. An explicit
-        // extension wins only when its match quality equals the pinyin result.
+        // Exact extensions keep ownership of explicit mappings. Stable sorting
+        // preserves frequency order for the two preferred pinyin phrases.
         let mut candidates = extensions
             .into_iter()
             .map(|item| PendingCandidate {
                 text: item.entry.text.clone(),
                 reading: None,
                 quality: item.quality,
+                preferred: false,
             })
             .collect::<Vec<_>>();
         candidates.extend(self.pinyin_candidates());
-        candidates.sort_by_key(|candidate| candidate.quality);
+        let exact = MatchQuality::extension(&self.buffer, &self.buffer);
+        let priority = |candidate: &PendingCandidate| {
+            if candidate.reading.is_none() && candidate.quality == exact {
+                0
+            } else if candidate.preferred {
+                1
+            } else {
+                2
+            }
+        };
+        candidates.sort_by(|left, right| {
+            priority(left).cmp(&priority(right)).then_with(|| {
+                if left.preferred && right.preferred {
+                    std::cmp::Ordering::Equal
+                } else {
+                    left.quality.cmp(&right.quality)
+                }
+            })
+        });
         let mut seen = std::collections::HashSet::new();
         candidates.retain(|candidate| seen.insert(candidate.text.clone()));
 
@@ -298,6 +318,14 @@ impl PinyinEngine {
                     .iter()
                     .any(|entry| entry.text.chars().count() == 1)
             });
+            // Do not reinterpret an already complete character (e.g. xian)
+            // as a recommended phrase (xi an). Quoted boundaries remain authoritative.
+            let prefer_phrases = !graph.edges_from(0).iter().any(|edge| {
+                edge.end == graph.input_len()
+                    && matches!(edge.kind, mirix_pinyin_core::EdgeKind::Complete(id)
+                        if self.active_lexicon.exact(&[id]).iter()
+                            .any(|entry| entry.text.chars().count() == 1))
+            });
             let vocabulary = &self.profiles.current().vocabulary;
             // Suppression applies to output words, not their characters inside
             // other words or the existence checks used by quoted syllables.
@@ -309,7 +337,7 @@ impl PinyinEngine {
             let mut decoded = match self.decode_cache.get(&self.buffer, limit) {
                 Some(candidates) => candidates,
                 None => {
-                    let decoded = if learning.words.is_empty() {
+                    let mut decoded = if learning.words.is_empty() {
                         self.decoder.decode(&graph, &self.active_lexicon, limit)
                     } else {
                         self.decoder.decode_with_scorer(
@@ -319,6 +347,13 @@ impl PinyinEngine {
                             &learning.sentence_scorer(epoch * 3600),
                         )
                     };
+                    if prefer_phrases {
+                        decoded.extend(self.decoder.frequent_phrases(
+                            &graph,
+                            &self.active_lexicon,
+                            limit,
+                        ));
+                    }
                     self.decode_cache.insert(&self.buffer, limit, &decoded);
                     decoded
                 }
@@ -351,6 +386,40 @@ impl PinyinEngine {
                     (candidate, score, pinned, quality)
                 })
                 .collect::<Vec<_>>();
+            // Personal boosts and explicit pins participate before reserving
+            // two distinct whole phrases; compositions never occupy these slots.
+            let mut phrases = ranked
+                .iter()
+                .filter(|(candidate, _, _, _)| {
+                    prefer_phrases
+                        && candidate.segments == 1
+                        && candidate.syllable_count > 1
+                        && candidate.text.chars().take(2).count() > 1
+                })
+                .collect::<Vec<_>>();
+            phrases.sort_by(
+                |(left, left_score, left_pin, _), (right, right_score, right_pin, _)| {
+                    right_pin
+                        .cmp(left_pin)
+                        .then_with(|| right_score.cmp(left_score))
+                        .then_with(|| left.compare_match_kind(right))
+                        .then_with(|| left.text.cmp(&right.text))
+                },
+            );
+            for (phrase, _, _, quality) in phrases {
+                push_unique_candidate(
+                    &mut candidates,
+                    &phrase.text,
+                    Some(phrase.display_reading.clone()),
+                    *quality,
+                );
+                if candidates.len() == 2 {
+                    break;
+                }
+            }
+            for candidate in &mut candidates {
+                candidate.preferred = true;
+            }
             ranked.sort_by(
                 |(left, left_score, left_pin, left_quality),
                  (right, right_score, right_pin, right_quality)| {
@@ -512,6 +581,7 @@ fn push_unique_candidate(
             text: word.to_owned(),
             reading,
             quality,
+            preferred: false,
         });
     }
 }
