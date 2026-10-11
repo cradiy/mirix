@@ -10,6 +10,7 @@ pub(super) fn recall(graph: &ParseGraph, lexicon: &Lexicon, limit: usize) -> Vec
         limit,
         visited: HashMap::new(),
         candidates: Vec::new(),
+        cutoff: None,
     };
     search.visit(0, &mut Vec::new(), false, 0, lexicon.entries());
     search.prune();
@@ -22,6 +23,7 @@ struct Search<'a> {
     limit: usize,
     visited: HashMap<(usize, Vec<SyllableId>), (bool, usize)>,
     candidates: Vec<DecodedCandidate>,
+    cutoff: Option<i64>,
 }
 
 impl Search<'_> {
@@ -65,6 +67,14 @@ impl Search<'_> {
                         .iter()
                         .take_while(|entry| entry.reading.syllables().len() == path.len())
                     {
+                        let score = self.lexicon.score(entry);
+                        // Exact readings are frequency ordered. Once the best
+                        // unique results fill the budget, a strictly lower score
+                        // cannot displace them. Equal scores still need all tie
+                        // breakers, including alternate readings of the same word.
+                        if self.cutoff.is_some_and(|cutoff| score < cutoff) {
+                            break;
+                        }
                         if entry.text.chars().take(2).count() < 2 {
                             continue;
                         }
@@ -72,7 +82,7 @@ impl Search<'_> {
                             spelling_length: entry.reading.spelling_length(),
                             text: entry.text.clone(),
                             display_reading: entry.reading.display(),
-                            score: self.lexicon.score(entry),
+                            score,
                             segments: 1,
                             syllable_count: path.len(),
                             completed_partial_syllable: partial,
@@ -103,9 +113,13 @@ impl Search<'_> {
                 .then_with(|| left.text.cmp(&right.text))
                 .then_with(|| left.display_reading.cmp(&right.display_reading))
         });
-        let mut seen = std::collections::HashSet::new();
-        self.candidates
-            .retain(|candidate| seen.insert(candidate.text.clone()));
-        self.candidates.truncate(self.limit);
+        super::retain_unique(&mut self.candidates, self.limit, |candidate| {
+            (&candidate.text, 0)
+        });
+        self.cutoff = self
+            .candidates
+            .last()
+            .filter(|_| self.candidates.len() == self.limit)
+            .map(|candidate| candidate.score);
     }
 }
