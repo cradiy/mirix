@@ -166,10 +166,10 @@ def main [
     }
 
     cd $repo
-    let metadata = (captured cargo metadata '--no-deps' '--format-version' '1' '--locked' | from json)
+    let metadata = (captured cargo metadata '--no-deps' '--format-version' '1' | from json)
     # Explicitly build for this machine even if Cargo has a cross-compilation default.
     let host = (captured rustc '-vV' | lines | where {|line| $line starts-with 'host: '} | first | str replace 'host: ' '')
-    checked cargo build '--release' '--locked' '--target' $host '-p' mirixd '-p' mirix-panel '-p' mirix-engine-keyboard '-p' mirix-engine-pinyin '--bins'
+    checked cargo build '--release' '--target' $host '-p' mirixd '-p' mirix-panel '-p' mirix-engine-keyboard '-p' mirix-engine-pinyin '--bins'
     let artifacts = ($metadata.target_directory | path join $host release)
     for binary in ([mirixd mirix-panel] ++ ($engines | each {|method| $"mirix-engine-($method)" })) {
         if not (($artifacts | path join $binary) | path exists) {
