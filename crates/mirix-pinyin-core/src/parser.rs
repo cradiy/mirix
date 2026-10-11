@@ -75,15 +75,24 @@ impl ParseGraph {
         // Match a fixed reading with dynamic programming: s/sh and c/ch can
         // reach the same syllable using different byte lengths. Greedily
         // taking the first edge would lose valid readings.
-        let mut paths: Vec<Option<(usize, Vec<&Edge>)>> = vec![None; self.input_len + 1];
-        paths[0] = Some((0, Vec::new()));
+        // Keep predecessor links instead of copying each partial path on every
+        // relaxation. The two position buffers are reused for all syllables.
+        let root = usize::MAX;
+        let mut steps: Vec<(usize, &Edge)> = Vec::with_capacity(reading.len());
+        let mut paths = vec![None; self.input_len + 1];
+        let mut next = vec![None; self.input_len + 1];
+        paths[0] = Some((0, root));
+        let mut active = 0..1;
+        let mut stale = 0..0;
         for id in reading {
-            let mut next: Vec<Option<(usize, Vec<&Edge>)>> = vec![None; self.input_len + 1];
-            for (position, path) in paths.iter().enumerate() {
+            next[stale].fill(None);
+            let mut first = self.input_len + 1;
+            let mut last = 0;
+            for (offset, path) in paths[active.clone()].iter().enumerate() {
                 let Some((cost, path)) = path else {
                     continue;
                 };
-                let position = self.skip_boundary(position);
+                let position = self.skip_boundary(active.start + offset);
                 for edge in self.edges_from(position) {
                     let penalty = match &edge.kind {
                         EdgeKind::Complete(value) if value == id => 0,
@@ -93,21 +102,34 @@ impl ParseGraph {
                     };
                     let cost = cost + penalty;
                     if next[edge.end].as_ref().is_none_or(|(best, _)| cost < *best) {
-                        let mut path = path.clone();
-                        path.push(edge);
-                        next[edge.end] = Some((cost, path));
+                        steps.push((*path, edge));
+                        next[edge.end] = Some((cost, steps.len() - 1));
+                        first = first.min(edge.end);
+                        last = last.max(edge.end);
                     }
                 }
             }
-            paths = next;
+            if first > last {
+                return None;
+            }
+            std::mem::swap(&mut paths, &mut next);
+            stale = active;
+            active = first..last + 1;
         }
-        paths
+        let (_, mut step) = paths
             .into_iter()
             .enumerate()
             .filter(|(position, _)| self.skip_boundary(*position) == self.input_len)
             .filter_map(|(_, path)| path)
-            .min_by_key(|(cost, _)| *cost)
-            .map(|(_, edges)| edges)
+            .min_by_key(|(cost, _)| *cost)?;
+        let mut edges = Vec::with_capacity(reading.len());
+        while step != root {
+            let (previous, edge) = steps[step];
+            edges.push(edge);
+            step = previous;
+        }
+        edges.reverse();
+        Some(edges)
     }
 
     pub(crate) fn skip_boundary(&self, position: usize) -> usize {
@@ -327,6 +349,84 @@ fn is_initial(spelling: &str) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn reconstructed_readings_match_exhaustive_paths_across_boundaries_and_initials() {
+        fn enumerate<'a>(
+            graph: &'a ParseGraph,
+            reading: &[SyllableId],
+            position: usize,
+        ) -> Vec<(usize, Vec<&'a Edge>)> {
+            let position = graph.skip_boundary(position);
+            let Some((id, tail)) = reading.split_first() else {
+                return if position == graph.input_len() {
+                    vec![(0, Vec::new())]
+                } else {
+                    Vec::new()
+                };
+            };
+            let mut paths = Vec::new();
+            for edge in graph.edges_from(position) {
+                let cost = match &edge.kind {
+                    EdgeKind::Complete(value) if value == id => 0,
+                    EdgeKind::Incomplete { completions } if completions.contains(id) => 1,
+                    EdgeKind::Abbreviated { completions } if completions.contains(id) => 2,
+                    _ => continue,
+                };
+                for (suffix_cost, mut path) in enumerate(graph, tail, edge.end) {
+                    path.insert(0, edge);
+                    paths.push((cost + suffix_cost, path));
+                }
+            }
+            paths
+        }
+        let parser = Parser::standard();
+        for input in [
+            "shanghai", "shangh", "sh'h", "xian", "xi'an", "xuan'an'", "nihao", "nh", "zhongg",
+            "z'g", "", "vvv", "shijie",
+        ] {
+            for constrained in [false, true] {
+                let mut graph = parser.parse(input).unwrap();
+                if constrained {
+                    graph.constrain_closed_syllables(|_| true);
+                }
+                for syllables in [
+                    vec![],
+                    vec!["shi", "hang", "hai"],
+                    vec!["shang", "hai"],
+                    vec!["xi", "an"],
+                    vec!["xian"],
+                    vec!["xu", "an", "an"],
+                    vec!["xuan", "an"],
+                    vec!["ni", "hao"],
+                    vec!["zhong", "guo"],
+                    vec!["shi", "jie"],
+                ] {
+                    let reading = syllables
+                        .iter()
+                        .map(|part| parser.table().id(part).unwrap())
+                        .collect::<Vec<_>>();
+                    let mut paths = enumerate(&graph, &reading, 0);
+                    // Equal-cost paths prefer lower predecessor positions from
+                    // the destination backwards, as in forward DP traversal.
+                    paths.sort_by(|(a, left), (b, right)| {
+                        a.cmp(b).then_with(|| {
+                            left.iter()
+                                .rev()
+                                .map(|edge| edge.end)
+                                .cmp(right.iter().rev().map(|edge| edge.end))
+                        })
+                    });
+                    let expected = paths.first().map(|(_, path)| path.clone());
+                    assert_eq!(
+                        graph.syllable_edges(&reading),
+                        expected,
+                        "{input}, {syllables:?}, constrained={constrained}"
+                    );
+                }
+            }
+        }
+    }
 
     fn spellings(parser: &Parser, graph: &ParseGraph) -> Vec<Vec<String>> {
         graph
