@@ -228,6 +228,11 @@ impl Decoder {
                         abbreviated_syllables: 0,
                     }),
             );
+            // Later paths can improve a word's rank, but cannot make a discarded
+            // lower-ranked word displace this prefix of unique candidates.
+            if matches.len() >= limit.saturating_mul(2) {
+                prune_candidates(&mut matches, limit);
+            }
         }
         prune_candidates(&mut matches, limit);
         // Every completion/abbreviation ranks below every exact match. Once
@@ -308,6 +313,9 @@ impl Decoder {
                         abbreviated_syllables: 0,
                     }),
             );
+            if matches.len() >= self.beam_width.saturating_mul(2) {
+                prune_candidates(matches, self.beam_width);
+            }
             return;
         }
 
@@ -625,6 +633,42 @@ mod tests {
                 }
                 prune_beam(&mut actual, width);
                 assert_eq!(actual, expected, "width={width}, group_size={group_size}");
+            }
+        }
+    }
+
+    #[test]
+    fn bounded_path_results_match_exhaustive_ranking_and_reading_selection() {
+        let candidates = (0..1800)
+            .map(|index| DecodedCandidate {
+                spelling_length: 3 + index % 17,
+                text: format!("词{:03}", (index * 17) % 151),
+                display_reading: format!("reading{index}"),
+                score: -((index * 13 % 41) as i64),
+                segments: 1 + index % 3,
+                syllable_count: 1 + index % 5,
+                completed_partial_syllable: index % 4 != 0,
+                abbreviated_syllables: index % 3,
+            })
+            .collect::<Vec<_>>();
+        for limit in [1, 2, 9, 72] {
+            let mut expected = candidates.clone();
+            prune_candidates(&mut expected, limit);
+            for budget in [limit, limit.max(32), limit + 25] {
+                for group_size in [1, 7, 72, 288] {
+                    let mut actual = Vec::new();
+                    for group in candidates.chunks(group_size) {
+                        actual.extend_from_slice(group);
+                        if actual.len() >= budget * 2 {
+                            prune_candidates(&mut actual, budget);
+                        }
+                    }
+                    prune_candidates(&mut actual, limit);
+                    assert_eq!(
+                        actual, expected,
+                        "limit={limit}, budget={budget}, group={group_size}"
+                    );
+                }
             }
         }
     }
