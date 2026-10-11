@@ -450,7 +450,7 @@ impl Decoder {
                     }
                     // Keep the same best unique states without materializing the
                     // entire dictionary-by-beam product before pruning.
-                    if destination.len() >= self.beam_width.saturating_mul(4) {
+                    if destination.len() >= self.beam_width.saturating_mul(2) {
                         prune_beam(&mut destination, self.beam_width);
                         cutoff = destination
                             .last()
@@ -584,6 +584,35 @@ mod tests {
                 let mut actual = ranked[..count].to_vec();
                 retain_unique(&mut actual, limit, |item| (&item.0, 0));
                 assert_eq!(actual.iter().collect::<Vec<_>>(), expected);
+            }
+        }
+    }
+
+    #[test]
+    fn incremental_pruning_preserves_ties_duplicates_and_word_boundaries() {
+        let states = (0..1500)
+            .map(|index| BeamState {
+                spelling_length: 8,
+                text: format!("词{:03}", (index * 17) % 127),
+                display_reading: format!("reading{index}"),
+                score: -((index * 13 % 41) as i64),
+                segments: 1 + index % 3,
+                last_word_start: if index % 2 == 0 { 0 } else { 3 },
+            })
+            .collect::<Vec<_>>();
+        for width in [1, 2, 32, 72] {
+            let mut expected = states.clone();
+            prune_beam(&mut expected, width);
+            for group_size in [1, 7, width] {
+                let mut actual = Vec::new();
+                for group in states.chunks(group_size) {
+                    actual.extend_from_slice(group);
+                    if actual.len() >= width * 2 {
+                        prune_beam(&mut actual, width);
+                    }
+                }
+                prune_beam(&mut actual, width);
+                assert_eq!(actual, expected, "width={width}, group_size={group_size}");
             }
         }
     }
