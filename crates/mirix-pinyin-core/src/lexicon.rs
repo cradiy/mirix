@@ -101,6 +101,9 @@ pub struct Lexicon {
     // A clone shares the ordered snapshot. Composed snapshots retain only
     // entry handles, while each snapshot keeps its own normalized weight.
     entries: Arc<Vec<Arc<Lexeme>>>,
+    // Only populated first syllables: sparse tables stay small and clones
+    // share the index together with the immutable entries.
+    first_syllables: Arc<[(SyllableId, usize)]>,
     log_total_weight: f64,
 }
 
@@ -133,6 +136,13 @@ impl FromIterator<Arc<Lexeme>> for Lexicon {
             next.reading.syllables == previous.reading.syllables && next.text == previous.text
         });
         entries.sort_by(|left, right| compare_lexemes(left, right));
+        let mut first_syllables = Vec::new();
+        for (index, entry) in entries.iter().enumerate() {
+            let first = entry.reading.syllables[0];
+            if first_syllables.last().is_none_or(|&(id, _)| id != first) {
+                first_syllables.push((first, index));
+            }
+        }
         let log_total_weight = entries
             .iter()
             .map(|entry| entry.frequency as f64 + 1.0)
@@ -141,6 +151,7 @@ impl FromIterator<Arc<Lexeme>> for Lexicon {
             .ln();
         Self {
             entries: Arc::new(entries),
+            first_syllables: first_syllables.into(),
             log_total_weight,
         }
     }
@@ -180,25 +191,43 @@ impl Lexicon {
     }
 
     pub fn exact(&self, reading: &[SyllableId]) -> &[Arc<Lexeme>] {
-        let start = self
-            .entries
-            .partition_point(|entry| entry.reading.syllables.as_slice() < reading);
-        let end = start
-            + self.entries[start..]
-                .partition_point(|entry| entry.reading.syllables.as_slice() == reading);
-        &self.entries[start..end]
+        let Some((&first, tail)) = reading.split_first() else {
+            return &[];
+        };
+        let entries = self.first_syllable(first);
+        let start = entries.partition_point(|entry| &entry.reading.syllables[1..] < tail);
+        let end =
+            start + entries[start..].partition_point(|entry| &entry.reading.syllables[1..] == tail);
+        &entries[start..end]
     }
 
     pub fn with_prefix(&self, prefix: &[SyllableId]) -> &[Arc<Lexeme>] {
-        if prefix.is_empty() {
+        let Some((&first, tail)) = prefix.split_first() else {
             return &self.entries;
+        };
+        let entries = self.first_syllable(first);
+        if tail.is_empty() {
+            return entries;
         }
-        let start = self
-            .entries
-            .partition_point(|entry| entry.reading.syllables.as_slice() < prefix);
+        let start = entries.partition_point(|entry| &entry.reading.syllables[1..] < tail);
         let end = start
-            + self.entries[start..]
-                .partition_point(|entry| entry.reading.syllables.starts_with(prefix));
+            + entries[start..]
+                .partition_point(|entry| entry.reading.syllables[1..].starts_with(tail));
+        &entries[start..end]
+    }
+
+    fn first_syllable(&self, syllable: SyllableId) -> &[Arc<Lexeme>] {
+        let Ok(index) = self
+            .first_syllables
+            .binary_search_by_key(&syllable, |&(id, _)| id)
+        else {
+            return &[];
+        };
+        let start = self.first_syllables[index].1;
+        let end = self
+            .first_syllables
+            .get(index + 1)
+            .map_or(self.entries.len(), |&(_, start)| start);
         &self.entries[start..end]
     }
 
@@ -318,6 +347,64 @@ mod tests {
             lexicon.exact(&[shu, ru, fa])[0].reading.display(),
             "shū rù fǎ"
         );
+    }
+
+    #[test]
+    fn indexed_queries_match_scanning_for_sparse_and_composed_snapshots() {
+        let table = SyllableTable::new(["a", "hao", "ni", "shi", "zuo"]).unwrap();
+        let mut queries = vec![Vec::new()];
+        let mut entries = Vec::new();
+        let ids = table.iter().map(|(id, _)| id).collect::<Vec<_>>();
+        for length in 1..=3 {
+            for mut code in 0..ids.len().pow(length) {
+                let syllables = (0..length)
+                    .map(|_| {
+                        let id = ids[code % ids.len()];
+                        code /= ids.len();
+                        id
+                    })
+                    .collect::<Vec<_>>();
+                let spelling = syllables
+                    .iter()
+                    .map(|&id| table.spelling(id).unwrap())
+                    .collect::<Vec<_>>();
+                if [ids[1], ids[3]].contains(&syllables[0]) && syllables.last() != Some(&ids[2]) {
+                    for frequency in [3, 9, 1] {
+                        entries.push(Lexeme::new(
+                            reading(&table, &spelling, &spelling),
+                            format!("{}-{frequency}", spelling.join("")),
+                            frequency,
+                        ));
+                    }
+                }
+                queries.push(syllables);
+            }
+        }
+        let lexicon = Lexicon::new(entries);
+        let overlay = Lexicon::new(vec![Lexeme::new(
+            reading(&table, &["zuo"], &["zuo"]),
+            "做",
+            50,
+        )]);
+        let composed: Lexicon = lexicon.clone().into_iter().chain(overlay).collect();
+        for snapshot in [Lexicon::default(), lexicon.clone(), composed, lexicon] {
+            for query in &queries {
+                let exact = snapshot
+                    .entries()
+                    .iter()
+                    .filter(|entry| entry.reading.syllables() == query)
+                    .cloned()
+                    .collect::<Vec<_>>();
+                let prefix = snapshot
+                    .entries()
+                    .iter()
+                    .filter(|entry| entry.reading.syllables().starts_with(query))
+                    .cloned()
+                    .collect::<Vec<_>>();
+                assert_eq!(snapshot.exact(query), exact, "exact {query:?}");
+                assert_eq!(snapshot.with_prefix(query), prefix, "prefix {query:?}");
+            }
+        }
     }
 
     #[test]

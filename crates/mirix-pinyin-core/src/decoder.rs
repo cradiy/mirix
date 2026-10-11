@@ -406,10 +406,19 @@ impl Decoder {
             }]);
         }
         beams.truncate(common + 1);
+        // Each start keeps the matching dictionary range as its end advances.
+        // An absent prefix stays empty; longer fragments need no root lookup.
+        let mut ranges = (0..common)
+            .map(|start| lexicon.with_prefix(&path[start..common]))
+            .collect::<Vec<_>>();
 
         // Each destination receives sources in the same order as forward
         // expansion. Keep completed prefixes so a new tail does not rebuild them.
         for end in common + 1..=path.len() {
+            for (start, entries) in ranges.iter_mut().enumerate() {
+                *entries = Lexicon::extend_prefix(entries, end - start - 1, path[end - 1]);
+            }
+            ranges.push(lexicon.with_prefix(&path[end - 1..end]));
             let mut destination = Vec::new();
             for start in 0..end {
                 let source_states = &beams[start];
@@ -424,7 +433,10 @@ impl Decoder {
                     .last()
                     .filter(|_| destination.len() == self.beam_width)
                     .map(|state: &BeamState| (state.score, state.segments));
-                for lexeme in lexicon.exact(&path[start..end]) {
+                let entries = ranges[start];
+                let exact =
+                    entries.partition_point(|entry| entry.reading.syllables().len() == end - start);
+                for lexeme in &entries[..exact] {
                     if requires_character && lexeme.text.chars().count() != 1 {
                         continue;
                     }
@@ -676,6 +688,60 @@ mod tests {
         assert_eq!(candidates[0].text, "你好");
         assert_eq!(candidates[0].display_reading, "nǐ hǎo");
         assert_eq!(candidates[0].segments, 2);
+    }
+
+    #[test]
+    fn composition_prefix_reuse_matches_fresh_search_across_branch_changes() {
+        let parser = Parser::standard();
+        let table = parser.table();
+        let mut entries = [
+            ("ni", "你"),
+            ("hao", "好"),
+            ("xi", "西"),
+            ("an", "安"),
+            ("xian", "先"),
+            ("shi", "是"),
+            ("shang", "上"),
+        ]
+        .into_iter()
+        .map(|(syllable, text)| lexeme(table, &[syllable], &[syllable], text, 10))
+        .collect::<Vec<_>>();
+        for (syllables, text) in [
+            (vec!["ni", "hao"], "你好"),
+            (vec!["xi", "an"], "西安"),
+            (vec!["hao", "xian"], "好险"),
+            (vec!["ni", "hao", "xi"], "你，好戏"),
+        ] {
+            entries.push(lexeme(table, &syllables, &syllables, text, 100));
+        }
+        let lexicon = Lexicon::new(entries);
+        let decoder = Decoder::with_limits(256, 72);
+        let scorer = |context: Transition<'_>, word: &Lexeme| {
+            if context.previous_word == "你好" && word.text == "西安" {
+                500
+            } else {
+                0
+            }
+        };
+        for input in ["nihaoxianshi", "nihaoxianshang", "ni'hao'xian'shi"] {
+            let mut graph = parser.parse(input).unwrap();
+            graph.constrain_closed_syllables(|_| true);
+            let paths = graph.complete_segmentations(256);
+            assert!(!paths.is_empty(), "{input}");
+            let mut composition = Composition::default();
+            for path in paths.iter().chain(paths.iter().rev()).chain(paths.iter()) {
+                let fresh = decoder.compose_path(
+                    &graph,
+                    path,
+                    &lexicon,
+                    &mut Composition::default(),
+                    &scorer,
+                );
+                let reused =
+                    decoder.compose_path(&graph, path, &lexicon, &mut composition, &scorer);
+                assert_eq!(reused, fresh, "{input}: {path:?}");
+            }
+        }
     }
 
     #[test]
